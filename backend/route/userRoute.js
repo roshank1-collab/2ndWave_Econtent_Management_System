@@ -1,50 +1,56 @@
 const express = require('express');
-const User = require('../model/user');
+const Users = require('../model/user');
 const { check, validationResult } = require('express-validator')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 //const checkAuth = require('../miiddleware/checkAuth'); // for checking user
-//const upload = require('../miiddleware/upload') //file upload or picture 
+const upload = require('../middleware/upload') //file upload or picture 
 
 
 
 // for add clients 
-router.post("/clients/Add_Clients", [
-    check('citizenshipNumber', "citizenship Number is required!").not().isEmpty(),
-    check('fullname', "Name is required !!").not().isEmpty(),
+router.post("/User/SignUp", upload.single('Profie_Picture'), upload.single('institution_ID'), [
+    check('lastname', "last name  is required !!").not().isEmpty(),
     check('Dob', "Date of birth is required").not().isEmpty(),
     check('gender', "Gender is required").not().isEmpty(),
     check('address', "address is required").not().isEmpty(),
-    check('contact', "cantact is required").not().isEmpty(),
+    check('phone_number', "phone number is required").not().isEmpty(),
+    check('institution_name', "institution name is required").not().isEmpty(),
+    check('email', "email is required").not().isEmpty(),
+    check('password', " password is required").not().isEmpty()
 
 ], function (req, res) {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
-        
-        const fullName = req.body.fullname;
-        const dob = req.body.Dob;
-        const Gender = req.body.gender;
-        const Address = req.body.address;
-        const Contact = req.body.contact;
-      
-        bcryptjs.hash(Password, 10, function (err, hash) {
+        if (req.file == undefined) {
+            console.log(req.file);
+            return res.status(201).json({ status: false, message: "Invalid  file format" })
+
+        }
+        bcryptjs.hash(req.body.password, 10, function (err, hash) {
             const User = new Users({
-                full_name: fullName,
-                Dob: dob,
-                gender: Gender,
-                address: Address,
-                contact: Contact,
+                first_name: req.body.firstname,
+                last_name: req.body.lastname,
+                Dob: req.body.Dob,
+                gender: req.body.gender,
+                address: req.body.address,
+                contact: req.body.phone_number,
+                institution_name: req.body.institution_name,
+                Email: req.body.email,
+                Password: hash
+
             });
             User.save().then(
                 function (result) {
-                    res.status(200).json({ status: true, message: " Clients Registered!!" })
+                    res.status(200).json({ status: true, message: " User Registered!!" })
                 }
             ).catch(
                 function (err) {
                     res.status(201).json({ status: false, message: err })
                 })
-        });
+        })
+
     } else {
         console.log(errors.array())
         res.status(400).send(errors.array())
@@ -52,4 +58,4 @@ router.post("/clients/Add_Clients", [
 
 
 })
-module.exports=router;
+module.exports = router;
