@@ -10,7 +10,7 @@ const upload = require('../middleware/upload') //file upload or picture
 
 
 // for add clients 
-router.post("/User/SignUp", upload.single('Profie_Picture'), upload.single('institution_ID'), [
+router.post("/User/SignUp", upload, [
     check('lastname', "last name  is required !!").not().isEmpty(),
     check('Dob', "Date of birth is required").not().isEmpty(),
     check('gender', "Gender is required").not().isEmpty(),
@@ -23,22 +23,24 @@ router.post("/User/SignUp", upload.single('Profie_Picture'), upload.single('inst
 ], function (req, res) {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
-        if (req.file == undefined) {
-            console.log(req.file);
+        if (req.files == undefined) {
+            console.log(req.files);
             return res.status(201).json({ status: false, message: "Invalid  file format" })
 
         }
         bcryptjs.hash(req.body.password, 10, function (err, hash) {
             const User = new Users({
-                first_name: req.body.firstname,
-                last_name: req.body.lastname,
+                First_name: req.body.firstname,
+                Last_name: req.body.lastname,
                 Dob: req.body.Dob,
                 gender: req.body.gender,
                 address: req.body.address,
-                contact: req.body.phone_number,
+                Phone_number: req.body.phone_number,
                 institution_name: req.body.institution_name,
                 Email: req.body.email,
-                Password: hash
+                Password: hash,
+                Profie_Picture:req.files['Profie_Picture'][0].filename,
+                institution_ID: req.files['institution_ID'][0].filename
 
             });
             User.save().then(

@@ -23,6 +23,9 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage:storage,
     fileFilter:fileFilter
-});
+}).fields([
+    {name:"Profie_Picture"},
+    {name:"institution_ID"}
+])
 
 module.exports = upload;

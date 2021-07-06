@@ -5,12 +5,6 @@ const Users = mongoose.model("User", {
     First_name: {
         type: String,
         required: true,
-        validate: [
-            validator({
-              validator: 'isEmpty',
-              message: 'first name is required !!'
-            })
-          ],
     },
     Last_name: {
         type: String,
@@ -42,7 +36,7 @@ const Users = mongoose.model("User", {
         required: true,
 
     },
-    Your_photo:{
+    Profie_Picture:{
         type:String,
         required: true
     },
@@ -60,7 +54,6 @@ const Users = mongoose.model("User", {
     Password:{
         type: String,
         minlength: 8,
-        maxlength: 16,
         trim: true,
         required: true
     }
