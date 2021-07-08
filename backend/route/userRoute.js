@@ -30,7 +30,7 @@ router.post("/User/SignUp", upload, [
         }
         bcryptjs.hash(req.body.password, 10, function (err, hash) {
             const User = new Users({
-                First_name: req.body.,
+                First_name: req.body.firstname,
                 Last_name: req.body.lastname,
                 Dob: req.body.Dob,
                 gender: req.body.gender,
