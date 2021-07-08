@@ -59,5 +59,5 @@ router.post("/User/SignUp", upload, [
     }
 
 
-})
+});
 module.exports = router;
