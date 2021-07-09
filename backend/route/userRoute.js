@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 //const checkAuth = require('../miiddleware/checkAuth'); // for checking user
 const upload = require('../middleware/upload') //file upload or picture 
+const authentication = require('../middleware/authentication'); //token
 
 
 // for registration of users
@@ -74,9 +75,11 @@ router.post('/user/login', function (req, res) {
                 if (result == false) {
                     return err.status(201).json({ success: false, message: "password doesn't match!!! Please try again" })
                 }
+                //token generate
+                const token = jwt.sign({ userId: userData._id }, 'secretkey');
                 res.status(200).json({
                     message: "Auth Success",
-                    // token: token,
+                    token: token,
                     success: true                  
                 })              
             })
