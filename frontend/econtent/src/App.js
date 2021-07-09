@@ -1,21 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-import Login from './login'
-import {BrowserRouter as Router, Switch, Route}
-from "react-router-dom"
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import 'jquery'
+import { BrowserRouter } from 'react-router-dom';
+import Header from './header/header'
+import Container from './Container/container'
+
+
 
 function App() {
   return (
-    <Router>
-    <div className="App">
-      <Switch>
-        <Route path="/">
-          <Login/>
-        </Route>
-      </Switch>
-    </div>
-    </Router>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+   
+        <Container/>
+        </div>
+    </BrowserRouter>
+    
+
+
   );
 }
+
 
 export default App;
