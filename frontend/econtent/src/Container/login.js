@@ -83,7 +83,7 @@ class Login extends Component {
 
 
                             <p className="signUp text-left">Do have an Account?  <Link exact to="/register"><b style={{ color: "#a018a0" }}>Sign Up</b></Link></p>
-                           {/*<a style={{ color: "blueviolet" }} href="#"><u>Forgot your password?</u></a>*/} 
+                           {<a style={{ color: "blueviolet" }} href="#"><u>Forgot your password?</u></a>} 
                             <div className="form-row">
                                 <div className="col-lg-5">
                                     <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "10px" }} type="submit" onClick={this.loginUser} class="btn btn-primary"> Sign in <FaRegHandPointRight/> </button>
