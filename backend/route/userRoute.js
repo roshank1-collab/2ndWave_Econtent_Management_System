@@ -6,10 +6,10 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 //const checkAuth = require('../miiddleware/checkAuth'); // for checking user
 const upload = require('../middleware/upload') //file upload or picture 
+const authentication = require('../middleware/authentication'); //token
 
 
-
-// for add clients 
+// for registration of users
 router.post("/User/SignUp", upload, [
     check('lastname', "last name  is required !!").not().isEmpty(),
     check('Dob', "Date of birth is required").not().isEmpty(),
@@ -57,7 +57,37 @@ router.post("/User/SignUp", upload, [
         console.log(errors.array())
         res.status(400).send(errors.array())
     }
+})
 
+//Login
+router.post('/user/login', function (req, res) {
+    const email = req.body.email
+    const password = req.body.password
 
+    //now we need to find if the user exits
+    Users.findOne({ Email: email}).
+        then(function (userData) {
+            if (userData === null) {
+                //username does not exits
+                return res.status(201).json({ success: false, message: "Credentials doesn't match!!!" })
+            }
+            bcryptjs.compare(password, userData.Password, function (err, result) {
+                if (result == false) {
+                    return err.status(201).json({ success: false, message: "password doesn't match!!! Please try again" })
+                }
+                //token generate
+                const token = jwt.sign({ userId: userData._id }, 'secretkey');
+                res.status(200).json({
+                    message: "Auth Success",
+                    token: token,
+                    success: true                  
+                })              
+            })
+
+        }).catch(
+            function (err) {
+                res.status(500).json({ message: err })
+            }
+        )
 })
 module.exports = router;
