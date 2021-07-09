@@ -1,12 +1,12 @@
 import { Component } from "react"
-
+import { FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaCartPlus, FaUsers, FaRibbon, FaInfo, FaShareSquare, FaPlusCircle, FaRegEye, FaListUl, FaMedapps, FaTelegramPlane, FaUserCog, FaCaretRight, FaRegSmile, FaRegHandPointRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 class Login extends Component {
     state = {
         email: "",
         password: "",
-                checkLogin: false,
+        checkLogin: false,
     }
     changeHandler = (e) => {
         this.setState({
@@ -78,32 +78,37 @@ class Login extends Component {
                                         <input type="password" className="form-control" value={this.state.password} onChange={this.changeHandler} name="password" required />
                                     </div>
                                 </div>
-
-
                                 <p className="signUp text-left">Do have an Account?  <Link exact to="/register"><b style={{ color: "#a018a0" }}>Sign Up</b></Link></p>
-                                <a style={{ color: "blueviolet" }} href="#"><u>Forgot your password?</u></a>
+                                <a style={{ color: "#51227F" }} href="#"><u>Forgot your password?</u></a>
                                 <div className="form-row">
                                     <div className="col-lg-5">
-                                        <button style={{ backgroundColor: "#a018a0", color: "white", fontWeight: "bold", marginTop: "10px" }} type="submit" onClick={this.loginUser} class="btn btn-primary"> Sign in </button>
+                                        <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "10px" }} type="submit" onClick={this.loginUser} class="btn btn-primary"> Sign in<FaRegHandPointRight /> </button>
                                     </div>
                                 </div>
                             </form>
 
 
-                        </div>
-
+                            <p className="signUp text-left">Do have an Account?  <Link exact to="/register"><b style={{ color: "#a018a0" }}>Sign Up</b></Link></p>
+                            <a style={{ color: "blueviolet" }} href="#"><u>Forgot your password?</u></a>
+                            <div className="form-row">
+                                <div className="col-lg-5">
+                                    <button style={{ backgroundColor: "#a018a0", color: "white", fontWeight: "bold", marginTop: "10px" }} type="submit" onClick={this.loginUser} class="btn btn-primary"> Sign in </button>
+                                </div>
+                            </div>
+                            
                     </div>
-                    <div>
+                </div>
+                <div>
 
 
 
-                    </div>
+                </div>
                 </div>
 
 
 
 
-            </section>
+            </section >
 
 
 

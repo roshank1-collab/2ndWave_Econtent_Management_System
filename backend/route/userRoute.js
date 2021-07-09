@@ -22,6 +22,7 @@ router.post("/User/SignUp", upload, [
 
 ], function (req, res) {
     const errors = validationResult(req);
+    console.log(req.files);
     if (errors.isEmpty()) {
         if (req.files == undefined) {
             console.log(req.files);
@@ -39,7 +40,7 @@ router.post("/User/SignUp", upload, [
                 institution_name: req.body.institution_name,
                 Email: req.body.email,
                 Password: hash,
-                Profie_Picture:req.files['Profie_Picture'][0].filename,
+                Profie_Picture:req.files['Profile_Picture'][0].filename,
                 institution_ID: req.files['institution_ID'][0].filename
 
             });
