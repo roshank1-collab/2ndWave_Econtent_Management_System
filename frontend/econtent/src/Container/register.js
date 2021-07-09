@@ -80,7 +80,7 @@ class Register extends Component {
 
 
                             <h1 className="font-weight-bold py-4" style={{ color: "#a018a0" }}>Sign Up</h1>
-                            <h5 style={{color:"blueviolet",fontSize:"19px"}}>Please fill all your correct details to signup</h5>
+                            <h5 style={{color:"blueviolet",fontSize:"18px"}}>Please fill all your correct details to signup</h5>
                             <form className="py-4">
                                 <div className="form-row">
                                     <div className="col-lg-5">
