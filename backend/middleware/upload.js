@@ -24,7 +24,7 @@ const upload = multer({
     storage:storage,
     fileFilter:fileFilter
 }).fields([
-    {name:"Profie_Picture"},
+    {name:"Profile_Picture"},
     {name:"institution_ID"}
 ])
 
