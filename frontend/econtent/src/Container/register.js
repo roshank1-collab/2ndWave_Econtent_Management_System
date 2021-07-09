@@ -46,8 +46,8 @@ class Register extends Component {
         data.append("Phone", this.state.phone)
         data.append("email", this.state.email.trim())
         data.append("password", this.state.password)
-        data.append("Dob",this.state.Dob)
-        data.append("phone_number",this.state.phone_number)
+        data.append("Dob", this.state.Dob)
+        data.append("phone_number", this.state.phone_number)
 
 
         axios.post("http://localhost:90/User/SignUp", data)
