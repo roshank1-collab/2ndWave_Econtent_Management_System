@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { FaAngellist,FaNewspaper,FaServicestack,FaTelegram,FaSignInAlt,FaCartPlus,FaUsers,FaRibbon,FaInfo, FaShareSquare,  FaPlusCircle, FaRegEye, FaListUl, FaMedapps, FaTelegramPlane,FaUserCog,FaCaretRight,FaRegSmile,FaArrowAltCircleRight,FaRegHandPointRight } from 'react-icons/fa'
 
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -79,7 +80,7 @@ class Register extends Component {
 
 
                             <h1 className="font-weight-bold py-4" style={{ color: "#a018a0" }}>Sign Up</h1>
-                            <h5 style={{ color: "blueviolet" }}>Please fill all your correct details to signup</h5>
+                            <h5 style={{color:"blueviolet",fontSize:"19px"}}>Please fill all your correct details to signup</h5>
                             <form className="py-4">
                                 <div className="form-row">
                                     <div className="col-lg-5">
@@ -149,7 +150,7 @@ class Register extends Component {
 
                                 <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/"><b>Sign in</b></Link></p>
                                 <div className="col-lg-7 py-4">
-                                    <button style={{ backgroundColor: "#a018a0", color: "white", fontWeight: "bold", marginTop: "5px" }} type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up </button>
+                                    <button style={{backgroundColor:"#51227F",color:"white",fontWeight:"bold", marginTop:"5px"}}  type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up<FaRegHandPointRight/> </button>
                                 </div>
                             </form>
 
