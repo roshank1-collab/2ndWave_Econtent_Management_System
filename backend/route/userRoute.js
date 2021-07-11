@@ -60,7 +60,7 @@ router.post("/User/SignUp", upload, [
     }
 })
 
-//Login for users
+//Login for users 
 router.post('/user/login', function (req, res) {
     const email = req.body.email
     const password = req.body.password
