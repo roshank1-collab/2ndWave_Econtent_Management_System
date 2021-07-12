@@ -60,7 +60,7 @@ router.post("/User/SignUp", upload, [
     }
 })
 
-//Login for users 
+//Login
 router.post('/user/login', function (req, res) {
     const email = req.body.email
     const password = req.body.password
@@ -91,4 +91,14 @@ router.post('/user/login', function (req, res) {
             }
         )
 })
+
+// retrive  user data as Channel 
+router.get('/channel/all', function (req, res) {
+    Users.find().then(function (data) {
+        res.status(200).json({ success: true, allchannel: data })
+    }).catch(function (err) {
+        res.send.status(500).json({ success: false, message: err })
+    })
+})
+
 module.exports = router;

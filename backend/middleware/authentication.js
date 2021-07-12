@@ -1,5 +1,4 @@
-//checking if the logged in user is authenticated or not
-const e = require('express');
+//checking if the logged in user is authenticated or not 
 const jwt = require('jsonwebtoken');
 const user = require('../model/user')
 
