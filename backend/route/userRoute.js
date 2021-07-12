@@ -74,7 +74,7 @@ router.post('/user/login', function (req, res) {
             }
             bcryptjs.compare(password, userData.Password, function (err, result) {
                 if (result == false) {
-                    return err.status(201).json({ success: false, message: "password doesn't match!!! Please try again" })
+                    return res.status(201).json({ success: false, message: "Password doesn't match!!! Please try again" })
                 }
                 //token generate
                 const token = jwt.sign({ userId: userData._id }, 'secretkey');
