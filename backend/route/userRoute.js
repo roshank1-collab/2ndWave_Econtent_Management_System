@@ -4,7 +4,6 @@ const { check, validationResult } = require('express-validator')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const router = express.Router();
-//const checkAuth = require('../miiddleware/checkAuth'); // for checking user
 const upload = require('../middleware/upload') //file upload or picture 
 const authentication = require('../middleware/authentication'); //token
 
@@ -92,13 +91,17 @@ router.post('/user/login', function (req, res) {
         )
 })
 
-// retrive  user data as Channel 
-router.get('/channel/all', function (req, res) {
-    Users.find().then(function (data) {
-        res.status(200).json({ success: true, allchannel: data })
+// retrive user data as Channel fot subscribe except logged in user
+router.get('/channel/all/:id', function (req, res) {
+    Users.find( { _id: { $nin: [ req.params.id ] } } ).then(function (data) {
+        res.status(200).json({ success: true, allchannel: data, count: data.length })
     }).catch(function (err) {
         res.send.status(500).json({ success: false, message: err })
     })
-})
+});
 
+//susbcribe route
+router.post('/channel/susbcribe',function(req,res){
+
+});
 module.exports = router;
