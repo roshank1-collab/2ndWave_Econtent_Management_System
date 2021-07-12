@@ -92,7 +92,7 @@ router.post('/user/login', function (req, res) {
         )
 })
 
-// retrive  user data as Channel 
+// retrive user data as Channel 
 router.get('/channel/all', function (req, res) {
     Users.find().then(function (data) {
         res.status(200).json({ success: true, allchannel: data })
