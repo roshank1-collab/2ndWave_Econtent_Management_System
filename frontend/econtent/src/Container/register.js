@@ -1,16 +1,16 @@
 import { Component } from 'react'
+import {Redirect} from 'react-router-dom'
 import { FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaCartPlus, FaUsers, FaRibbon, FaInfo, FaShareSquare, FaPlusCircle, FaRegEye, FaListUl, FaMedapps, FaTelegramPlane, FaUserCog, FaCaretRight, FaRegSmile, FaArrowAltCircleRight, FaRegHandPointRight } from 'react-icons/fa'
-
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
-class Register extends Component {
 
+class Register extends Component {
     state = {
-        institution_ID:"",
-        Profile_Picture:"",
+        institution_ID: "",
+        Profile_Picture: "",
         firstname: "",
         lastname: "",
         gender: "",
@@ -20,22 +20,21 @@ class Register extends Component {
         phone_number: "",
         email: "",
         password: "",
-
-
     }
+
     fileHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.files[0]
         }
-        )
-       
-
+        )    
     }
+
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
     submitUser = (e) => {
         e.preventDefault(); // prevents from reloading page
         const data = new FormData()
@@ -58,6 +57,9 @@ class Register extends Component {
             .then(
                 (response) => {
                     toast(response.data.message)
+                    if (response.data.status == "true") {
+                        <Redirect to ="/login"/>
+                    }
                 }
             )
             .catch(
@@ -65,9 +67,7 @@ class Register extends Component {
                     toast(error.message)
                 }
             )
-
     }
-
 
     render() {
         return (
@@ -119,7 +119,6 @@ class Register extends Component {
                                     </div>
                                 </div>
 
-
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="phone">Institution ID</label>
@@ -130,8 +129,6 @@ class Register extends Component {
                                         <input type="text" className="form-control" name="institution_name" value={this.state.instution_name} onChange={this.changeHandler} required />
                                     </div>
                                 </div>
-
-
 
                                 <div className="form-row">
                                     <div className="col-lg-5">
@@ -157,37 +154,11 @@ class Register extends Component {
                                     <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "5px" }} type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight /> </button>
                                 </div>
                             </form>
-
-
-
                         </div>
-
                     </div>
                 </div>
-
-
             </section>
-
-
         )
     }
 }
 export default Register
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
