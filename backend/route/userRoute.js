@@ -45,7 +45,7 @@ router.post("/User/SignUp", upload, [
             });
             User.save().then(
                 function (result) {
-                    res.status(200).json({ status: true, message: " User Registered!!" })
+                    res.status(200).json({ status: true, message: "User Registered!!" })
                 }
             ).catch(
                 function (err) {
@@ -80,7 +80,8 @@ router.post('/user/login', function (req, res) {
                 res.status(200).json({
                     message: "Auth Success",
                     token: token,
-                    success: true                  
+                    success: true,
+                    userid: userData._id
                 })              
             })
 
