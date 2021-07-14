@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { FaAngellist,FaNewspaper,FaServicestack,FaTelegram,FaSignInAlt,FaCartPlus,FaUsers,FaRibbon,FaInfo, FaShareSquare,  FaPlusCircle, FaRegEye, FaListUl, FaMedapps, FaTelegramPlane,FaUserCog,FaCaretRight,FaRegSmile,FaArrowAltCircleRight,FaRegHandPointRight } from 'react-icons/fa'
+import { FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaCartPlus, FaUsers, FaRibbon, FaInfo, FaShareSquare, FaPlusCircle, FaRegEye, FaListUl, FaMedapps, FaTelegramPlane, FaUserCog, FaCaretRight, FaRegSmile, FaArrowAltCircleRight, FaRegHandPointRight } from 'react-icons/fa'
 
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -9,6 +9,8 @@ toast.configure()
 class Register extends Component {
 
     state = {
+        institution_ID:"",
+        Profile_Picture:"",
         firstname: "",
         lastname: "",
         gender: "",
@@ -23,10 +25,11 @@ class Register extends Component {
     }
     fileHandler = (e) => {
         this.setState({
-            institution_ID: e.target.files[0],
-            Profile_Picture: e.target.files[0]
+            [e.target.name]: e.target.files[0]
         }
         )
+       
+
     }
     changeHandler = (e) => {
         this.setState({
@@ -49,7 +52,8 @@ class Register extends Component {
         data.append("Dob", this.state.Dob)
         data.append("phone_number", this.state.phone_number)
 
-
+        console.log(this.state.institution_ID)
+        console.log(this.state.Profile_Picture)
         axios.post("http://localhost:90/User/SignUp", data)
             .then(
                 (response) => {
@@ -80,7 +84,7 @@ class Register extends Component {
 
 
                             <h1 className="font-weight-bold py-4" style={{ color: "#a018a0" }}>Sign Up</h1>
-                            <h5 style={{color:"blueviolet",fontSize:"18px"}}>Please fill all your correct details to signup</h5>
+                            <h5 style={{ color: "blueviolet", fontSize: "18px" }}>Please fill all your correct details to signup</h5>
                             <form className="py-4">
                                 <div className="form-row">
                                     <div className="col-lg-5">
@@ -150,7 +154,7 @@ class Register extends Component {
 
                                 <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/"><b>Sign in</b></Link></p>
                                 <div className="col-lg-7 py-4">
-                                    <button style={{backgroundColor:"#51227F",color:"white",fontWeight:"bold", marginTop:"5px"}}  type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight/> </button>
+                                    <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "5px" }} type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight /> </button>
                                 </div>
                             </form>
 
