@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 class Login extends Component {
     state = {
-        email: "",
+        userid: "",
         password: "",
         checkLogin: false,
     }
@@ -18,10 +18,11 @@ class Login extends Component {
         e.preventDefault(); // prevents from reloading page
         axios.post("http://localhost:90/user/login", this.state)
             .then(
-                (response) => {
+                (response) => {                
                     localStorage.setItem('token', response.data.token)
-                    localStorage.setItem('email', response.data.email)
+                    localStorage.setItem('userid', response.data.userid)
                     localStorage.setItem('success', response.data.success)
+                    localStorage.setItem('loginstatus',response.data.loginstatus)
 
                     // localStorage.setItem('data', JSON.stringify(response.data.userData))
                     if (localStorage.getItem('token') === "undefined") {
@@ -43,8 +44,8 @@ class Login extends Component {
 
     render() {
         if (this.state.checkLogin === true) {
-            return window.location.href = "/dashboard"
-
+            return window.location.href = "/dashboard"    
+            // alert(localStorage.getItem('token'))
         }
         return (
 

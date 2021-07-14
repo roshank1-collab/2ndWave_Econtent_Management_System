@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose")
 const validator = require('mongoose-validator')
 const Users = mongoose.model("User", {
@@ -18,7 +17,6 @@ const Users = mongoose.model("User", {
         type:String,
         required: true
     },
-
     Dob: {
         type: String,
         required: true
@@ -58,6 +56,5 @@ const Users = mongoose.model("User", {
         required: true
     }
 });
-
 
 module.exports = Users

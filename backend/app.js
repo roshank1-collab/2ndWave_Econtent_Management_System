@@ -9,6 +9,7 @@ require('./database/db');
 const User_route= require('./route/userRoute')
 app.use(cors()); // to get data from frontend 
 app.use(User_route)
+app.use(express.static('pictures'))
 
 app.listen(90, function (req, res) {
     console.log('Listening to request on port 90');
