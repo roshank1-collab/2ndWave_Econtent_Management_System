@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose")
 const validator = require('mongoose-validator')
 const Users = mongoose.model("User", {

@@ -1,11 +1,13 @@
 const express = require('express');
 const Users = require('../model/user');
+const subscribeUser = require('../model/SubscibeUser')
 const { check, validationResult } = require('express-validator')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const upload = require('../middleware/upload') //file upload or picture 
 const authentication = require('../middleware/authentication'); //token
+const SubscribeUser = require('../model/SubscibeUser');
 
 
 // for registration of users
@@ -39,7 +41,7 @@ router.post("/User/SignUp", upload, [
                 institution_name: req.body.institution_name,
                 Email: req.body.email,
                 Password: hash,
-                Profie_Picture:req.files['Profile_Picture'][0].filename,
+                Profie_Picture: req.files['Profile_Picture'][0].filename,
                 institution_ID: req.files['institution_ID'][0].filename
 
             });
@@ -65,7 +67,7 @@ router.post('/user/login', function (req, res) {
     const password = req.body.password
 
     //now we need to find if the user exits
-    Users.findOne({ Email: email}).
+    Users.findOne({ Email: email }).
         then(function (userData) {
             if (userData === null) {
                 //username does not exits
@@ -82,7 +84,7 @@ router.post('/user/login', function (req, res) {
                     token: token,
                     success: true,
                     userid: userData._id
-                })              
+                })
             })
 
         }).catch(
@@ -94,7 +96,7 @@ router.post('/user/login', function (req, res) {
 
 // retrive user data as Channel fot subscribe except logged in user
 router.get('/channel/all/:id', function (req, res) {
-    Users.find( { _id: { $nin: [ req.params.id ] } } ).then(function (data) {
+    Users.find({ _id: { $nin: [req.params.id] } }).then(function (data) {
         res.status(200).json({ success: true, allchannel: data, count: data.length })
     }).catch(function (err) {
         res.send.status(500).json({ success: false, message: err })
@@ -102,7 +104,26 @@ router.get('/channel/all/:id', function (req, res) {
 });
 
 //susbcribe route
-router.post('/channel/susbcribe',function(req,res){
+router.post('/channel/susbcribe/:uid', function (req, res) {
+    const uid = req.params.uid;
+    Users.find({ _id: uid })
+        .then(function (data) {
+            console.log(data)
+            const SubscribeTo_UserId = data[0]._id
+            const SubscribeTo_Name = data[0].First_name
+            const SubscribeTo_Email = data[0].Email
 
+            const SubscribeModel = new subscribeUser({
+                SubscribeTo_Userid: uid, SubscribeTo_Name: SubscribeTo_Name, SubscribeTo_Email: SubscribeTo_Email
+            })
+            SubscribeModel.save()
+                .then(function (result) {
+                    res.status(201).json({ status: true, message: "Subscribed Successfully" })
+                })
+                .catch(function (err) {
+                    res.status(501).json({ message: err })
+                })
+
+        })
 });
 module.exports = router;
