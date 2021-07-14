@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 
 class Subscribe extends Component {
     state = {
-        channels: []
+        channels: [],
+        config: {
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+        }
     }
 
     //load initallly with content
@@ -24,10 +27,11 @@ class Subscribe extends Component {
     }
 
     subscribecount = (id) => {
-        axios.post("http://localhost:90/channel/susbcribe/" + id)
+        axios.post("http://localhost:90/channel/susbcribe/" + id, {}, this.state.config)
             .then((response) => {
                 console.log(response)
-                if (response.data.message == "Product deleted") {
+                if (response.data.message == "Subscribed Successfully") {
+                    alert("Subscribed")
                     window.location.reload(true);
                 }
             })
@@ -37,10 +41,10 @@ class Subscribe extends Component {
     }
 
     render() {
-        return (                              
-            <div>               
+        return (
+            <div>
                 <div className="container">
-                <h4>You may wanna see</h4>
+                    <h4>You may wanna see</h4>
                     <div className="row">
                         {
                             this.state.channels.map((items) => {
@@ -51,7 +55,7 @@ class Subscribe extends Component {
                                             <i><h5 className="card-title"> {items.First_name}</h5></i><br />
                                             <p><label>Last name : </label> {items.Last_name}</p>
                                             <p><label>institution_name : </label> {items.institution_name}</p>
-                                            <Link to='/updateproduct'><p><button type="button" className="btn btn-danger"  onClick={this.subscribecount.bind(this, items._id)}>Subscribe</button></p></Link>
+                                            <p><button type="button" className="btn btn-danger" onClick={this.subscribecount.bind(this, items._id)}>Subscribe</button></p>
                                         </div>
                                     </div>
                                 )

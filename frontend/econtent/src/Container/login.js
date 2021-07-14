@@ -43,7 +43,8 @@ class Login extends Component {
 
     render() {
         if (this.state.checkLogin === true) {
-            return window.location.href = "/dashboard"            
+            return window.location.href = "/dashboard"    
+            // alert(localStorage.getItem('token'))
         }
         return (
 
