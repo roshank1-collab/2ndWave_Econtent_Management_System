@@ -50,7 +50,7 @@ class Subscribe extends Component {
                             this.state.channels.map((items) => {
                                 return (
                                     <div className="card" style={{ width: '20rem', margin: '10px' }}>
-                                        <img className="card-img-top" src={"http://localhost:90/" + items.institution_ID.replace("\\", "/")} alt="Image Loading...." style={{ width: '50xp', height: '50px' }} />
+                                        <img className="card-img-top" src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '250xp', height: '250px' }} />
                                         <div className="card-body">
                                             <i><h5 className="card-title"> {items.First_name}</h5></i><br />
                                             <p><label>Last name : </label> {items.Last_name}</p>

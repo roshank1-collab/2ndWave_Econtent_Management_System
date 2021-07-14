@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaCartPlus, FaUsers, FaRibbon, FaInfo, FaShareSquare, FaPlusCircle, FaRegEye, FaListUl, FaMedapps, FaTelegramPlane, FaUserCog, FaCaretRight, FaRegSmile, FaArrowAltCircleRight, FaRegHandPointRight } from 'react-icons/fa'
 
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,8 @@ toast.configure()
 class Register extends Component {
 
     state = {
+        institution_ID:"",
+        Profile_Picture:"",
         firstname: "",
         lastname: "",
         gender: "",
@@ -23,10 +25,11 @@ class Register extends Component {
     }
     fileHandler = (e) => {
         this.setState({
-            institution_ID: e.target.files[0],
-            Profile_Picture: e.target.files[0]
+            [e.target.name]: e.target.files[0]
         }
         )
+       
+
     }
     changeHandler = (e) => {
         this.setState({
@@ -48,14 +51,13 @@ class Register extends Component {
         data.append("password", this.state.password)
         data.append("Dob", this.state.Dob)
         data.append("phone_number", this.state.phone_number)
-        
+
+        console.log(this.state.institution_ID)
+        console.log(this.state.Profile_Picture)
         axios.post("http://localhost:90/User/SignUp", data)
             .then(
                 (response) => {
                     toast(response.data.message)
-                    if (response.data.status === 'true') {
-                        <Redirect to='/login' />                    
-                    }
                 }
             )
             .catch(
@@ -63,7 +65,9 @@ class Register extends Component {
                     toast(error.message)
                 }
             )
+
     }
+
 
     render() {
         return (
@@ -132,7 +136,7 @@ class Register extends Component {
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="phone">Your Photo </label>
-                                        <input type="file" placeholder="institution ID" name="Profile_Picture" onChange={this.fileHandler} required />
+                                        <input type="file" placeholder="Profile Picture" name="Profile_Picture" onChange={this.fileHandler} required />
                                     </div>
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Email</label>
