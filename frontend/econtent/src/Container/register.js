@@ -132,7 +132,7 @@ class Register extends Component {
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="phone">Your Photo </label>
-                                        <input type="file" placeholder="Profile Picture ID" name="Profile_Picture" onChange={this.fileHandler} required />
+                                        <input type="file" placeholder="Profile Picture" name="Profile_Picture" onChange={this.fileHandler} required />
                                     </div>
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Email</label>
