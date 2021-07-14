@@ -22,6 +22,7 @@ class Login extends Component {
                     localStorage.setItem('token', response.data.token)
                     localStorage.setItem('userid', response.data.userid)
                     localStorage.setItem('success', response.data.success)
+                    localStorage.setItem('loginstatus',response.data.loginstatus)
 
                     // localStorage.setItem('data', JSON.stringify(response.data.userData))
                     if (localStorage.getItem('token') === "undefined") {
