@@ -104,17 +104,20 @@ router.get('/channel/all/:id', function (req, res) {
 });
 
 //susbcribe route
-router.post('/channel/susbcribe/:uid', function (req, res) {
+router.post('/channel/susbcribe/:uid', authentication.verifyUser, function (req, res) {
     const uid = req.params.uid;
+    const loggedIn_User = req.userData._id
     Users.find({ _id: uid })
         .then(function (data) {
-            console.log(data)
+            // console.log(data)
+            console.log(loggedIn_User)
             const SubscribeTo_UserId = data[0]._id
             const SubscribeTo_Name = data[0].First_name
             const SubscribeTo_Email = data[0].Email
 
             const SubscribeModel = new subscribeUser({
-                SubscribeTo_Userid: uid, SubscribeTo_Name: SubscribeTo_Name, SubscribeTo_Email: SubscribeTo_Email
+                SubscribeTo_Userid: uid, SubscribeTo_Name: SubscribeTo_Name, SubscribeTo_Email: SubscribeTo_Email, SubscribeBy_Userid: loggedIn_User
+                // SubscribeBy_Name: loggedinuserid.First_name, SubscribeBy_Email: loggedinuserid.Email
             })
             SubscribeModel.save()
                 .then(function (result) {

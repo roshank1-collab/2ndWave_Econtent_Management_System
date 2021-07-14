@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
 const SubscribeUser = mongoose.model('SubscribeUser', {
-    // SubscribeBy_Userid: {
-    //     type: String        
-    // },
+    SubscribeBy_Userid: {
+        type: String        
+    },
     // SubscribeBy_Name: {
     //     type: String
     // },
