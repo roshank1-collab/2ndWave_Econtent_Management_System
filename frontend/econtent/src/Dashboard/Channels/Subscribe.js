@@ -32,7 +32,7 @@ class Subscribe extends Component {
             .then((response) => {
                 console.log(response)
                 if (response.data.message == "Subscribed Successfully") {
-                    toast.success('Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+                    toast.dark('Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
                     // alert("Subscribed")
                     // window.location.reload(true);
                 }
