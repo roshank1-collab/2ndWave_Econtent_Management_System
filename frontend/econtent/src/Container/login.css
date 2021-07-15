@@ -207,3 +207,7 @@ input {
 	right: 0;
 	transform: translateX(0);
 }
+
+.overlay-right .links a{
+	 text-decoration: none;
+}
