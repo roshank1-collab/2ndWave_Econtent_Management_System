@@ -93,6 +93,11 @@ body {
   position: relative;
 }
 
+
+.section .customdiv {
+  border: 1px solid #ddd;
+}
+
 .section-title {
   padding-bottom: 45px;
 }
