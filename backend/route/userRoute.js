@@ -82,7 +82,8 @@ router.post('/user/login', function (req, res) {
                     message: "Auth Success",
                     token: token,
                     success: true,
-                    userid: userData._id
+                    userid: userData._id,
+                    loginstatus : true
                 })
             })
 
