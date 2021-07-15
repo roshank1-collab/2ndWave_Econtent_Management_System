@@ -54,12 +54,16 @@ class Subscribe extends Component {
                                     <div className="card" style={{ width: '20rem', margin: '10px' }}>
                                         <img className="card-img-top" src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '250xp', height: '250px' }} />
                                         <div className="card-body">
-                                            <i><h5 className="card-title"> {items.First_name}</h5></i><br />
+                                            <center>
+                                                <i><h5 className="card-title"> {items.First_name}</h5></i><br />
+                                            </center>
                                             <p><label>Last name : </label> {items.Last_name}</p>
                                             <p><label>institution_name : </label> {items.institution_name}</p>
-                                            <p>
-                                                <button type="button" className="btn btn-danger" onClick={this.subscribecount.bind(this, items._id)}>Subscribe</button>
-                                            </p>
+                                            <center>
+                                                <p>
+                                                    <button type="button" className="btn btn-danger" onClick={this.subscribecount.bind(this, items._id)}>Subscribe</button>
+                                                </p>
+                                            </center>
                                         </div>
                                     </div>
                                 )
