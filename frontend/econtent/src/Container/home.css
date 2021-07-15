@@ -45,6 +45,16 @@ h1 div:first-child {
   padding-bottom: 40px;
 }
 
+.our-team-section {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.our-team-section .name {
+  color: red;
+}
+
 .our-team-section:before {
   position: absolute;
   top: -0;
