@@ -23,7 +23,7 @@ router.post('/content/insert', uploadvideo.single('videos'), function (req, res)
 
     const me = new UploadContent({
         heading: heading, video: video, content_description: content_description,
-        categories: categories, price: price
+        categories: categories, price: price    })
 
    me.save().then(function (result) {
         res.status(201).json({ message: "Conent has been added successfully !!!" });
