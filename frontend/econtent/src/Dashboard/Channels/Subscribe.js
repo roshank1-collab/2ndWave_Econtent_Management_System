@@ -49,35 +49,42 @@ export default class SimpleSlider extends Component {
             infinite: true,
             speed: 500,
             slidesToShow: 4,
-            // fade : true,
-            arrows : true,
-            slidesToScroll: 1     
+            // fade: true,
+            // cssEase: 'linear',
+            arrows: true,
+            slidesToScroll: 1,
+            centerMode: true,
+            // adaptiveHeight: true,
+            // variableWidth: true,
+            lazyLoad: 'ondemand',
+            autoplay: true,
+            autoplaySpeed: 2000,
         };
         return (
-            <div className="container" style={{ marginTop: "70px", marginBottom: "100px", padding : '10px' }}>
+            <div className="container" style={{ marginTop: "70px", marginBottom: "100px", padding: '10px' }}>
                 <h2> You may wanna see</h2>
-                <Slider {...settings}>                
+                <Slider {...settings}>
                     {
                         this.state.channels.map((items) => {
                             return (
                                 <div>
-                                    <Card style={{ width: '18rem' }}>
-                                    <Card.Img
-                                                variant="top"
-                                                src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '100%' }}
-                                            />
-                                            <Card.Body>
-                                                <Card.Title>{items.First_name}</Card.Title>
-                                                <Card.Text>
-                                                    {items.institution_name}
-                                                </Card.Text>
-                                                <Button variant="primary" onClick={this.subscribecount.bind(this, items._id)}>Subscribe</Button>
-                                            </Card.Body>
+                                    <Card style={{ width: '18rem', background: 'red' }}>
+                                        <Card.Img
+                                            variant="top"
+                                            src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '100%' }}
+                                        />
+                                        <Card.Body>
+                                            <Card.Title>{items.First_name}</Card.Title>
+                                            <Card.Text>
+                                                {items.institution_name}
+                                            </Card.Text>
+                                            <Button variant="primary" onClick={this.subscribecount.bind(this, items._id)}>Subscribe</Button>
+                                        </Card.Body>
                                     </Card>
                                 </div>
                             )
                         })
-                    }                    
+                    }
                 </Slider>
             </div>
         );
