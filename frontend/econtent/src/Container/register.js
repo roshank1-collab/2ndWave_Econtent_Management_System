@@ -140,14 +140,17 @@ class Register extends Component {
                                         <input type="text" className="form-control" name="email" value={this.state.email} onChange={this.changeHandler} required />
                                     </div>
                                 </div>
-
+                                
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="password">Password:</label>
                                         <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.changeHandler} required />
                                     </div>
                                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> subscribe
                                 <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/"><b>Sign in</b></Link></p>
                                 <div className="col-lg-7 py-4">
                                     <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "5px" }} type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight /> </button>

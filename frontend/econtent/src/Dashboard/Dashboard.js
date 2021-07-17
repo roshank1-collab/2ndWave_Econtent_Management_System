@@ -8,10 +8,17 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
+<<<<<<< HEAD
                 <DashboardUpperPart />
                 <Subscribe />
 
             </div>
+=======
+                <DashboardUpperPart />                
+                <Subscribe />
+            </div>
+
+>>>>>>> subscribe
         )
     }
 }

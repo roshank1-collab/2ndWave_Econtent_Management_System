@@ -1,15 +1,18 @@
-import { Component } from "react"
-import './Subscribe'
+import React, { Component } from "react";
+import Slider from "react-slick";
 import axios from 'axios'
-import { Link } from "react-router-dom";
 import { toast } from 'react-toastify'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Card, Button } from "react-bootstrap";
+import './Subscribe.css'
 toast.configure();
 
-class Subscribe extends Component {
+export default class SimpleSlider extends Component {
     state = {
         channels: [],
         config: {
-            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }            
         }
     }
 
@@ -32,7 +35,7 @@ class Subscribe extends Component {
             .then((response) => {
                 console.log(response)
                 if (response.data.message == "Subscribed Successfully") {
-                    toast.success('Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+                    toast.dark('Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
                     // alert("Subscribed")
                     // window.location.reload(true);
                 }
@@ -40,36 +43,81 @@ class Subscribe extends Component {
             .catch((error) => {
                 console.log(error.response)
             })
+
+
     }
 
-    render() {
+    render() {        
+        const settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            // fade: true,
+            // cssEase: 'linear',
+            arrows: true,
+            slidesToScroll: 1,
+            centerMode: true,
+            // adaptiveHeight: true,
+            // variableWidth: true,
+            lazyLoad: 'ondemand',
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll
+                            : 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        };
         return (
-            <div>
-                <div className="container">
-                    <h4>You may wanna see</h4>
-                    <div className="row">
-                        {
-                            this.state.channels.map((items) => {
-                                return (
-                                    <div className="card" style={{ width: '20rem', margin: '10px' }}>
-                                        <img className="card-img-top" src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '250xp', height: '250px' }} />
-                                        <div className="card-body">
-                                            <i><h5 className="card-title"> {items.First_name}</h5></i><br />
-                                            <p><label>Last name : </label> {items.Last_name}</p>
-                                            <p><label>institution_name : </label> {items.institution_name}</p>
-                                            <p>
-                                                <button type="button" className="btn btn-danger" onClick={this.subscribecount.bind(this, items._id)}>Subscribe</button>
-                                            </p>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                </div>
-            </div>
-        )
+            <div className="container" style={{ marginTop: "70px", marginBottom: "100px", padding: '10px' }}>
+                <h2> Popular Channels</h2>
+                <Slider {...settings} >
+                    {
+                        this.state.channels.map((items) => {
+                            return (
+                                <div>
+                                    <Card style={{ width: '18rem' }}>
+                                        <Card.Img
+                                            variant="top"
+                                            src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '100%' }}
+                                        />
+                                        <Card.Body>
+                                            <Card.Title>{items.First_name}</Card.Title>
+                                            <Card.Text>
+                                                {items.institution_name}
+                                            </Card.Text>
+                                            <Button variant="outline-danger" className="btn" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
+                                            </Button>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                )
+                        })
+                    }
+                </Slider>
+            </div >
+        );
     }
 }
-
-export default Subscribe;
