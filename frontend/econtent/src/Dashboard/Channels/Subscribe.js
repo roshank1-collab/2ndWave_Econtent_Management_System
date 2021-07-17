@@ -5,13 +5,14 @@ import { toast } from 'react-toastify'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Card, Button } from "react-bootstrap";
+import './Subscribe.css'
 toast.configure();
 
 export default class SimpleSlider extends Component {
     state = {
         channels: [],
         config: {
-            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }            
         }
     }
 
@@ -42,9 +43,11 @@ export default class SimpleSlider extends Component {
             .catch((error) => {
                 console.log(error.response)
             })
+
+
     }
 
-    render() {
+    render() {        
         const settings = {
             dots: true,
             infinite: true,
@@ -74,7 +77,8 @@ export default class SimpleSlider extends Component {
                     breakpoint: 600,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2
+                        slidesToScroll
+                            : 2
                     }
                 },
                 {
@@ -84,9 +88,6 @@ export default class SimpleSlider extends Component {
                         slidesToScroll: 1
                     }
                 }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
             ]
         };
         return (
@@ -107,15 +108,16 @@ export default class SimpleSlider extends Component {
                                             <Card.Text>
                                                 {items.institution_name}
                                             </Card.Text>
-                                            <Button variant="outline-danger" onClick={this.subscribecount.bind(this, items._id)} >Subscribe</Button>
+                                            <Button variant="outline-danger" className="btn" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
+                                            </Button>
                                         </Card.Body>
                                     </Card>
                                 </div>
-                            )
+                )
                         })
                     }
                 </Slider>
-            </div>
+            </div >
         );
     }
 }
