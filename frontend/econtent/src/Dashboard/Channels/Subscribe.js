@@ -78,7 +78,7 @@ export default class SimpleSlider extends Component {
                                             <Card.Text>
                                                 {items.institution_name}
                                             </Card.Text>
-                                            <Button variant="primary" onClick={this.subscribecount.bind(this, items._id)}>Subscribe</Button>
+                                            <Button variant="outline-danger" onClick={this.subscribecount.bind(this, items._id)} >Subscribe</Button>
                                         </Card.Body>
                                     </Card>
                                 </div>
