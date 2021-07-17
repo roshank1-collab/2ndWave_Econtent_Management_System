@@ -43,6 +43,7 @@ export default class SimpleSlider extends Component {
                 console.log(error.response)
             })
     }
+
     render() {
         const settings = {
             dots: true,
@@ -59,11 +60,39 @@ export default class SimpleSlider extends Component {
             lazyLoad: 'ondemand',
             autoplay: true,
             autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
         };
         return (
             <div className="container" style={{ marginTop: "70px", marginBottom: "100px", padding: '10px' }}>
-                <h2> You may wanna see</h2>
-                <Slider {...settings}>
+                <h2> Popular Channels</h2>
+                <Slider {...settings} >
                     {
                         this.state.channels.map((items) => {
                             return (

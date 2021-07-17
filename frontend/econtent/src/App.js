@@ -10,14 +10,12 @@ import Container from './Container/container'
 function App() {
   return (
     <BrowserRouter>
-      <div className="App" style={{
-                background: '#F6EFEE'
-            }}>
+      <div className="App" style={{background: '#F6EFEE'}}>
         <Header />
-        <Container/>
-        </div>
+        <Container />
+      </div>
     </BrowserRouter>
-    
+
 
 
   );
