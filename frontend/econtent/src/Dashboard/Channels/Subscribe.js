@@ -68,7 +68,7 @@ export default class SimpleSlider extends Component {
                         this.state.channels.map((items) => {
                             return (
                                 <div>
-                                    <Card style={{ width: '18rem', background: 'red' }}>
+                                    <Card style={{ width: '18rem' }}>
                                         <Card.Img
                                             variant="top"
                                             src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '100%' }}

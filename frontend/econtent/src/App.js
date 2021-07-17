@@ -10,7 +10,9 @@ import Container from './Container/container'
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App" style={{
+                background: '#F6EFEE'
+            }}>
         <Header />
         <Container/>
         </div>
