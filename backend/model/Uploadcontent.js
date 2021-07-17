@@ -1,7 +1,7 @@
 
 const mongoose = require("mongoose")
 const validator = require('mongoose-validator')
-const Uploadcontent = mongoose.model("Uploadcontent", {
+const UploadContent = mongoose.model("Uploadcontent", {
    heading: {
         type: String,
         required: true,
@@ -27,4 +27,4 @@ const Uploadcontent = mongoose.model("Uploadcontent", {
 });
 
 
-module.exports = Uploadcontent;
+module.exports = UploadContent;
