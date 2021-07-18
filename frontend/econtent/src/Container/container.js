@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './login'
 import Dashboard from '../Dashboard/Dashboard'
 import ChannelsPage from '../ChannelsPage/ChannelsPage';
+import UploadContent from '../UploadContent/uploadcontent';
 
 
 class Container extends Component {
@@ -16,8 +17,8 @@ class Container extends Component {
                         <Route exact path="/" component={Login} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/dashboard" component={Dashboard} />
-                        <Route exact path="/allchannel" component={ChannelsPage}/>       
-                                         
+                        <Route exact path="/allchannel" component={ChannelsPage}/>   
+                        <Route exact path="/uploadcontent" component={UploadContent}/>   
                     </Switch>
                 </BrowserRouter>
 

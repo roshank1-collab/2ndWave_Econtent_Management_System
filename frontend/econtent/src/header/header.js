@@ -79,7 +79,7 @@ class Header extends Component {
               </NavDropdown>
             </Nav>
             <Form inline>
-              <Button style={{ marginRight: "20px" }} href="/upload" className="btn btn-primary">Upload</Button>
+              <Button style={{ marginRight: "20px" }} href="/uploadcontent" className="btn btn-primary">Upload</Button>
             </Form>
             <Form inline>
               <Example />
