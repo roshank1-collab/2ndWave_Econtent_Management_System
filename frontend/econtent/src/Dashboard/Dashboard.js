@@ -3,22 +3,17 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Subscribe from "./Channels/Subscribe";
 import DashboardUpperPart from "./DashboardUpperPart";
+import Footer from "../Footer/footer"
 
 class Dashboard extends Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
-                <DashboardUpperPart />
-                <Subscribe />
-
-            </div>
-=======
                 <DashboardUpperPart />                
                 <Subscribe />
+                <Footer/>
             </div>
 
->>>>>>> subscribe
         )
     }
 }

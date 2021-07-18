@@ -91,7 +91,7 @@ export default class SimpleSlider extends Component {
             ]
         };
         return (
-            <div className="container" style={{ marginTop: "70px", marginBottom: "100px", padding: '10px' }}>
+            <div className="container" style={{ marginTop: "500px", marginBottom: "100px", padding: '10px' }}>
                 <h2> Popular Channels</h2>
                 <Slider {...settings} >
                     {
