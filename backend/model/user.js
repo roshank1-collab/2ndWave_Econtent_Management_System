@@ -12,7 +12,7 @@ const Users = mongoose.model("User", {
     },
     institution_ID: {
         type: String,
-        required: true
+        // required: true
     },
     institution_name:{
         type:String,
@@ -38,7 +38,7 @@ const Users = mongoose.model("User", {
     },
     Profie_Picture:{
         type:String,
-        required: true
+        // required: true
     },
     Email:{
         type: String,

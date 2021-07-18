@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import Register from './register';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from './login'
-import Dashboard from '../Dashboard/Dashboard'
+import Login from './login';
+import Dashboard from '../Dashboard/Dashboard';
+import Uploadcontent from '../Container/Uploadcontent';
 
 
 class Container extends Component {
@@ -15,7 +16,9 @@ class Container extends Component {
                     <Route exact path="/" component={Login} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path = "/dashboard" component={Dashboard}/>
-                    <Route exact path="/login" component={Login} />    
+                    <Route exact path="/login" component={Login} />  
+                    <Route exact path="/Uploadcontent" component={Uploadcontent}/>  
+                   
                 </Switch>
                 </BrowserRouter>
 

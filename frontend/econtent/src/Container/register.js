@@ -85,33 +85,47 @@ class Register extends Component {
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Firstname</label>
-                                        <input type="text" className="form-control" name="firstname" value={this.state.firstname} onChange={this.changeHandler} required />
+                                        <input type="text" className="form-control" 
+                                        id="firstname" 
+                                        name="firstname" 
+                                        value={this.state.firstname}
+                                         onChange={this.changeHandler} required />
                                     </div>
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Lastname</label>
-                                        <input type="text" className="form-control" name="lastname" value={this.state.lastname} onChange={this.changeHandler} required />
+                                        <input type="text" 
+                                        className="form-control"
+                                         id="lastname" 
+                                         name="lastname" 
+                                         value={this.state.lastname}
+                                          onChange={this.changeHandler} required />
                                     </div>
                                 </div>
 
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Gender</label>
-                                        <input type="text" className="form-control" name="gender" value={this.state.gender} onChange={this.changeHandler} required />
+                                        <input type="text"
+                                         className="form-control" 
+                                         id="gender" 
+                                         name="gender"
+                                          value={this.state.gender}
+                                           onChange={this.changeHandler} required />
                                     </div>
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Date of Birth</label>
-                                        <input type="date" className="form-control" name="Dob" value={this.state.Dob} onChange={this.changeHandler} required />
+                                        <input type="date" className="form-control" id="Dob" name="Dob" value={this.state.Dob} onChange={this.changeHandler} required />
                                     </div>
                                 </div>
 
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Address</label>
-                                        <input type="text" className="form-control" name="address" value={this.state.address} onChange={this.changeHandler} required />
+                                        <input type="text" className="form-control" id="address" name="address" value={this.state.address} onChange={this.changeHandler} required />
                                     </div>
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Phone</label>
-                                        <input type="text" className="form-control" name="phone_number" value={this.state.phone_number} onChange={this.changeHandler} required />
+                                        <input type="text" className="form-control" id="phone" name="phone_number" value={this.state.phone_number} onChange={this.changeHandler} required />
                                     </div>
                                 </div>
 
@@ -123,7 +137,7 @@ class Register extends Component {
                                     </div>
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Instution Name</label>
-                                        <input type="text" className="form-control" name="institution_name" value={this.state.instution_name} onChange={this.changeHandler} required />
+                                        <input type="text" className="form-control" id="ins" name="institution_name" value={this.state.instution_name} onChange={this.changeHandler} required />
                                     </div>
                                 </div>
 
@@ -136,21 +150,21 @@ class Register extends Component {
                                     </div>
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Email</label>
-                                        <input type="text" className="form-control" name="email" value={this.state.email} onChange={this.changeHandler} required />
+                                        <input type="text" className="form-control" id="email" name="email" value={this.state.email} onChange={this.changeHandler} required />
                                     </div>
                                 </div>
 
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="password">Password:</label>
-                                        <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.changeHandler} required />
+                                        <input type="password" className="form-control" id="password" name="password" value={this.state.password} onChange={this.changeHandler} required />
                                     </div>
                                 </div>
 
 
                                 <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/"><b>Sign in</b></Link></p>
                                 <div className="col-lg-7 py-4">
-                                    <button style={{backgroundColor:"#51227F",color:"white",fontWeight:"bold", marginTop:"5px"}}  type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight/> </button>
+                                    <button style={{backgroundColor:"#51227F",color:"white",fontWeight:"bold", marginTop:"5px"}} id="signup" type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight/> </button>
                                 </div>
                             </form>
 

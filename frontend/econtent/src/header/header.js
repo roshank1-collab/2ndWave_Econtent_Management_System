@@ -27,13 +27,13 @@ class Header extends Component {
 
         </Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="/addproduct"><FaPlusCircle/> Add Product</Nav.Link>
-      <Nav.Link href="/viewproduct"><FaRegEye/> View Product</Nav.Link>
+      <Nav.Link href="/addproduct"><FaPlusCircle/> Home</Nav.Link>
+      <Nav.Link href="/viewproduct"><FaRegEye/> Channels</Nav.Link>
 
     </Nav>
     <Form inline>
     <Nav.Link href="/subscribers"><FaEnvelopeOpenText/> Subscribers</Nav.Link>
-    <Nav.Link href="/orders"><FaListUl/> Orders</Nav.Link>
+    <Nav.Link href="/Uploadcontent"><FaListUl/> Uploadcontent</Nav.Link>
     <Nav.Link href=""><FaRibbon/> Signed in as <u>{localStorage.getItem('fullname')}</u></Nav.Link>
     <Nav.Link href="/userdetails"><FaUserCog/> Users</Nav.Link>
     <Nav.Link href="/createpromo"><FaTelegramPlane/> Create Campaign</Nav.Link>
@@ -62,7 +62,7 @@ class Header extends Component {
          </Nav>
          <Form inline>
          <Nav.Link href={"/myprofile/" + id}><FaRibbon/> Signed in as: <u>{localStorage.getItem('fullname')}</u></Nav.Link>
-           <Nav.Link href="/mycart"><FaCartPlus/> My Cart</Nav.Link>
+           <Nav.Link href="/Uploadcontent"><FaCartPlus/> UploadContent</Nav.Link>
            <Nav.Link href="/promotions"> <FaMedapps/> Promotions</Nav.Link>
            <Button Link to="/logout" className="btn btn-primary" onClick={this.logout}> Sign out</Button>
          
