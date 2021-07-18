@@ -87,14 +87,15 @@ class Register extends Component {
                             <h5 style={{ color: "blueviolet", fontSize: "18px" }}>Please fill all your correct details to signup</h5>
                             <form className="py-4">
                                 <div className="form-row">
-                                    <div className="col-lg-5">
+                                    <div className="col-lg-4">
                                         <label htmlFor="fullname">Firstname</label>
                                         <input type="text" className="form-control" name="firstname" value={this.state.firstname} onChange={this.changeHandler} required />
-                                    </div>
-                                    <div className="col-lg-5">
+                                        <div className="col-lg-5">
+                                   
                                         <label htmlFor="fullname">Lastname</label>
                                         <input type="text" className="form-control" name="lastname" value={this.state.lastname} onChange={this.changeHandler} required />
-                                    </div>
+                                        </div>
+                                </div>
                                 </div>
 
                                 <div className="form-row">
