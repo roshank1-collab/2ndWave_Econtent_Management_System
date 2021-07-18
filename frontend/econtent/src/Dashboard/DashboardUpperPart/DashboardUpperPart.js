@@ -3,19 +3,13 @@ import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import wallpaper1 from './images/econtent.jpeg'
 import wallpaper2 from './images/second.jpeg'
-import wallpaper3 from './images/wallpaper1.jpg'
+import wallpaper3 from './images/edu.jpeg'
 
 import { FaOpencart, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
 class DashboardUpperPart extends Component {
     render() {
         return (
-<<<<<<< HEAD:frontend/econtent/src/Dashboard/DashboardUpperPart.js
-
-            <div style={{height:"100px"}}>
-
-=======
             <div className='container-fluid' style = {{padding : '8px'}}>
->>>>>>> bcaef2794d2b46daaf500239ae6a3721210a1d6c:frontend/econtent/src/Dashboard/DashboardUpperPart/DashboardUpperPart.js
                 <Carousel fade>
                     <Carousel.Item style={{height:"600px"}}>
                         <img
