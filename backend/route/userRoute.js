@@ -143,47 +143,6 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
                 .catch(function (err) {
                     res.status(501).json({ message: err })
                 })
-
-            // let filter = SubscribeUser.filter(function (currentData) {
-            //     return currentData.SubscribeBy_Userid === loggedIn_UserID && currenData.SubscribeTo_Userid === subscribeToPerson
-            //     console.log(currentData)
-            // })
-            // console.log(filter)
-
-            // const SubscribeModel = new SubscribeUser({
-            //     SubscribeTo_Userid: SubscribeTo_UserId, SubscribeTo_Name: SubscribeTo_Name, SubscribeTo_Email: SubscribeTo_Email, SubscribeBy_Userid: loggedIn_UserID,
-            //     SubscribeBy_Name: loggedIn_UserName, SubscribeBy_Email: loggedIn_UserEmail
-            // })
-            // SubscribeModel.save()
-            //     .then(function (result) {
-            //         res.status(201).json({ status: true, message: "Subscribed Successfully" })
-            //     })
-            //     .catch(function (err) {
-            //         res.status(501).json({ message: err })
-            //     })
-        })
-});
-
-router.post('/channel/susbcribe/:uid', authentication.verifyUser, function (req, res) {
-    const subscribeToPerson = req.params.uid;
-    const loggedIn_UserID = req.userData._id
-    const loggedIn_UserName = req.userData.First_name
-    const loggedIn_UserEmail = req.userData.Email
-    Users.find({ _id: subscribeToPerson }).
-        then(function (data) {
-            console.log(data)
-            console.log(loggedIn_UserEmail)
-            const SubscribeTo_UserId = data[0]._id
-            const SubscribeTo_Name = data[0].First_name
-            const SubscribeTo_Email = data[0].Email
-
-            let filter = SubscribeUser.filter(function (currentData) {
-                return currentData.SubscribeBy_Userid === loggedIn_UserID && currenData.SubscribeTo_Userid === subscribeToPerson
-            })
-
-            console.log(filter)
-        }).catch(function (e) {
-            res.status(500).json({ message: e })
         })
 });
 
