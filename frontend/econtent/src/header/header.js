@@ -110,7 +110,7 @@ class Header extends Component {
 
 
             </Nav>
-            <Form inline>
+            <Form>
 
               <Button style={{ backgroundColor: "#51227F" }} href="/login" className="btn btn-primary" >Sign in<FaSignInAlt /></Button>
 
