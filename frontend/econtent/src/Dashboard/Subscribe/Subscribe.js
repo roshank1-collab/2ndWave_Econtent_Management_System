@@ -56,7 +56,7 @@ export default class SimpleSlider extends Component {
             // fade: true,
             // cssEase: 'linear',
             arrows: true,
-            slidesToScroll: 1,
+            slidesToScroll: 2,
             centerMode: true,
             // adaptiveHeight: true,
             // variableWidth: true,

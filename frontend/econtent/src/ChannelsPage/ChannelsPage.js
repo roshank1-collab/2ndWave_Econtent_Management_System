@@ -2,6 +2,7 @@ import { Card, Button, Col } from "react-bootstrap";
 import axios from 'axios'
 import { Component } from "react";
 import { toast } from 'react-toastify'
+import Pagination from 'react-bootstrap/Pagination'
 toast.configure();
 
 class ChannelsPage extends Component {
@@ -46,7 +47,7 @@ class ChannelsPage extends Component {
 
     render() {
         return (
-            <div className="container" style = {{background : "white"}}>
+            <div className="container" style={{ background: "white" }}>
                 <center>
                     <h1 style={{ color: "#51127F", marginTop: "40px" }}>Channels</h1>
                 </center>
@@ -66,10 +67,15 @@ class ChannelsPage extends Component {
                                 </div>
                             )
                         })
-                    }
+                    }                  
+
                 </div>
 
-            </div>
+             
+                
+                </div>        
+
+            
         )
     }
 }

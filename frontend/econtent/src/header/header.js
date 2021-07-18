@@ -4,7 +4,7 @@ import { FaUserGraduate, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaT
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Modal, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap'
+import { Modal, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter} from 'react-bootstrap'
 
 const id = localStorage.getItem('id')
 
