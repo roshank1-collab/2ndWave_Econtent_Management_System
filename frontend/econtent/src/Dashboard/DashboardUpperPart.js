@@ -8,11 +8,7 @@ import wallpaper3 from './images/wallpaper3.png'
 class DashboardUpperPart extends Component {
     render() {
         return (
-<<<<<<< HEAD
-            <div className='container-fluid'>
-=======
             <div className='container-fluid' style = {{padding : '8px'}}>
->>>>>>> subscribe
                 <Carousel fade>
                     <Carousel.Item>
                         <img
