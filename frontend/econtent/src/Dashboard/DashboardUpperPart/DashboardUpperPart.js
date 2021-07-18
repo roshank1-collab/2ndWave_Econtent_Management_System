@@ -9,9 +9,13 @@ import { FaOpencart, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper
 class DashboardUpperPart extends Component {
     render() {
         return (
+<<<<<<< HEAD:frontend/econtent/src/Dashboard/DashboardUpperPart.js
 
             <div style={{height:"100px"}}>
 
+=======
+            <div className='container-fluid' style = {{padding : '8px'}}>
+>>>>>>> bcaef2794d2b46daaf500239ae6a3721210a1d6c:frontend/econtent/src/Dashboard/DashboardUpperPart/DashboardUpperPart.js
                 <Carousel fade>
                     <Carousel.Item style={{height:"600px"}}>
                         <img

@@ -4,12 +4,12 @@ const SubscribeUser = mongoose.model('SubscribeUser', {
     SubscribeBy_Userid: {
         type: String        
     },
-    // SubscribeBy_Name: {
-    //     type: String
-    // },
-    // SubscribeBy_Email: {
-    //     type: String
-    // },
+    SubscribeBy_Name: {
+        type: String
+    },
+    SubscribeBy_Email: {
+        type: String
+    },
     SubscribeTo_Userid: {
         type: String
     },

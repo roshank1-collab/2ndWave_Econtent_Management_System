@@ -83,7 +83,7 @@ router.post('/user/login', function (req, res) {
                     token: token,
                     success: true,
                     userid: userData._id,
-                    loginstatus : true
+                    loginstatus: true
                 })
             })
 
@@ -103,67 +103,46 @@ router.get('/channel/all/:id', function (req, res) {
     })
 });
 
-// //susbcribe route
-// router.post('/channel/susbcribe/:uid', authentication.verifyUser, function (req, res) {
-//     const uid = req.params.uid;
-//     const loggedIn_User = req.userData._id
-//     Users.find({ _id: uid })
-//         .then(function (data) {
-//             // console.log(data)
-//             // console.log(loggedIn_User)
-//             const SubscribeTo_UserId = data[0]._id
-//             const SubscribeTo_Name = data[0].First_name
-//             const SubscribeTo_Email = data[0].Email
-//             subscribeUser.find({ SubscribeTo_Userid: uid }).then(function (daataa) {
-//                 console.log(daataa)
-// if (SubscribeTo_Userid !== "" && loggedIn_User !== "") {
-//     res.status(201).json({ message: "user already subscribed" })
-// }
-// else if (SubscribeTo_Userid === "" && loggedIn_User === "") {
-//     const SubscribeModel = new subscribeUser({
-//         SubscribeTo_Userid: uid, SubscribeTo_Name: SubscribeTo_Name, SubscribeTo_Email: SubscribeTo_Email, SubscribeBy_Userid: loggedIn_User
-//         // SubscribeBy_Name: loggedinuserid.First_name, SubscribeBy_Email: loggedinuserid.Email
-//     })
-//                     SubscribeModel.save()
-//                         .then(function (result) {
-//                             res.status(201).json({ status: true, message: "Subscribed Successfully" })
-//                         })
-//                         .catch(function (err) {
-//                             res.status(501).json({ message: err })
-//                         })
-//                 // }
-//             })
-//             .catch(function (err) {
-//                 res.status(501).json({ message: err })
-//             })
 
-//         })
-// });
-
-//susbcribe route
-router.post('/channel/susbcribe/:uid', authentication.verifyUser, function (req, res) {
-    const uid = req.params.uid;
-    const loggedIn_User = req.userData._id
-    Users.find({ _id: uid })
+// susbcribe route
+router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req, res) {
+    const subscribeToPerson = req.params.uid;
+    const loggedIn_UserID = req.userData._id
+    const loggedIn_UserName = req.userData.First_name
+    const loggedIn_UserEmail = req.userData.Email
+    Users.find({ _id: subscribeToPerson })
         .then(function (data) {
-            console.log(data)
-            console.log(loggedIn_User)
+            // console.log(data)
+            // console.log(loggedIn_UserID)
             const SubscribeTo_UserId = data[0]._id
             const SubscribeTo_Name = data[0].First_name
             const SubscribeTo_Email = data[0].Email
 
-            const SubscribeModel = new subscribeUser({
-                SubscribeTo_Userid: SubscribeTo_UserId, SubscribeTo_Name: SubscribeTo_Name, SubscribeTo_Email: SubscribeTo_Email, SubscribeBy_Userid: loggedIn_User
-                // SubscribeBy_Name: loggedinuserid.First_name, SubscribeBy_Email: loggedinuserid.Email
-            })
-            SubscribeModel.save()
-                .then(function (result) {
-                    res.status(201).json({ status: true, message: "Subscribed Successfully" })
+            SubscribeUser.find({ SubscribeBy_Userid: loggedIn_UserID } && { SubscribeTo_Userid: SubscribeTo_UserId })
+                .then(function (uuudata) {
+                    if (uuudata.length < 1) {
+                        const SubscribeModel = new SubscribeUser({
+                            SubscribeTo_Userid: SubscribeTo_UserId, SubscribeTo_Name: SubscribeTo_Name, SubscribeTo_Email: SubscribeTo_Email, SubscribeBy_Userid: loggedIn_UserID,
+                            SubscribeBy_Name: loggedIn_UserName, SubscribeBy_Email: loggedIn_UserEmail
+                        })
+                        SubscribeModel.save()
+                            .then(function (result) {
+                                res.status(201).json({ status: true, message: "Subscribed Successfully" })
+                            })
+                            .catch(function (err) {
+                                res.status(501).json({ message: err })
+                            })
+                    }
+                    else {
+                        res.status(201).json({ message: "User have already Subscribed" })
+                        // console.log("User have already Subscribed")
+                    }
+                    console.log(uuudata)
+
                 })
                 .catch(function (err) {
                     res.status(501).json({ message: err })
                 })
-
         })
 });
 
