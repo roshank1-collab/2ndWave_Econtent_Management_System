@@ -2,7 +2,6 @@ import { Component } from "react"
 import { Nav, NavDropdown, Navbar, Form, Button } from 'react-bootstrap';
 import { Modal, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter} from 'react-bootstrap'
 import { FaTwitter, FaUserGraduate, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
-import './header.css';
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -81,7 +80,7 @@ class Header extends Component {
          <div class="collapse navbar-collapse" id="navbarNav">
  <ul class="navbar-nav">
    <li class="nav-item active">
-     <a class="nav-link" style={{fontSize:"21px" ,fontWeight: "bolder"}} href="#">Home </a>
+     <a class="nav-link" style={{fontSize:"21px" ,fontWeight: "bolder"}} href="/dashboard">Home </a>
    </li>
    <li class="nav-item">
      <a class="nav-link" href="/allchannel" style={{fontSize:"19px" , marginTop: "2px" }} >Channels</a>
