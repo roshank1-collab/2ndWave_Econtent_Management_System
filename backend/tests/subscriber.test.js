@@ -13,8 +13,8 @@ afterAll(async () => {
 });
 
 describe('subscribe user testing', () => {
-    // the code below is for insert testing
-    it('register user testing ', () => {
+    // the code below is for SubscribeUser testing
+    it('SubscribeUser testing ', () => {
         const user = {
             'SubscribeBy_Userid': '60ee8aaf35544435c01d7c60',
             'SubscribeBy_Name':'shankar',
@@ -25,8 +25,8 @@ describe('subscribe user testing', () => {
             
         }
         return SubscribeUser.create(user)
-            .then((users_test) => {
-                expect(users_test.SubscribeBy_Userid).toEqual('60ee8aaf35544435c01d7c60');
+            .then((testData) => {
+                expect(testData.SubscribeBy_Userid).toEqual('60ee8aaf35544435c01d7c60');
             });
     });
 
