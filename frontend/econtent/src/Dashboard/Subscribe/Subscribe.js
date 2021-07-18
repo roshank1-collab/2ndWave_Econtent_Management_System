@@ -34,7 +34,7 @@ export default class SimpleSlider extends Component {
         axios.post("http://localhost:90/channel/susbcribe/" + id, {}, this.state.config)
             .then((response) => {
                 console.log(response)
-                if (response.data.message == "Subscribed Successfully") {
+                if (response.data.message === "Subscribed Successfully") {
                     toast.dark('Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
                     // alert("Subscribed")
                     // window.location.reload(true);

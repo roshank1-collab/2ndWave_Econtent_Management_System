@@ -1,8 +1,6 @@
 import { Component } from "react"
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import Subscribe from "./Channels/Subscribe";
-import DashboardUpperPart from "./DashboardUpperPart";
+import Subscribe from "./Subscribe/Subscribe";
+import DashboardUpperPart from "./DashboardUpperPart/DashboardUpperPart";
 
 class Dashboard extends Component {
     render() {
