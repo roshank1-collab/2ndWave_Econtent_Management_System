@@ -29,7 +29,7 @@ class ChannelsPage extends Component {
     }
 
     subscribecount = (id) => {
-        axios.post("http://localhost:90/channel/susbcribe/" + id, {}, this.state.config)
+        axios.post("http://localhost:90/channel/subscribe/" + id, {}, this.state.config)
             .then((response) => {
                 console.log(response)
                 if (response.data.message == "Subscribed Successfully") {
