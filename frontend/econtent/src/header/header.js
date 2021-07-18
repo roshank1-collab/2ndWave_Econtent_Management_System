@@ -1,10 +1,44 @@
 import { Component } from "react"
 import { Nav, NavDropdown, Navbar, Form, Button } from 'react-bootstrap';
 import { FaUserGraduate, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaRegSmile } from 'react-icons/fa'
-
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { Modal, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap'
+
 const id = localStorage.getItem('id')
+
+function Example() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const out = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('loginstatus')    
+    setShow(false)
+  };
+
+  return (
+    <>
+      <Button style={{ marginRight: "20px" }} className="btn btn-danger" onClick={handleShow} >Sign Out</Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Are you sure?</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Come back again. Waiting for you.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            No
+          </Button>
+          <Button variant="primary" href= "/login" onClick={out}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+}
 
 class Header extends Component {
 
@@ -43,12 +77,12 @@ class Header extends Component {
                 <NavDropdown.Item href="/termsandconditions"><FaCcVisa /> Pricing Plans</NavDropdown.Item>
                 <NavDropdown.Item href="/termsandconditions"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
               </NavDropdown>
-            </Nav>            
+            </Nav>
             <Form inline>
               <Button style={{ marginRight: "20px" }} href="/upload" className="btn btn-primary">Upload</Button>
             </Form>
             <Form inline>
-              <Button style={{ marginRight: "20px" }} href="/login" className="btn btn-danger" onClick={this.logout}>Sign Out</Button>
+              <Example />
             </Form>
           </Navbar.Collapse>
       }
