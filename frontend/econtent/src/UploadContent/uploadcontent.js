@@ -10,17 +10,25 @@ class UploadContent extends Component {
                 headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
             }
         }
+
+
+        changeHandler = (e) => {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        }
         upload = () => {
-            axios.post("http://localhost:90/content/insert" , this.state.config)
+            e.preventDefault();
+            axios.post("http://localhost:90/content/insert", this.state.config)
                 .then((response) => {
                     console.log(response)
-                    
+
                 })
                 .catch((error) => {
                     console.log(error.response)
                 })
-    
-    
+
+
         }
 
         return (
