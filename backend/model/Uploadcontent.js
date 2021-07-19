@@ -1,6 +1,5 @@
 
 const mongoose = require("mongoose")
-const validator = require('mongoose-validator')
 const UploadContent = mongoose.model("Uploadcontent", {
    heading: {
         type: String,

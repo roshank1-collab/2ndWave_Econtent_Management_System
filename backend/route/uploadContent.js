@@ -1,10 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const UploadContent = require('../models/Uploadcontent.js')
-const authentication = require('../middleware/authentication');
-const bcryptjs=require('bcryptjs')
-const { check, validationResult } = require('express-validator');
-const jwt = require('jsonwebtoken');
+const UploadContent = require('../model/Uploadcontent');
 const uploadvideo = require('../middleware/uploadvideo')
 
 
@@ -23,9 +19,10 @@ router.post('/content/insert', uploadvideo.single('videos'), function (req, res)
 
     const me = new UploadContent({
         heading: heading, video: video, content_description: content_description,
-        categories: categories, price: price    })
+        categories: categories, price: price
+    })
 
-   me.save().then(function (result) {
+    me.save().then(function (result) {
         res.status(201).json({ message: "Conent has been added successfully !!!" });
     }).catch(function (err) {
         res.status(500).json({ message: err })
@@ -50,7 +47,7 @@ router.delete('/content/delete/:id', function (req, res) {
 
 //gets all info
 router.get('/content/all', function (req, res) {
-    product.find().then(function(data){
+    UploadContent.find().then(function (data) {
         console.log(data)
         res.status(200).json({
             ContentData: data
@@ -64,8 +61,8 @@ router.get('/content/all', function (req, res) {
 //to show only single element
 router.get('/content/single/:id', function (req, res) {
     const id = req.params.id;
-    product.findOne({ _id: id }).then(function (data) {
-        res.status(200).json({data})
+    UploadContent.findOne({ _id: id }).then(function (data) {
+        res.status(200).json({ data })
     }).catch(function (err) {
         res.status(500).json({ message: err })
     })
@@ -74,9 +71,11 @@ router.get('/content/single/:id', function (req, res) {
 
 // to fetch the catagoris of the content
 
-router.get('/content/catagoris',function(req,res){
-    product.find({}).then(function(result){res.status(200).json({status:true,message:result})}).catch(function (err){
-        res.status(500).json({ message:err})
+router.get('/content/catagoris', function (req, res) {
+    UploadContent.find({}).then(function (result) {
+        res.status(200).json({ status: true, message: result })
+    }).catch(function (err) {
+        res.status(500).json({ message: err })
     })
 })
 
