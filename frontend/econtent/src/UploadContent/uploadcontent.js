@@ -38,16 +38,34 @@ class UploadContent extends Component {
                 <div className="container">
                     <div className="row no-gutters shadow" style={{ background: 'white', borderRadius: '3px' }}>
 
-                        <div className="col-lg-4"></div>
+                        <div className="col-lg-4">
+                        </div>
+                        <div className="col-lg-5 no gutters">
 
-                        <div>
+                            <h1 className="font-weight-bold " style={{ color: "#a018a0" }}>Upload content</h1>
 
 
+
+
+
+
+                            
+                            <div className="form-row">
+                                <div className="col-lg-5">
+                                    <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "10px", border: 'none' }} type="submit" onClick={this.upload} class="btn btn-primary"> upload </button>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
+                    <div>
 
+
+
+                    </div>
                 </div>
+
+
 
 
             </section >
