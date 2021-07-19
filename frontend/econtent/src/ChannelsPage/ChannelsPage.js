@@ -32,10 +32,19 @@ class ChannelsPage extends Component {
         axios.post("http://localhost:90/channel/subscribe/" + id, {}, this.state.config)
             .then((response) => {
                 console.log(response)
-                if (response.data.message == "Subscribed Successfully") {
+                localStorage.setItem('statusOfSubscription', response.data.statusOfSubscription)
+                console.log(localStorage.getItem('statusOfSubscription'))
+
+                var statusOfSubscription = localStorage.getItem('statusOfSubscription')
+                // alert(localStorage.getItem('statusOfSubscription'))
+
+                if (response.data.statusOfSubscription === "Subscribed Successfully") {
                     toast.dark('Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
                     // alert("Subscribed")
                     // window.location.reload(true);
+                }
+                else if (response.data.statusOfSubscription === "You have already Subscribed this user") {
+                    toast.dark('Already Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
                 }
             })
             .catch((error) => {
@@ -46,6 +55,22 @@ class ChannelsPage extends Component {
     }
 
     render() {
+
+        // if (localStorage.getItem('statusOfSubscription') === "Subscribed Successfully") {
+        //     var subscribeButtonChanged =
+        //         <Button variant="outline-danger" className="btn">UnSubscribe
+        //         </Button>
+        // }
+        // else if (localStorage.getItem('statusOfSubscription') === "You have already Subscribed this user") {
+        //     var subscribeButtonChanged =
+        //         <Button variant="outline-danger disabled" className="btn">UnSubscribe
+        //         </Button>
+        // }
+        // else {
+        //     <Button variant="outline-danger" className="btn" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
+        //     </Button>
+        // }
+
         return (
             <div className="container" style={{ background: "white" }}>
                 <center>
@@ -67,15 +92,9 @@ class ChannelsPage extends Component {
                                 </div>
                             )
                         })
-                    }                  
-
+                    }
                 </div>
-
-             
-                
-                </div>        
-
-            
+            </div>
         )
     }
 }

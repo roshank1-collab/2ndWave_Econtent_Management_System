@@ -127,14 +127,14 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
                         })
                         SubscribeModel.save()
                             .then(function (result) {
-                                res.status(201).json({ status: true, message: "Subscribed Successfully" })
+                                res.status(201).json({ status: true, statusOfSubscription: "Subscribed Successfully" })
                             })
                             .catch(function (err) {
                                 res.status(501).json({ message: err })
                             })
                     }
                     else {
-                        res.status(201).json({ message: "User have already Subscribed" })
+                        res.status(201).json({ statusOfSubscription: "You have already Subscribed this user" })
                         // console.log("User have already Subscribed")
                     }
                     console.log(uuudata)

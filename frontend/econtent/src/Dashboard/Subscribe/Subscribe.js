@@ -12,7 +12,7 @@ export default class SimpleSlider extends Component {
     state = {
         channels: [],
         config: {
-            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }            
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     }
 
@@ -34,10 +34,19 @@ export default class SimpleSlider extends Component {
         axios.post("http://localhost:90/channel/subscribe/" + id, {}, this.state.config)
             .then((response) => {
                 console.log(response)
-                if (response.data.message === "Subscribed Successfully") {
+                localStorage.setItem('statusOfSubscription', response.data.statusOfSubscription)
+                console.log(localStorage.getItem('statusOfSubscription'))
+
+                var statusOfSubscription = localStorage.getItem('statusOfSubscription')
+                // alert(localStorage.getItem('statusOfSubscription'))
+
+                if (response.data.statusOfSubscription === "Subscribed Successfully") {
                     toast.dark('Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
                     // alert("Subscribed")
                     // window.location.reload(true);
+                }
+                else if (response.data.statusOfSubscription === "You have already Subscribed this user") {
+                    toast.dark('Already Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
                 }
             })
             .catch((error) => {
@@ -47,7 +56,7 @@ export default class SimpleSlider extends Component {
 
     }
 
-    render() {        
+    render() {
         const settings = {
             dots: true,
             infinite: true,
@@ -113,7 +122,7 @@ export default class SimpleSlider extends Component {
                                         </Card.Body>
                                     </Card>
                                 </div>
-                )
+                            )
                         })
                     }
                 </Slider>
