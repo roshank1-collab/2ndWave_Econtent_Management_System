@@ -81,4 +81,8 @@ router.get('/content/catagoris', function (req, res) {
 })
 
 
+
+route.get('/content/catagoris/:catagories', function (req, res){
+const catagories= req.params.catagories
+})
 module.exports = router
