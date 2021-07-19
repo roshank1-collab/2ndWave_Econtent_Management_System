@@ -7,11 +7,11 @@ const uploadvideo = require('../middleware/uploadvideo')
 
 //inserting content
 router.post('/content/insert', uploadvideo, function (req, res) {
-   console.log(req.files['video'][0].filename)
+    console.log(req.files['video'][0].filename)
     if (req.files == undefined) {
         return res.status(400).json({ message: "Invalid file format" })
     }
-   
+
     const heading = req.body.heading;
     const video = req.files['video'][0].filename;
     const content_description = req.body.content_description;
@@ -74,7 +74,7 @@ router.get('/content/single/:id', function (req, res) {
 
 router.get('/content/catagoris', function (req, res) {
     UploadContent.find().distinct('categories').then(function (result) {
-        res.status(200).json({ status: true,  catagories: result })
+        res.status(200).json({ status: true, catagories: result })
     }).catch(function (err) {
         res.status(500).json({ message: err })
     })
@@ -82,7 +82,11 @@ router.get('/content/catagoris', function (req, res) {
 
 
 
-route.get('/content/catagoris/:catagories', function (req, res){
-const catagories= req.params.catagories
+route.get('/content/catagoris/:catagories', function (req, res) {
+    UploadContent.find({categories:req.params.catagories}).then(function (result) {
+        res.status(200).json({ status: true, catagories: result })
+    }).catch(function (err) {
+        res.status(500).json({ message: err })
+    })
 })
 module.exports = router
