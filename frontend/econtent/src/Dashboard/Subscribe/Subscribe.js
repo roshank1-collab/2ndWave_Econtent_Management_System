@@ -5,7 +5,6 @@ import { toast } from 'react-toastify'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Card, Button } from "react-bootstrap";
-import './Subscribe.css'
 toast.configure();
 
 export default class SimpleSlider extends Component {
@@ -34,14 +33,8 @@ export default class SimpleSlider extends Component {
         axios.post("http://localhost:90/channel/subscribe/" + id, {}, this.state.config)
             .then((response) => {
                 console.log(response)
-                localStorage.setItem('statusOfSubscription', response.data.statusOfSubscription)
-                console.log(localStorage.getItem('statusOfSubscription'))
-
-                var statusOfSubscription = localStorage.getItem('statusOfSubscription')
-                // alert(localStorage.getItem('statusOfSubscription'))
-
-                if (response.data.statusOfSubscription === "Subscribed Successfully") {
-                    toast.dark('Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+                if (response.data.message === "Subscribed Successfully") {
+                    toast.dark('Subscribed', { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
                     // alert("Subscribed")
                     // window.location.reload(true);
                 }
