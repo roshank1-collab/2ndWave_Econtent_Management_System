@@ -2,9 +2,27 @@ import { Component } from "react"
 import '../App.css'
 import { Link } from 'react-router-dom'
 import { Form, Button } from "react-bootstrap";
-import { FaFly, FaInternetExplorer, FaMonero, FaPhoneSquareAlt, FaFacebookSquare, FaTwitterSquare, FaYoutubeSquare, FaInstagramSquare } from "react-icons/fa";
 class UploadContent extends Component {
     render() {
+        state = {
+            channels: [],
+            config: {
+                headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+            }
+        }
+        upload = () => {
+            axios.post("http://localhost:90/content/insert" , this.state.config)
+                .then((response) => {
+                    console.log(response)
+                    
+                })
+                .catch((error) => {
+                    console.log(error.response)
+                })
+    
+    
+        }
+
         return (
             <div>
                 <Form>
@@ -23,7 +41,7 @@ class UploadContent extends Component {
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" onClick={this.upload()}>
                         Submit
                     </Button>
                 </Form>
