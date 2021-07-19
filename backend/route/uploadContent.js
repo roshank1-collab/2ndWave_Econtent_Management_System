@@ -81,8 +81,8 @@ router.get('/content/catagoris', function (req, res) {
 })
 
 
-
-route.get('/content/catagoris/:catagories', function (req, res) {
+// to fetch filtred catagores content 
+router.get('/content/catagoris/:catagories', function (req, res) {
     UploadContent.find({categories:req.params.catagories}).then(function (result) {
         res.status(200).json({ status: true, catagories: result })
     }).catch(function (err) {
