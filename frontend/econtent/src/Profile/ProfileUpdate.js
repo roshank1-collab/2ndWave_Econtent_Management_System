@@ -1,9 +1,10 @@
-import axios from "axios"
 import { Component } from "react"
+import axios from 'axios'
 import { Link } from 'react-router-dom'
-// import './Profile.css'
+import { toast } from "react-toastify"
+toast.configure()
 
-class Profile extends Component {
+class ProfileUpdate extends Component {
 
     state = {
         First_name: "",
@@ -46,9 +47,34 @@ class Profile extends Component {
             })
     }
 
+    changeDetails = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
+    //updating user
+    UpdateUser = (e) => {
+        e.preventDefault();
+        axios.put('http://localhost:90/user/update/' + this.state.id, this.state)
+            .then((response) => {
+                console.log(response)
+                // window.location.reload(true);                
+                // this.setState({ productName: "", productRate: "", productCompany: "", productCategory: "" })
+                if (response.data.status == "true") {
+                    toast.success('User information Updated', { position: toast.POSITION.TOP_Right, autoClose: 1772 })
+                    window.location.href = "/myprofile/" + this.state.id
+                }
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }
+
+
     render() {
         return (
-            <div className="container" style={{ marginTop: "10px" }}>
+            <div className="container">
                 <div className="main-body">
                     <div className="row gutters-sm">
                         <div className="col-md-4 mb-3">
@@ -71,13 +97,12 @@ class Profile extends Component {
                                 </div>
                                 <hr />
                                 <div className="d-flex flex-column align-items-center text-center">
-                                    <Link to={'/profileupdate/' + this.state.id}>
-                                        <button className="btn btn-success">Update</button>
+
+                                    <button className="btn btn-success" onClick={this.UpdateUser}>Update</button>
+                                    <Link to={'/userprofile' + this.state.id}>
+                                        <button className="btn btn-danger" style={{ marginTop: "10px", marginBottom: "10px" }}>Cancel</button>
                                     </Link>
-
-                                    <button className="btn btn-danger" style={{ marginTop: "10px", marginBottom: "10px" }}>Delete Account</button>
                                 </div>
-
                             </div>
                         </div>
                         <div className="col-md-8">
@@ -88,7 +113,11 @@ class Profile extends Component {
                                             <h6 className="mb-0">First Name</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            {this.state.First_name}
+                                            {/* {this.state.fullname} */}
+                                            <input type="text" name="First_name"
+                                                value={this.state.First_name}
+                                                onChange={this.changeDetails}
+                                            />
                                         </div>
 
                                     </div>
@@ -98,7 +127,11 @@ class Profile extends Component {
                                             <h6 className="mb-0">Last Name</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            {this.state.Last_name}
+                                            {/* {this.state.fullname} */}
+                                            <input type="text" name="Last_name"
+                                                value={this.state.Last_name}
+                                                onChange={this.changeDetails}
+                                            />
                                         </div>
                                     </div>
                                     <hr />
@@ -107,7 +140,10 @@ class Profile extends Component {
                                             <h6 className="mb-0">Email</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            {this.state.Email}
+                                            <input type="text" name="Email"
+                                                value={this.state.Email}
+                                                onChange={this.changeDetails}
+                                            />
                                         </div>
                                     </div>
                                     <hr />
@@ -116,7 +152,10 @@ class Profile extends Component {
                                             <h6 className="mb-0">DOB</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            {this.state.Dob}
+                                            <input type="text" name="Dob"
+                                                value={this.state.Dob}
+                                                onChange={this.changeDetails}
+                                            />
                                         </div>
                                     </div>
                                     <hr />
@@ -125,7 +164,10 @@ class Profile extends Component {
                                             <h6 className="mb-0">Phone Number</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            {this.state.Phone_number}
+                                            <input type="text" name="Phone_number"
+                                                value={this.state.Phone_number}
+                                                onChange={this.changeDetails}
+                                            />
                                         </div>
                                     </div>
                                     <hr />
@@ -134,7 +176,10 @@ class Profile extends Component {
                                             <h6 className="mb-0">Address</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            {this.state.address}
+                                            <input type="text" name="address"
+                                                value={this.state.address}
+                                                onChange={this.changeDetails}
+                                            />
                                         </div>
                                     </div>
                                     <hr />
@@ -142,8 +187,11 @@ class Profile extends Component {
                                         <div className="col-sm-3">
                                             <h6 className="mb-0">Gender</h6>
                                         </div>
-                                        <div className="col-sm-9 text-secondary">
-                                            {this.state.gender}
+                                        <div className="col-sm-9 text-secondary" name="gender">
+                                            <input type="text" name="gender"
+                                                value={this.state.gender}
+                                                onChange={this.changeDetails}
+                                            />                                            
                                         </div>
                                     </div>
                                     <hr />
@@ -152,16 +200,10 @@ class Profile extends Component {
                                             <h6 className="mb-0">Institution Name</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            {this.state.institution_name}
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div className="row">
-                                        <div className="col-sm-3">
-                                            <h6 className="mb-0">Password</h6>
-                                        </div>
-                                        <div className="col-sm-9 text-secondary">
-                                            {this.state.Password}
+                                            <input type="text" name="institution_name"
+                                                value={this.state.institution_name}
+                                                onChange={this.changeDetails}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +270,6 @@ class Profile extends Component {
             </div>
         )
     }
-
 }
 
-export default Profile;
+export default ProfileUpdate;
