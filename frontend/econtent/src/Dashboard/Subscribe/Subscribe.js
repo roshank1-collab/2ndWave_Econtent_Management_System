@@ -33,13 +33,13 @@ export default class SimpleSlider extends Component {
         axios.post("http://localhost:90/channel/subscribe/" + id, {}, this.state.config)
             .then((response) => {
                 console.log(response)
-                if (response.data.message === "Subscribed Successfully") {
-                    toast.dark('Subscribed', { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
+                if (response.data.statusOfSubscription === "Subscribed Successfully") {
+                    toast.success('Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
                     // alert("Subscribed")
                     // window.location.reload(true);
                 }
                 else if (response.data.statusOfSubscription === "You have already Subscribed this user") {
-                    toast.dark('Already Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+                    toast.error('Already Subscribed', { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
                 }
             })
             .catch((error) => {
