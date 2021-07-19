@@ -71,7 +71,7 @@ class Footer extends Component {
                                 <div className="widget no-box">
                                     <h5 className="widget-title">Contact Us<span></span></h5>
 
-                                    <p><Link to="www.gmail.com" target="_blank" title="glorythemes">info@econtentweb.com</Link></p>
+                                    <p><a href="www.gmail.com" target="_blank" title="glorythemes">info@econtentweb.com</a></p>
                                     <ul className="social-footer2">
                                         <Link title="youtube" target="_blank" to="https://www.youtube.com/"><FaYoutubeSquare style={{color:"Red",fontSize:"29px",marginRight:"7px"}}/></Link>
                                         <Link to="https://www.facebook.com/" target="_blank" title="Facebook"><FaFacebookSquare style={{color:"blue",fontSize:"29px",marginRight:"12px"}}/></Link>

@@ -124,14 +124,14 @@ class Header extends Component {
         var menu =
           <Navbar.Collapse id="responsive-navbar-nav">
             <Navbar.Brand href="/">
-              <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
+              <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px", marginLeft:'10px' }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
             </Navbar.Brand>
             <Nav className="mr-auto">
               <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Company" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/aboutfounder"><FaUserGraduate /> About Us</NavDropdown.Item>
-                <NavDropdown.Item href="/aboutfounder"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
-                <NavDropdown.Item href="/Aboutgadgetshop"><FaUsers />Our Team</NavDropdown.Item>
-                <NavDropdown.Item href="/Aboutgadgetshop"><FaTelegram />Carrer With Us</NavDropdown.Item>
+                <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
+                <NavDropdown.Item href="/whychooseus"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
+                <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
+                <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
               </NavDropdown>
               <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Services" id="basic-nav-dropdown" >
@@ -144,11 +144,11 @@ class Header extends Component {
 
 
             </Nav>
-            <Form>
+            <Navbar.Collapse className="justify-content-end">
 
-              <Button style={{ backgroundColor: "#51227F" }} href="/login" className="btn btn-primary" >Sign in<FaSignInAlt /></Button>
+              <Button style={{ backgroundColor: "#51227F", border:'none', marginRight:'10px' }} href="/login" className="btn btn-primary" >Sign in<FaSignInAlt /></Button>
 
-            </Form>
+           </Navbar.Collapse>
           </Navbar.Collapse>
 
 
