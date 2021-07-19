@@ -74,7 +74,7 @@ router.get('/content/single/:id', function (req, res) {
 
 router.get('/content/catagoris', function (req, res) {
     UploadContent.find().distinct('categories').then(function (result) {
-        res.status(200).json({ status: true, message: result })
+        res.status(200).json({ status: true,  catagories: result })
     }).catch(function (err) {
         res.status(500).json({ message: err })
     })
