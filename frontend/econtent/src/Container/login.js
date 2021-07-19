@@ -1,5 +1,5 @@
 import { Component } from "react"
-import { FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaCartPlus, FaUsers, FaRibbon, FaInfo, FaShareSquare, FaPlusCircle, FaRegEye, FaListUl, FaMedapps, FaTelegramPlane, FaUserCog, FaCaretRight, FaRegSmile, FaRegHandPointRight } from 'react-icons/fa'
+import {  FaRegHandPointRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 class Login extends Component {
