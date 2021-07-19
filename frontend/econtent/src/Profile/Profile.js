@@ -155,7 +155,7 @@ class Profile extends Component {
                                             {this.state.institution_name}
                                         </div>
                                     </div>
-                                    <hr />
+                                    {/* <hr />
                                     <div className="row">
                                         <div className="col-sm-3">
                                             <h6 className="mb-0">Password</h6>
@@ -163,7 +163,7 @@ class Profile extends Component {
                                         <div className="col-sm-9 text-secondary">
                                             {this.state.Password}
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                             <div className="row gutters-sm">

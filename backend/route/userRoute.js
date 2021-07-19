@@ -147,15 +147,40 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
 });
 
 //get info on one user
-router.get('/user/singleuser/:id', authentication.verifyUser,function (req, res) {
+router.get('/user/singleuser/:id', authentication.verifyUser, function (req, res) {
     const userid = req.params.id
     Users.find({ _id: userid })
         .then(function (data) {
             console.log(data)
-            res.status(200).json({status : true, message : "Information received", data : data})
+            res.status(200).json({ status: true, message: "Information received", data: data })
         }).catch(function (err) {
-            res.status(500).json({message : err})
+            res.status(500).json({ message: err })
         })
+})
+
+//user update
+router.put('/user/update/:id', function (req, res) {
+    const uid = req.params.id;
+    const First_name = req.body.First_name;
+    const Last_name = req.body.Last_name;
+    const Email = req.body.Email;
+    const Dob = req.body.Dob;
+    const Phone_number = req.body.Phone_number;
+    const address = req.body.address;
+    const gender = req.body.gender;
+    const institution_name = req.body.institution_name;
+
+    Users.updateOne({ _id: uid }, {
+        First_name: First_name, Last_name: Last_name, Email: Email, Dob: Dob, Phone_number: Phone_number, address: address, gender: gender, institution_name: institution_name
+    })
+        .then(function (result) {            
+            res.status(200).json({status : true, message : "User Info Updated"})
+        })
+        .catch(function (err) {
+            res.status(500).json({ message: err })
+        })
+
+
 })
 
 module.exports = router;

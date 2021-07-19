@@ -18,6 +18,8 @@ class ProfileUpdate extends Component {
         Profie_Picture: "",
         institution_ID: "",
         Password: "",
+        userProfileImageUpdate : "",
+        userInstitutionImageUpdate : "",
         id: this.props.match.params.id,
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -49,7 +51,14 @@ class ProfileUpdate extends Component {
 
     changeDetails = (e) => {
         this.setState({
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
+        })
+    }
+
+    //image handler
+    fileHandler = (e) => {
+        this.setState({
+            userProfileImageUpdate: e.target.files[0]
         })
     }
 
@@ -59,11 +68,9 @@ class ProfileUpdate extends Component {
         axios.put('http://localhost:90/user/update/' + this.state.id, this.state)
             .then((response) => {
                 console.log(response)
-                // window.location.reload(true);                
-                // this.setState({ productName: "", productRate: "", productCompany: "", productCategory: "" })
-                if (response.data.status == "true") {
+                if (response.data.message == "User Info Updated") {
                     toast.success('User information Updated', { position: toast.POSITION.TOP_Right, autoClose: 1772 })
-                    window.location.href = "/myprofile/" + this.state.id
+                    // window.location.href = "/myprofile/" + this.state.id
                 }
             })
             .catch((err) => {
@@ -99,7 +106,7 @@ class ProfileUpdate extends Component {
                                 <div className="d-flex flex-column align-items-center text-center">
 
                                     <button className="btn btn-success" onClick={this.UpdateUser}>Update</button>
-                                    <Link to={'/userprofile' + this.state.id}>
+                                    <Link to={'/userprofile/' + this.state.id}>
                                         <button className="btn btn-danger" style={{ marginTop: "10px", marginBottom: "10px" }}>Cancel</button>
                                     </Link>
                                 </div>
@@ -191,7 +198,7 @@ class ProfileUpdate extends Component {
                                             <input type="text" name="gender"
                                                 value={this.state.gender}
                                                 onChange={this.changeDetails}
-                                            />                                            
+                                            />
                                         </div>
                                     </div>
                                     <hr />
