@@ -72,5 +72,13 @@ router.get('/content/single/:id', function (req, res) {
 })
 
 
+// to fetch the catagoris of the content
+
+router.get('/content/catagoris',function(req,res){
+    product.find({}).then(function(result){res.status(200).json({status:true,message:result})}).catch(function (err){
+        res.status(500).json({ message:err})
+    })
+})
+
 
 module.exports = router
