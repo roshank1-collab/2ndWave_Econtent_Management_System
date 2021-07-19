@@ -1,7 +1,7 @@
 import axios from "axios"
 import { Component } from "react"
 import { Link } from 'react-router-dom'
-import './Profile.css'
+// import './Profile.css'
 
 class Profile extends Component {
 
@@ -16,6 +16,7 @@ class Profile extends Component {
         Email: "",
         Profie_Picture: "",
         institution_ID: "",
+        Password : "",
         id: this.props.match.params.id,
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -36,6 +37,7 @@ class Profile extends Component {
                     Phone_number: response.data.data[0].Phone_number,
                     institution_name: response.data.data[0].institution_name,
                     Email: response.data.data[0].Email,
+                    Password: response.data.data[0].Password,
                     Profie_Picture: response.data.data[0].Profie_Picture,
                     institution_ID: response.data.data[0].institution_ID
                 })
@@ -46,7 +48,7 @@ class Profile extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container" style = {{marginTop : "10px"}}>
                 <div className="main-body">
                     <div className="row gutters-sm">
                         <div className="col-md-4 mb-3">
@@ -174,6 +176,15 @@ class Profile extends Component {
                                         </div>
                                         <div className="col-sm-9 text-secondary">
                                             {this.state.institution_name}
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div className="row">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">Password</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            {this.state.Password}
                                         </div>
                                     </div>
                                 </div>
