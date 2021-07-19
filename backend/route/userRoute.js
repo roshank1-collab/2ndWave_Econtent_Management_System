@@ -146,4 +146,16 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
         })
 });
 
+//get info on one user
+router.get('/user/singleuser/:id', authentication.verifyUser,function (req, res) {
+    const userid = req.params.id
+    Users.find({ _id: userid })
+        .then(function (data) {
+            console.log(data)
+            res.status(200).json({status : true, message : "Information received", data : data})
+        }).catch(function (err) {
+            res.status(500).json({message : err})
+        })
+})
+
 module.exports = router;

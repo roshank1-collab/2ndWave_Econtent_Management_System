@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const id = localStorage.getItem('id')
+const userid = localStorage.getItem('userid')
 
 function Example() {
   const [show, setShow] = useState(false);
@@ -64,7 +65,7 @@ class Header extends Component {
 
                 <NavDropdown.Item href="/facebook"><FaBell style={{ color: "#FF8C00", width: "20px", height: "20px" }} /></NavDropdown.Item>
                 <NavDropdown.Item href="/facebook"><FaRocketchat style={{ color: "green", width: "20px", height: "20px" }} /></NavDropdown.Item>
-                <NavDropdown.Item href="/facebook"><FaUserCircle style={{ color: "purple", width: "29px", height: "29px" }} /></NavDropdown.Item>
+                <NavDropdown.Item href={"/userprofile/" + userid}><FaUserCircle style={{ color: "purple", width: "29px", height: "29px" }} /></NavDropdown.Item>
 
 
                 {/* <img class="rounded-circle article-img" src="{{ request.user.profile.image.url }}" id="img"/>  */}
