@@ -22,27 +22,6 @@ class Profile extends Component {
         }
     }
 
-    // //load initially with the load of webpage
-    // componentDidMount() {
-    //     axios.get('http://localhost:90/user/single/' + this.state.id,this.state.config)
-    //         .then((response) => {
-    //             console.log(response)
-    //             this.setState({
-    //                 fullname: response.data.data.fullname,
-    //                 username: response.data.data.username,
-    //                 email: response.data.data.email,
-    //                 phone: response.data.data.phone,
-    //                 gender: response.data.data.gender,
-    //                 address: response.data.data.address,
-    //                 country: response.data.data.country,
-    //                 userImage: response.data.data.userImage
-    //             })
-    //         })
-    //         .catch((err) => {
-    //             console.log(err.response)
-    //         })
-    // }   
-
     //load with content
     componentDidMount() {
         axios.get('http://localhost:90/user/singleuser/' + this.state.id, this.state.config)
@@ -76,14 +55,26 @@ class Profile extends Component {
                                     <div className="d-flex flex-column align-items-center text-center">
                                         <img className="card-img-top" src={"http://localhost:90/" + this.state.Profie_Picture} alt="Image Loading...." className="rounded-circle" width={150} style={{ width: '20rem' }} />
                                         <div className="mt-3">
-                                            <h4>{this.state.First_name}{ this.state.Last_name}</h4>
-                                            <Link to={'/profileupdate/' + this.state.id}>
-                                                <button className="btn btn-success">Update</button>
-                                            </Link>
-                                            <button className="btn btn-danger" >Delete Account</button>                                            
+                                            <h4>{this.state.First_name} {this.state.Last_name}</h4>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div className="d-flex flex-column align-items-center text-center">
+                                        <img className="card-img-top" src={"http://localhost:90/" + this.state.institution_ID} alt="Image Loading...." className="rounded-circle" width={150} style={{ width: '20rem' }} />
+                                        <div className="mt-3">
+                                            <h4>{this.state.institution_name}</h4>
                                         </div>
                                     </div>
                                 </div>
+                                <hr />
+                                <div className="d-flex flex-column align-items-center text-center">
+                                    <Link to={'/profileupdate/' + this.state.id}>
+                                        <button className="btn btn-success">Update</button>
+                                    </Link>
+                                    
+                                    <button className="btn btn-danger" style  ={{marginTop : "10px", marginBottom : "10px"}}>Delete Account</button>
+                                </div>
+
                             </div>
                             <div className="card mt-3">
                                 <ul className="list-group list-group-flush">
@@ -138,6 +129,15 @@ class Profile extends Component {
                                         </div>
                                         <div className="col-sm-9 text-secondary">
                                             {this.state.Email}
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div className="row">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">DOB</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            {this.state.Dob}
                                         </div>
                                     </div>
                                     <hr />
