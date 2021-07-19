@@ -159,7 +159,7 @@ router.get('/user/singleuser/:id', authentication.verifyUser, function (req, res
 })
 
 //user update
-router.put('/user/update/:id', function (req, res) {
+router.put('/user/update/:id', authentication.verifyUser, function (req, res) {
     const uid = req.params.id;
     const First_name = req.body.First_name;
     const Last_name = req.body.Last_name;
@@ -173,8 +173,8 @@ router.put('/user/update/:id', function (req, res) {
     Users.updateOne({ _id: uid }, {
         First_name: First_name, Last_name: Last_name, Email: Email, Dob: Dob, Phone_number: Phone_number, address: address, gender: gender, institution_name: institution_name
     })
-        .then(function (result) {            
-            res.status(200).json({status : true, message : "User Info Updated"})
+        .then(function (result) {
+            res.status(200).json({ status: true, message: "User Info Updated" })
         })
         .catch(function (err) {
             res.status(500).json({ message: err })

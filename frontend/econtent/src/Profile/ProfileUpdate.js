@@ -18,8 +18,8 @@ class ProfileUpdate extends Component {
         Profie_Picture: "",
         institution_ID: "",
         Password: "",
-        userProfileImageUpdate : "",
-        userInstitutionImageUpdate : "",
+        userProfileImageUpdate: "",
+        userInstitutionImageUpdate: "",
         id: this.props.match.params.id,
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -92,6 +92,8 @@ class ProfileUpdate extends Component {
                                         <div className="mt-3">
                                             <h4>{this.state.First_name} {this.state.Last_name}</h4>
                                         </div>
+                                        <button className="btn btn-dark disabled">Select new profile image </button>
+                                        <input type="file" name="userProfileImageUpdate" onChange={this.fileHandler} />
                                     </div>
                                     <hr />
                                     <div className="d-flex flex-column align-items-center text-center">
@@ -100,6 +102,8 @@ class ProfileUpdate extends Component {
                                             <h6>Institution Name</h6>
                                             <h2>{this.state.institution_name}</h2>
                                         </div>
+                                        <button className="btn btn-dark disabled">Select new institution image </button>
+                                        <input type="file" name="userInstitutionImageUpdate" onChange={this.fileHandler} />
                                     </div>
                                 </div>
                                 <hr />
