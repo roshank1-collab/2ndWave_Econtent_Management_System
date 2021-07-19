@@ -1,11 +1,8 @@
 const multer = require("multer")
 //file upload like videos,...
 const fileFilter = function (req, file, cb) {
-  
-
  if (file.mimetype == 'video/mp4' || file.mimetype == 'video/webm' || file.mimetype == 'video/ogg' || file.mimetype == 'video/x-matroska') {
         cb(null, true)
-        console.log(file)
     }
     else {
         cb(null, false)

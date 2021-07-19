@@ -7,13 +7,13 @@ const uploadvideo = require('../middleware/uploadvideo')
 
 //inserting content
 router.post('/content/insert', uploadvideo, function (req, res) {
-   console.log(req.body)
-    if (req.file == undefined) {
+   console.log(req.files['video'][0].filename)
+    if (req.files == undefined) {
         return res.status(400).json({ message: "Invalid file format" })
     }
    
     const heading = req.body.heading;
-    const video = req.file.filename;
+    const video = req.files['video'][0].filename;
     const content_description = req.body.content_description;
     const categories = req.body.categories;
     const price = req.body.price;
@@ -73,7 +73,7 @@ router.get('/content/single/:id', function (req, res) {
 // to fetch the catagoris of the content
 
 router.get('/content/catagoris', function (req, res) {
-    UploadContent.find({}.categories).then(function (result) {
+    UploadContent.find().distinct('categories').then(function (result) {
         res.status(200).json({ status: true, message: result })
     }).catch(function (err) {
         res.status(500).json({ message: err })
