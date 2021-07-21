@@ -70,18 +70,30 @@ class ProfileUpdate extends Component {
                 console.log(response)
                 if (response.data.message == "User Info Updated") {
                     toast.success('User information Updated', { position: toast.POSITION.TOP_Right, autoClose: 1772 })
-                    // window.location.href = "/myprofile/" + this.state.id
+                    window.location.href = "/userprofile/" + this.state.id
                 }
             })
             .catch((err) => {
                 console.log(err.response)
             })
+
+        // const data = new FormData()
+        // data.append('userProfileImageUpdate', this.state.userProfileImageUpdate)
+
+        // axios.put("http://localhost:90/user/userProfileImageUpdate/" + this.state.id, data)
+        //     .then(response => {
+        //         console.log(response)
+        //         // toast.success("Image Updated", { position: toast.POSITION.TOP_CENTER, autoClose: 3000 })
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //     });
     }
 
 
     render() {
         return (
-            <div className="container">
+            <div className="container" style={{ marginTop: "10px" }}>
                 <div className="main-body">
                     <div className="row gutters-sm">
                         <div className="col-md-4 mb-3">
@@ -92,8 +104,8 @@ class ProfileUpdate extends Component {
                                         <div className="mt-3">
                                             <h4>{this.state.First_name} {this.state.Last_name}</h4>
                                         </div>
-                                        <button className="btn btn-dark disabled">Select new profile image </button>
-                                        <input type="file" name="userProfileImageUpdate" onChange={this.fileHandler} />
+                                        {/* <button className="btn btn-dark disabled">Select new profile image </button>
+                                        <input type="file" name="userProfileImageUpdate" onChange={this.fileHandler} /> */}
                                     </div>
                                     <hr />
                                     <div className="d-flex flex-column align-items-center text-center">
@@ -102,8 +114,8 @@ class ProfileUpdate extends Component {
                                             <h6>Institution Name</h6>
                                             <h2>{this.state.institution_name}</h2>
                                         </div>
-                                        <button className="btn btn-dark disabled">Select new institution image </button>
-                                        <input type="file" name="userInstitutionImageUpdate" onChange={this.fileHandler} />
+                                        {/* <button className="btn btn-dark disabled">Select new institution image </button>
+                                        <input type="file" name="userInstitutionImageUpdate" onChange={this.fileHandler} /> */}
                                     </div>
                                 </div>
                                 <hr />

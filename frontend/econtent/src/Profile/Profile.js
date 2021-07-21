@@ -1,7 +1,53 @@
 import axios from "axios"
 import { Component } from "react"
 import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Modal, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Button } from 'react-bootstrap'
 // import './Profile.css'
+import { toast } from "react-toastify"
+toast.configure()
+
+const userid = localStorage.getItem("userid")
+
+function Example() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const sure = () => {
+        axios.delete('http://localhost:90/user/delete/' + userid)
+            .then((response) => {
+                console.log(response)
+                if (response.data.message === "Account Deleted") {
+                    toast.success('Account Deleted', { position: toast.POSITION.TOP_RIGHT, autoClose: 2000 })
+                    window.location.href = "/login"
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+                toast.error(err, { position: toast.POSITION.TOP_RIGHT, autoClose: 2000 })
+            })
+    };
+
+    return (
+        <>
+            <button className="btn btn-danger" style={{ marginTop: "10px", marginBottom: "10px" }} onClick={handleShow} >Delete Account</button>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Are you sure you?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body><b> Think about it, again!!</b></Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        No
+                    </Button>
+                    <Button variant="primary" onClick={sure}>
+                        Yes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
+}
 
 class Profile extends Component {
 
@@ -75,7 +121,8 @@ class Profile extends Component {
                                         <button className="btn btn-success">Update</button>
                                     </Link>
 
-                                    <button className="btn btn-danger" style={{ marginTop: "10px", marginBottom: "10px" }}>Delete Account</button>
+                                    {/* <button className="btn btn-danger" style={{ marginTop: "10px", marginBottom: "10px" }} onClick = {this.DeleteAccount}>Delete Account</button> */}
+                                    <Example />
                                 </div>
 
                             </div>
