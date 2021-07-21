@@ -7,8 +7,10 @@ app.use(bodyParser.urlencoded({ extended:false}));
 app.use(express.json())
 require('./database/db');
 const User_route= require('./route/userRoute')
+const Uploadcontent = require('./route/uploadContent')
 app.use(cors()); // to get data from frontend 
 app.use(User_route)
+app.use(Uploadcontent)
 app.use(express.static('pictures'))
 
 app.listen(90, function (req, res) {
