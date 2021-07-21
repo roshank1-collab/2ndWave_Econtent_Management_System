@@ -6,6 +6,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Dropdown } from 'react-bootstrap'
+import wallpaper from './up2.jpg'
 
 toast.configure()
 class Uploadcontent extends Component {
@@ -57,7 +58,7 @@ class Uploadcontent extends Component {
                     <div className="row no-gutters shadow" style={{ background: '#f2e4fd', borderRadius: '3px' }}>
                         < div className="col-lg-6">
 
-                            <img src="./images/up2.jpg" alt="Loading Image..." className="img-fluid" style={{ marginTop: '10px' }} />
+                            <img src={wallpaper} alt="Loading Image..." className="img-fluid" style={{ marginTop: '10px' }} />
 
                         </div>
                         <div className="col-lg-6">
