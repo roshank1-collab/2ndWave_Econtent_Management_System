@@ -1,6 +1,9 @@
 
 const mongoose = require("mongoose")
 const UploadContent = mongoose.model("Uploadcontent", {
+    userid: {
+        type : String
+    },
    heading: {
         type: String,
         required: true,

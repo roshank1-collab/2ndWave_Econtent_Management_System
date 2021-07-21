@@ -17,6 +17,10 @@ class Uploadcontent extends Component {
         description: "",
         Categories: "",
         Price: "",
+        id: this.props.match.params.id,
+        config: {
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+        }
 
 
     }
@@ -41,8 +45,8 @@ class Uploadcontent extends Component {
         data.append("description", this.state.description)
         data.append("price", this.state.price)
 
-        alert()
-        axios.post("http://localhost:90/content/insert", data)
+        alert(this.state.id)
+        axios.post("http://localhost:90/content/insert/" + this.state.id, data)
             .then((response) => {
                 toast(response.data.message)
             })

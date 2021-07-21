@@ -6,12 +6,12 @@ const uploadvideo = require('../middleware/uploadvideo')
 
 
 //inserting content
-router.post('/content/insert', uploadvideo, function (req, res) {
+router.post('/content/insert/:id', uploadvideo, function (req, res) {
     console.log(req.files['video'][0].filename)
     if (req.files == undefined) {
         return res.tatus(400).json({ message: "Invalid file format" })
     }
-
+    const id = req.params.id;
     const heading = req.body.heading;
     const video = req.files['video'][0].filename;
     const content_description = req.body.content_description;
@@ -20,7 +20,7 @@ router.post('/content/insert', uploadvideo, function (req, res) {
 
     const me = new UploadContent({
         heading: heading, video: video, content_description: content_description,
-        categories: categories, price: price
+        categories: categories, price: price,userid : id
     })
 
     me.save().then(function (result) {
