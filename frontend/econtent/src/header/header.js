@@ -5,7 +5,6 @@ import { FaTwitter, FaUserGraduate, FaLinkedin, FaInstagram, FaCcVisa, FaAngelli
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const id = localStorage.getItem('id')
 const userid = localStorage.getItem('userid')
 
 function Example() {
@@ -109,12 +108,10 @@ class Header extends Component {
                     <a class="nav-link" style={{ fontSize: "18px", marginTop: "2px", fontFamily: "Poppins, sans-serif" }} href="#">Live Audio/Video </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/uploadcontent" style={{ fontSize: "19px", marginTop: "2px", fontFamily: "Poppins,sans-serif" }} >UploadContent <FaUpload /></a>
+                    <a class="nav-link" href={"/uploadcontent/" + userid }style={{ fontSize: "19px", marginTop: "2px", fontFamily: "Poppins,sans-serif" }} >UploadContent <FaUpload /></a>
                   </li>
                 </ul>
               </div>
-
-
 
               {/* <Button style={{ marginRight: "20px",backgroundColor:"#51227F" }} href="/login"  onClick = {this.logout} style={{ fontWeight:"bold" }}>Sign Out<FaSignOutAlt /> </Button> */}
               <Example />
