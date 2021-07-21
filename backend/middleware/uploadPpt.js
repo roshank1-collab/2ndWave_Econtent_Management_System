@@ -1,11 +1,11 @@
 const multer = require("multer")
 //file upload like videos,...
 const fileFilter = function (req, file, cb) {
-    if (file.mimetype == 'video/mp4' || file.mimetype == 'video/webm' || file.mimetype == 'video/ogg' || file.mimetype == 'video/x-matroska'|| file.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation") {
+    if (file.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation") {
         cb(null, true)
     }
     else {
-        console.log(file.mimetype)
+        // console.log(file.mimetype)
         cb(null, false)
     }
 }
@@ -13,7 +13,7 @@ const fileFilter = function (req, file, cb) {
 const storage = multer.diskStorage(
     {
         destination: function (req, file, cb) {
-            cb(null, './videos');
+            cb(null, './presentation');
         },
         filename: function (req, file, cb) {
             cb(null, Date.now() + file.originalname)
@@ -22,10 +22,11 @@ const storage = multer.diskStorage(
 )
 
 
+
 const uploadvideo = multer({
     storage: storage,
     limits: {
-        fileSize: 50000000 // 10000000 Bytes = 10 MB
+        fileSize: 40000000 // 10000000 Bytes = 10 MB
     },
     fileFilter: fileFilter
 }).fields([

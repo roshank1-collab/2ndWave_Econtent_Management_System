@@ -13,7 +13,7 @@ class Uploadcontent extends Component {
 
     state = {
         title: "",
-        file: "",
+        video: "",
         description: "",
         Categories: "",
         Price: "",
@@ -26,9 +26,9 @@ class Uploadcontent extends Component {
     }
     fileHandler = (e) => {
         this.setState({
-            file: e.target.files[0]
+            [e.target.name]: e.target.files[0]
         }
-        )
+        )    
     }
     changeHandler = (e) => {
         this.setState({
@@ -40,10 +40,10 @@ class Uploadcontent extends Component {
         e.preventDefault(); // prevents from reloading page
         const data = new FormData()
         data.append("title", this.state.title)
-        data.append("file", this.state.file)
-        data.append("Categories", this.state.Categories)
+        data.append("video", this.state.video)
+        data.append("categories", this.state.Categories)
         data.append("description", this.state.description)
-        data.append("price", this.state.price)
+        data.append("Price", this.state.Price)
 
         alert(this.state.id)
         axios.post("http://localhost:90/content/insert/" + this.state.id, data)
@@ -86,11 +86,9 @@ class Uploadcontent extends Component {
                                     <div className="col-lg-5">
                                         <label htmlFor="heading">Choose a File here</label>
                                         <input type="file"
-                                            className="form-control"
-                                            id="video"
-                                            name="file"
-                                            value={this.state.file}
-                                            onChange={this.changeHandler} required />
+                                            className="form-control"                                           
+                                            name="video"                                           
+                                            onChange={this.fileHandler} required />
                                     </div>
                                     <hr />
                                 </div>
@@ -110,14 +108,13 @@ class Uploadcontent extends Component {
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="categories">Categories  &nbsp;&nbsp;&nbsp;</label>
-                                        {/* <input type="text" placeholder="Categories" name="Categories"
+                                        <input type="text" placeholder="Categories" name="Categories"
                                             value={this.state.Categories}
-                                            onChange={this.changeHandler} required /> */}
-                                        <Dropdown>
+                                            onChange={this.changeHandler} required />
+                                        {/* <Dropdown>
                                             <Dropdown.Toggle id="dropdown-basic">
                                                 Dropdown Button
-                                            </Dropdown.Toggle>
-
+                                            </Dropdown.Toggle>c
                                             <Dropdown.Menu>
                                                 <Dropdown.Item value={this.state.Categories}
                                                     onChange={this.changeHandler}>Entertainment</Dropdown.Item>
@@ -134,13 +131,13 @@ class Uploadcontent extends Component {
                                                 <Dropdown.Item value={this.state.Categories}
                                                     onChange={this.changeHandler}>Physics</Dropdown.Item>
                                             </Dropdown.Menu>
-                                        </Dropdown>
+                                        </Dropdown> */}
                                     </div>
                                     <hr />
 
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Cost</label>
-                                        <input type="text" className="form-control" id="Price" name="Price" value={this.state.Price} onChange={this.changeHandler} placeholder="value of your content." required />
+                                        <input type="text" className="form-control" name="Price" value={this.state.Price} onChange={this.changeHandler} placeholder="value of your content." required />
                                     </div>
                                 </div>
                                 <hr />
