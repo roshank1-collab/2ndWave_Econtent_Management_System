@@ -9,7 +9,7 @@ const uploadvideo = require('../middleware/uploadvideo')
 router.post('/content/insert', uploadvideo, function (req, res) {
     console.log(req.files['video'][0].filename)
     if (req.files == undefined) {
-        return res.status(400).json({ message: "Invalid file format" })
+        return res.tatus(400).json({ message: "Invalid file format" })
     }
 
     const heading = req.body.heading;
