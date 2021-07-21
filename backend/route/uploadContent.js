@@ -63,8 +63,9 @@ router.get('/content/all', function (req, res) {
 //to show only single element
 router.get('/content/single/:id', function (req, res) {
     const id = req.params.id;
-    UploadContent.findOne({ _id: id }).then(function (data) {
+    UploadContent.find({userid: id }).then(function (data) {
         res.status(200).json({ data })
+        console.log(data)
     }).catch(function (err) {
         res.status(500).json({ message: err })
     })
@@ -72,8 +73,7 @@ router.get('/content/single/:id', function (req, res) {
 
 
 // to fetch the catagoris of the content
-
-router.get('/content/catagoris', function (req, res) {
+router.get('/content/catagories', function (req, res) {
     UploadContent.find().distinct('categories').then(function (result) {
         res.status(200).json({ status: true, catagories: result })
     }).catch(function (err) {
@@ -83,7 +83,7 @@ router.get('/content/catagoris', function (req, res) {
 
 
 // to fetch filtred catagores content 
-router.get('/content/catagoris/:catagories', function (req, res) {
+router.get('/content/catagories/:catagories', function (req, res) {
     UploadContent.find({ categories: req.params.catagories }).then(function (result) {
         res.status(200).json({ status: true, catagories: result })
     }).catch(function (err) {

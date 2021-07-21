@@ -66,7 +66,8 @@ class Profile extends Component {
         id: this.props.match.params.id,
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
+        },
+        allItem: []
     }
 
     //load with content
@@ -89,6 +90,17 @@ class Profile extends Component {
                 })
             }).catch((err) => {
                 console.log(err.response)
+            })
+
+        axios.get('http://localhost:90/content/single/' + this.state.id)
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    allItem: response.data.data
+                })
+            })
+            .catch((err) => {
+                alert(err)
             })
     }
 
@@ -214,61 +226,100 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <div className="row gutters-sm">
-                                <div className="col-sm-6 mb-3">
-                                    <div className="card h-100">
-                                        <div className="card-body">
-                                            <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                            <small>Web Design</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '80%' }} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Website Markup</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '72%' }} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>One Page</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '89%' }} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Mobile Template</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '55%' }} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Backend API</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '66%' }} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
+                                <div className="row gutters-sm">
+                                    <div className="col-sm-6 mb-3">
+                                        <div className="card h-100">
+                                            <div className="card-body">
+                                                <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                                                <small>Web Design</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '80%' }} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
+                                                <small>Website Markup</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '72%' }} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
+                                                <small>One Page</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '89%' }} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
+                                                <small>Mobile Template</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '55%' }} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
+                                                <small>Backend API</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '66%' }} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="col-sm-6 mb-3">
-                                    <div className="card h-100">
-                                        <div className="card-body">
-                                            <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                            <small>Web Design</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '80%' }} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Website Markup</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '72%' }} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>One Page</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '89%' }} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Mobile Template</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '55%' }} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Backend API</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '66%' }} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
+                                    <div className="col-sm-6 mb-3">
+                                        <div className="card h-100">
+                                            <div className="card-body">
+                                                <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                                                <small>Web Design</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '80%' }} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
+                                                <small>Website Markup</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '72%' }} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
+                                                <small>One Page</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '89%' }} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
+                                                <small>Mobile Template</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '55%' }} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
+                                                <small>Backend API</small>
+                                                <div className="progress mb-3" style={{ height: 5 }}>
+                                                    <div className="progress-bar bg-primary" role="progressbar" style={{ width: '66%' }} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div className="container" style={{ background: "white" }}>
+                        <center>
+                            <h1 style={{ color: "#51127F", marginTop: "40px" }}>Your Stuff</h1>
+                        </center>
+
+                        <div className="row">
+                            {
+                                this.state.allItem.map((items) => {
+                                    return (
+                                        <div className="card" style={{ width: '304px', margin: '10px' }}>
+                                            <img className="card-img-top" src={"http://localhost:90/" + items.video} alt="Image Loading...." style={{ width: '250xp', height: '250px', background: "red" }} />
+                                            <div className="card-body">
+                                                <i><h3 className="card-title"> {items.heading}</h3></i><br />
+                                                <label>Descriptoin</label>
+                                                <p><h5>{items.content_description}</h5></p>
+                                                <hr/>
+                                                <label>Genre</label>
+                                                <p><h5>{items.categories}</h5></p>
+                                                <hr/>
+                                                <div className="row">
+                                                    <div className="col-sm-6">
+                                                        <Button variant="outline-success" className="btn" >Edit
+                                                        </Button>
+                                                    </div>
+                                                    <div className="col-sm-6">
+                                                        <Button variant="outline-danger" className="btn" >Delete
+                                                        </Button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
                 </div>

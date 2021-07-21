@@ -48,11 +48,12 @@ class Uploadcontent extends Component {
         alert(this.state.id)
         axios.post("http://localhost:90/content/insert/" + this.state.id, data)
             .then((response) => {
-                alert(response.data.message)
-                // toast(response.data.message)
+                // alert(response.data.message)
+                // toast.success(response.data.message)
+                toast.success(response.data.message, { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
             })
             .catch((error) => {
-                alert(error)
+                // alert(error)
                 // toast(error.message)
             })
     }
