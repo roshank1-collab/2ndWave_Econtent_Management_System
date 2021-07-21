@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Modal, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Button } from 'react-bootstrap'
 // import './Profile.css'
 import { toast } from "react-toastify"
+import ReactPlayer from 'react-player'
 toast.configure()
 
 const userid = localStorage.getItem("userid")
@@ -295,15 +296,18 @@ class Profile extends Component {
                                 this.state.allItem.map((items) => {
                                     return (
                                         <div className="card" style={{ width: '304px', margin: '10px' }}>
-                                            <img className="card-img-top" src={"http://localhost:90/" + items.video} alt="Image Loading...." style={{ width: '250xp', height: '250px', background: "red" }} />
+                                            <ReactPlayer width='250xp' height='250px' controls
+                                                url='https://youtu.be/7sDY4m8KNLc'
+                                            />
+                                            {/* <img className="card-img-top" src={"http://localhost:90/" + items.video} alt="Image Loading...." style={{ width: '250xp', height: '250px', background: "red" }} /> */}
                                             <div className="card-body">
                                                 <i><h3 className="card-title"> {items.heading}</h3></i><br />
                                                 <label>Descriptoin</label>
                                                 <p><h5>{items.content_description}</h5></p>
-                                                <hr/>
+                                                <hr />
                                                 <label>Genre</label>
                                                 <p><h5>{items.categories}</h5></p>
-                                                <hr/>
+                                                <hr />
                                                 <div className="row">
                                                     <div className="col-sm-6">
                                                         <Button variant="outline-success" className="btn" >Edit
