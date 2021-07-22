@@ -5,7 +5,7 @@ import { FaTwitter, FaUserGraduate, FaLinkedin, FaInstagram, FaCcVisa, FaAngelli
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const userid = localStorage.getItem('userid')
+const id = localStorage.getItem('id')
 
 function Example() {
   const [show, setShow] = useState(false);
@@ -64,7 +64,7 @@ class Header extends Component {
 
                 <NavDropdown.Item href="/facebook"><FaBell style={{ color: "#FF8C00", width: "20px", height: "20px" }} /></NavDropdown.Item>
                 <NavDropdown.Item href="/facebook"><FaRocketchat style={{ color: "green", width: "20px", height: "20px" }} /></NavDropdown.Item>
-                <NavDropdown.Item href={"/userprofile/" + userid}><FaUserCircle style={{ color: "purple", width: "29px", height: "29px" }} /></NavDropdown.Item>
+                <NavDropdown.Item href="/facebook"><FaUserCircle style={{ color: "purple", width: "29px", height: "29px" }} /></NavDropdown.Item>
 
 
                 {/* <img class="rounded-circle article-img" src="{{ request.user.profile.image.url }}" id="img"/>  */}
@@ -108,10 +108,12 @@ class Header extends Component {
                     <a class="nav-link" style={{ fontSize: "18px", marginTop: "2px", fontFamily: "Poppins, sans-serif" }} href="#">Live Audio/Video </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href={"/uploadcontent/" + userid }style={{ fontSize: "19px", marginTop: "2px", fontFamily: "Poppins,sans-serif" }} >UploadContent <FaUpload /></a>
+                    <a class="nav-link" href="/channel" style={{ fontSize: "19px", marginTop: "2px", fontFamily: "Poppins,sans-serif" }} >UploadContent <FaUpload /></a>
                   </li>
                 </ul>
               </div>
+
+
 
               {/* <Button style={{ marginRight: "20px",backgroundColor:"#51227F" }} href="/login"  onClick = {this.logout} style={{ fontWeight:"bold" }}>Sign Out<FaSignOutAlt /> </Button> */}
               <Example />
@@ -122,31 +124,29 @@ class Header extends Component {
         var menu =
           <Navbar.Collapse id="responsive-navbar-nav">
             <Navbar.Brand href="/">
-              <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
+              <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px", marginLeft:'10px' }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
             </Navbar.Brand>
             <Nav className="mr-auto">
               <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Company" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/aboutfounder"><FaUserGraduate /> About Us</NavDropdown.Item>
-                <NavDropdown.Item href="/aboutfounder"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
-                <NavDropdown.Item href="/Aboutgadgetshop"><FaUsers />Our Team</NavDropdown.Item>
-                <NavDropdown.Item href="/Aboutgadgetshop"><FaTelegram />Carrer With Us</NavDropdown.Item>
+                <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
+                <NavDropdown.Item href="/whychooseus"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
+                <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
+                <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
               </NavDropdown>
               <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Services" id="basic-nav-dropdown" >
-                <NavDropdown.Item href="/howitwork"><FaServicestack />Services & Pricing</NavDropdown.Item>
-                <NavDropdown.Item href="/howitwork"><FaAngellist />Offers</NavDropdown.Item>
-                <NavDropdown.Item href="/termsandconditions"><FaCcVisa /> Pricing Plans</NavDropdown.Item>
+                <NavDropdown.Item href="/howitwork"><FaServicestack />Services & Offers</NavDropdown.Item>
                 <NavDropdown.Item href="/termsandconditions"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
 
               </NavDropdown>
 
 
             </Nav>
-            <Form>
+            <Navbar.Collapse className="justify-content-end">
 
-              <Button style={{ backgroundColor: "#51227F" }} href="/login" className="btn btn-primary" >Sign in<FaSignInAlt /></Button>
+              <Button style={{ backgroundColor: "#51227F", border:'none', marginRight:'10px' }} href="/login" className="btn btn-primary" >Sign in<FaSignInAlt /></Button>
 
-            </Form>
+           </Navbar.Collapse>
           </Navbar.Collapse>
 
 
