@@ -28,7 +28,7 @@ class Uploadcontent extends Component {
         this.setState({
             [e.target.name]: e.target.files[0]
         }
-        )    
+        )
     }
     changeHandler = (e) => {
         this.setState({
@@ -45,7 +45,7 @@ class Uploadcontent extends Component {
         data.append("description", this.state.description)
         data.append("Price", this.state.Price)
 
-        alert(this.state.id)
+        // alert(this.state.id)
         axios.post("http://localhost:90/content/insert/" + this.state.id, data)
             .then((response) => {
                 // alert(response.data.message)
@@ -87,8 +87,8 @@ class Uploadcontent extends Component {
                                     <div className="col-lg-5">
                                         <label htmlFor="heading">Choose a File here</label>
                                         <input type="file"
-                                            className="form-control"                                           
-                                            name="video"                                           
+                                            className="form-control"
+                                            name="video"
                                             onChange={this.fileHandler} required />
                                     </div>
                                     <hr />
@@ -109,30 +109,17 @@ class Uploadcontent extends Component {
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="categories">Categories  &nbsp;&nbsp;&nbsp;</label>
-                                        <input type="text" placeholder="Categories" name="Categories"
-                                            value={this.state.Categories}
-                                            onChange={this.changeHandler} required />
-                                        {/* <Dropdown>
-                                            <Dropdown.Toggle id="dropdown-basic">
-                                                Dropdown Button
-                                            </Dropdown.Toggle>c
-                                            <Dropdown.Menu>
-                                                <Dropdown.Item value={this.state.Categories}
-                                                    onChange={this.changeHandler}>Entertainment</Dropdown.Item>
-                                                <Dropdown.Item value={this.state.Categories}
-                                                    onChange={this.changeHandler}>Teacher</Dropdown.Item>
-                                                <Dropdown.Item value={this.state.Categories}
-                                                    onChange={this.changeHandler}>Student</Dropdown.Item>
-                                                <Dropdown.Item value={this.state.Categories}
-                                                    onChange={this.changeHandler}>Motivation</Dropdown.Item>
-                                                <Dropdown.Item value={this.state.Categories}
-                                                    onChange={this.changeHandler}>Relax</Dropdown.Item>
-                                                <Dropdown.Item value={this.state.Categories}
-                                                    onChange={this.changeHandler}>Music</Dropdown.Item>
-                                                <Dropdown.Item value={this.state.Categories}
-                                                    onChange={this.changeHandler}>Physics</Dropdown.Item>
-                                            </Dropdown.Menu>
-                                        </Dropdown> */}
+                                        <select className="form-control" name="Categories" onChange={this.changeHandler}>
+                                            <option selected>Select City</option>
+                                            <option value="Math">math</option>
+                                            <option value="Nepali">Nepali</option>
+                                            <option value="English">English</option>
+                                            <option value="Science">Science</option>
+                                            <option value="Computer Science">Computer Science</option>
+                                            <option value="Programming">Programming</option>
+                                            <option value="3">city 7</option>
+                                            <option value="3">city 8</option>
+                                        </select>
                                     </div>
                                     <hr />
 
