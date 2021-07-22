@@ -133,6 +133,9 @@ class Header extends Component {
               <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px", marginLeft:'10px' }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
             </Navbar.Brand>
             <Nav className="mr-auto">
+            <li class="nav-item">
+                      <a class="nav-link" href="/contactus" style={{ fontSize: "19px", marginTop: "2px" }} >contactus</a>
+                    </li>
               <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Company" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
                 <NavDropdown.Item href="/whychooseus"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
@@ -145,13 +148,15 @@ class Header extends Component {
                 <NavDropdown.Item href="/termsandconditions"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
 
               </NavDropdown>
+               
 
-
+            
+                      
             </Nav>
             <Navbar.Collapse className="justify-content-end">
 
               <Button style={{ backgroundColor: "#51227F", border:'none', marginRight:'10px' }} href="/login" className="btn btn-primary" >Sign in<FaSignInAlt /></Button>
-
+             
            </Navbar.Collapse>
           </Navbar.Collapse>
 
