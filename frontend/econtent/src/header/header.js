@@ -1,7 +1,7 @@
 import { Component } from "react"
 import { Nav, NavDropdown, Navbar, Form, Button } from 'react-bootstrap';
 import { Modal, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap'
-import { FaTwitter, FaUserGraduate, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
+import { FaTwitter, FaUserGraduate, FaLandmark, FaLinkedin, FaTty, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
