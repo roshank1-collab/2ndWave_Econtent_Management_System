@@ -63,8 +63,7 @@ const Header = () => {
 
 
   const filterCatagories = (item) => {
-    alert(item)
-    window.location.href = "/catagories/"+item;
+    window.location.href = "/catagories/" + item;
 
   }
 

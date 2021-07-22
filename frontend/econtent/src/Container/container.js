@@ -11,6 +11,7 @@ import OurTeam from './ourteam';
 import CareerWithUs from './careerwithus';
 import Profile from '../Profile/Profile';
 import ContactUs from './contactus';
+import contents from '../UploadContent/contents';
 
 
 class Container extends Component {
@@ -23,17 +24,17 @@ class Container extends Component {
                         <Route exact path="/" component={BeforeLogin} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/dashboard" component={Dashboard} />
-                        <Route exact path="/allchannel" component={ChannelsPage}/>   
-                        <Route exact path="/uploadcontent" component={UploadContent}/>     
-                        <Route exact path="/uploadcontent" component={UploadContent}/>   
-                        <Route exact path="/aboutus" component={AboutUs}/>   
-                       
-                        <Route exact path="/ourteam" component={OurTeam}/>  
-                        <Route exact path="/career" component={CareerWithUs}/>  
-                        <Route exact path="/myprofile/:id" component={Profile}/>  
-                        <Route exact path="/profileupdate/:id" component={Profile}/>  
-                        <Route exact path="/contactus" component={ContactUs}/>  
-                    
+                        <Route exact path="/allchannel" component={ChannelsPage} />
+                        <Route exact path="/uploadcontent" component={UploadContent} />
+                        <Route exact path="/uploadcontent" component={UploadContent} />
+                        <Route exact path="/aboutus" component={AboutUs} />
+                        <Route exact path="/catagories/:item" component={contents} />
+                        <Route exact path="/ourteam" component={OurTeam} />
+                        <Route exact path="/career" component={CareerWithUs} />
+                        <Route exact path="/myprofile/:id" component={Profile} />
+                        <Route exact path="/profileupdate/:id" component={Profile} />
+                        <Route exact path="/contactus" component={ContactUs} />
+
                     </Switch>
                 </BrowserRouter>
 
