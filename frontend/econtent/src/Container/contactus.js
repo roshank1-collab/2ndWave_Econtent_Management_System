@@ -15,10 +15,10 @@ class ContactUs extends Component {
       <div className="row">
         <div className="col-lg-6">
           <div className="card-shadow">
-            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/2.jpg" className="img-fluid" />
+            <img src="../images/contact.png" className="img-fluid" />
           </div>
         </div>
-        <div className="col-lg-6">
+        <div className="col-lg-6 mt-5">
           <div className="contact-box ml-3">
             <h1 className="font-weight-light mt-2">Quick Contact</h1>
             <form className="mt-4">
@@ -60,8 +60,8 @@ class ContactUs extends Component {
                   </div>
                   <div className="">
                     <h6 classNameName="font-weight-medium">Address</h6>
-                    <p className="">601 Sherwood Ave.
-                      <br/> San Bernandino</p>
+                    <p className="">Koteswar, Bagmati
+                      <br/> Kathmandu, Nepal</p>
                   </div>
                 </div>
               </div>
@@ -72,8 +72,8 @@ class ContactUs extends Component {
                   </div>
                   <div className="">
                     <h6 className="font-weight-medium">Phone</h6>
-                    <p className="">251 546 9442
-                      <br/> 630 446 8851</p>
+                    <p className="">01-93939393
+                      <br/> 01-93939393</p>
                   </div>
                 </div>
               </div>
@@ -85,8 +85,8 @@ class ContactUs extends Component {
                   <div className="">
                     <h6 className="font-weight-medium">Email</h6>
                     <p className="">
-                      info@wrappixel.com
-                      <br/> 123@wrappixel.com
+                      info@econtent.com
+                      <br/> www.econtent.com
                     </p>
                   </div>
                 </div>

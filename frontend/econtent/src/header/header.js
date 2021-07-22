@@ -1,7 +1,7 @@
 import { Component } from "react"
 import { Nav, NavDropdown, Navbar, Form, Button } from 'react-bootstrap';
 import { Modal, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap'
-import { FaTwitter, FaUserGraduate, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
+import { FaTwitter, FaUserGraduate, FaLandmark, FaLinkedin, FaTty, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -87,7 +87,7 @@ class Header extends Component {
                 </div>
                 <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Company" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
-                  <NavDropdown.Item href="/whychooseus"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
+                 
                   <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
                   <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
@@ -128,17 +128,15 @@ class Header extends Component {
       }
       else {
         var menu =
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Collapse id="responsive-navbar-nav" >
             <Navbar.Brand href="/">
               <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px", marginLeft:'10px' }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
             </Navbar.Brand>
             <Nav className="mr-auto">
-            <li class="nav-item">
-                      <a class="nav-link" href="/contactus" style={{ fontSize: "19px", marginTop: "2px" }} >contactus</a>
-                    </li>
-              <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Company" id="basic-nav-dropdown">
+            
+            <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Company" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
-                <NavDropdown.Item href="/whychooseus"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
+            
                 <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
                 <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
@@ -150,7 +148,7 @@ class Header extends Component {
               </NavDropdown>
                
 
-            
+              <Nav.Link  style={{fontWeight:'bolder'}} href="/contactus"><FaTty/> Contact</Nav.Link>
                       
             </Nav>
             <Navbar.Collapse className="justify-content-end">

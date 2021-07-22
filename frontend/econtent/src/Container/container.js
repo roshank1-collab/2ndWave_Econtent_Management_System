@@ -7,7 +7,6 @@ import ChannelsPage from '../ChannelsPage/ChannelsPage';
 import UploadContent from '../UploadContent/uploadcontent';
 import BeforeLogin from './beforeloginpage';
 import AboutUs from './aboutus';
-import WhyChooseUs from './whychooseus';
 import OurTeam from './ourteam';
 import CareerWithUs from './careerwithus';
 import Profile from '../Profile/Profile';
@@ -28,7 +27,7 @@ class Container extends Component {
                         <Route exact path="/uploadcontent" component={UploadContent}/>     
                         <Route exact path="/uploadcontent" component={UploadContent}/>   
                         <Route exact path="/aboutus" component={AboutUs}/>   
-                        <Route exact path="/whychooseus" component={WhyChooseUs}/>  
+                       
                         <Route exact path="/ourteam" component={OurTeam}/>  
                         <Route exact path="/career" component={CareerWithUs}/>  
                         <Route exact path="/myprofile/:id" component={Profile}/>  
