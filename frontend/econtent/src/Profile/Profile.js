@@ -297,7 +297,7 @@ class Profile extends Component {
                                     return (
                                         <div className="card" style={{ width: '304px', margin: '10px' }}>
                                             <ReactPlayer width='250xp' height='250px' controls
-                                                url='https://youtu.be/7sDY4m8KNLc'
+                                                url='https://youtu.be/7sDY4m8KNLc'                                            
                                             />
                                             {/* <img className="card-img-top" src={"http://localhost:90/" + items.video} alt="Image Loading...." style={{ width: '250xp', height: '250px', background: "red" }} /> */}
                                             <div className="card-body">
