@@ -10,6 +10,7 @@ import AboutUs from './aboutus';
 import WhyChooseUs from './whychooseus';
 import OurTeam from './ourteam';
 import CareerWithUs from './careerwithus';
+import Profile from '../Profile/Profile';
 
 
 class Container extends Component {
@@ -29,6 +30,8 @@ class Container extends Component {
                         <Route exact path="/whychooseus" component={WhyChooseUs}/>  
                         <Route exact path="/ourteam" component={OurTeam}/>  
                         <Route exact path="/career" component={CareerWithUs}/>  
+                        <Route exact path="/career" component={CareerWithUs}/>  
+                        <Route exact path="/myprofile/:id" component={Profile}/>  
                     </Switch>
                 </BrowserRouter>
 
