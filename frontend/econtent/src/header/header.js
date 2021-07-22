@@ -9,6 +9,7 @@ const id = localStorage.getItem('id')
 
 function Example() {
   const [show, setShow] = useState(false);
+  const [Catagories, setCatagories]= useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const out = () => {
@@ -61,10 +62,7 @@ class Header extends Component {
                 <NavDropdown.Item href="/facebook"><FaLinkedin style={{ color: "#4682B4" }} /></NavDropdown.Item>
                 <NavDropdown.Item href="/facebook"><FaTwitter style={{ color: "#00acee" }} /></NavDropdown.Item>
 
-
-                <NavDropdown.Item href="/facebook"><FaBell style={{ color: "#FF8C00", width: "20px", height: "20px" }} /></NavDropdown.Item>
-                <NavDropdown.Item href="/facebook"><FaRocketchat style={{ color: "green", width: "20px", height: "20px" }} /></NavDropdown.Item>
-                <NavDropdown.Item href={"/myprofile/" + id}><FaUserCircle style={{ color: "purple", width: "29px", height: "29px" }} /></NavDropdown.Item>
+                <NavDropdown.Item href={"/myprofile/" +id}><FaUserCircle style={{ color: "purple", width: "29px", height: "29px" }} /></NavDropdown.Item>
 
 
                 {/* <img class="rounded-circle article-img" src="{{ request.user.profile.image.url }}" id="img"/>  */}
@@ -88,13 +86,21 @@ class Header extends Component {
                   </ul> 
                 </div>
                 <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Company" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/aboutfounder"><FaUserGraduate /> About Us</NavDropdown.Item>
-                  <NavDropdown.Item href="/aboutfounder"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
-                  <NavDropdown.Item href="/Aboutgadgetshop"><FaUsers />Our Team</NavDropdown.Item>
-                  <NavDropdown.Item href="/Aboutgadgetshop"><FaTelegram />Carrer With Us</NavDropdown.Item>
+                  <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
+                  <NavDropdown.Item href="/whychooseus"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
+                  <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
+                  <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
                 </NavDropdown>
                 <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Services" id="basic-nav-dropdown" >
+                  <NavDropdown.Item href="/howitwork"><FaServicestack />Services & Pricing</NavDropdown.Item>
+                  <NavDropdown.Item href="/howitwork"><FaAngellist />Offers</NavDropdown.Item>
+                  <NavDropdown.Item href="/termsandconditions"><FaCcVisa /> Pricing Plans</NavDropdown.Item>
+                  <NavDropdown.Item href="/termsandconditions"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
+
+                </NavDropdown>
+
+                <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Catagories" id="basic-nav-dropdown" >
                   <NavDropdown.Item href="/howitwork"><FaServicestack />Services & Pricing</NavDropdown.Item>
                   <NavDropdown.Item href="/howitwork"><FaAngellist />Offers</NavDropdown.Item>
                   <NavDropdown.Item href="/termsandconditions"><FaCcVisa /> Pricing Plans</NavDropdown.Item>
