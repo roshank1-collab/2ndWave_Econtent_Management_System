@@ -85,7 +85,7 @@ class Header extends Component {
                     <li class="nav-item">
                       <a class="nav-link" href="/allchannel" style={{ fontSize: "19px", marginTop: "2px" }} >Channels</a>
                     </li>
-                  </ul>
+                  </ul> 
                 </div>
                 <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Company" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/aboutfounder"><FaUserGraduate /> About Us</NavDropdown.Item>
@@ -108,7 +108,7 @@ class Header extends Component {
                     <a class="nav-link" style={{ fontSize: "18px", marginTop: "2px", fontFamily: "Poppins, sans-serif" }} href="#">Live Audio/Video </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/channel" style={{ fontSize: "19px", marginTop: "2px", fontFamily: "Poppins,sans-serif" }} >UploadContent <FaUpload /></a>
+                    <a class="nav-link" href="/uploadcontent" style={{ fontSize: "19px", marginTop: "2px", fontFamily: "Poppins,sans-serif" }} >UploadContent <FaUpload /></a>
                   </li>
                 </ul>
               </div>
