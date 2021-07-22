@@ -52,7 +52,7 @@ export default class SimpleSlider extends Component {
             dots: true,
             infinite: true,
             speed: 500,
-            slidesToShow: 1,
+            slidesToShow: 4,
             // fade: true,
             // cssEase: 'linear',
             arrows: true,
@@ -91,7 +91,7 @@ export default class SimpleSlider extends Component {
             ]
         };
         return (
-            <div className="container" style={{ marginTop: "500px", marginBottom: "100px", padding: '10px' }}>
+            <div className="container" style={{ marginTop: "100px", marginBottom: "100px", padding: '10px' }}>
                 <h2> Popular Channels</h2>
                 <Slider {...settings} >
                     {
