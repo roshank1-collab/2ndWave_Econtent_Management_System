@@ -12,7 +12,8 @@ import CareerWithUs from './careerwithus';
 import Profile from '../Profile/Profile';
 import ContactUs from './contactus';
 import contents from '../UploadContent/contents';
-
+import Services from '../Container/Services';
+import Terms from '../Container/Termsand Condition'
 
 class Container extends Component {
     render() {
@@ -34,7 +35,8 @@ class Container extends Component {
                         <Route exact path="/myprofile/:id" component={Profile} />
                         <Route exact path="/profileupdate/:id" component={Profile} />
                         <Route exact path="/contactus" component={ContactUs} />
-
+                        <Route exact path="/services" component={Services} />
+                        <Route exact path="/terms" component={Terms}/>
                     </Switch>
                 </BrowserRouter>
 

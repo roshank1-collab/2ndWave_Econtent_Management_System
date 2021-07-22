@@ -11,7 +11,7 @@ import Footer from './footer/footer';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App" style={{background: '#F6EFEE'}}>
+      <div className="App">
         <Header />
         <Container />
         <Footer/>

@@ -22,7 +22,7 @@ function Example() {
   return (
     <>
       {/* <Button style={{ marginRight: "20px" }} className="btn btn-danger" onClick={handleShow} >Sign Out</Button> */}
-      <Button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "5px" }} type="submit" onClick={handleShow} className="btn btn-primary"> Sign Out <FaSignOutAlt /> </Button>
+      <Button style={{ backgroundColor: "#51227F", border:"none",color: "white", fontWeight: "bold", marginTop: "5px" }} type="submit" onClick={handleShow} className="btn btn-primary"> Sign Out <FaSignOutAlt /> </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Are you sure?</Modal.Title>
@@ -110,10 +110,8 @@ const Header = () => {
 
             </NavDropdown>
             <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Services" id="basic-nav-dropdown" >
-              <NavDropdown.Item href="/howitwork"><FaServicestack />Services & Pricing</NavDropdown.Item>
-              <NavDropdown.Item href="/howitwork"><FaAngellist />Offers</NavDropdown.Item>
-              <NavDropdown.Item href="/termsandconditions"><FaCcVisa /> Pricing Plans</NavDropdown.Item>
-              <NavDropdown.Item href="/termsandconditions"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
+              <NavDropdown.Item href="/services"><FaServicestack />Services</NavDropdown.Item>
+              <NavDropdown.Item href="/terms"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
 
             </NavDropdown>
 
@@ -162,7 +160,7 @@ const Header = () => {
 
           </NavDropdown>
           <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Services" id="basic-nav-dropdown" >
-            <NavDropdown.Item href="/howitwork"><FaServicestack />Services & Offers</NavDropdown.Item>
+            <NavDropdown.Item href="/services"><FaServicestack />Services & Offers</NavDropdown.Item>
             <NavDropdown.Item href="/termsandconditions"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
 
           </NavDropdown>
@@ -173,7 +171,7 @@ const Header = () => {
         </Nav>
         <Navbar.Collapse className="justify-content-end">
 
-          <Button style={{ backgroundColor: "#51227F", border: 'none', marginRight: '10px' }} href="/login" className="btn btn-primary" >Sign in<FaSignInAlt /></Button>
+          <Button style={{ backgroundColor: "#51227F", border: 'none', marginRight: '10px' }} href="/login"  >Sign in<FaSignInAlt /></Button>
 
         </Navbar.Collapse>
       </Navbar.Collapse>
