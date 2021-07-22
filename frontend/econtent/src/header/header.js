@@ -62,9 +62,6 @@ class Header extends Component {
                 <NavDropdown.Item href="/facebook"><FaLinkedin style={{ color: "#4682B4" }} /></NavDropdown.Item>
                 <NavDropdown.Item href="/facebook"><FaTwitter style={{ color: "#00acee" }} /></NavDropdown.Item>
 
-
-                <NavDropdown.Item href="/facebook"><FaBell style={{ color: "#FF8C00", width: "20px", height: "20px" }} /></NavDropdown.Item>
-                <NavDropdown.Item href="/facebook"><FaRocketchat style={{ color: "green", width: "20px", height: "20px" }} /></NavDropdown.Item>
                 <NavDropdown.Item href={"/myprofile/" + this.id}><FaUserCircle style={{ color: "purple", width: "29px", height: "29px" }} /></NavDropdown.Item>
 
 
