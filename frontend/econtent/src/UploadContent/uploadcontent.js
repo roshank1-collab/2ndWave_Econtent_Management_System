@@ -109,15 +109,13 @@ class Uploadcontent extends Component {
                                     <div className="col-lg-5">
                                         <label htmlFor="categories">Categories  &nbsp;&nbsp;&nbsp;</label>
                                         <select className="form-control" name="Categories" onChange={this.changeHandler}>
-                                            <option selected>Select City</option>
+                                            <option selected>Select Categories </option>
                                             <option value="Math">math</option>
                                             <option value="Nepali">Nepali</option>
                                             <option value="English">English</option>
                                             <option value="Science">Science</option>
                                             <option value="Computer Science">Computer Science</option>
                                             <option value="Programming">Programming</option>
-                                            <option value="3">city 7</option>
-                                            <option value="3">city 8</option>
                                         </select>
                                     </div>
                                     <hr />
