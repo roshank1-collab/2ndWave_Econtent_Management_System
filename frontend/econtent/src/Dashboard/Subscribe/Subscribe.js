@@ -45,8 +45,6 @@ export default class SimpleSlider extends Component {
             .catch((error) => {
                 console.log(error.response)
             })
-
-
     }
 
     render() {
@@ -103,7 +101,7 @@ export default class SimpleSlider extends Component {
                                     <Card style={{ width: '18rem' }}>
                                         <Card.Img
                                             variant="top"
-                                            src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '100%' }}
+                                            src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '17rem', height : '300px' }}
                                         />
                                         <Card.Body>
                                             <Card.Title>{items.First_name}</Card.Title>
