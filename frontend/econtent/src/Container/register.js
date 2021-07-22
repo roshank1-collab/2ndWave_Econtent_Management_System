@@ -81,72 +81,66 @@ class Register extends Component {
 
                         </div>
                         <div className="col-lg-7">
-
-
-                            <h1 className="font-weight-bold py-4" style={{ color: "#a018a0" }}>Sign Up</h1>
-                            <h5 style={{ color: "blueviolet", fontSize: "18px" }}>Please fill all your correct details to signup</h5>
+                            <p>Please fill all your correct details to signup, so that you can access the content by logging in.</p>
                             <form className="py-4">
+                            
                                 <div className="form-row">
-                                    <div className="col-lg-4">
-                                        <label htmlFor="fullname">Firstname</label>
-                                        <input type="text" className="form-control" name="firstname" value={this.state.firstname} onChange={this.changeHandler} required />
-                                        <div className="col-lg-5">
                                    
-                                        <label htmlFor="fullname">Lastname</label>
+                                        <label>Firstname</label>
+                                         <input type="text" className="form-control" name="firstname" value={this.state.firstname} onChange={this.changeHandler} required />
+                                         <label>Lastname</label>
                                         <input type="text" className="form-control" name="lastname" value={this.state.lastname} onChange={this.changeHandler} required />
-                                        </div>
+                                        
                                 </div>
-                                </div>
+                               
 
                                 <div className="form-row">
-                                    <div className="col-lg-5">
-                                        <label htmlFor="fullname">Gender</label>
+                                   
+                                        <label >Gender</label>
                                         <input type="text" className="form-control" name="gender" value={this.state.gender} onChange={this.changeHandler} required />
-                                    </div>
-                                    <div className="col-lg-5">
-                                        <label htmlFor="fullname">Date of Birth</label>
+                                    
+                                        <label >Date of Birth</label>
                                         <input type="date" className="form-control" name="Dob" value={this.state.Dob} onChange={this.changeHandler} required />
-                                    </div>
+                                   
+                               
                                 </div>
 
                                 <div className="form-row">
-                                    <div className="col-lg-5">
-                                        <label htmlFor="fullname">Address</label>
+                                  
+                                        <label>Address</label>
                                         <input type="text" className="form-control" name="address" value={this.state.address} onChange={this.changeHandler} required />
-                                    </div>
-                                    <div className="col-lg-5">
-                                        <label htmlFor="fullname">Phone</label>
+                                    
+                                        <label>Phone</label>
                                         <input type="text" className="form-control" name="phone_number" value={this.state.phone_number} onChange={this.changeHandler} required />
-                                    </div>
+                                 
                                 </div>
 
                                 <div className="form-row">
-                                    <div className="col-lg-5">
-                                        <label htmlFor="phone">Institution ID</label>
+                                
+                                        <label>Institution ID</label>
                                         <input type="file" placeholder="institution ID" name="institution_ID" onChange={this.fileHandler} required />
-                                    </div>
-                                    <div className="col-lg-5">
-                                        <label htmlFor="fullname">Instution Name</label>
+                                        <br/>
+                                   
+                                        <label>Instution Name</label>
                                         <input type="text" className="form-control" name="institution_name" value={this.state.instution_name} onChange={this.changeHandler} required />
-                                    </div>
+                                    
                                 </div>
 
                                 <div className="form-row">
-                                    <div className="col-lg-5">
-                                        <label htmlFor="phone">Your Photo </label>
+                                   
+                                        <label>Your Photo </label>
                                         <input type="file" placeholder="Profile Picture" name="Profile_Picture" onChange={this.fileHandler} required />
-                                    </div>
-                                    <div className="col-lg-5">
-                                        <label htmlFor="fullname">Email</label>
+                                  <br/>
+                                        <label >Email</label>
                                         <input type="text" className="form-control" name="email" value={this.state.email} onChange={this.changeHandler} required />
-                                    </div>
+                                   
                                 </div>
                                 
                                 <div className="form-row">
-                                    <div className="col-lg-5">
-                                        <label htmlFor="password">Password:</label>
+                                  
+                                        <label>Password:</label>
                                         <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.changeHandler} required />
-                                    </div>
+                                 
                                 </div>
                                 <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/"><b>Sign in</b></Link></p>
                                 <div className="col-lg-7 py-4">
