@@ -89,10 +89,10 @@ class Header extends Component {
                   </ul> 
                 </div>
                 <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Company" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/aboutfounder"><FaUserGraduate /> About Us</NavDropdown.Item>
-                  <NavDropdown.Item href="/aboutfounder"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
-                  <NavDropdown.Item href="/Aboutgadgetshop"><FaUsers />Our Team</NavDropdown.Item>
-                  <NavDropdown.Item href="/Aboutgadgetshop"><FaTelegram />Carrer With Us</NavDropdown.Item>
+                  <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
+                  <NavDropdown.Item href="/whychooseus"><FaRegSmile /> Why Choose Us?</NavDropdown.Item>
+                  <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
+                  <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
                 </NavDropdown>
                 <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Services" id="basic-nav-dropdown" >
