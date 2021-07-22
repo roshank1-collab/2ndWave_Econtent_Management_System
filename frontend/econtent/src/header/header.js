@@ -9,6 +9,7 @@ const id = localStorage.getItem('id')
 
 function Example() {
   const [show, setShow] = useState(false);
+  const [Catagories, setCatagories]= useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const out = () => {
@@ -95,6 +96,14 @@ class Header extends Component {
 
                 </NavDropdown>
                 <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Services" id="basic-nav-dropdown" >
+                  <NavDropdown.Item href="/howitwork"><FaServicestack />Services & Pricing</NavDropdown.Item>
+                  <NavDropdown.Item href="/howitwork"><FaAngellist />Offers</NavDropdown.Item>
+                  <NavDropdown.Item href="/termsandconditions"><FaCcVisa /> Pricing Plans</NavDropdown.Item>
+                  <NavDropdown.Item href="/termsandconditions"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
+
+                </NavDropdown>
+
+                <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Catagories" id="basic-nav-dropdown" >
                   <NavDropdown.Item href="/howitwork"><FaServicestack />Services & Pricing</NavDropdown.Item>
                   <NavDropdown.Item href="/howitwork"><FaAngellist />Offers</NavDropdown.Item>
                   <NavDropdown.Item href="/termsandconditions"><FaCcVisa /> Pricing Plans</NavDropdown.Item>
