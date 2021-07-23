@@ -34,7 +34,6 @@ router.post('/content/insert/:id', uploadvideo, function (req, res) {
 
 //CONTENT DELETE
 router.delete('/content/delete/:id', function (req, res) {
-
     const id = req.params.id;
     UploadContent.deleteOne({ _id: id })
         .then(function (result) {

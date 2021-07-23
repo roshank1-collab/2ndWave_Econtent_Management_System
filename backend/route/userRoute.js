@@ -8,6 +8,7 @@ const router = express.Router();
 const upload = require('../middleware/upload') //file upload or picture 
 const authentication = require('../middleware/authentication'); //token
 const SubscribeUser = require('../model/SubscibeUser');
+const WebsiteSubscription = require('../model/WebsiteSubscription');
 
 
 // for registration of users
@@ -188,9 +189,9 @@ router.delete('/user/delete/:id', function (req, res) {
     const uid = req.params.id
     Users.deleteOne({ _id: uid })
         .then(function (result) {
-            res.status(200).json({status : true, message : "Account Deleted"})
+            res.status(200).json({ status: true, message: "Account Deleted" })
         }).catch(function (err) {
-            res.status(500).json({message : err})
+            res.status(500).json({ message: err })
         })
 })
 
@@ -207,5 +208,34 @@ router.delete('/user/delete/:id', function (req, res) {
 //             res.status(500).json(e)
 //         })
 // })
+
+
+//user subscrition for notification
+router.post('/user/subscribe/website/notification/:email', function (req, res) {
+    const email = req.params.email
+    WebsiteSubscription.find({ SubscribeBy_Email: email })
+        .then(function (data) {
+            if (data.length < 1) {
+                const data = new WebsiteSubscription({
+                    SubscribeBy_Email: req.body.email
+                })
+                data.save().then(
+                    function (result) {
+                        res.status(200).json({ status: true, message: "User has subscribed the website!!" })
+                    }
+                ).catch(
+                    function (err) {
+                        res.status(201).json({ status: false, message: err })
+                    })
+            }
+            else {
+                res.status(201).json({ message: "You have already Subscribed the website!!" })
+            }
+        }).catch(function (err) {
+            res.status(500).json({ message: err })
+        })
+
+
+})
 
 module.exports = router;

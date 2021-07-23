@@ -1,56 +1,94 @@
 import { Component } from 'react';
-import { Carousel, Button } from 'react-bootstrap';
+import {Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import '../App.css'
+import axios from 'axios'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaWindows } from 'react-icons/fa';
+toast.configure()
 
 
 
 class ContactUs extends Component {
+  state = {
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  
+}
+
+changeHandler = (e) => {
+    this.setState({
+        [e.target.name]: e.target.value
+    })
+}
+
+submitMessage = (e) => {
+    e.preventDefault(); // prevents from reloading page
+    axios.post("http://localhost:90/contact/insert", this.state)
+        .then(
+            (response) => {
+              console.log(response)
+                if (response.data.message == "Your message has been sent successfully.") {
+               
+                  toast.success(response.data.message)
+                  
+                  window.location.reload()
+                }
+            }
+        )
+        .catch(
+            (error) => {
+                toast(error.message)
+            }
+        )
+}
     render() {
         return (
-            <div className="contact3 py-5 container-fluid">
+            <div className="contact3 py-2 container">
   <div className="row no-gutters">
-    <div className="container">
+    <div className="container shadow">
       <div className="row">
         <div className="col-lg-6">
-          <div className="card-shadow">
-            <img src="../images/contact.png" className="img-fluid" />
+          <div className="card" style={{border:'none', marginTop:'100px'}}>
+            <img src="../images/contactus.png" className="img-fluid" />
           </div>
         </div>
         <div className="col-lg-6 mt-5">
           <div className="contact-box ml-3">
-            <h1 className="font-weight-light mt-2">Quick Contact</h1>
+            <h1 className="font-weight-light mt-2" style={{color:'#BF3A89'}}>Quick Contact</h1>
             <form className="mt-4">
               <div className="row">
                 <div className="col-lg-12">
                   <div className="form-group mt-2">
-                    <input className="form-control" type="text" placeholder="name" />
+                    <input className="form-control" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
                   </div>
                 </div>
                 <div className="col-lg-12">
                   <div className="form-group mt-2">
-                    <input className="form-control" type="email" placeholder="email address" />
+                    <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
                   </div>
                 </div>
                 <div className="col-lg-12">
                   <div className="form-group mt-2">
-                    <input className="form-control" type="text" placeholder="phone" />
+                    <input className="form-control" type="text" name="phone" value={this.state.phone} onChange={this.changeHandler} placeholder="Phone" />
                   </div>
                 </div>
                 <div className="col-lg-12">
                   <div className="form-group mt-2">
-                    <textarea className="form-control" rows="3" placeholder="message"></textarea>
+                    <textarea className="form-control" rows="5" name="message" value={this.state.message} onChange={this.changeHandler} placeholder="Message"></textarea>
                   </div>
                 </div>
                 <div className="col-lg-12">
-                  <button type="submit" className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2"><span> SUBMIT</span></button>
+                  <button type="submit" className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2" onClick={this.submitMessage}><span> SEND</span></button>
                 </div>
               </div>
             </form>
           </div>
         </div>
-        <div className="col-lg-12">
+        <div className="col-lg-12 shadow mt-3">
           <div className="card mt-4 border-0 mb-4">
             <div className="row">
               <div className="col-lg-4 col-md-4">
