@@ -72,7 +72,7 @@ const Header = () => {
     var menu =
       <Container>
         <Navbar.Brand href="/dashboard">
-          <h3 style={{ color: "#a018a0", fontWeight: "bolder" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
+          <h3 style={{ color: "#a018a0", fontWeight: "bolder",fontWeight:"roboto" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -113,30 +113,30 @@ const Header = () => {
 
       <Navbar.Collapse id="responsive-navbar-nav" >
         <Navbar.Brand href="/">
-          <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px", marginLeft: '10px' }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
+          <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px", marginLeft: '10px',fontFamily:"roboto",fontSize:"29px" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
         </Navbar.Brand>
         <Nav className="mr-auto">
 
-          <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Company" id="basic-nav-dropdown">
+          <NavDropdown style={{ color: "black", fontWeight: "bold" ,fontFamily:"roboto",fontSize:"19x"}} title="Company" id="basic-nav-dropdown">
             <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
 
             <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
             <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
           </NavDropdown>
-          <NavDropdown style={{ color: "black", fontWeight: "bold" }} title="Services" id="basic-nav-dropdown" >
+          <NavDropdown style={{ color: "black", fontWeight: "bold",fontFamily:"roboto",fontSize:"19px" }} title="Services" id="basic-nav-dropdown" >
             <NavDropdown.Item href="/services"><FaServicestack />Services & Offers</NavDropdown.Item>
             <NavDropdown.Item href="/termsandconditions"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
 
           </NavDropdown>
 
 
-          <Nav.Link style={{ fontWeight: 'bolder' }} href="/contactus"><FaTty /> Contact</Nav.Link>
+          <Nav.Link style={{ color: "black",fontWeight: 'bolder',fontFamily:"roboto",fontSize:"21x" }} href="/contactus"> Contact <FaTty /></Nav.Link>
 
         </Nav>
         <Navbar.Collapse className="justify-content-end">
 
-          <Button style={{ backgroundColor: "#51227F", border: 'none', marginRight: '10px' }} href="/login"  >Sign in<FaSignInAlt /></Button>
+          <Button style={{ backgroundColor: "#51227F", border: 'none', marginRight: '10px',fontFamily:"roboto",fontSize:"27x" }} href="/login"  >Sign in<FaSignInAlt /></Button>
 
         </Navbar.Collapse>
       </Navbar.Collapse>
