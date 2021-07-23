@@ -126,7 +126,7 @@ const Header = () => {
           </NavDropdown>
           <NavDropdown style={{ color: "black", fontWeight: "bold",fontFamily:"roboto",fontSize:"18px" }} title="Services" id="basic-nav-dropdown" >
             <NavDropdown.Item href="/services"><FaServicestack />Services & Offers</NavDropdown.Item>
-            <NavDropdown.Item href="/termsandconditions"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
+            <NavDropdown.Item href="/terms"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
 
           </NavDropdown>
 
