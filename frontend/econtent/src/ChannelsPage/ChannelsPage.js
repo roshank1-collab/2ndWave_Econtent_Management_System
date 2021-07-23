@@ -18,22 +18,22 @@ class ChannelsPage extends Component {
     componentDidMount() {
         axios.get('http://localhost:90/channel/all/' + localStorage.getItem('userid'))
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 this.setState({
                     channels: response.data.allchannel
                 })
             })
             .catch((err) => {
-                console.log(err.response)
+                // console.log(err.response)
             })
     }
 
     subscribecount = (id) => {
         axios.post("http://localhost:90/channel/subscribe/" + id, {}, this.state.config)
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 localStorage.setItem('statusOfSubscription', response.data.statusOfSubscription)
-                console.log(localStorage.getItem('statusOfSubscription'))
+                // console.log(localStorage.getItem('statusOfSubscription'))
 
                 var statusOfSubscription = localStorage.getItem('statusOfSubscription')
                 // alert(localStorage.getItem('statusOfSubscription'))
