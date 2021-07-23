@@ -1,5 +1,4 @@
 
-
 import { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,7 +7,7 @@ import wallpaper2 from '../Dashboard/DashboardUpperPart/images/second.jpeg'
 import wallpaper3 from '../Dashboard/DashboardUpperPart/images/edu.jpeg'
 
 
-import { FaOpencart, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
+import { FaAngellist,FaRocketchat} from 'react-icons/fa'
 
 
 class BeforeLogin extends Component {
