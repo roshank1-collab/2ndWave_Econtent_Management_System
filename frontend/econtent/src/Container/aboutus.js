@@ -21,7 +21,7 @@ class AboutUs extends Component {
             <div class="container">
   <div class="row">
     <div class="col-sm">
-    <img src="../images/aback.png" alt="bgroup" width="100%" className="img-fluid" style={{marginTop:"50px"}}/>
+    <img src="../images/this.jpg" alt="bgroup" width="100%" className="img-fluid" style={{marginTop:"50px"}}/>
     </div>
     <div class="col-sm" style={{marginTop:"40px"}}>
     <h3 className="mt-4 py-3" style={{color:'#51227F', fontWeight:'bold',fontFamily:'Impact, fantasy', marginLeft:'30px'}}>l About Us ?</h3>
@@ -30,7 +30,7 @@ class AboutUs extends Component {
 Overall, education is the platform that makes it possible to defeat all barriers.
 
 In that respect, here are some powerful education quotes to help us appreciate the power of learning and gaining knowledge.</p>
-<p style={{fontSize:"18px",marginLeft:"25px",fontFamily:"roboto"}}>Upon the subject of education … I can only say that I view it as the most important subject which we as a people may be engaged in.-
+<p style={{fontSize:"19px",marginLeft:"25px",fontFamily:"roboto"}}>Upon the subject of education … I can only say that I view it as the most important subject which we as a people may be engaged in.-
 Learning is like rowing upstream: not to advance is to drop back.Education is the ability to listen to almost anything without losing your temper or your self-confidence.
 Learning is not attained by chance, it must be sought for with ardor and attended to with diligence.and we all participated lol.
 </p>
@@ -43,13 +43,13 @@ Learning is not attained by chance, it must be sought for with ardor and attende
                 <div className="col-md-6" style={{float:'left', fontFamily:'lato bold'}}>
 
                     <h3 className="mt-4 py-3" style={{color:'#51127F', fontWeight:'bolder',fontFamily:'Impact, fantasy', marginLeft:'30px'}}>l Who are we ?</h3>
-               <p  style={{color:'#51127F', marginLeft:'30px'}}>
+               <p  style={{ marginLeft:'30px',fontSize:"19px"}}>
                Go back and read the content marketing definition one more time, but this time remove the relevant and valuable. That’s the difference between content marketing and the other informational garbage you get from companies trying to sell you “stuff.” Companies send us information all the time – it’s just that most of the time it’s not very relevant or valuable (can you say spam?). That’s what makes content marketing so intriguing in today’s environment of thousands of marketing messages per person per day.
                </p>
                
                 </div>
                 <div className="col-md-6">
-                <img src="../images/abg2.png" alt="bgroup" width="100%" className="img-fluid"/>
+                <img src="../images/khai.png" alt="bgroup" className="img-fluid" style={{marginLeft:"25px",height:"350px",width:"300px" ,marginLeft:'110px'}}/>
                 </div>
             </div></div>
 
@@ -67,7 +67,7 @@ Learning is not attained by chance, it must be sought for with ardor and attende
 
                 </div>
                 <div className="col-md-6">
-                <img src="../images/benef.png" alt="bgroup"  className="img-fluid"/>
+                <img src="../images/ho.jpg" alt="bgroup" style={{height:"300px",marginLeft:"110px"}} className="img-fluid"/>
                 </div>
             </div></div>
 
