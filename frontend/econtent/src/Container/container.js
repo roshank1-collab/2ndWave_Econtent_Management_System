@@ -11,10 +11,12 @@ import OurTeam from './ourteam';
 import CareerWithUs from './careerwithus';
 import Profile from '../Profile/Profile';
 import ContactUs from './contactus';
+import Category from '../Container/Category';
 import contents from '../UploadContent/contents';
 import Services from '../Container/Services';
 import Terms from '../Container/Termsand Condition'
 import ProfileUpdate from '../Profile/ProfileUpdate';
+
 
 class Container extends Component {
     render() {
@@ -38,6 +40,7 @@ class Container extends Component {
                         <Route exact path="/contactus" component={ContactUs} />
                         <Route exact path="/services" component={Services} />
                         <Route exact path="/terms" component={Terms}/>
+                        <Route exact path="/category" component={Category}/>
                     </Switch>
                 </BrowserRouter>
 
