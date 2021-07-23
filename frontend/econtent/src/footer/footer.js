@@ -21,12 +21,15 @@ class Footer extends Component {
 
     subscribe = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:90/user/subscribe/website/notification', this.state)
+        axios.post('http://localhost:90/user/subscribe/website/notification/' + this.state.email, this.state)
             .then((response) => {
                 console.log(response)
                 if (response.data.message == "User has subscribed the website!!") {
                     toast.success("You have made a smart decision")
                     // toast.success(response.data.message)
+                }
+                else if (response.data.message == "You have already Subscribed the website!!") {
+                    toast.error("Bhayo kya bhayo. Kati subscribe garira!!!")
                 }
             })
             .catch((err) => {
