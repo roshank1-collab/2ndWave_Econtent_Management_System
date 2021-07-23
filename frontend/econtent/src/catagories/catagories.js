@@ -38,7 +38,7 @@ class Category extends Component {
                     {
                         this.state.alldata.map((item) => {
                             return (
-                                <Card style={{  width: '310px', margin: '10px'  }}>
+                                <Card className="cloudy-knoxville-gradient" style={{  width: '310px', margin: '10px', backgroundImage: "linear-gradient(#EFEFBB, #D4D3DD)" }}>
                                     <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
                                     <Card.Body>
                                         <Card.Title>{item.heading}</Card.Title>
@@ -52,7 +52,7 @@ class Category extends Component {
                                         </Card.Text>
                                     </Card.Body>
                                     <Card.Body>
-                                        <Button className="mb-3" style={{ backgroundColor: '#BF3A89', border: 'none' }} variant="primary">BUY Now</Button>
+                                        <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{  border: 'none',backgroundImage: "linear-gradient(#C04848, #480048)" }}>BUY Now</Button>
                                     </Card.Body>
                                 </Card>
                             )
