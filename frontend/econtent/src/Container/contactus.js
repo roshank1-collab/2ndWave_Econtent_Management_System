@@ -31,7 +31,7 @@ submitMessage = (e) => {
         .then(
             (response) => {
               console.log(response)
-                if (response.data.message == "Sent") {
+                if (response.data.message == "Your message has been sent successfully.") {
                
                   toast.success(response.data.message)
                   
@@ -82,7 +82,7 @@ submitMessage = (e) => {
                   </div>
                 </div>
                 <div className="col-lg-12">
-                  <button type="submit" className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2" onClick={this.submitMessage}><span> SUBMIT</span></button>
+                  <button type="submit" className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2" onClick={this.submitMessage}><span> SEND</span></button>
                 </div>
               </div>
             </form>

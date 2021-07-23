@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import {Redirect} from 'react-router-dom'
-import { FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaCartPlus, FaUsers, FaRibbon, FaInfo, FaShareSquare, FaPlusCircle, FaRegEye, FaListUl, FaMedapps, FaTelegramPlane, FaUserCog, FaCaretRight, FaRegSmile, FaArrowAltCircleRight, FaRegHandPointRight } from 'react-icons/fa'
+import { FaRegHandPointRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify';
@@ -71,81 +71,114 @@ class Register extends Component {
 
     render() {
         return (
-            <section className="Form my-4 mx-5 pt-5 pb-5">
+            <section className="Form my-2 mx-2 pt-2 pb-2">
                 <div className="container">
                     <div className="row no-gutters shadow" style={{ background: 'white', borderRadius: '3px' }}>
                         <div className="col-lg-5">
 
-                            <img src="./images/pp.jpg" alt="register" className="img-fluid" style={{ marginTop: '100px' }} />
+                            <img src="./images/pp.jpg" alt="register" className="img-fluid" style={{ marginTop: '50px' }} />
 
 
                         </div>
                         <div className="col-lg-7">
-                            <p>Please fill all your correct details to signup, so that you can access the content by logging in.</p>
-                            <form className="py-4">
-                            
-                                <div className="form-row">
-                                   
+                            <h2 className="py-4 mx-4" style={{fontWeight:'bolder',color: "#51227F"}}>
+                                Sign Up
+                            </h2>
+                            <p className="mx-4" style={{color:'#BF3A89'}}>Please fill all your correct details to signup, so that you can access the content by logging in.</p>
+                            <form className="py-4" style={{color:'#BF3A89'}}>
+                            <div className="container-fluid">
+                                <div className="row">
+                                <div className="col-md-6">
                                         <label>Firstname</label>
                                          <input type="text" className="form-control" name="firstname" value={this.state.firstname} onChange={this.changeHandler} required />
+                                </div>
+                                         <div className="col-md-6">
                                          <label>Lastname</label>
                                         <input type="text" className="form-control" name="lastname" value={this.state.lastname} onChange={this.changeHandler} required />
-                                        
-                                </div>
+                                        </div>  
+                                        </div>
+                                        </div>
+                                       
                                
 
-                                <div className="form-row">
-                                   
+                                        <div className="container-fluid">
+                                <div className="row">
+                                <div className="col-md-6">
+                                
                                         <label >Gender</label>
                                         <input type="text" className="form-control" name="gender" value={this.state.gender} onChange={this.changeHandler} required />
-                                    
+                                    </div>
+                                    <div className="col-md-6">
                                         <label >Date of Birth</label>
                                         <input type="date" className="form-control" name="Dob" value={this.state.Dob} onChange={this.changeHandler} required />
-                                   
-                               
+                                   </div>
+                                   </div>
+                            
                                 </div>
 
-                                <div className="form-row">
-                                  
+                                <div className="container-fluid">
+                                <div className="row">
+                                <div className="col-md-6">
                                         <label>Address</label>
                                         <input type="text" className="form-control" name="address" value={this.state.address} onChange={this.changeHandler} required />
-                                    
+                                    </div>
+                                    <div className="col-md-6">
                                         <label>Phone</label>
                                         <input type="text" className="form-control" name="phone_number" value={this.state.phone_number} onChange={this.changeHandler} required />
-                                 
+                                 </div>
+                                </div>
                                 </div>
 
-                                <div className="form-row">
-                                
+                                <div className="container-fluid">
+                                <div className="row">
+                                <div className="col-md-6">
                                         <label>Institution ID</label>
                                         <input type="file" placeholder="institution ID" name="institution_ID" onChange={this.fileHandler} required />
-                                        <br/>
-                                   
+                                        
+                                       </div>
+                                       <div className="col-md-6">
                                         <label>Instution Name</label>
                                         <input type="text" className="form-control" name="institution_name" value={this.state.instution_name} onChange={this.changeHandler} required />
-                                    
+                                    </div>
+                                    </div>
                                 </div>
 
-                                <div className="form-row">
-                                   
+                                <div className="container-fluid">
+                                <div className="row">
+                                <div className="col-md-6">
                                         <label>Your Photo </label>
+                                      
                                         <input type="file" placeholder="Profile Picture" name="Profile_Picture" onChange={this.fileHandler} required />
-                                  <br/>
+                                       </div>
+                                       <div className="col-md-6">
                                         <label >Email</label>
                                         <input type="text" className="form-control" name="email" value={this.state.email} onChange={this.changeHandler} required />
-                                   
+                                   </div>
+                                   </div>
                                 </div>
                                 
-                                <div className="form-row">
-                                  
+                                <div className="container-fluid">
+                                <div className="row">
+                                <div className="col-md-6">
                                         <label>Password:</label>
                                         <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.changeHandler} required />
-                                 
-                                </div>
+                                        </div>
+                                        </div></div>
+                                        <div className="container-fluid">
+                                <div className="row">
+                                <div className="col-md-6">
                                 <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/"><b>Sign in</b></Link></p>
-                                <div className="col-lg-7 py-4">
-                                    <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "5px" }} type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight /> </button>
                                 </div>
+                                </div>
+                                </div>
+                                <div className="container-fluid">
+                                <div className="row">
+                                <div className="col-md-6 mt-1">
+                                    <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "5px", border:'none' }} type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight /> </button>
+                                  
+                               </div>
+                               </div>
+                               </div>
                             </form>
                         </div>
                     </div>
