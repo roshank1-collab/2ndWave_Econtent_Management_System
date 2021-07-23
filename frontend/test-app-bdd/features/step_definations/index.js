@@ -35,3 +35,21 @@ Given ("Test registration functionality", { timeout: 30000 }, async function () 
 //   expect(await driver.wait(until.elementLocated(By.id("registerForm"))));
 //   // await driver.quit();
 // });
+
+// Test UploadContent
+Given ("Test UploadContent functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:3000/UploadContent/");
+  await driver.findElement(By.id("heading")).sendKeys("test");
+  await driver.findElement(By.id("video")).sendKeys("test");
+  await driver.findElement(By.id("content_description")).sendKeys("test");
+  await driver.findElement(By.id("categories")).sendKeys("9-28-2021");
+  await driver.findElement(By.id("price")).sendKeys("test");
+ 
+  await driver.sleep(delay);
+  await driver.findElement(By.id("upload")).click();
+
+  await driver.wait(until.elementLocated(By.id("My Profile")), 30000);
+  expect(await driver.wait(until.elementLocated(By.id("My Profile"))));
+  // await driver.quit();
+});
