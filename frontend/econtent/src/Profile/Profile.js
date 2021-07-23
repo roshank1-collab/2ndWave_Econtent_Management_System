@@ -1,8 +1,8 @@
 import axios from "axios"
 import { Component } from "react"
 import { Link } from 'react-router-dom'
-import React, { useEffect, useState } from "react";
-import { Modal, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter, Button } from 'react-bootstrap'
+import React, { useState } from "react";
+import { Modal, Button } from 'react-bootstrap'
 // import './Profile.css'
 import ReactPlayer from 'react-player'
 import { toast } from "react-toastify"
@@ -125,14 +125,14 @@ class Profile extends Component {
                             <div className="card">
                                 <div className="card-body">
                                     <div className="d-flex flex-column align-items-center text-center">
-                                        <img className="card-img-top" src={"http://localhost:90/" + this.state.Profie_Picture} alt="Image Loading...." className="rounded-circle" width={150} style={{ width: '20rem' }} />
+                                        <img className="card-img-top" src={"http://localhost:90/" + this.state.Profie_Picture} alt="Image Loading...." style={{borderRadius:'50%', border:'3px groove darkblue', width: '150px', height: '150px'}}/>
                                         <div className="mt-3">
                                             <h4>{this.state.First_name} {this.state.Last_name}</h4>
                                         </div>
                                     </div>
                                     <hr />
                                     <div className="d-flex flex-column align-items-center text-center">
-                                        <img className="card-img-top" src={"http://localhost:90/" + this.state.institution_ID} alt="Image Loading...." className="rounded-circle" width={150} style={{ width: '20rem' }} />
+                                        <img className="card-img-top" src={"http://localhost:90/" + this.state.institution_ID} alt="Image Loading...." style={{borderRadius:'50%', border:'3px groove darkblue', width: '150px', height: '150px'}} />
                                         <div className="mt-3">
                                             <h6>Institution Name</h6>
                                             <h2>{this.state.institution_name}</h2>
