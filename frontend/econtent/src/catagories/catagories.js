@@ -17,13 +17,13 @@ class Category extends Component {
 
     }
     componentDidMount() {
-        axios.get('http://localhost:90/content/catagoris/' + this.state.item).then(
-            (Response)=>{
-
+        axios.get('http://localhost:90//content/catagories/' + this.state.item).then(
+            (response) => {
+                console.log(response.data)
             }
         ).catch(
-            error =>{
-                
+            error => {
+
             }
         )
     }
