@@ -23,18 +23,18 @@ Given ("Test registration functionality", { timeout: 30000 }, async function () 
   expect(await driver.wait(until.elementLocated(By.id("loginForm"))));
   // await driver.quit();
 });
-// Given("Test login functionality", { timeout: 30000 }, async function () {
-//   let driver = await new Builder().forBrowser("chrome").build();
-//   await driver.get("http://localhost:3000/");
-//   await driver.findElement(By.id("email")).sendKeys("test@gmail.com");
-//   await driver.findElement(By.id("password")).sendKeys("test1234");
-//   await driver.sleep(delay);
-//   await driver.findElement(By.id("loginBtn")).click();
+Given("Test login functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:3000/");
+  await driver.findElement(By.id("email")).sendKeys("test@gmail.com");
+  await driver.findElement(By.id("password")).sendKeys("test1234");
+  await driver.sleep(delay);
+  await driver.findElement(By.id("loginBtn")).click();
 
-//   await driver.wait(until.elementLocated(By.id("registerForm")), 30000);
-//   expect(await driver.wait(until.elementLocated(By.id("registerForm"))));
-//   // await driver.quit();
-// });
+  await driver.wait(until.elementLocated(By.id("registerForm")), 30000);
+  expect(await driver.wait(until.elementLocated(By.id("registerForm"))));
+  // await driver.quit();
+});
 
 // Test UploadContent
 Given ("Test UploadContent functionality", { timeout: 30000 }, async function () {
