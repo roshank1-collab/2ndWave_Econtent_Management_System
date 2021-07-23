@@ -61,21 +61,21 @@ class Login extends Component {
                         </div>
                         <div className="col-lg-5 no gutters">
 
-                            <h1 className="font-weight-bold py-4" style={{ color: "#a018a0" }}>Login</h1>
+                            <h1 className="font-weight-bold py-4" style={{ fontWeight:"bolder",fontSize:"35px",color: "#a018a0",fontFamily:"roboto" }}>Login</h1>
                             {/* <span style={{fontSize: '12px', marginTop: '-79px'}}>Enter your credentials to get started</span><br/> */}
 
 
                             <form style={{ marginLeft: "5px" }}>
                                 <div className="form-row">
                                     <div className="col-lg-5">
-                                        <label htmlFor="uname">Email:</label>
+                                        <label htmlFor="uname" style={{fontFamily:"roboto" ,fontSize:"20px"}}>Email:</label>
                                         <input type="text" className="form-control" value={this.state.email} onChange={this.changeHandler} name="email" required />
                                     </div>
                                 </div>
 
                                 <div className="form-row">
                                     <div className="col-lg-5">
-                                        <label htmlFor="pwd">Password:</label>
+                                        <label htmlFor="pwd" style={{fontFamily:"roboto" ,fontSize:"20px"}}>Password:</label>
                                         <input type="password" className="form-control" value={this.state.password} onChange={this.changeHandler} name="password" required />
                                     </div>
                                 </div>
@@ -83,11 +83,11 @@ class Login extends Component {
                             </form>
 
 
-                            <p className="signUp text-left">Do have an Account?  <Link exact to="/register"><b style={{ color: "#a018a0" }}>Sign Up</b></Link></p>
+                            <p className="signUp text-left" style={{fontFamily:"roboto" ,fontSize:"17px"}}>Do have an Account?  <Link exact to="/register"><b style={{ color: "#a018a0" }}>Sign Up</b></Link></p>
                            {/*<a style={{ color: "blueviolet" }} href="#"><u>Forgot your password?</u></a>*/} 
                             <div className="form-row">
                                 <div className="col-lg-5">
-                                    <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "10px", border:'none' }} type="submit" onClick={this.loginUser} class="btn btn-primary"> Sign in <FaRegHandPointRight/> </button>
+                                    <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "10px", border:'none',fontFamily:"roboto" ,fontSize:"18px" }} type="submit" onClick={this.loginUser} class="btn btn-primary"> Sign in <FaRegHandPointRight/> </button>
                                 </div>
                             </div>
 

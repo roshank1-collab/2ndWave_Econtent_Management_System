@@ -81,11 +81,11 @@ class Register extends Component {
 
                         </div>
                         <div className="col-lg-7">
-                            <h2 className="py-4 mx-4" style={{fontWeight:'bolder',color: "#51227F"}}>
+                            <h2 className="py-4 mx-4" style={{fontWeight:'bolder',fontSize:"35px",color: "#51227F",fontFamily:"roboto"}}>
                                 Sign Up
                             </h2>
-                            <p className="mx-4" style={{color:'#BF3A89'}}>Please fill all your correct details to signup, so that you can access the content by logging in.</p>
-                            <form className="py-4" style={{color:'#BF3A89'}}>
+                            <p className="mx-4" style={{color:'#BF3A89', fontSize:"20px",fontFamily:"roboto" }}>Please fill all your correct details to signup, so that you can access the content by logging in.</p>
+                            <form className="py-4" style={{color:'black',fontSize:"17px"}}>
                             <div className="container-fluid">
                                 <div className="row">
                                 <div className="col-md-6">
@@ -174,7 +174,7 @@ class Register extends Component {
                                 <div className="container-fluid">
                                 <div className="row">
                                 <div className="col-md-6 mt-1">
-                                    <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "5px", border:'none' }} type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight /> </button>
+                                    <button style={{ backgroundColor: "#51227F", fontFamily:"roboto",color: "white", fontWeight: "bold", marginTop: "5px", border:'none',fontFamily:"roboto" ,fontSize:"18px" }} type="submit" onClick={this.submitUser} className="btn btn-primary"> Sign up <FaRegHandPointRight /> </button>
                                   
                                </div>
                                </div>
