@@ -11,7 +11,7 @@ import OurTeam from './ourteam';
 import CareerWithUs from './careerwithus';
 import Profile from '../Profile/Profile';
 import ContactUs from './contactus';
-import contents from '../UploadContent/contents';
+import Category from '../catagories/catagories';
 
 
 class Container extends Component {
@@ -28,7 +28,7 @@ class Container extends Component {
                         <Route exact path="/uploadcontent" component={UploadContent} />
                         <Route exact path="/uploadcontent" component={UploadContent} />
                         <Route exact path="/aboutus" component={AboutUs} />
-                        <Route exact path="/catagories/:item" component={contents} />
+                        <Route exact path="/catagories/:item" component={Category} />
                         <Route exact path="/ourteam" component={OurTeam} />
                         <Route exact path="/career" component={CareerWithUs} />
                         <Route exact path="/myprofile/:id" component={Profile} />

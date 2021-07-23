@@ -1,7 +1,7 @@
 import React from 'react'
 import { Component } from 'react';
 
-class contents extends Component{
+class Category extends Component{
     state={
         item: this.props.match.params.item,
     }
@@ -16,4 +16,4 @@ class contents extends Component{
     }
 }
 
-export default contents
+export default Category
