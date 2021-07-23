@@ -14,6 +14,7 @@ import ContactUs from './contactus';
 import contents from '../UploadContent/contents';
 import Services from '../Container/Services';
 import Terms from '../Container/Termsand Condition'
+import ProfileUpdate from '../Profile/ProfileUpdate';
 
 class Container extends Component {
     render() {
@@ -32,8 +33,8 @@ class Container extends Component {
                         <Route exact path="/catagories/:item" component={contents} />
                         <Route exact path="/ourteam" component={OurTeam} />
                         <Route exact path="/career" component={CareerWithUs} />
-                        <Route exact path="/myprofile/:id" component={Profile} />
-                        <Route exact path="/profileupdate/:id" component={Profile} />
+                        <Route exact path="/userprofile/:id" component={Profile} />
+                        <Route exact path="/profileupdate/:id" component={ProfileUpdate} />
                         <Route exact path="/contactus" component={ContactUs} />
                         <Route exact path="/services" component={Services} />
                         <Route exact path="/terms" component={Terms}/>

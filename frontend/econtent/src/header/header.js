@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-const id = localStorage.getItem('id')
+const id = localStorage.getItem('userid')
 
 function Example() {
   const [show, setShow] = useState(false);
@@ -79,7 +79,7 @@ const Header = () => {
             <NavDropdown.Item href="/facebook"><FaLinkedin style={{ color: "#4682B4" }} /></NavDropdown.Item>
             <NavDropdown.Item href="/facebook"><FaTwitter style={{ color: "#00acee" }} /></NavDropdown.Item>
 
-            <NavDropdown.Item href={"/myprofile/" + id}><FaUserCircle style={{ color: "purple", width: "29px", height: "29px" }} /></NavDropdown.Item>
+            <NavDropdown.Item href={"/userprofile/" + id}><FaUserCircle style={{ color: "purple", width: "29px", height: "29px" }} /></NavDropdown.Item>
 
 
             {/* <img class="rounded-circle article-img" src="{{ request.user.profile.image.url }}" id="img"/>  */}
