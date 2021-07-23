@@ -105,6 +105,17 @@ class Profile extends Component {
             })
     }
 
+    deleteContent = (contentid) => {
+        axios.delete('http://localhost:90/content/delete/' + contentid)
+            .then((response) => {
+                toast.success(response.data.message)
+                window.location.href = "/userprofile/" + this.state.id
+            })
+            .catch((err) => {
+                toast.error(err.message)
+            })
+    }
+
     render() {
         return (
             <div className="container" style={{ marginTop: "10px" }}>
@@ -313,7 +324,7 @@ class Profile extends Component {
                                                             </Button>
                                                         </div>
                                                         <div className="col-sm-6">
-                                                            <Button variant="outline-danger" className="btn" >Delete
+                                                            <Button variant="outline-danger" className="btn" onClick={this.deleteContent.bind(this, items._id)}>Delete
                                                             </Button>
                                                         </div>
                                                     </div>
