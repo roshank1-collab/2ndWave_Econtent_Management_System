@@ -294,5 +294,4 @@ class ProfileUpdate extends Component {
         )
     }
 }
-
 export default ProfileUpdate;

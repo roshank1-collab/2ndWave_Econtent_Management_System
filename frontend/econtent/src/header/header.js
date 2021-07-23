@@ -115,7 +115,7 @@ const Header = () => {
 
             </NavDropdown>
 
-            <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Catagories" id="basic-nav-dropdown" >
+            <NavDropdown style={{ color: "black", marginTop: "2px", fontSize: "19px" }} title="Categories" id="basic-nav-dropdown" >
               {
                 Catagories.map((item) => (
                   <NavDropdown.Item onClick={filterCatagories.bind(this, item)}><FaServicestack />{item}</NavDropdown.Item>
