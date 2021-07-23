@@ -27,8 +27,8 @@ class Container extends Component {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/allchannel" component={ChannelsPage} />
-                        <Route exact path="/uploadcontent" component={UploadContent} />
-                        <Route exact path="/uploadcontent" component={UploadContent} />
+                        <Route exact path="/uploadcontent/:id" component={UploadContent} />
+                        <Route exact path="/uploadcontent/:id" component={UploadContent} />
                         <Route exact path="/aboutus" component={AboutUs} />
                         <Route exact path="/catagories/:item" component={contents} />
                         <Route exact path="/ourteam" component={OurTeam} />

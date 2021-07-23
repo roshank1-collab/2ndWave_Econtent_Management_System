@@ -95,7 +95,7 @@ const Header = () => {
             </NavDropdown>
 
             <Nav.Link href="#">Live Audio/Video</Nav.Link>
-            <Nav.Link href="/uploadcontent">UploadContent <FaUpload /></Nav.Link>
+            <Nav.Link href={"/uploadcontent/" + id}>UploadContent <FaUpload /></Nav.Link>
             <Nav.Link href={"/userprofile/" + id}>My Profile <FaUserCircle /></Nav.Link>
 
 

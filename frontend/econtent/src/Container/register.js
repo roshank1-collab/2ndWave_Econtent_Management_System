@@ -71,7 +71,7 @@ class Register extends Component {
 
     render() {
         return (
-            <section className="Form my-2 mx-2 pt-2 pb-2">
+            <section className="Form my-2 mx-2 pt-2 pb-2" style={{fontFamily:'roboto'}}>
                 <div className="container">
                     <div className="row no-gutters shadow" style={{ background: 'white', borderRadius: '3px' }}>
                         <div className="col-lg-5">
