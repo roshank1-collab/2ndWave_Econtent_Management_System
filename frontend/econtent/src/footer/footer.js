@@ -21,12 +21,15 @@ class Footer extends Component {
 
     subscribe = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:90/user/subscribe/website/notification', this.state)
+        axios.post('http://localhost:90/user/subscribe/website/notification/' + this.state.email, this.state)
             .then((response) => {
                 console.log(response)
                 if (response.data.message == "User has subscribed the website!!") {
                     toast.success("You have made a smart decision")
                     // toast.success(response.data.message)
+                }
+                else if (response.data.message == "You have already Subscribed the website!!") {
+                    toast.error("Bhayo kya bhayo. Kati subscribe garira!!!")
                 }
             })
             .catch((err) => {
@@ -43,7 +46,8 @@ class Footer extends Component {
 
                             <div className="col-xs-12 col-sm-6 col-md-3">
                                 <div className="widget subscribe no-box">
-                                    <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
+                                <ul className="thumbnail-widget">
+                                    <h3 className="widget-title" style={{ color: "white", fontWeight: "bolder", marginTop: "2px" }}>E-content <span></span></h3>
 
                                     <p>
                                         <FaFly /> Kathmandu, Nepal <br /> <br />
@@ -51,28 +55,27 @@ class Footer extends Component {
                                         <FaMonero /> info@econtentweb.com <br /><br />
                                         <FaPhoneSquareAlt /> 01-958385583
                                     </p>
+                                    </ul>
                                 </div>
                             </div>
 
                             <div className="col-xs-12 col-sm-6 col-md-3">
                                 <div className="widget no-box">
-                                    <h5 className="widget-title">Company<span></span></h5>
+                                    <h5 className="widget-title">Reference Link<span></span></h5>
                                     <ul className="thumbnail-widget">
                                         <p>
                                             <li>
-                                                <div className="thumb-content"><a target="_blank" href="#">About Us</a></div> <br />
+                                                <div className="thumb-content"><a target="_blank" href="/aboutus">About Us</a></div> <br />
                                             </li>
                                             <li>
-                                                <div className="thumb-content"><a target="_blank" href="#">Careers</a></div> <br />
+                                                <div className="thumb-content"><a target="_blank" href="/careerwithus">Careers</a></div> <br />
+                                            </li>
+                                        
+                                            <li>
+                                                <div className="thumb-content"><a target="_blank" href="/contactus">Contact Us</a></div> <br />
                                             </li>
                                             <li>
-                                                <div className="thumb-content"><a href="#">FAQ</a></div> <br />
-                                            </li>
-                                            <li>
-                                                <div className="thumb-content"><a target="_blank" href="#">Contact Us</a></div> <br />
-                                            </li>
-                                            <li>
-                                                <div className="thumb-content"><a href="#">Terms & Conditions </a></div> <br />
+                                                <div className="thumb-content"><a href="/terms">Terms & Conditions </a></div> <br />
                                             </li>
 
 
@@ -102,10 +105,10 @@ class Footer extends Component {
 
                                     <p><Link to="www.gmail.com" target="_blank" title="glorythemes">info@econtentweb.com</Link></p>
                                     <ul className="social-footer2">
-                                        <Link title="youtube" target="_blank" to="https://www.youtube.com/"><FaYoutubeSquare style={{ color: "Red", fontSize: "29px", marginRight: "7px" }} /></Link>
-                                        <Link to="https://www.facebook.com/" target="_blank" title="Facebook"><FaFacebookSquare style={{ color: "blue", fontSize: "29px", marginRight: "12px" }} /></Link>
-                                        <Link to="https://twitter.com" target="_blank" title="Twitter"><FaTwitterSquare style={{ color: "#0077c0", fontSize: "29px", marginRight: "12px" }} /></Link>
-                                        <Link title="instagram" target="_blank" to="https://www.instagram.com/"><FaInstagramSquare style={{ color: "#C13584", fontSize: "29px", marginRight: "12px" }} /></Link>
+                                        <Link title="youtube" target="_blank" to="https://www.youtube.com/"><FaYoutubeSquare style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                        <Link to="https://www.facebook.com/" target="_blank" title="Facebook"><FaFacebookSquare style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                        <Link to="https://twitter.com" target="_blank" title="Twitter"><FaTwitterSquare style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                        <Link title="instagram" target="_blank" to="https://www.instagram.com/"><FaInstagramSquare style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
                                     </ul>
                                     <ul className="social-footer2">
 

@@ -211,20 +211,31 @@ router.delete('/user/delete/:id', function (req, res) {
 
 
 //user subscrition for notification
-router.post('/user/subscribe/website/notification', function (req, res) {
-    // const email = req.body.email
-    const data = new WebsiteSubscription({
-        SubscribeBy_Email : req.body.email
-    })
-
-    data.save().then(
-        function (result) {
-            res.status(200).json({ status: true, message: "User has subscribed the website!!" })
-        }
-    ).catch(
-        function (err) {
-            res.status(201).json({ status: false, message: err })
+router.post('/user/subscribe/website/notification/:email', function (req, res) {
+    const email = req.params.email
+    WebsiteSubscription.find({ SubscribeBy_Email: email })
+        .then(function (data) {
+            if (data.length < 1) {
+                const data = new WebsiteSubscription({
+                    SubscribeBy_Email: req.body.email
+                })
+                data.save().then(
+                    function (result) {
+                        res.status(200).json({ status: true, message: "User has subscribed the website!!" })
+                    }
+                ).catch(
+                    function (err) {
+                        res.status(201).json({ status: false, message: err })
+                    })
+            }
+            else {
+                res.status(201).json({ message: "You have already Subscribed the website!!" })
+            }
+        }).catch(function (err) {
+            res.status(500).json({ message: err })
         })
+
+
 })
 
 module.exports = router;

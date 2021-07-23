@@ -49,7 +49,7 @@ class Login extends Component {
         }
         return (
 
-            <section className="Form my-4 mx-5 pt-5 pb-5">
+            <section className="Form my-2 mx-2 pt-2 pb-2">
                 <div className="container">
                     <div className="row no-gutters shadow" style={{ background: 'white', borderRadius: '3px' }}>
 

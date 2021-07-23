@@ -1,5 +1,4 @@
 
-
 import { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,7 +7,7 @@ import wallpaper2 from '../Dashboard/DashboardUpperPart/images/second.jpeg'
 import wallpaper3 from '../Dashboard/DashboardUpperPart/images/edu.jpeg'
 
 
-import { FaOpencart, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
+import { FaAngellist,FaRocketchat} from 'react-icons/fa'
 
 
 class BeforeLogin extends Component {
@@ -26,8 +25,8 @@ class BeforeLogin extends Component {
                         <Carousel.Caption>
                         <h3 style={{color:"white"}}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
                             <p  style={{color:"white"}}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
-                            <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="#features">Explore <FaAngellist/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contact">Contact <FaRocketchat/></a>
+                            <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
+                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a>
                         </Carousel.Caption> 
                     </Carousel.Item>
                     <Carousel.Item style={{height:"600px"}}>
@@ -39,8 +38,8 @@ class BeforeLogin extends Component {
                         <Carousel.Caption>
                             <h3 style={{color:"black"}}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
                             <p  style={{color:"black"}}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
-                            <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="#features">Explore <FaAngellist/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contact">Contact <FaRocketchat/></a>  </Carousel.Caption>
+                            <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
+                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a> </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item style={{height:"600px"}}>
                         <img
@@ -51,8 +50,8 @@ class BeforeLogin extends Component {
 
                         <Carousel.Caption>
                         <h3 style={{color:"white"}}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                        <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="#features">Explore <FaAngellist/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contact">Contact <FaRocketchat/></a>  </Carousel.Caption>
+                        <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
+                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a>  </Carousel.Caption>
                         
                     </Carousel.Item>
                 </Carousel>
@@ -64,9 +63,9 @@ class BeforeLogin extends Component {
                 <div className="container">
                     <div className="row">
 
-                        <div className="col-md-3"><img src="./images/coventry.png" style={{height:'50px', width:'200px'}} className="img-fluid" alt="background" /></div>
-                        <div className="col-md-3"><img src="./images/LogoProposal6.png" style={{height:'50px', width:'200px'}} className="img-fluid" alt="background" /></div>
                         <div className="col-md-3"><img src="./images/campus.png" style={{height:'50px', width:'200px'}} className="img-fluid" alt="background" /></div>
+                        <div className="col-md-3"><img src="./images/wow.png" style={{height:'50px', width:'200px'}} className="img-fluid" alt="background" /></div>
+                        <div className="col-md-3"><img src="./images/econtent.png" style={{height:'50px', width:'200px'}} className="img-fluid" alt="background" /></div>
                         <div className="col-md-3"><img src="./images/softwarica.png" style={{height:'50px', width:'200px'}} className="img-fluid" alt="background" /></div>
                     </div>
                 </div>
@@ -79,7 +78,7 @@ class BeforeLogin extends Component {
 
                             <div className="col-md-3 mb-4">
                                 <div className="card" style={{ width: "15rem" }}>
-                                    <img className="card-img-top" src="./images/service2.jpg" alt="Card image cap" />
+                                    <img className="card-img-top" src="./images/services.png" alt="Card image cap" />
                                     <div className="card-body">
 
                                         <p className="card-text">When a company provides a service, and the customer has paid for it, there is no transfer of ownership. We cannot transport or store a service.
@@ -93,7 +92,7 @@ class BeforeLogin extends Component {
                             </div>
                             <div className="col-md-3 mb-4">
                                 <div className="card" style={{ width: "15rem" }}>
-                                    <img classN="card-img-top" src="./images/service2.jpg" alt="Card image cap" />
+                                    <img classN="card-img-top" src="./images/services.png" alt="Card image cap" />
                                     <div className="card-body">
                                         <p className="card-text">When a company provides a service, and the customer has paid for it, there is no transfer of ownership. We cannot transport or store a service.</p>
                                         <a href="#" className="btn btn-primary" style={{ backgroundColor: '#51227f', border: 'none' }}>Read more</a>
@@ -105,7 +104,7 @@ class BeforeLogin extends Component {
                             </div>
                             <div className="col-md-3 mb-4">
                                 <div className="card" style={{ width: "15rem" }}>
-                                    <img classN="card-img-top" src="./images/service2.jpg" alt="Card image cap" />
+                                    <img classN="card-img-top" src="./images/services.png" alt="Card image cap" />
                                     <div className="card-body">
                                         <p className="card-text">When a company provides a service, and the customer has paid for it, there is no transfer of ownership. We cannot transport or store a service.</p>
                                         <a href="#" className="btn btn-primary" style={{ backgroundColor: '#51227f', border: 'none' }}>Read more</a>
@@ -117,7 +116,7 @@ class BeforeLogin extends Component {
                             </div>
                             <div className="col-md-3 mb-4">
                                 <div className="card" style={{ width: "15rem" }}>
-                                    <img classN="card-img-top" src="./images/service2.jpg" alt="Card image cap" />
+                                    <img classN="card-img-top" src="./images/services.png" alt="Card image cap" />
                                     <div className="card-body">
                                         <p className="card-text">When a company provides a service, and the customer has paid for it, there is no transfer of ownership. We cannot transport or store a service.</p>
                                         <a href="#" className="btn btn-primary" style={{ backgroundColor: '#51227f', border: 'none' }}>Read more</a>
@@ -144,7 +143,7 @@ class BeforeLogin extends Component {
                                 <a href="/register" className="btn btn-primary" style={{ backgroundColor: '#51227f', border: 'none' }}>Join us >></a>
                             </div>
                             <div className="col-md-6">
-                                <img classN="card-img-top" src="./images/insight.png" alt="Card image cap" />
+                                <img classN="card-img-top" src="./images/servicelady.png" className="img-fluid mt-5" alt="Card image cap" />
                             </div>
 
                         </div>
