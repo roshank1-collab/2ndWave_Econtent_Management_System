@@ -42,7 +42,7 @@ Learning is not attained by chance, it must be sought for with ardor and attende
                 <div className="row">
                 <div className="col-md-6" style={{float:'left', fontFamily:'lato bold'}}>
 
-                    <h3 className="mt-4 py-3" style={{color:'#BF3A89', fontWeight:'bolder',fontFamily:'Impact, fantasy', marginLeft:'30px'}}>l Who are we ?</h3>
+                    <h3 className="mt-4 py-3" style={{color:'#51127F', fontWeight:'bolder',fontFamily:'Impact, fantasy', marginLeft:'30px'}}>l Who are we ?</h3>
                <p  style={{color:'#51127F', marginLeft:'30px'}}>
                Go back and read the content marketing definition one more time, but this time remove the relevant and valuable. That’s the difference between content marketing and the other informational garbage you get from companies trying to sell you “stuff.” Companies send us information all the time – it’s just that most of the time it’s not very relevant or valuable (can you say spam?). That’s what makes content marketing so intriguing in today’s environment of thousands of marketing messages per person per day.
                </p>
@@ -57,7 +57,7 @@ Learning is not attained by chance, it must be sought for with ardor and attende
                 <div className="row">
                 <div className="col-md-6" style={{float:'left', fontFamily:'lato bold'}}>
 
-                    <h3 className="mt-4 py-3" style={{color:'#BF3A89', fontWeight:'bolder',fontFamily:'Impact, fantasy', marginLeft:'30px'}}>l Why should you go with us?</h3>
+                    <h3 className="mt-4 py-3" style={{color:'#51127F', fontWeight:'bolder',fontFamily:'Impact, fantasy', marginLeft:'30px'}}>l Why should you go with us?</h3>
                <p  style={{color:'#51127F', marginLeft:'30px'}}>
                <Button variant="outline-danger"><FaCheckCircle/> Latest Content</Button> &nbsp; <Button variant="outline-danger">  <FaCheckCircle/> Beneficial coursework</Button>
                &nbsp;<Button variant="outline-danger"><FaCheckCircle/> Discover anything at a reasonable cost</Button>  <br/>  <br/>&nbsp; <Button variant="outline-danger"><FaCheckCircle/> Dedicated Team</Button>
