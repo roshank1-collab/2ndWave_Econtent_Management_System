@@ -1,11 +1,11 @@
-import { Component } from "react"
-import { Nav, NavDropdown, Navbar, Form, Button } from 'react-bootstrap';
-import { Modal, Container, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap'
-import { FaTwitter, FaUserGraduate, FaLandmark, FaLinkedin, FaTty, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
+
+import { Nav, NavDropdown, Navbar, Button } from 'react-bootstrap';
+import { Modal, Container } from 'react-bootstrap'
+import { FaUserGraduate,FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 import axios from 'axios';
-import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
+
 
 const id = localStorage.getItem('userid')
 

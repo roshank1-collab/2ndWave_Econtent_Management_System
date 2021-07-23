@@ -1,11 +1,8 @@
 import { Component } from 'react'
-import { FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaCartPlus, FaUsers, FaRibbon, FaInfo, FaShareSquare, FaPlusCircle, FaRegEye, FaListUl, FaMedapps, FaTelegramPlane, FaUserCog, FaCaretRight, FaRegSmile, FaArrowAltCircleRight, FaRegHandPointRight } from 'react-icons/fa'
-
-import { Link } from 'react-router-dom'
+import { FaRegHandPointRight } from 'react-icons/fa'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Dropdown } from 'react-bootstrap'
 import wallpaper from './up2.jpg'
 
 toast.configure()
