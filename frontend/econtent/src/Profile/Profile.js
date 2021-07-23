@@ -328,7 +328,6 @@ class Profile extends Component {
                                                             </Button>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         )
