@@ -1,9 +1,39 @@
 import { Component } from "react"
 import '../App.css'
 import { Link } from 'react-router-dom'
-import { FaFly,FaHandPointer, FaInternetExplorer, FaMonero, FaPhoneSquareAlt,FaFacebookSquare,FaTwitterSquare,FaYoutubeSquare,FaInstagramSquare } from "react-icons/fa";
+import { FaFly, FaHandPointer, FaInternetExplorer, FaMonero, FaPhoneSquareAlt, FaFacebookSquare, FaTwitterSquare, FaYoutubeSquare, FaInstagramSquare } from "react-icons/fa";
+import axios from 'axios'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 class Footer extends Component {
+
+    state = {
+        email: ""
+    }
+
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    subscribe = (e) => {
+        e.preventDefault()
+        axios.post('http://localhost:90/user/subscribe/website/notification', this.state)
+            .then((response) => {
+                console.log(response)
+                if (response.data.message == "User has subscribed the website!!") {
+                    toast.success("You have made a smart decision")
+                    // toast.success(response.data.message)
+                }
+            })
+            .catch((err) => {
+                alert(err.message)
+            })
+    }
+
     render() {
         return (
             <footer id="footer" className="footer-1 text-white">
@@ -13,13 +43,13 @@ class Footer extends Component {
 
                             <div className="col-xs-12 col-sm-6 col-md-3">
                                 <div className="widget subscribe no-box">
-                                <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
-                                   
+                                    <h3 style={{ color: "#a018a0", fontWeight: "bolder", marginTop: "2px" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
+
                                     <p>
-                                    <FaFly/> Kathmandu, Nepal <br/> <br/> 
-                                    <FaInternetExplorer/> www.econtentweb.com <br/> <br/> 
-                                    <FaMonero/> info@econtentweb.com <br/><br/> 
-                                    <FaPhoneSquareAlt/> 01-958385583
+                                        <FaFly /> Kathmandu, Nepal <br /> <br />
+                                        <FaInternetExplorer /> www.econtentweb.com <br /> <br />
+                                        <FaMonero /> info@econtentweb.com <br /><br />
+                                        <FaPhoneSquareAlt /> 01-958385583
                                     </p>
                                 </div>
                             </div>
@@ -28,24 +58,24 @@ class Footer extends Component {
                                 <div className="widget no-box">
                                     <h5 className="widget-title">Company<span></span></h5>
                                     <ul className="thumbnail-widget">
-                                   <p>
-                                        <li>
-                                        <div className="thumb-content"><a target="_blank" href="#">About Us</a></div> <br/> 
-                                        </li>
-                                        <li>
-                                            <div className="thumb-content"><a target="_blank" href="#">Careers</a></div> <br/> 
-                                        </li>
-                                        <li>
-                                        <div className="thumb-content"><a href="#">FAQ</a></div> <br/>  
-                                        </li>
-                                        <li>
-                                            <div className="thumb-content"><a target="_blank" href="#">Contact Us</a></div> <br/> 
-                                        </li>
-                                        <li>
-                                        <div className="thumb-content"><a href="#">Terms & Conditions </a></div> <br/>  
-                                        </li>
-                                        
-                                       
+                                        <p>
+                                            <li>
+                                                <div className="thumb-content"><a target="_blank" href="#">About Us</a></div> <br />
+                                            </li>
+                                            <li>
+                                                <div className="thumb-content"><a target="_blank" href="#">Careers</a></div> <br />
+                                            </li>
+                                            <li>
+                                                <div className="thumb-content"><a href="#">FAQ</a></div> <br />
+                                            </li>
+                                            <li>
+                                                <div className="thumb-content"><a target="_blank" href="#">Contact Us</a></div> <br />
+                                            </li>
+                                            <li>
+                                                <div className="thumb-content"><a href="#">Terms & Conditions </a></div> <br />
+                                            </li>
+
+
                                         </p>
                                     </ul>
                                 </div>
@@ -57,9 +87,8 @@ class Footer extends Component {
                                     <p>Get notification of our newly launched updates and offers.</p>
                                     <form>
                                         <div className="form-group">
-
-                                            <input type="text" className="form-control" placeholder="Email address" name="email" required /><br />
-                                            <button style={{backgroundColor:"#51227F",color:"white",fontWeight:"bolder"}}type="submit" className="btn "> Subscribe<FaHandPointer/> </button>
+                                            <input type="text" className="form-control" placeholder="Email address" name="email" value={this.state.email} onChange={this.changeHandler} required /><br />
+                                            <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bolder" }} type="submit" className="btn " onClick={this.subscribe}> Subscribe<FaHandPointer /> </button>
                                         </div>
                                     </form>
 
@@ -73,10 +102,10 @@ class Footer extends Component {
 
                                     <p><Link to="www.gmail.com" target="_blank" title="glorythemes">info@econtentweb.com</Link></p>
                                     <ul className="social-footer2">
-                                        <Link title="youtube" target="_blank" to="https://www.youtube.com/"><FaYoutubeSquare style={{color:"Red",fontSize:"29px",marginRight:"7px"}}/></Link>
-                                        <Link to="https://www.facebook.com/" target="_blank" title="Facebook"><FaFacebookSquare style={{color:"blue",fontSize:"29px",marginRight:"12px"}}/></Link>
-                                       <Link to="https://twitter.com" target="_blank" title="Twitter"><FaTwitterSquare style={{color:"#0077c0",fontSize:"29px",marginRight:"12px"}} /></Link>
-                                        <Link title="instagram" target="_blank" to="https://www.instagram.com/"><FaInstagramSquare  style={{color:"#C13584",fontSize:"29px",marginRight:"12px"}} /></Link>
+                                        <Link title="youtube" target="_blank" to="https://www.youtube.com/"><FaYoutubeSquare style={{ color: "Red", fontSize: "29px", marginRight: "7px" }} /></Link>
+                                        <Link to="https://www.facebook.com/" target="_blank" title="Facebook"><FaFacebookSquare style={{ color: "blue", fontSize: "29px", marginRight: "12px" }} /></Link>
+                                        <Link to="https://twitter.com" target="_blank" title="Twitter"><FaTwitterSquare style={{ color: "#0077c0", fontSize: "29px", marginRight: "12px" }} /></Link>
+                                        <Link title="instagram" target="_blank" to="https://www.instagram.com/"><FaInstagramSquare style={{ color: "#C13584", fontSize: "29px", marginRight: "12px" }} /></Link>
                                     </ul>
                                     <ul className="social-footer2">
 
