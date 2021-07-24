@@ -30,7 +30,6 @@ class Category extends Component {
         )
     }
 
-
     render() {
         return (
             <div className="container">
@@ -45,19 +44,27 @@ class Category extends Component {
                                     <ReactPlayer width='250xp' height='250px' controls
                                         url='https://youtu.be/7sDY4m8KNLc'
                                     />
-                                    <Card.Body>
-                                        <Card.Title>{item.heading}</Card.Title>
+                                    <Card.Body>                                       
+                                        <Card.Title><h3><center>{item.heading}</center></h3></Card.Title>
                                         <Card.Text>
+                                        <label><b><i>Description : &nbsp;</i></b></label>
                                             {item.content_description}
                                         </Card.Text>
+                                        <hr/>
+                                        <Card.Text>
+                                        <label><b><i>Genre : &nbsp;</i></b></label>
+                                            {item.categories}
+                                        </Card.Text>
+                                        <hr/>
                                     </Card.Body>
                                     <Card.Body>
                                         <Card.Text>
+                                        <label><b><i>Price : &nbsp;</i></b></label>
                                             {item.price}
                                         </Card.Text>
                                     </Card.Body>
                                     <Card.Body>
-                                        <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }}>BUY Now</Button>
+                                        <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }} >BUY Now</Button>
                                     </Card.Body>
                                 </Card>
                             )
