@@ -7,8 +7,7 @@ class Dashboard extends Component {
         return (
             <div>
                 <DashboardUpperPart />                
-                <Subscribe />
-          
+                <Subscribe />          
             </div>
 
         )
