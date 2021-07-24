@@ -62,10 +62,8 @@ const Header = () => {
 
   }, []);
 
-
   const filterCatagories = (item) => {
     window.location.href = "/catagories/" + item;
-
   }
 
   if (localStorage.getItem('token') && localStorage.getItem('loginstatus') === 'true') {
