@@ -17,7 +17,7 @@ router.post('/contact/insert', function (req, res) {
             contactus.save().then(function (result) {
                 res.status(200).json({ message: "Your message has been sent successfully."})
             }).catch(function (err) {
-                res.status(201).json({ message: err })
+                res.status(201).json({status:'success', message: err })
                 console.log(err)
             })
         })
