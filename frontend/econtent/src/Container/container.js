@@ -44,7 +44,7 @@ class Container extends Component {
                         <Route exact path="/terms" component={Terms}/>
                         <Route exact path="/buycontent/:id" component={Buycontent}/>
                         <Route exact path="/paywithkhalti/:id" component={ paywithkhalti}/>
-                        <Route exact path="/paywithesewa" component={ paywithesewa}/>
+                        <Route exact path="/paywithesewa/:id" component={ paywithesewa}/>
                     </Switch>
                 </BrowserRouter>
 
