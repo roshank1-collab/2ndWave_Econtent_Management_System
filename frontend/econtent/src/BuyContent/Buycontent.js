@@ -81,7 +81,7 @@ class Buycontent extends Component {
                     </Button>
                 </Link>
 
-                <Link to={"/paywithesewa"}>
+                <Link to={"/paywithesewa/" + this.state.userid}>
                     <Button style={{ background: "#41A124", marginBottom: "16px", fontSize: "30px" }}>
                         Pay with E-Sewa
                     </Button>
