@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { FaRegSmileBeam,FaRegSmile, FaUsers, FaUserClock, FaUpload, FaMoneyCheckAlt, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaHandsHelping, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook } from 'react-icons/fa'
 import './terms.css';
-
+import './home.css'
 
 class Terms extends Component {
     render() {
@@ -68,6 +68,7 @@ To the extent that the website and the information and services on the website a
   <Button style={{ backgroundColor: "#51227F", border: 'none',marginLeft:"40px" }} href="/"  >Proceed<FaSignInAlt /></Button>
 
 </div>
+
 
    </div>
      

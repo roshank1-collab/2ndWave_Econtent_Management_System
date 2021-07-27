@@ -5,9 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import wallpaper1 from '../Dashboard/DashboardUpperPart/images/econtent.jpeg'
 import wallpaper2 from '../Dashboard/DashboardUpperPart/images/second.jpeg'
 import wallpaper3 from '../Dashboard/DashboardUpperPart/images/edu.jpeg'
+import './home.css'
 
 
-import { FaAngellist,FaRocketchat} from 'react-icons/fa'
+import { FaAngellist,FaRocketchat,FaRegSmile} from 'react-icons/fa'
 
 
 class BeforeLogin extends Component {
@@ -72,65 +73,70 @@ class BeforeLogin extends Component {
                 </div>
 
                 <br />
-                <div style={{ backgroundColor: '#d5eaff' }}>
-                    <h4 style={{ color: "#51227F", fontWeight: "bold", marginTop: "5px", textAlign: 'center' }}>Our <span style={{ color: "#a018a0" }}>Services</span></h4> <br />
-                    <div className="container">
-                        <div className="row">
 
-                            <div className="col-md-3 mb-4">
-                                <div className="card" style={{ width: "15rem" }}>
-                                    <img className="card-img-top" src="./images/services.png" alt="Card image cap" />
-                                    <div className="card-body">
-
-                                        <p className="card-text">When a company provides a service, and the customer has paid for it, there is no transfer of ownership. We cannot transport or store a service.
-
-                                        </p>
-                                        <a href="#" className="btn btn-primary" style={{ backgroundColor: '#51227f', border: 'none' }}>Read more</a>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div className="col-md-3 mb-4">
-                                <div className="card" style={{ width: "15rem" }}>
-                                    <img classN="card-img-top" src="./images/services.png" alt="Card image cap" />
-                                    <div className="card-body">
-                                        <p className="card-text">When a company provides a service, and the customer has paid for it, there is no transfer of ownership. We cannot transport or store a service.</p>
-                                        <a href="#" className="btn btn-primary" style={{ backgroundColor: '#51227f', border: 'none' }}>Read more</a>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                            <div className="col-md-3 mb-4">
-                                <div className="card" style={{ width: "15rem" }}>
-                                    <img classN="card-img-top" src="./images/services.png" alt="Card image cap" />
-                                    <div className="card-body">
-                                        <p className="card-text">When a company provides a service, and the customer has paid for it, there is no transfer of ownership. We cannot transport or store a service.</p>
-                                        <a href="#" className="btn btn-primary" style={{ backgroundColor: '#51227f', border: 'none' }}>Read more</a>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                            <div className="col-md-3 mb-4">
-                                <div className="card" style={{ width: "15rem" }}>
-                                    <img classN="card-img-top" src="./images/services.png" alt="Card image cap" />
-                                    <div className="card-body">
-                                        <p className="card-text">When a company provides a service, and the customer has paid for it, there is no transfer of ownership. We cannot transport or store a service.</p>
-                                        <a href="#" className="btn btn-primary" style={{ backgroundColor: '#51227f', border: 'none' }}>Read more</a>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-
-                        </div>
-                    </div>
+                <div class="container-fluid mb-5" style={{backgroundColor:"rgba(179, 179, 182, 0.17)"}}>
+    <div class="text-center mt-5">
+        <h1>Our Services</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services settings">
+                    <div class="icon"><FaRegSmile/> </div>
+                    <h4>Settings</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <a href="#" className="btn btn-primary" style={{ backgroundColor: '#51227f', border: 'none',marginTop:"60px" }}>Read more</a>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services speedup">
+                <div class="icon"><FaRegSmile/> </div>
+                    <h4>Speedup</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services privacy">
+                <div class="icon"><FaRegSmile/> </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services backups">
+                <div class="icon"><FaRegSmile/> </div>
+                    <h4>Backups</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services ssl">
+                <div class="icon"><FaRegSmile/> </div>
+                    <h4>SSL secured</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services database">
+                <div class="icon"><FaRegSmile/> </div>
+                    <h4>Database</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
                 <div style={{ backgroundColor: "#F5EEFC" }}>

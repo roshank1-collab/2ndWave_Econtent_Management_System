@@ -26,7 +26,7 @@ class OurTeam extends Component {
 		
 			<div class="row">
 			
-				<div class="col-sm-6 col-lg-4 col-xl-3">
+				<div class=" col-lg-4 col-xl-3">
 					<div class="single-person">
 						<div class="person-image">
 							<img src="https://i.ibb.co/G2CBWvb/person1.jpg" alt=""/>
