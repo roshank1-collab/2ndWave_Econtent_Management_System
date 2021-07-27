@@ -1,186 +1,103 @@
 import { Component } from 'react';
 import { Carousel, Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import wallpaper1 from '../Dashboard/DashboardUpperPart/images/econtent.jpeg'
-import wallpaper2 from '../Dashboard/DashboardUpperPart/images/second.jpeg'
-import wallpaper3 from '../Dashboard/DashboardUpperPart/images/edu.jpeg'
+import { Link } from 'react-router-dom'
+import './team.css'
 
-
-import { FaCheckCircle, FaFacebookSquare, FaLinkedin, FaGithubSquare, FaGooglePlusSquare, FaAngellist, FaTwitterSquare, FaInstagramSquare, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
-import BeforeLogin from './beforeloginpage';
+import { FaCheckCircle,FaOpencart, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaBell, FaUsers, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaUpload, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook, FaRegSmile } from 'react-icons/fa'
 
 
 class OurTeam extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <Carousel fade>
-                        <Carousel.Item style={{ height: "600px" }}>
-                            <img
-                                className="d-block w-100"
-                                src={wallpaper1}
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                <h3 style={{ color: "white" }}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                                <p style={{ color: "white" }}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
-                                <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item style={{ height: "600px" }}>
-                            <img
-                                className="d-block w-100"
-                                src={wallpaper2}
-                                alt="Second slide"
-                            />
-                            <Carousel.Caption>
-                                <h3 style={{ color: "black" }}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                                <p style={{ color: "black" }}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
-                                <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a> </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item style={{ height: "600px" }}>
-                            <img
-                                className="d-block w-100"
-                                src={wallpaper3}
-                                alt="Third slide"
-                            />
-
-                            <Carousel.Caption>
-                                <h3 style={{ color: "white" }}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                                <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a> </Carousel.Caption>
-
-                        </Carousel.Item>
-                    </Carousel>
-                </div>
-                <br />
-                <h3 className="text-center" style={{ color: '#51127F', fontWeight: 'bolder' }}> Our <span style={{ color: '#BF3A89', fontWeight: 'bolder' }}>Team</span>
-
-                </h3>
-
-                <br />
-                <div className="container text-center shadow">
-                <p>We believe in doing business with honesty, integrity and a sincere heart for others. We aren’t going to sell you something you don’t need. We won’t lie to get your business. We will treat you with kindness and respect. The way it should be (and far too often is not.</p>
-                </div>
-                <div className="container-fluid mt-3 mb-3 ">
-                    <div className="row">
-                        <div className="col-md-4">
-                            <Card style={{ width: '16rem' }}>
-                                <Card.Img variant="top" src="../images/roshan.jpg" style={{height:'250px'}} />
-                                <Card.Body>
-                                    <Card.Title className="text-center">Roshan Koirala</Card.Title>
-                                    <Card.Text className="text-center">
-                                       <FaFacebookSquare/>
-                                       <FaGithubSquare/>
-                                       <FaGooglePlusSquare/>
-                                       <FaLinkedin/>
-                                       <FaTwitterSquare/>
-                                       <FaInstagramSquare/>
-                                    </Card.Text>
-                                
-                                </Card.Body>
-                            </Card>
-
-
-                        </div>
-                        <div className="col-md-4">
-                        <Card style={{ width: '16rem' }}>
-                                <Card.Img variant="top" src="../images/riya.jpg" style={{height:'250px'}} />
-                                <Card.Body>
-                                    <Card.Title className="text-center">Riya Pandey</Card.Title>
-                                    <Card.Text className="text-center">
-                                       <FaFacebookSquare/>
-                                       <FaGithubSquare/>
-                                       <FaGooglePlusSquare/>
-                                       <FaLinkedin/>
-                                       <FaTwitterSquare/>
-                                       <FaInstagramSquare/>
-                                    </Card.Text>
-                                
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div className="col-md-4">
-                        <Card style={{ width: '16rem' }}>
-                                <Card.Img variant="top" src="../images/sujit.jpg" style={{height:'250px'}} />
-                                <Card.Body>
-                                    <Card.Title className="text-center">Sujit Kushuwaha</Card.Title>
-                                    <Card.Text className="text-center">
-                                       <FaFacebookSquare/>
-                                       <FaGithubSquare/>
-                                       <FaGooglePlusSquare/>
-                                       <FaLinkedin/>
-                                       <FaTwitterSquare/>
-                                       <FaInstagramSquare/>
-                                    </Card.Text>
-                                
-                                </Card.Body>
-                            </Card>
-                        </div>
-                    </div></div>
-                    <div className="container-fluid mt-3 mb-3">
-                    <div className="row">
-                        <div className="col-md-4">
-                            <Card style={{ width: '16rem' }}>
-                                <Card.Img variant="top" src="../images/shankar.jpg" style={{height:'250px'}} />
-                                <Card.Body>
-                                    <Card.Title className="text-center">Roshan Koirala</Card.Title>
-                                    <Card.Text className="text-center">
-                                       <FaFacebookSquare/>
-                                       <FaGithubSquare/>
-                                       <FaGooglePlusSquare/>
-                                       <FaLinkedin/>
-                                       <FaTwitterSquare/>
-                                       <FaInstagramSquare/>
-                                    </Card.Text>
-                                
-                                </Card.Body>
-                            </Card>
-
-
-                        </div>
-                        <div className="col-md-4">
-                        <Card style={{ width: '16rem' }}>
-                                <Card.Img variant="top" src="../images/enjeela.jpg" style={{height:'250px'}} />
-                                <Card.Body>
-                                    <Card.Title className="text-center">Riya Pandey</Card.Title>
-                                    <Card.Text className="text-center">
-                                       <FaFacebookSquare/>
-                                       <FaGithubSquare/>
-                                       <FaGooglePlusSquare/>
-                                       <FaLinkedin/>
-                                       <FaTwitterSquare/>
-                                       <FaInstagramSquare/>
-                                    </Card.Text>
-                                
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div className="col-md-4">
-                        <Card style={{ width: '16rem' }}>
-                                <Card.Img variant="top" src="../images/usha.jpg" style={{height:'250px'}} />
-                                <Card.Body>
-                                    <Card.Title className="text-center">Usha Katwal</Card.Title>
-                                    <Card.Text className="text-center">
-                                       <FaFacebookSquare/>
-                                       <FaGithubSquare/>
-                                       <FaGooglePlusSquare/>
-                                       <FaLinkedin/>
-                                       <FaTwitterSquare/>
-                                       <FaInstagramSquare/>
-                                    </Card.Text>
-                                
-                                </Card.Body>
-                            </Card>
-                        </div>
-                    </div></div>
-
-    
-
-
+              
+	<section class="section-team">
+		<div class="container">
+		
+			<div class="row justify-content-center text-center">
+				<div class="col-md-8 col-lg-6">
+					<div class="header-section">
+						<h3 class="small-title">Our Experts</h3>
+						<h2 class="title">Let's meet with our team members</h2>
+					</div>
+				</div>
+			</div>
+		
+			<div class="row">
+			
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="single-person">
+						<div class="person-image">
+							<img src="https://i.ibb.co/G2CBWvb/person1.jpg" alt=""/>
+							<span class="icon">
+								<i class="fab fa-html5"></i>
+							</span>
+						</div>
+						<div class="person-info">
+							<h3 class="full-name">John Doe</h3>
+							<span class="speciality">Web Developer</span>
+                            <div className="row">
+                            <ul>
+                                        <Link title="youtube" target="_blank" to="https://www.youtube.com/"><FaServicestack style={{ color: "black", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                        <Link to="https://www.facebook.com/" target="_blank" title="Facebook"><FaTelegram style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                        <Link to="https://twitter.com" target="_blank" title="Twitter"><FaServicestack style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                        <Link title="instagram" target="_blank" to="https://www.instagram.com/"><FaServicestack style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                    </ul>
+                            </div>
+                            
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="single-person">
+						<div class="person-image">
+							<img src="https://i.ibb.co/nbpNr4r/person2.jpg" alt=""/>
+							<span class="icon">
+								<i class="fab fa-wordpress-simple"></i>
+							</span>
+						</div>
+						<div class="person-info">
+							<h3 class="full-name">Robert Smith</h3>
+							<span class="speciality">WordPress Developer</span>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="single-person">
+						<div class="person-image">
+							<img src="https://i.ibb.co/25zdRMr/person3.jpg" alt=""/>
+							<span class="icon">
+								<i class="fab fa-angular"></i>
+							</span>
+						</div>
+						<div class="person-info">
+							<h3 class="full-name">John Doe</h3>
+							<span class="speciality">Angular Developer</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="single-person">
+						<div class="person-image">
+							<img src="https://i.ibb.co/w0ynr2Q/person4.jpg" alt=""/>
+							<span class="icon">
+								<i class="fab fa-js"></i>
+							</span>
+						</div>
+						<div class="person-info">
+							<h3 class="full-name">John Smith</h3>
+							<span class="speciality">Javascript Developer</span>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
             </div>
         )
     }

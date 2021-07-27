@@ -49,7 +49,7 @@ Learning is not attained by chance, it must be sought for with ardor and attende
                
                 </div>
                 <div className="col-md-6">
-                <img src="../images/khai.png" alt="bgroup" className="img-fluid" style={{marginLeft:"25px",height:"350px",width:"300px" ,marginLeft:'110px'}}/>
+                <img src="../images/khai.png" alt="bgroup" className="img-fluid" style={{marginLeft:"25px",height:"350px",width:"500px" ,marginLeft:'110px'}}/>
                 </div>
             </div></div>
 
@@ -67,7 +67,7 @@ Learning is not attained by chance, it must be sought for with ardor and attende
 
                 </div>
                 <div className="col-md-6">
-                <img src="../images/ho.jpg" alt="bgroup" style={{height:"300px",marginLeft:"110px"}} className="img-fluid"/>
+                <img src="../images/ho.jpg" alt="bgroup" style={{height:"300px",marginLeft:"110px",width:"500px"}} className="img-fluid"/>
                 </div>
             </div></div>
 

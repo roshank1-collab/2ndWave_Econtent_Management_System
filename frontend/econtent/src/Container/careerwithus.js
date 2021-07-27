@@ -14,49 +14,7 @@ class CareerWithUs extends Component {
     render() {
         return (
             <div>
-               <div>
-                <Carousel fade>
-                    <Carousel.Item style={{height:"600px"}}>
-                        <img
-                            className="d-block w-100"
-                            src={wallpaper1} 
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                        <h3 style={{color:"white"}}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                            <p  style={{color:"white"}}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
-                            <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a>
-                        </Carousel.Caption> 
-                    </Carousel.Item>
-                    <Carousel.Item style={{height:"600px"}}>
-                        <img
-                            className="d-block w-100"
-                            src={wallpaper2} 
-                            alt="Second slide"
-                        />
-                        <Carousel.Caption>
-                            <h3 style={{color:"black"}}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                            <p  style={{color:"black"}}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
-                            <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a>  </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item style={{height:"600px"}}>
-                        <img
-                            className="d-block w-100"
-                            src={wallpaper3} 
-                            alt="Third slide"
-                        />
-
-                        <Carousel.Caption>
-                        <h3 style={{color:"white"}}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                        <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a> </Carousel.Caption>
-                        
-                    </Carousel.Item>
-                </Carousel>
-          
-            </div>
+              
 
          
             <div className=" container mt-4 mb-4 shadow">

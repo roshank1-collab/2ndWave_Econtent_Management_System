@@ -16,7 +16,7 @@ class BeforeLogin extends Component {
             <div>
                <div className='container-fluid' style = {{padding : '8px'}}>
                 <Carousel fade>
-                    <Carousel.Item style={{height:"600px"}}>
+                    <Carousel.Item style={{height:"500px"}}>
                         <img
                             className="d-block w-100"
                             src={wallpaper1} 
@@ -29,7 +29,7 @@ class BeforeLogin extends Component {
                                     <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white",fontFamily:"roboto"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a>
                         </Carousel.Caption> 
                     </Carousel.Item>
-                    <Carousel.Item style={{height:"600px"}}>
+                    <Carousel.Item style={{height:"500px"}}>
                         <img
                             className="d-block w-100"
                             src={wallpaper2} 
@@ -41,7 +41,7 @@ class BeforeLogin extends Component {
                             <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white",fontFamily:"roboto"}} class="btn  btn-lg px-4 me-sm-3" href="/aboutus">Explore <FaAngellist/></a>
                                     <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white",fontFamily:"roboto"}} class="btn  btn-lg px-4 me-sm-3" href="/contactus">Contact <FaRocketchat/></a> </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item style={{height:"600px"}}>
+                    <Carousel.Item style={{height:"500px"}}>
                         <img
                             className="d-block w-100"
                             src={wallpaper3} 
