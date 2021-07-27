@@ -62,6 +62,14 @@ class OurTeam extends Component {
 							<h3 class="full-name">Robert Smith</h3>
 							<span class="speciality">WordPress Developer</span>
 						</div>
+                        <div className="row">
+                            <ul>
+                                        <Link title="youtube" target="_blank" to="https://www.youtube.com/"><FaServicestack style={{ color: "black", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                        <Link to="https://www.facebook.com/" target="_blank" title="Facebook"><FaTelegram style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                        <Link to="https://twitter.com" target="_blank" title="Twitter"><FaServicestack style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                        <Link title="instagram" target="_blank" to="https://www.instagram.com/"><FaServicestack style={{ color: "white", fontSize: "20px", marginRight: "7px" }} /></Link>
+                                    </ul>
+                            </div>
 					</div>
 				</div>
 			
