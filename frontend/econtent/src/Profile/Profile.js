@@ -77,18 +77,18 @@ class Profile extends Component {
             .then((response) => {
                 console.log(response)
                 this.setState({
-                    First_name: response.data.data[0].First_name,
-                    Last_name: response.data.data[0].Last_name,
-                    Dob: response.data.data[0].Dob,
-                    gender: response.data.data[0].gender,
-                    address: response.data.data[0].address,
-                    Phone_number: response.data.data[0].Phone_number,
-                    institution_name: response.data.data[0].institution_name,
-                    Email: response.data.data[0].Email,
-                    Password: response.data.data[0].Password,
-                    Profie_Picture: response.data.data[0].Profie_Picture,
-                    institution_ID: response.data.data[0].institution_ID
-                })
+                    First_name: response.data.userdata[0].First_name,
+                    Last_name: response.data.userdata[0].Last_name,
+                    Dob: response.data.userdata[0].Dob,
+                    gender: response.data.userdata[0].gender,
+                    address: response.data.userdata[0].address,
+                    Phone_number: response.data.userdata[0].Phone_number,
+                    institution_name: response.data.userdata[0].institution_name,
+                    Email: response.data.userdata[0].Email,
+                    Password: response.data.userdata[0].Password,
+                    Profie_Picture: response.data.userdata[0].Profie_Picture,
+                    institution_ID: response.data.userdata[0].institution_ID
+                })                
             }).catch((err) => {
                 console.log(err.response)
             })

@@ -15,6 +15,9 @@ import Category from '../catagories/catagories';
 import Services from '../Container/Services';
 import Terms from '../Container/Termsand Condition'
 import ProfileUpdate from '../Profile/ProfileUpdate';
+import Buycontent from '../BuyContent/Buycontent';
+import paywithkhalti from '../BuyContent/paywithkhalti';
+import paywithesewa from '../BuyContent/paywithesewa';
 
 
 class Container extends Component {
@@ -39,6 +42,9 @@ class Container extends Component {
                         <Route exact path="/contactus" component={ContactUs} />
                         <Route exact path="/services" component={Services} />
                         <Route exact path="/terms" component={Terms}/>
+                        <Route exact path="/buycontent/:id" component={Buycontent}/>
+                        <Route exact path="/paywithkhalti/:id" component={ paywithkhalti}/>
+                        <Route exact path="/paywithesewa/:id" component={ paywithesewa}/>
                     </Switch>
                 </BrowserRouter>
 
