@@ -84,7 +84,7 @@ class Uploadcontent extends Component {
                                     </div>
                                     <hr />
                                     <div className="col-lg-5">
-                                        <label htmlFor="heading">Choose a File here</label>
+                                        <label htmlFor="heading">Choose a same vedio here</label>
                                         <input type="file"
                                             className="form-control"
                                             name="video"
