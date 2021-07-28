@@ -118,9 +118,16 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
             const SubscribeTo_Name = data[0].First_name
             const SubscribeTo_Email = data[0].Email
 
-            SubscribeUser.find({ SubscribeBy_Userid: loggedIn_UserID } && { SubscribeTo_Userid: SubscribeTo_UserId })
+            SubscribeUser.find()
                 .then(function (uuudata) {
-                    if (uuudata.length < 1) {
+                    console.log(uuudata)
+                    var filterdata = uuudata.filter(function (ele) {
+                        return ele.SubscribeBy_Userid == loggedIn_UserID && ele.SubscribeTo_Userid == SubscribeTo_UserId
+                    })
+                    console.log("filterdata")
+                    console.log(filterdata)
+
+                    if (filterdata.length < 1) {
                         const SubscribeModel = new SubscribeUser({
                             SubscribeTo_Userid: SubscribeTo_UserId, SubscribeTo_Name: SubscribeTo_Name, SubscribeTo_Email: SubscribeTo_Email, SubscribeBy_Userid: loggedIn_UserID,
                             SubscribeBy_Name: loggedIn_UserName, SubscribeBy_Email: loggedIn_UserEmail
@@ -133,11 +140,11 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
                                 res.status(501).json({ message: err })
                             })
                     }
-                    else {
+                    else  {
                         res.status(201).json({ statusOfSubscription: "You have already Subscribed this user" })
                         // console.log("User have already Subscribed")
                     }
-                    console.log(uuudata)
+                    // console.log(uuudata)
 
                 })
                 .catch(function (err) {
