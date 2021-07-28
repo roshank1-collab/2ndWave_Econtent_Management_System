@@ -7,7 +7,7 @@ import wallpaper2 from '../Dashboard/DashboardUpperPart/images/second.jpeg'
 import wallpaper3 from '../Dashboard/DashboardUpperPart/images/edu.jpeg'
 import './home.css'
 import Script from "react-load-script";
-import { FcBusinessman,FcBusinesswoman } from "react-icons/fc";
+import { FcBusinessman,FcBusinesswoman,FcLike } from "react-icons/fc";
 
 import { FaAngellist,FaRocketchat,FaChalkboardTeacher,FaRegSmile,FaRegSmileBeam, FaUsers, FaUserClock, FaUpload, FaMoneyCheckAlt, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaHandsHelping, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook } from 'react-icons/fa'
 
@@ -285,7 +285,7 @@ class BeforeLogin extends Component {
     />
     <Carousel.Caption>
     <div class="carousel-caption">
-        <FaChalkboardTeacher/><p style={{color:"black",fontFamily:"Apple Chancery, cursive",fontSize:"20px"}}>Being a techer is was been very difficult to find the platform for some thing like this, where I can actually sell my effortful content to someone interested on it and could earn side money. My efforts are payinf off and i amd glad that I did knew about this site soon. </p>
+        <FcLike style={{fontSize:"70px"}}/><p style={{color:"black",fontFamily:"Apple Chancery, cursive",fontSize:"20px"}}>Being a techer is was been very difficult to find the platform for some thing like this, where I can actually sell my effortful content to someone interested on it and could earn side money. My efforts are payinf off and i amd glad that I did knew about this site soon. </p>
                     <div id="image-caption" style={{fontFamily:"Georgia, serif",color:"black",fontWeight:"bolder"}}>.....Roshan Koirala</div>
                 </div>
     </Carousel.Caption>
