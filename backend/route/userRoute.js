@@ -10,7 +10,6 @@ const authentication = require('../middleware/authentication'); //token
 const SubscribeUser = require('../model/SubscibeUser');
 const WebsiteSubscription = require('../model/WebsiteSubscription');
 
-
 // for registration of users
 router.post("/User/SignUp", upload, [
     check('lastname', "last name  is required !!").not().isEmpty(),
@@ -153,7 +152,7 @@ router.get('/user/singleuser/:id', authentication.verifyUser, function (req, res
     Users.find({ _id: userid })
         .then(function (data) {
             console.log(data)
-            res.status(200).json({ status: true, message: "Information received", data: data })
+            res.status(200).json({ status: true, message: "Information received", userdata: data })
         }).catch(function (err) {
             res.status(500).json({ message: err })
         })

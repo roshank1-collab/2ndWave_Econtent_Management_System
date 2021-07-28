@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const UploadContent = require('../model/Uploadcontent');
 const uploadvideo = require('../middleware/uploadvideo')
+const ContentBought = require('../model/ContentBought');
+const Users = require('../model/user');
+const authentication = require('../middleware/authentication'); //token
 
 
 
@@ -64,7 +67,7 @@ router.get('/content/all', function (req, res) {
 //to show only single element
 router.get('/content/single/:id', function (req, res) {
     const id = req.params.id;
-    UploadContent.find({userid: id }).then(function (data) {
+    UploadContent.find({ userid: id }).then(function (data) {
         res.status(200).json({ data })
         console.log(data)
     }).catch(function (err) {
@@ -91,4 +94,81 @@ router.get('/content/catagories/:catagories', function (req, res) {
         res.status(500).json({ message: err })
     })
 })
+
+
+//get info of single content
+router.get('/content/singleInfodata/:id', function (req, res) {
+    const itemid = req.params.id
+    UploadContent.findOne({ _id: itemid })
+        .then(function (aadata) {
+            console.log(aadata)
+            res.status(200).json({ status: true, message: "Info Got", data: aadata })
+        })
+        .catch(function (err) {
+            res.status(500).json({ status: false, message: err })
+        })
+})
+
+// buy content route
+router.post('/content/bought/:id', authentication.verifyUser, function (req, res) {
+    const contentid = req.params.id;
+    const boughtby_email = req.userData.Email
+    const boughtby_khaltiid = req.userData.Phone_number
+    UploadContent.find({ _id: contentid })
+        .then(function (data) {
+            console.log(data)
+            console.log(boughtby_email)
+            console.log(boughtby_khaltiid)
+            const productowner_id = data[0].userid
+            console.log(productowner_id)
+            Users.find({ _id: productowner_id })
+                .then(function (dataa) {
+                    console.log(dataa)
+                    const productowner_email = dataa[0].Email
+                    const productowner_khaltiid = dataa[0].Phone_number
+                    console.log(productowner_email)
+                    console.log(productowner_khaltiid)
+
+
+                    let filtereddata = ContentBought.filter(function (currentData) {
+                        return currentData.contentid && currentData.boughtby_email && currentData.productowner_email
+                    });
+                    console.log(filtereddata)
+
+                    ContentBought.find({ boughtby_email: boughtby_email } && { productowner_email: productowner_email }).then(function (dataaa) {
+                        console.log(dataaa)
+                        if (dataaa.length < 1) {
+                            var today = new Date();
+                            var boughtdate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                            const boughtdatainfo = new ContentBought({
+                                contentid: contentid, boughtby_email: boughtby_email, boughtby_khaltiid: boughtby_khaltiid, productowner_email: productowner_email, productowner_khaltiid: productowner_khaltiid, boughton_date: boughtdate
+                            })
+                            boughtdatainfo.save()
+                                .then(function (result) {
+                                    res.status(201).json({ status: true, boughtStatus: "Successfully Bought" })
+                                })
+                                .catch(function (err) {
+                                    res.status(501).json({ message: err })
+                                })
+
+                        }
+                        else {
+                            res.status(201).json({ boughtStatus: "You have already bought this content" })
+                            // console.log("User have already Subscribed")
+                        }
+                    }).catch(function (err) {
+                        res.status(500).json({ message: err })
+                    })
+                })
+                .catch(function (err) {
+                    res.status(500).json({ message: err })
+                })
+        })
+        .catch(function (err) {
+            res.status(500).json({ message: err })
+        })
+
+
+})
+
 module.exports = router
