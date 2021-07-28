@@ -2,9 +2,9 @@
 const mongoose = require("mongoose")
 const UploadContent = mongoose.model("Uploadcontent", {
     userid: {
-        type : String
+        type: String
     },
-   heading: {
+    heading: {
         type: String,
         required: true,
     },
@@ -12,20 +12,28 @@ const UploadContent = mongoose.model("Uploadcontent", {
         type: String,
         required: true
     },
+    ppt: {
+        type: String,
+        required: true
+    },
     content_description: {
         type: String,
         required: true
     },
-   categories:{
-        type:String,
+    categories: {
+        type: String,
         required: true
     },
 
     price: {
         type: String,
         required: true
+    },
+    postedAt: {
+        type: String,
+        default: new Date().toLocaleDateString()
     }
-  
+
 });
 
 

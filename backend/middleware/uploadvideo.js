@@ -1,7 +1,7 @@
 const multer = require("multer")
 //file upload like videos,...
 const fileFilter = function (req, file, cb) {
-    if (file.mimetype == 'video/mp4' || file.mimetype == 'video/webm' || file.mimetype == 'video/ogg' || file.mimetype == 'video/x-matroska'|| file.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation") {
+    if (file.mimetype == 'video/mp4' || file.mimetype == 'video/webm' || file.mimetype == 'video/ogg' || file.mimetype == 'video/x-matroska' || file.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation") {
         cb(null, true)
     }
     else {
@@ -29,7 +29,8 @@ const uploadvideo = multer({
     },
     fileFilter: fileFilter
 }).fields([
-    { name: "video" }
+    { name: "video" },
+    { name: "ppt" }
 ]);
 
 module.exports = uploadvideo;
