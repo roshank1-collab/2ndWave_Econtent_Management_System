@@ -241,6 +241,80 @@ class BeforeLogin extends Component {
     </div>
   
 </div>
+{/* <team></team> */}
+<section class="team text-center py-5" style={{marginTop:"-0px"}}>
+   <div class="container col-centered" style={{marginLeft:"170px"}} >
+      
+
+      
+     <div class="header my-5" style={{marginRight:"230px"}}>
+     <u><h4 style={{ color: "black", fontWeight: "bolder", marginTop: "10px", textAlign: 'center',fontSize:"35px" }}>Meet Our <span style={{ color: "#a018a0" }}>Team</span></h4></u>
+       <p class="text-muted" >Meet and Greet our Team Members</p>
+     </div>
+     <div class="row" >
+       <div class="col-md-6 col-lg-3">
+         <div class="img-block mb-5">
+           <img src="./images/riya.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1"/>
+           <div class="content mt-2">
+             <h4>Riya Pandey</h4>
+             <p class="text-muted">UI/UX design </p>
+           </div>
+         </div>
+       </div>
+       <div class="col-md-6 col-lg-3 ">
+         <div class="img-block mb-5">
+           <img src="./images/roshh.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1"/>
+           <div class="content mt-2">
+             <h4>Roshan Koirala</h4>
+             <p class="text-muted">Content Writer</p>
+           </div>
+         </div>
+       </div>
+       <div class="col-md-6 col-lg-3">
+         <div class="img-block mb-5">
+           <img src="./images/uu.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1"/>
+           <div class="content mt-2">
+             <h4>Usha Katwal</h4>
+             <p class="text-muted">Digital Marketing</p>
+           </div>
+         </div>
+       </div>
+       
+     </div>
+     <div class="row" >
+       <div class="col-md-6 col-lg-3">
+         <div class="img-block mb-5">
+           <img src="./images/shankar.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1"/>
+           <div class="content mt-2">
+             <h4>Shankar Bhandari</h4>
+             <p class="text-muted">Database Handle</p>
+           </div>
+         </div>
+       </div>
+       <div class="col-md-6 col-lg-3 ">
+         <div class="img-block mb-5">
+           <img src="./images/suji.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1"/>
+           <div class="content mt-2">
+             <h4>Sujit Kushwa</h4>
+             <p class="text-muted">Software Developer</p>
+           </div>
+         </div>
+       </div>
+       <div class="col-md-6 col-lg-3">
+         <div class="img-block mb-5">
+           <img src="./images/enjeela.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1"/>
+           <div class="content mt-2">
+             <h4>Enjeela Chaudhari</h4>
+             <p class="text-muted"> Observer</p>
+           </div>
+         </div>
+       </div>
+       
+     </div>
+   </div>
+   
+ </section>
+ 
 {/* testominal */}
 
 
