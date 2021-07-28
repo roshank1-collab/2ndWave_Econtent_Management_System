@@ -14,32 +14,34 @@ class Login extends Component {
         })
     }
 
-    class Login extends Component {
-    render(){
-    return (
-            <div className="container" id="container">
-                <div className="form-container sign-in-container">
-                    <form action="#">
-                        <h1>Login</h1><br/>
-                        <span>Enter your credentials to get started</span><br/>
-                        <input type="email" placeholder="Email" required="true" />
-                        <input type="password" placeholder="Password" required="true" />
-                        <a href="#">Forgot your password?</a>
-                        <button>Login</button><br/>
-                        <span>Do not have an account ?<a href="#"> Sign up</a></span>
-                    </form>
-                </div>
-                <div class="overlay-container">
-                    <div class="overlay">
-                        <div class="overlay-panel overlay-right">
-                            <img src={login} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-    )
-}
-}
+    loginUser = (e) => {
+        e.preventDefault(); // prevents from reloading page
+        axios.post("http://localhost:90/user/login", this.state)
+            .then(
+                (response) => {                
+                    localStorage.setItem('token', response.data.token)
+                    localStorage.setItem('userid', response.data.userid)
+                    localStorage.setItem('success', response.data.success)
+                    localStorage.setItem('loginstatus',response.data.loginstatus)
+
+                    // localStorage.setItem('data', JSON.stringify(response.data.userData))
+                    if (localStorage.getItem('token') === "undefined") {
+                        this.setState({ checkLogin: false })
+                        alert(response.data.message)
+                    }
+                    else {
+                        this.setState({ checkLogin: true })
+                    }
+                }
+            )
+            .catch(
+                (err) => {
+                    alert(err)
+                }
+            )
+
+    }
+
     render() {
         if (this.state.checkLogin === true) {
             return window.location.href = "/dashboard"    
