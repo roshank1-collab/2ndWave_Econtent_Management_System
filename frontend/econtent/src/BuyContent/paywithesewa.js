@@ -101,7 +101,7 @@ class paywithkhalti extends Component {
                             Payer Khalti-ID
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="text" placeholder="Your khalti number" />
+                            <Form.Control type="text" placeholder="Your E-Sewa number" />
                         </Col>
                     </Form.Group>
 

@@ -46,10 +46,10 @@ class Category extends Component {
                         this.state.alldata.map((item) => {
                             return (
                                 < Card className="cloudy-knoxville-gradient" style={{ width: '310px', margin: '10px', backgroundImage: "linear-gradient(#EFEFBB, #D4D3DD)" }}>
-                                    <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-                                    {/* <ReactPlayer width='250xp' height='250px' controls
+                                    {/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
+                                    <ReactPlayer width='250xp' height='250px' controls
                                         url='https://youtu.be/7sDY4m8KNLc'
-                                    /> */}
+                                    />
                                     <Card.Body>
                                         <Card.Title><h3><center>{item.heading}</center></h3></Card.Title>
                                         <Card.Text>
