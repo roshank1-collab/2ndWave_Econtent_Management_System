@@ -128,12 +128,10 @@ router.post('/content/bought/:id', authentication.verifyUser, function (req, res
                     const productowner_khaltiid = dataa[0].Phone_number
                     console.log(productowner_email)
                     console.log(productowner_khaltiid)
-
-
-                    let filtereddata = ContentBought.filter(function (currentData) {
-                        return currentData.contentid && currentData.boughtby_email && currentData.productowner_email
-                    });
-                    console.log(filtereddata)
+                    // let filtereddata = ContentBought.filter(function (currentData) {
+                    //     return currentData.contentid && currentData.boughtby_email && currentData.productowner_email
+                    // });
+                    // console.log(filtereddata)
 
                     ContentBought.find({ boughtby_email: boughtby_email } && { productowner_email: productowner_email }).then(function (dataaa) {
                         console.log(dataaa)
