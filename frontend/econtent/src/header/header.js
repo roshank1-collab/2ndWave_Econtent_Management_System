@@ -43,6 +43,37 @@ function Example() {
   );
 }
 
+function DropdownItem() {
+  return (
+    <>
+      <div className="col-md-4 col-lg-4">
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Notifications</h3>
+          </div>
+          <div className="panel-body">
+            <div className="alert alert-success">
+              <strong className="default"><i className="fa fa-road"></i> Well done,</strong> You have finished job!
+              <button type="button" className="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div>
+            <div className="alert alert-info">
+              <strong className="default"><i className="fa fa-user"></i> John</strong> sent you friend request.
+              <button type="button" className="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div>
+            <div className="alert alert-warning">
+              <strong className="default"><i class="fa fa-envelope-o"></i> Sam</strong> sent important mail.
+              <button type="button" className="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </>
+  );
+}
+
 const Header = () => {
   const [Catagories, setCatagories] = useState([]);
   useEffect(() => {
@@ -99,9 +130,12 @@ const Header = () => {
 
 
           </Nav>
-          <Nav className="mr-5">
-            <Nav.Link><BellIcon width='25' active={true} animate={true} /></Nav.Link>
-          </Nav>
+
+
+          <NavDropdown title={<BellIcon width='25' active={true} animate={true} />}>
+            {DropdownItem()}
+          </NavDropdown>
+
           <Nav className="justify-content-end">
 
             <Example />

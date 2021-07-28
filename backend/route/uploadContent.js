@@ -19,15 +19,17 @@ router.post('/content/insert/:id', uploadvideo, function (req, res) {
     const id = req.params.id;
     const heading = req.body.title;
     const video = req.files['video'][0].filename;
+    const ppt = req.files['ppt'][0].filename;
     const content_description = req.body.description;
     const categories = req.body.categories;
     const price = req.body.Price;
     const me = new UploadContent({
         heading: heading, video: video, content_description: content_description,
-        categories: categories, price: price, userid: id
+        categories: categories, price: price, userid: id,ppt:ppt
     })
     me.save().then(function (result) {
         res.status(201).json({ message: "Conent has been added successfully !!!" });
+
     }).catch(function (err) {
         console.log(err)
         res.status(500).json({ message: err })

@@ -194,19 +194,6 @@ router.delete('/user/delete/:id', function (req, res) {
         })
 })
 
-// //user profile image update
-// router.put('/user/userProfileImageUpdate/:id', function (req, res) {
-//     const id = req.params.id
-//     const Profile_Picture = req.files['Profile_Picture'][0].filename
-//     Users.updateOne({ _id: id }, {
-//         Profile_Picture: Profile_Picture
-//     }).then(function (result) {
-//         res.status(200).json({ staus: "true", message: "Profile Image updated" })
-//     })
-//         .catch(function (e) {
-//             res.status(500).json(e)
-//         })
-// })
 
 
 //user subscrition for notification
@@ -236,5 +223,10 @@ router.post('/user/subscribe/website/notification/:email', function (req, res) {
 
 
 })
+
+
+
+
+
 
 module.exports = router;
