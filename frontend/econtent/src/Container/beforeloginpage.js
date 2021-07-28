@@ -76,7 +76,7 @@ class BeforeLogin extends Component {
 
                 <br />
 
-                <div class="container-fluid mb-5" style={{backgroundColor:"#ADADC9"}}>
+                <div class="container-fluid mb-5" style={{backgroundColor:"#ADADC9",marginBlockEnd:"100px"}}>
     <div class="text-center mt-5" style={{marginTop:"20px"}}>
         <h1 style={{ color: "#a018a0", fontWeight: "bolder",fontSize:"30px" }}>Our<span style={{ color: "#51227F", fontWeight: "bold",fontSize:"35px",marginLeft:"1px"}}>Services</span> </h1>
     </div>
@@ -151,7 +151,7 @@ class BeforeLogin extends Component {
 {/* animated site */}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-<div class="container">
+<div class="container" style={{marginTop:"-20px"}}>
     <div class="row align-items-center">
         <div class="col-lg-6 col-md-6 order-2 order-md-1 mt-4 pt-2 mt-sm-0 opt-sm-0">
             <div class="row align-items-center">
@@ -178,8 +178,8 @@ class BeforeLogin extends Component {
                 <div class="col-lg-6 col-md-6 col-6">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
-                            <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                                <img style={{height:"400px"}}src="./images/four.jpeg" class="img-fluid" alt="Image" />
+                            <div class="">
+                                <img style={{height:"350px",width:"400px"}}src="./images/four.jpeg" class="img-fluid" alt="Image" />
                                 <div class="img-overlay bg-dark"></div>
                             </div>
                         </div>
@@ -203,7 +203,7 @@ class BeforeLogin extends Component {
 
         <div class="col-lg-6 col-md-6 col-12 order-1 order-md-2">
             <div class="section-title ml-lg-5">
-            <h4 style={{ color: "black", fontWeight: "bolder", marginTop: "10px", textAlign: 'center',fontSize:"35px" }}>Abouts <span style={{ color: "#a018a0" }}>Us</span></h4> <br />
+            <u><h4 style={{ color: "black", fontWeight: "bolder", marginTop: "10px", textAlign: 'center',fontSize:"35px" }}>Abouts <span style={{ color: "#a018a0" }}>Us</span></h4> <br /></u>
                 <h4 class="title mb-4">
                 Any material available on the Web. Online content includes text, images, animations, music and videos. <br />
                     make your life easier.
@@ -259,7 +259,8 @@ class BeforeLogin extends Component {
     />
     <Carousel.Caption>
     <div class="carousel-caption">
-                   <FcBusinessman style={{fontSize:"70px"}}/> <p style={{color:"black",fontFamily:"Apple Chancery, cursive",fontSize:"20px"}}>If Shai Reznik's TDD videos don't convince you to add automated testing your code, I don't know what will.This was the very best explanation of frameworks for brginners that I've ever seen. </p>
+       <u style={{color:"black"}}> <h2 style={{color:"#51227f"}}>Say what you feel</h2></u>
+                   <FcBusinessman style={{fontSize:"40px"}}/> <p style={{color:"black",fontFamily:"Apple Chancery, cursive",fontSize:"20px"}}>If Shai Reznik's TDD videos don't convince you to add automated testing your code, I don't know what will.This was the very best explanation of frameworks for brginners that I've ever seen. </p>
                     <div id="image-caption" style={{fontFamily:"Georgia, serif",color:"black",fontWeight:"bolder"}}>.....Nick Doe</div>
                 </div>
     </Carousel.Caption>
@@ -272,7 +273,8 @@ class BeforeLogin extends Component {
     />
     <Carousel.Caption>
     <div class="carousel-caption">
-                   <FcBusinesswoman style={{fontSize:"70px"}}/> <p style={{color:"black",fontFamily:"Apple Chancery, cursive",fontSize:"20px"}}>I'm pleased to be a part of e-content family. My all effort of making ppt, video ,slides are worthy which could now be used by the another reader. I am happy to be a part of this platform.  </p>
+    <u style={{color:"black"}}> <h2 style={{color:"#51227f"}}>Say what you feel</h2></u>
+                   <FcBusinesswoman style={{fontSize:"40px"}}/> <p style={{color:"black",fontFamily:"Apple Chancery, cursive",fontSize:"20px"}}>I'm pleased to be a part of e-content family. My all effort of making ppt, video ,slides are worthy which could now be used by the another reader. I am happy to be a part of this platform.  </p>
                     <div id="image-caption" style={{fontFamily:"Georgia, serif",color:"black",fontWeight:"bolder"}}>.....Riya Pandey</div>
                 </div>
     </Carousel.Caption>
@@ -285,7 +287,8 @@ class BeforeLogin extends Component {
     />
     <Carousel.Caption>
     <div class="carousel-caption">
-        <FcLike style={{fontSize:"70px"}}/><p style={{color:"black",fontFamily:"Apple Chancery, cursive",fontSize:"20px"}}>Being a techer is was been very difficult to find the platform for some thing like this, where I can actually sell my effortful content to someone interested on it and could earn side money. My efforts are payinf off and i amd glad that I did knew about this site soon. </p>
+    <u style={{color:"black"}}> <h2 style={{color:"#51227f"}}>Say what you feel</h2></u>
+        <FcLike style={{fontSize:"40px"}}/><p style={{color:"black",fontFamily:"Apple Chancery, cursive",fontSize:"20px"}}>Being a techer is was been very difficult to find the platform for some thing like this, where I can actually sell my effortful content to someone interested on it and could earn side money. </p>
                     <div id="image-caption" style={{fontFamily:"Georgia, serif",color:"black",fontWeight:"bolder"}}>.....Roshan Koirala</div>
                 </div>
     </Carousel.Caption>
