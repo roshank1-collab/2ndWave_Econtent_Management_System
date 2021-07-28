@@ -128,14 +128,21 @@ router.post('/content/bought/:id', authentication.verifyUser, function (req, res
                     console.log(productowner_khaltiid)
 
 
-                    let filtereddata = ContentBought.filter(function (currentData) {
-                        return currentData.contentid && currentData.boughtby_email && currentData.productowner_email
-                    });
-                    console.log(filtereddata)
+                    // var filtereddata = ContentBought.filter(function (ele) {
+                    //     return ele.boughtby_email == boughtby_email && ele.productowner_email == productowner_email
+                    // });
+                    // console.log(filtereddata)
 
-                    ContentBought.find({ boughtby_email: boughtby_email } && { productowner_email: productowner_email }).then(function (dataaa) {
+                    ContentBought.find().then(function (dataaa) {
+                        console.log("all data of contentbought")
                         console.log(dataaa)
-                        if (dataaa.length < 1) {
+                        var filteredarray = dataaa.filter(function (ele) {
+                            return ele.boughtby_email == boughtby_email && ele.productowner_email == productowner_email && ele.contentid == contentid                 
+                        })
+                        console.log("filteredarray")
+                        console.log(filteredarray)
+                        
+                        if (filteredarray.length < 1) {
                             var today = new Date();
                             var boughtdate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
                             const boughtdatainfo = new ContentBought({
