@@ -3,7 +3,7 @@ import { Nav, NavDropdown, Navbar, Button, NavItem } from 'react-bootstrap';
 import { Modal, Container } from 'react-bootstrap'
 import { FaUserGraduate, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
-import BellIcon from 'react-bell-icon';
+
 
 import axios from 'axios';
 
@@ -132,7 +132,7 @@ const Header = () => {
           </Nav>
 
 
-          <NavDropdown title={<BellIcon width='25' active={true} animate={true} />}>
+          <NavDropdown >
             {DropdownItem()}
           </NavDropdown>
 
