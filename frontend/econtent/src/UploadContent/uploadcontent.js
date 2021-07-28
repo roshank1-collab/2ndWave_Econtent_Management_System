@@ -10,6 +10,7 @@ class Uploadcontent extends Component {
 
     state = {
         title: "",
+        ppt:"",
         video: "",
         description: "",
         Categories: "",
@@ -41,6 +42,7 @@ class Uploadcontent extends Component {
         data.append("categories", this.state.Categories)
         data.append("description", this.state.description)
         data.append("Price", this.state.Price)
+        data.append("ppt",this.state.ppt)
 
         // alert(this.state.id)
         axios.post("http://localhost:90/content/insert/" + this.state.id, data)
@@ -77,15 +79,25 @@ class Uploadcontent extends Component {
                                         <input type="text" className="form-control"
                                             id="heading"
                                             name="title"
+                                            placeholder = "Write title"
                                             value={this.state.title}
                                             onChange={this.changeHandler} required />
                                     </div>
                                     <hr />
                                     <div className="col-lg-5">
-                                        <label htmlFor="heading">Choose a File here</label>
+                                        <label htmlFor="heading">Choose a thumbnail video</label>
                                         <input type="file"
                                             className="form-control"
                                             name="video"
+                                            onChange={this.fileHandler} required />
+                                    </div>
+                                    <hr />
+                                    <hr />
+                                    <div className="col-lg-5">
+                                        <label htmlFor="heading">Choose a ppt here</label>
+                                        <input type="file"
+                                            className="form-control"
+                                            name="ppt"
                                             onChange={this.fileHandler} required />
                                     </div>
                                     <hr />
@@ -98,6 +110,7 @@ class Uploadcontent extends Component {
                                             id="content_description"
                                             name="description"
                                             value={this.state.description}
+                                            placeholder = "Write decription"
                                             onChange={this.changeHandler} required />
                                     </div>
                                 </div>
