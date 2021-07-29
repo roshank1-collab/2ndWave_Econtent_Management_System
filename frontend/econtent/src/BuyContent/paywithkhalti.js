@@ -21,7 +21,7 @@ class paywithkhalti extends Component {
         ItemSelected: localStorage.getItem('itemselected'),
         loggedinuser: localStorage.getItem('userid'),
         password: "",
-        boughtby_khaltiid: ""
+        // boughtby_khaltiid: ""
     }
 
 
@@ -32,10 +32,10 @@ class paywithkhalti extends Component {
     }
 
     buycontent = (e) => {
-        e.preventDefault();        
+        e.preventDefault();
         var body = {
             password: this.state.password,
-            boughtby_khaltiid: this.state.boughtby_khaltiid
+            // boughtby_khaltiid: this.state.boughtby_khaltiid
         }
         axios({
             method: "post",
@@ -109,18 +109,18 @@ class paywithkhalti extends Component {
                         </Col>
                     </Form.Group>
 
-                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+                    {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
                         <Form.Label column sm="2">
                             Receiver Khalti-ID
                         </Form.Label>
                         <Col sm="10">
                             <Form.Control plaintext readOnly value={this.state.recerivedata.Phone_number} style={{ color: "white" }} />
                         </Col>
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
                         <Form.Label column sm="2">
-                            Payer Email
+                            Buyer Email
                         </Form.Label>
                         <Col sm="10">
                             <Form.Control plaintext readOnly value={this.state.loggedinuserdata.Email} style={{ color: "white" }} />
@@ -129,14 +129,12 @@ class paywithkhalti extends Component {
 
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
                         <Form.Label column sm="2">
-                            Payer Khalti-ID
+                            Buyer ID
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="text" placeholder="Your khalti number"
-                                name="boughtby_khaltiid"
-                                onChange={this.changeHandler}
-                                value={this.state.boughtby_khaltiid}
-                                required />
+                            <Form.Control type="text" plaintext readOnly style={{ color: "white" }}
+                                value={this.state.loggedinuserdata._id}
+                            />
                         </Col>
                     </Form.Group>
 

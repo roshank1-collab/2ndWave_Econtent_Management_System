@@ -115,11 +115,10 @@ router.post('/content/bought/:id', authentication.verifyUser, function (req, res
     const contentid = req.params.id;
     const boughtby_userid = req.userData._id
     const boughtby_email = req.userData.Email
-    const boughtby_khaltiid = req.body.boughtby_khaltiid
     const password = req.body.password
     Users.findOne({ _id: boughtby_userid })
-        .then(function (ddaattaa) {           
-            bcryptjs.compare(password, ddaattaa.Password, function (err, result) {                         
+        .then(function (ddaattaa) {
+            bcryptjs.compare(password, ddaattaa.Password, function (err, result) {
                 if (result == true) {
                     UploadContent.find({ _id: contentid })
                         .then(function (data) {
@@ -132,7 +131,7 @@ router.post('/content/bought/:id', authentication.verifyUser, function (req, res
                                 .then(function (dataa) {
                                     // console.log(dataa)
                                     const productowner_email = dataa[0].Email
-                                    const productowner_khaltiid = dataa[0].Phone_number
+                                    // const productowner_khaltiid = dataa[0].Phone_number
                                     // console.log(productowner_email)
                                     // console.log(productowner_khaltiid)
 
@@ -149,7 +148,8 @@ router.post('/content/bought/:id', authentication.verifyUser, function (req, res
                                             var today = new Date();
                                             var boughtdate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
                                             const boughtdatainfo = new ContentBought({
-                                                contentid: contentid, boughtby_email: boughtby_email, boughtby_khaltiid: boughtby_khaltiid, productowner_email: productowner_email, productowner_khaltiid: productowner_khaltiid, boughton_date: boughtdate
+                                                contentid: contentid, boughtby_email: boughtby_email,
+                                                boughtby_ID: boughtby_userid, productowner_email: productowner_email, productowner_ID: productowner_id, boughton_date: boughtdate
                                             })
                                             boughtdatainfo.save()
                                                 .then(function (result) {

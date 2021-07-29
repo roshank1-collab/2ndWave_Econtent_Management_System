@@ -77,15 +77,15 @@ class Buycontent extends Component {
                 {/* <div className="row"> */}
                 <Link to={"/paywithkhalti/" + this.state.userid} style={{ marginRight: "10px" }}>
                     <Button style={{ background: "#56328C", marginBottom: "16px", fontSize: "30px" }}>
-                        Pay with Khalti
-                    </Button>
+                       Pay with E-Content Wallet
+                    </Button> 
                 </Link>
 
-                <Link to={"/paywithesewa/" + this.state.userid}>
+                {/* <Link to={"/paywithesewa/" + this.state.userid}>
                     <Button style={{ background: "#41A124", marginBottom: "16px", fontSize: "30px" }}>
                         Pay with E-Sewa
                     </Button>
-                </Link>
+                </Link> */}
 
                 {/* </div> */}
             </div>
