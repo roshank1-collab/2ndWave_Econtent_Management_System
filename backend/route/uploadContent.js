@@ -4,6 +4,7 @@ const UploadContent = require('../model/Uploadcontent');
 const uploadvideo = require('../middleware/uploadvideo')
 const ContentBought = require('../model/ContentBought');
 const Users = require('../model/user');
+const bcryptjs = require('bcryptjs')
 const authentication = require('../middleware/authentication'); //token
 
 
@@ -25,7 +26,7 @@ router.post('/content/insert/:id', uploadvideo, function (req, res) {
     const price = req.body.Price;
     const me = new UploadContent({
         heading: heading, video: video, content_description: content_description,
-        categories: categories, price: price, userid: id,ppt:ppt
+        categories: categories, price: price, userid: id, ppt: ppt
     })
     me.save().then(function (result) {
         res.status(201).json({ message: "Conent has been added successfully !!!" });
@@ -112,61 +113,81 @@ router.get('/content/singleInfodata/:id', function (req, res) {
 // buy content route
 router.post('/content/bought/:id', authentication.verifyUser, function (req, res) {
     const contentid = req.params.id;
+    const boughtby_userid = req.userData._id
     const boughtby_email = req.userData.Email
-    const boughtby_khaltiid = req.userData.Phone_number
-    UploadContent.find({ _id: contentid })
-        .then(function (data) {
-            // console.log(data)
-            // console.log(boughtby_email)
-            // console.log(boughtby_khaltiid)
-            const productowner_id = data[0].userid
-            // console.log(productowner_id)
-            Users.find({ _id: productowner_id })
-                .then(function (dataa) {
-                    // console.log(dataa)
-                    const productowner_email = dataa[0].Email
-                    const productowner_khaltiid = dataa[0].Phone_number
-                    // console.log(productowner_email)
-                    // console.log(productowner_khaltiid)
+    const boughtby_khaltiid = req.body.boughtby_khaltiid
+    const password = req.body.password
 
-                    ContentBought.find().then(function (dataaa) {
-                        // console.log("all data of contentbought")
-                        // console.log(dataaa)
-                        var filteredarray = dataaa.filter(function (ele) {
-                            return ele.boughtby_email == boughtby_email && ele.productowner_email == productowner_email && ele.contentid == contentid                 
-                        })
-                        // console.log("filteredarray")
-                        // console.log(filteredarray)
-                        
-                        if (filteredarray.length < 1) {
-                            var today = new Date();
-                            var boughtdate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-                            const boughtdatainfo = new ContentBought({
-                                contentid: contentid, boughtby_email: boughtby_email, boughtby_khaltiid: boughtby_khaltiid, productowner_email: productowner_email, productowner_khaltiid: productowner_khaltiid, boughton_date: boughtdate
-                            })
-                            boughtdatainfo.save()
-                                .then(function (result) {
-                                    res.status(201).json({ status: true, boughtStatus: "Successfully Bought" })
+    Users.findOne({ _id: boughtby_userid })
+        .then(function (ddaattaa) {
+            bcryptjs.compare(password, ddaattaa.Password, function (err, result) {                         
+                if (result == true) {
+                    UploadContent.find({ _id: contentid })
+                        .then(function (data) {
+                            // console.log(data)
+                            // console.log(boughtby_email)
+                            // console.log(boughtby_khaltiid)
+                            const productowner_id = data[0].userid
+                            // console.log(productowner_id)
+                            Users.find({ _id: productowner_id })
+                                .then(function (dataa) {
+                                    // console.log(dataa)
+                                    const productowner_email = dataa[0].Email
+                                    const productowner_khaltiid = dataa[0].Phone_number
+                                    // console.log(productowner_email)
+                                    // console.log(productowner_khaltiid)
+
+                                    ContentBought.find().then(function (dataaa) {
+                                        // console.log("all data of contentbought")
+                                        // console.log(dataaa)
+                                        var filteredarray = dataaa.filter(function (ele) {
+                                            return ele.boughtby_email == boughtby_email && ele.productowner_email == productowner_email && ele.contentid == contentid
+                                        })
+                                        // console.log("filteredarray")
+                                        // console.log(filteredarray)
+
+                                        if (filteredarray.length < 1) {
+                                            var today = new Date();
+                                            var boughtdate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                                            const boughtdatainfo = new ContentBought({
+                                                contentid: contentid, boughtby_email: boughtby_email, boughtby_khaltiid: boughtby_khaltiid, productowner_email: productowner_email, productowner_khaltiid: productowner_khaltiid, boughton_date: boughtdate
+                                            })
+                                            boughtdatainfo.save()
+                                                .then(function (result) {
+                                                    res.status(201).json({ status: true, boughtStatus: "Successfully Bought" })
+                                                })
+                                                .catch(function (err) {
+                                                    res.status(501).json({ message: err })
+                                                })
+
+                                        }
+                                        else {
+                                            res.status(201).json({ boughtStatus: "You have already bought this content" })
+                                            // console.log("User have already Subscribed")
+                                        }
+                                    }).catch(function (err) {
+                                        res.status(500).json({ message: err })
+                                    })
                                 })
                                 .catch(function (err) {
-                                    res.status(501).json({ message: err })
+                                    res.status(500).json({ message: err })
                                 })
+                        })
+                        .catch(function (err) {
+                            res.status(500).json({ message: err })
+                        })
 
-                        }
-                        else {
-                            res.status(201).json({ boughtStatus: "You have already bought this content" })
-                            // console.log("User have already Subscribed")
-                        }
-                    }).catch(function (err) {
-                        res.status(500).json({ message: err })
-                    })
-                })
-                .catch(function (err) {
-                    res.status(500).json({ message: err })
-                })
+                }
+
+                else {
+                    return res.status(201).json({ success: false, message: "Password doesn't match !!! Please try again" })
+                }
+
+
+            })
         })
         .catch(function (err) {
-            res.status(500).json({ message: err })
+            res.status(500).json({ status: "failed", message: err })
         })
 
 
