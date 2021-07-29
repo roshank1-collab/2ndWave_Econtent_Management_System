@@ -13,13 +13,45 @@ class paywithkhalti extends Component {
         id: this.props.match.params.id,
         contentdata: [],
         recerivedata: [],
-        loggedinuserdata : [],
+        loggedinuserdata: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
         receiverUserID: "",
         ItemSelected: localStorage.getItem('itemselected'),
-        loggedinuser : localStorage.getItem('userid')
+        loggedinuser: localStorage.getItem('userid'),
+        password: "",
+        boughtby_khaltiid: ""
+    }
+
+
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    buycontent = (e) => {
+        e.preventDefault();        
+        var body = {
+            password: this.state.password,
+            boughtby_khaltiid: this.state.boughtby_khaltiid
+        }
+        axios({
+            method: "post",
+            url: "http://localhost:90/content/bought/" + this.state.ItemSelected,
+            headers:
+                { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+        })
+            .then((response) => {
+                console.log(response)
+                toast.error(response.data.message)
+                toast.success(response.data.boughtStatus, { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
+            })
+            .catch((err) => {
+                toast.error(err.message)
+            })
     }
 
     componentDidMount() {
@@ -50,7 +82,7 @@ class paywithkhalti extends Component {
                 toast.error(err.message)
             })
 
-             axios.get('http://localhost:90/user/singleuser/' + this.state.loggedinuser, this.state.config)
+        axios.get('http://localhost:90/user/singleuser/' + this.state.loggedinuser, this.state.config)
             .then((response) => {
                 console.log(response)
                 // toast.success(response.data.message)
@@ -61,7 +93,6 @@ class paywithkhalti extends Component {
             .catch((err) => {
                 toast.error(err.message)
             })
-
 
     }
 
@@ -92,7 +123,7 @@ class paywithkhalti extends Component {
                             Payer Email
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control plaintext readOnly value = {this.state.loggedinuserdata.Email} style={{ color: "white" }} />
+                            <Form.Control plaintext readOnly value={this.state.loggedinuserdata.Email} style={{ color: "white" }} />
                         </Col>
                     </Form.Group>
 
@@ -101,7 +132,11 @@ class paywithkhalti extends Component {
                             Payer Khalti-ID
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="text" placeholder="Your khalti number" />
+                            <Form.Control type="text" placeholder="Your khalti number"
+                                name="boughtby_khaltiid"
+                                onChange={this.changeHandler}
+                                value={this.state.boughtby_khaltiid}
+                                required />
                         </Col>
                     </Form.Group>
 
@@ -110,7 +145,12 @@ class paywithkhalti extends Component {
                             Password
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="password" placeholder="Your login Password" />
+                            <Form.Control type="password" placeholder="Your login Password"
+                                name="password"
+                                onChange={this.changeHandler}
+                                value={this.state.password}
+                                required
+                            />
                         </Col>
                     </Form.Group>
                     <hr />
@@ -120,13 +160,13 @@ class paywithkhalti extends Component {
                             Total Amount
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control plaintext readOnly value={this.state.contentdata.price} style={{ color: "white" , fontSize : "20px"}}/>
+                            <Form.Control plaintext readOnly value={this.state.contentdata.price} style={{ color: "white", fontSize: "20px" }} />
                         </Col>
                     </Form.Group>
                 </Form>
                 <hr />
                 <hr />
-                <center><Button style={{ color: "white", fontSize: "20px", marginBottom: "30px" }} variant='outline-primary'>BUY</Button></center>
+                <center><Button style={{ color: "white", fontSize: "20px", marginBottom: "30px" }} variant='outline-primary' onClick={this.buycontent}>BUY</Button></center>
             </div>
         )
     }

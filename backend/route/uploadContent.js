@@ -117,9 +117,8 @@ router.post('/content/bought/:id', authentication.verifyUser, function (req, res
     const boughtby_email = req.userData.Email
     const boughtby_khaltiid = req.body.boughtby_khaltiid
     const password = req.body.password
-
     Users.findOne({ _id: boughtby_userid })
-        .then(function (ddaattaa) {
+        .then(function (ddaattaa) {           
             bcryptjs.compare(password, ddaattaa.Password, function (err, result) {                         
                 if (result == true) {
                     UploadContent.find({ _id: contentid })
