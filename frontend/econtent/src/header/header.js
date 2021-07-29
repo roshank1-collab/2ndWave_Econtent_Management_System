@@ -1,12 +1,18 @@
-
+import axios from 'axios';
 import { Nav, NavDropdown, Navbar, Button, NavItem } from 'react-bootstrap';
 import { Modal, Container } from 'react-bootstrap'
 import { FaUserGraduate, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
 import BellIcon from 'react-bell-icon';
+import socketIOClient from "socket.io-client";
+const ENDPOINT = socketIOClient("http://127.0.0.1:90", {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd",
+  },
+ 
 
-import axios from 'axios';
-
+})
 
 const id = localStorage.getItem('userid')
 
@@ -75,6 +81,7 @@ function DropdownItem() {
 }
 
 const Header = () => {
+  const [response, setResponse] = useState("");
   const [Catagories, setCatagories] = useState([]);
   useEffect(() => {
     if (localStorage.getItem('loginstatus') === 'true') {
@@ -92,6 +99,15 @@ const Header = () => {
         )
     }
 
+    const socket = socketIOClient(ENDPOINT);
+    socket.on("FromAPI", data => {
+      setResponse(data);
+    })
+    {
+      response.map((data)=>( 
+        console.log(data)
+      ))
+    }
   }, []);
 
   const filterCatagories = (item) => {
