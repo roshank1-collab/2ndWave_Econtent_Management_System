@@ -27,6 +27,8 @@ const io = require("socket.io")(server, {
     }
 });
 
+
+// finding the latest data in upload content 
 var data;
 UploadContent.find({}, {}, {field: 'asc', sort: { 'postedAt' : 1 } }, function(err, post) {
     data = post
