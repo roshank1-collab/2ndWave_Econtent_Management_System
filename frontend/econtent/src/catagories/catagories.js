@@ -73,7 +73,7 @@ class Category extends Component {
                                             {item.postedAt}
                                         </Card.Text>
                                     </Card.Body>
-                                    
+
                                     <Card.Body>
                                         <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }} onClick={this.singlecontentbuy.bind(this, item._id)}>BUY Now</Button>
                                     </Card.Body>

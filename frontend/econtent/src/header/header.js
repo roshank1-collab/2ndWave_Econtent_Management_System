@@ -95,6 +95,7 @@ const Header = () => {
 
 
     }
+    //set up the connection with server through sockets
     const socket = socketIOClient("http://127.0.0.1:90", {
       withCredentials: true,
       extraHeaders: {

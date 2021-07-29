@@ -9,48 +9,48 @@ import { FaOpencart, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper
 class DashboardUpperPart extends Component {
     render() {
         return (
-            <div className='container-fluid' style = {{padding : '8px'}}>
+            <div className='container-fluid' style={{ padding: '8px' }}>
                 <Carousel fade>
-                    <Carousel.Item style={{height:"600px"}}>
+                    <Carousel.Item style={{ height: "600px" }}>
                         <img
                             className="d-block w-100"
-                            src={wallpaper1} 
+                            src={wallpaper1}
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                        <h3 style={{color:"white"}}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                            <p  style={{color:"white"}}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
-                            <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="#features"> Buy Content <FaOpencart/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/allchannel">Channels <FaUsers/></a>
-                        </Carousel.Caption> 
+                            <h3 style={{ color: "white" }}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
+                            <p style={{ color: "white" }}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
+                            <a style={{ backgroundColor: "#a018a0", fontWeight: "bolder", color: "white" }} class="btn  btn-lg px-4 me-sm-3" href="#features"> Buy Content <FaOpencart /></a>
+                            <a style={{ backgroundColor: "#51227F", fontWeight: "bolder", color: "white" }} class="btn  btn-lg px-4 me-sm-3" href="/allchannel">Channels <FaUsers /></a>
+                        </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item style={{height:"600px"}}>
+                    <Carousel.Item style={{ height: "600px" }}>
                         <img
                             className="d-block w-100"
-                            src={wallpaper2} 
+                            src={wallpaper2}
                             alt="Second slide"
                         />
                         <Carousel.Caption>
-                            <h3 style={{color:"black"}}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                            <p  style={{color:"black"}}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
-                            <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="#features"> Buy Content <FaOpencart/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/allchannel">Channels <FaUsers/></a>
+                            <h3 style={{ color: "black" }}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
+                            <p style={{ color: "black" }}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
+                            <a style={{ backgroundColor: "#a018a0", fontWeight: "bolder", color: "white" }} class="btn  btn-lg px-4 me-sm-3" href="#features"> Buy Content <FaOpencart /></a>
+                            <a style={{ backgroundColor: "#51227F", fontWeight: "bolder", color: "white" }} class="btn  btn-lg px-4 me-sm-3" href="/allchannel">Channels <FaUsers /></a>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item style={{height:"600px"}}>
+                    <Carousel.Item style={{ height: "600px" }}>
                         <img
                             className="d-block w-100"
-                            src={wallpaper3} 
+                            src={wallpaper3}
                             alt="Third slide"
                         />
 
                         <Carousel.Caption>
-                        <h3 style={{color:"white"}}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
-                            <p  style={{color:"white"}}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
-                            <a style={{backgroundColor:"#a018a0",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="#features"> Buy Content <FaOpencart/></a>
-                                    <a style={{backgroundColor:"#51227F",fontWeight:"bolder", color:"white"}} class="btn  btn-lg px-4 me-sm-3" href="/allchannel">Channels <FaUsers/></a>
+                            <h3 style={{ color: "white" }}>The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</h3>
+                            <p style={{ color: "white" }}>Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
+                            <a style={{ backgroundColor: "#a018a0", fontWeight: "bolder", color: "white" }} class="btn  btn-lg px-4 me-sm-3" href="#features"> Buy Content <FaOpencart /></a>
+                            <a style={{ backgroundColor: "#51227F", fontWeight: "bolder", color: "white" }} class="btn  btn-lg px-4 me-sm-3" href="/allchannel">Channels <FaUsers /></a>
                         </Carousel.Caption>
-                        
+
                     </Carousel.Item>
                 </Carousel>
             </div>

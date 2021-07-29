@@ -32,7 +32,7 @@ class paywithkhalti extends Component {
     }
 
     buycontent = (e) => {
-        e.preventDefault();        
+        e.preventDefault();
         var body = {
             password: this.state.password,
             boughtby_khaltiid: this.state.boughtby_khaltiid
