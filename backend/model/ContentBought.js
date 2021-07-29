@@ -7,13 +7,13 @@ const ContentBought = mongoose.model('ContentBought', {
     boughtby_email: {
         type : String
     },
-    boughtby_khaltiid: {
+    boughtby_ID: {
         type : String
-    },
+    }, 
     productowner_email: {
         type : String
     },
-    productowner_khaltiid: {
+    productowner_ID: {
         type : String
     },
     boughton_date: {

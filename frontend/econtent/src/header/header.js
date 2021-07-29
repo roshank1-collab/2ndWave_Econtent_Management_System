@@ -3,6 +3,7 @@ import { Nav, NavDropdown, Navbar, Button, NavItem } from 'react-bootstrap';
 import { Modal, Container } from 'react-bootstrap'
 import { FaUserGraduate, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
 import BellIcon from 'react-bell-icon';
 import socketIOClient from "socket.io-client";
 const ENDPOINT = socketIOClient("http://127.0.0.1:90", {
@@ -11,6 +12,9 @@ const ENDPOINT = socketIOClient("http://127.0.0.1:90", {
     "my-custom-header": "abcd",
   },
  
+=======
+
+>>>>>>> b4b9d291baccd00a773456aec187f0a456ec73c1
 
 })
 
@@ -148,7 +152,7 @@ const Header = () => {
           </Nav>
 
 
-          <NavDropdown title={<BellIcon width='25' active={true} animate={true} />}>
+          <NavDropdown >
             {DropdownItem()}
           </NavDropdown>
 

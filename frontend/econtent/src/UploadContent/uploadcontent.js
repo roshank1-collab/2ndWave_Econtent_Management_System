@@ -50,6 +50,7 @@ class Uploadcontent extends Component {
                 // alert(response.data.message)
                 // toast.success(response.data.message)
                 toast.success(response.data.message, { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
+                window.location.reload()
             })
             .catch((error) => {
                 // alert(error)
@@ -79,12 +80,13 @@ class Uploadcontent extends Component {
                                         <input type="text" className="form-control"
                                             id="heading"
                                             name="title"
+                                            placeholder = "Write title"
                                             value={this.state.title}
                                             onChange={this.changeHandler} required />
                                     </div>
                                     <hr />
                                     <div className="col-lg-5">
-                                        <label htmlFor="heading">Choose a same vedio here</label>
+                                        <label htmlFor="heading">Choose a thumbnail video</label>
                                         <input type="file"
                                             className="form-control"
                                             name="video"
@@ -109,6 +111,7 @@ class Uploadcontent extends Component {
                                             id="content_description"
                                             name="description"
                                             value={this.state.description}
+                                            placeholder = "Write decription"
                                             onChange={this.changeHandler} required />
                                     </div>
                                 </div>
