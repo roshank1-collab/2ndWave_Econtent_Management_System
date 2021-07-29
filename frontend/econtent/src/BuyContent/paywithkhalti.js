@@ -110,7 +110,7 @@ class paywithkhalti extends Component {
                             Password
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="password" placeholder="Your login Password" />
                         </Col>
                     </Form.Group>
                     <hr />
@@ -120,7 +120,7 @@ class paywithkhalti extends Component {
                             Total Amount
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control plaintext readOnly value={this.state.contentdata.price} />
+                            <Form.Control plaintext readOnly value={this.state.contentdata.price} style={{ color: "white" , fontSize : "20px"}}/>
                         </Col>
                     </Form.Group>
                 </Form>
