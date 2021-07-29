@@ -29,7 +29,7 @@ class Footer extends Component {
                     // toast.success(response.data.message)
                 }
                 else if (response.data.message == "You have already Subscribed the website!!") {
-                    toast.error("Bhayo kya bhayo. Kati subscribe garira!!!")
+                    toast.error("You have already Subscribed the website!!")
                 }
             })
             .catch((err) => {
