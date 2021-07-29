@@ -46,15 +46,15 @@ class Footer extends Component {
 
                             <div className="col-xs-12 col-sm-6 col-md-3">
                                 <div className="widget subscribe no-box">
-                                <ul className="thumbnail-widget">
-                                    <h3 className="widget-title" style={{ color: "white", fontWeight: "bolder", marginTop: "2px" }}>E-content <span></span></h3>
+                                    <ul className="thumbnail-widget">
+                                        <h3 className="widget-title" style={{ color: "white", fontWeight: "bolder", marginTop: "2px" }}>E-content <span></span></h3>
 
-                                    <p>
-                                        <FaFly /> Kathmandu, Nepal <br /> <br />
-                                        <FaInternetExplorer /> www.econtentweb.com <br /> <br />
-                                        <FaMonero /> info@econtentweb.com <br /><br />
-                                        <FaPhoneSquareAlt /> 01-958385583
-                                    </p>
+                                        <p>
+                                            <FaFly /> Kathmandu, Nepal <br /> <br />
+                                            <FaInternetExplorer /> www.econtentweb.com <br /> <br />
+                                            <FaMonero /> info@econtentweb.com <br /><br />
+                                            <FaPhoneSquareAlt /> 01-958385583
+                                        </p>
                                     </ul>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ class Footer extends Component {
                                             <li>
                                                 <div className="thumb-content"><a target="_blank" href="/careerwithus">Careers</a></div> <br />
                                             </li>
-                                        
+
                                             <li>
                                                 <div className="thumb-content"><a target="_blank" href="/contactus">Contact Us</a></div> <br />
                                             </li>
