@@ -102,18 +102,18 @@ const Header = () => {
       },
 
     })
-   
+
     // client-side
 
     socket.on("FromAPI", data => {
       setResponse(data);
-     console.log(data)
+      console.log(data)
     });
-     const id = localStorage.getItem('userid')
-    const response = {hello:'world',name:'shankar',id:id};
-      // Emitting a new message. Will be consumed by the client
-      socket.emit("hello", response);
-  
+    const id = localStorage.getItem('userid')
+    const response = { hello: 'world', name: 'shankar', id: id };
+    // Emitting a new message. Will be consumed by the client
+    socket.emit("hello", response);
+
 
   }, []);
 

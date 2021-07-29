@@ -334,7 +334,7 @@ class Profile extends Component {
                                 }
                             </div>
                         </div>
-                        <profilecontentshow/>
+                        <profilecontentshow />
                     </div>
                 </div>
             </div>
