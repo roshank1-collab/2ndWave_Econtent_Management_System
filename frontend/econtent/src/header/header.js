@@ -3,20 +3,9 @@ import { Nav, NavDropdown, Navbar, Button, NavItem } from 'react-bootstrap';
 import { Modal, Container } from 'react-bootstrap'
 import { FaUserGraduate, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
 import BellIcon from 'react-bell-icon';
 import socketIOClient from "socket.io-client";
-const ENDPOINT = socketIOClient("http://127.0.0.1:90", {
-  withCredentials: true,
-  extraHeaders: {
-    "my-custom-header": "abcd",
-  },
- 
-=======
 
->>>>>>> b4b9d291baccd00a773456aec187f0a456ec73c1
-
-})
 
 const id = localStorage.getItem('userid')
 
@@ -87,6 +76,8 @@ function DropdownItem() {
 const Header = () => {
   const [response, setResponse] = useState("");
   const [Catagories, setCatagories] = useState([]);
+
+
   useEffect(() => {
     if (localStorage.getItem('loginstatus') === 'true') {
       axios.get('http://localhost:90/content/catagories', {
@@ -101,18 +92,34 @@ const Header = () => {
             console.log(err.response)
           }
         )
-    }
 
-    const socket = socketIOClient(ENDPOINT);
+
+    }
+    const socket = socketIOClient("http://127.0.0.1:90", {
+      withCredentials: true,
+      extraHeaders: {
+        "my-custom-header": "abcd",
+      },
+
+    })
+   
+    // client-side
+
     socket.on("FromAPI", data => {
       setResponse(data);
-    })
-    {
-      response.map((data)=>( 
-        console.log(data)
-      ))
-    }
+     console.log(data)
+    });
+     const id = localStorage.getItem('userid')
+    const response = {hello:'world',name:'shankar',id:id};
+      // Emitting a new message. Will be consumed by the client
+      socket.emit("hello", response);
+  
+
   }, []);
+
+
+
+
 
   const filterCatagories = (item) => {
     window.location.href = "/catagories/" + item;
