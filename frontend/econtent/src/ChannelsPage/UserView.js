@@ -2,6 +2,8 @@ import { Component } from "react";
 import ReactPlayer from 'react-player'
 import { Button } from 'react-bootstrap'
 import axios from "axios"
+import { Link } from 'react-router-dom'
+
 
 export default class UserView extends Component {
 
@@ -25,10 +27,6 @@ export default class UserView extends Component {
                 alert(err)
             })
     }
-    singlecontentbuy = (id) => {
-        window.location.href = "/buycontent/" + id
-    }
-
     render() {
         return (
             <div className="container">
@@ -48,7 +46,10 @@ export default class UserView extends Component {
                                         <hr />
                                         <label>Genre</label>
                                         <p><h5>{items.categories}</h5></p>
-                                        <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }} onClick={this.singlecontentbuy.bind(this, items._id)}>BUY Now</Button>
+                                        <Link to={'/buycontent/' + items._id}>
+                                            <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }} >BUY Now</Button>
+                                        </Link>
+
                                     </div>
                                 </div>
                             )
