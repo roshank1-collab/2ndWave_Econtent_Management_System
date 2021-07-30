@@ -1,6 +1,7 @@
 import { Card, Button, Col } from "react-bootstrap";
 import axios from 'axios'
 import { Component } from "react";
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import Pagination from 'react-bootstrap/Pagination'
 toast.configure();
@@ -54,6 +55,7 @@ class ChannelsPage extends Component {
 
     }
 
+
     render() {
 
         // if (localStorage.getItem('statusOfSubscription') === "Subscribed Successfully") {
@@ -88,6 +90,12 @@ class ChannelsPage extends Component {
                                         <p><h5>{items.institution_name}</h5></p>
                                         <Button variant="outline-danger" className="btn" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
                                         </Button>
+                                        <hr />
+                                        <Link to={'/viewuser/' + items._id}>
+                                            <Button variant="outline-primary" className="btn">View
+                                            </Button>
+                                        </Link>
+
                                     </div>
                                 </div>
                             )
