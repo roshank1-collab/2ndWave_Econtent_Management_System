@@ -45,7 +45,7 @@ function Example() {
 function DropdownItem() {
   return (
     <>
-      <div className="col-md-4 col-lg-4">
+      <div  className="col-md-4 col-lg-4 align-end" style={{width:'500px', position:'absolute'}}>
         <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">Notifications</h3>
@@ -151,6 +151,10 @@ const Header = () => {
                 ))
               }
             </NavDropdown>
+            <NavDropdown >
+           <BellIcon/>
+            {DropdownItem()}
+          </NavDropdown>
 
             <Nav.Link href="#">Live Audio/Video</Nav.Link>
             <Nav.Link href={"/uploadcontent/" + id}>UploadContent <FaUpload /></Nav.Link>
@@ -160,9 +164,7 @@ const Header = () => {
           </Nav>
 
 
-          <NavDropdown >
-            {DropdownItem()}
-          </NavDropdown>
+         
 
           <Nav className="justify-content-end">
 
