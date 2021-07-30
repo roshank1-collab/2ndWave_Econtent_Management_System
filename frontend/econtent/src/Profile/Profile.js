@@ -19,14 +19,14 @@ function Example() {
     const sure = () => {
         axios.delete('http://localhost:90/user/delete/' + userid)
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 if (response.data.message === "Account Deleted") {
-                    toast.success('Account Deleted', { position: toast.POSITION.TOP_RIGHT, autoClose: 2000 })
+                    toast.success('Account Deleted', { position: toast.POSITION.TOP_RIGHT, autoClose: 2100 })
                     window.location.href = "/login"
                 }
             })
             .catch((err) => {
-                console.log(err)
+                // console.log(err)
                 toast.error(err, { position: toast.POSITION.TOP_RIGHT, autoClose: 2000 })
             })
     };
