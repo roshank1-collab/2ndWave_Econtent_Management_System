@@ -5,6 +5,8 @@ import { toast } from 'react-toastify'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Card, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom'
+
 toast.configure();
 
 export default class SimpleSlider extends Component {
@@ -101,7 +103,7 @@ export default class SimpleSlider extends Component {
                                     <Card style={{ width: '18rem' }}>
                                         <Card.Img
                                             variant="top"
-                                            src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '17rem', height : '300px' }}
+                                            src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '17rem', height: '300px' }}
                                         />
                                         <Card.Body>
                                             <Card.Title>{items.First_name}</Card.Title>
@@ -110,6 +112,10 @@ export default class SimpleSlider extends Component {
                                             </Card.Text>
                                             <Button variant="outline-danger" className="btn" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
                                             </Button>
+                                            <hr />
+                                            <Link to={'/viewuser/' + items._id}>
+                                                <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }} >GOTO</Button>
+                                            </Link>
                                         </Card.Body>
                                     </Card>
                                 </div>
