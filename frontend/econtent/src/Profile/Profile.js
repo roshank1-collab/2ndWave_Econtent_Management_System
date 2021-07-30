@@ -6,7 +6,8 @@ import { Modal, Button } from 'react-bootstrap'
 // import './Profile.css'
 import ReactPlayer from 'react-player'
 import { toast } from "react-toastify"
-import profilecontentshow from "./profilecontentshow";
+import ProfileContentShow from "./profilecontentshow";
+import { Tab, Nav, Col, Row } from "react-bootstrap";
 toast.configure()
 
 const userid = localStorage.getItem("userid")
@@ -296,45 +297,74 @@ class Profile extends Component {
                             </div>
                         </div>
                         <div className="container" style={{ background: "white" }}>
-                            <center>
-                                <h1 style={{ color: "#51127F", marginTop: "40px" }}>Your Stuff</h1>
-                            </center>
+                            <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+                                <Row>
+                                    <Col sm={3}>
+                                        <Nav variant="pills" className="flex-column">
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="first">Your</Nav.Link>
+                                            </Nav.Item>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="second">Bought</Nav.Link>
+                                            </Nav.Item>
+                                        </Nav>
+                                    </Col>
+                                    <Col sm={9}>
+                                        <Tab.Content>
+                                            <Tab.Pane eventKey="first">
+                                                <div className="container" style={{ background: "#E0EFDE" }}>
+                                                    {/* <center>
+                                                        <h1 style={{ color: "#51127F", marginTop: "40px" }}>Your Stuff</h1>
+                                                    </center> */}
 
-                            <div className="row">
-                                {
-                                    this.state.allItem.map((items) => {
-                                        return (
-                                            <div className="card" style={{ width: '304px', margin: '10px' }}>
-                                                <ReactPlayer width='250xp' height='250px' controls
-                                                    url='https://youtu.be/7sDY4m8KNLc'
-                                                />
-                                                {/* <img className="card-img-top" src={"http://localhost:90/" + items.video} alt="Image Loading...." style={{ width: '250xp', height: '250px', background: "red" }} /> */}
-                                                <div className="card-body">
-                                                    <i><h3 className="card-title"> {items.heading}</h3></i><br />
-                                                    <label>Description</label>
-                                                    <p><h5>{items.content_description}</h5></p>
-                                                    <hr />
-                                                    <label>Genre</label>
-                                                    <p><h5>{items.categories}</h5></p>
-                                                    <hr />
                                                     <div className="row">
-                                                        <div className="col-sm-6">
-                                                            <Button variant="outline-success" className="btn" >Edit
-                                                            </Button>
-                                                        </div>
-                                                        <div className="col-sm-6">
-                                                            <Button variant="outline-danger" className="btn" onClick={this.deleteContent.bind(this, items._id)}>Delete
-                                                            </Button>
-                                                        </div>
+                                                        {
+                                                            this.state.allItem.map((items) => {
+                                                                return (
+                                                                    <div className="card" style={{ width: '304px', marginRight: '10px', marginTop: '5px' }}>
+                                                                        <ReactPlayer width='250xp' height='250px' controls
+                                                                            url='https://youtu.be/7sDY4m8KNLc'
+                                                                        />
+                                                                        {/* <img className="card-img-top" src={"http://localhost:90/" + items.video} alt="Image Loading...." style={{ width: '250xp', height: '250px', background: "red" }} /> */}
+                                                                        <div className="card-body">
+                                                                            <i><h3 className="card-title"> {items.heading}</h3></i><br />
+                                                                            <label>Description</label>
+                                                                            <p><h5>{items.content_description}</h5></p>
+                                                                            <hr />
+                                                                            <label>Genre</label>
+                                                                            <p><h5>{items.categories}</h5></p>
+                                                                            <hr />
+                                                                            <div className="row">
+                                                                                <div className="col-sm-6">
+                                                                                    <Button variant="outline-success" className="btn" >Edit
+                                                                                    </Button>
+                                                                                </div>
+                                                                                <div className="col-sm-6">
+                                                                                    <Button variant="outline-danger" className="btn" onClick={this.deleteContent.bind(this, items._id)}>Delete
+                                                                                    </Button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            })
+                                                        }
                                                     </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
+                                            </Tab.Pane>
+                                            <Tab.Pane eventKey="second">
+                                                <div>
+                                                    <h1> Buy Content</h1>
+                                                </div>
+                                            </Tab.Pane>
+                                        </Tab.Content>
+                                    </Col>
+                                </Row>
+                            </Tab.Container>
                         </div>
-                        <profilecontentshow/>
+                        {/* <div >
+                            <ProfileContentShow />
+                        </div> */}
                     </div>
                 </div>
             </div>
