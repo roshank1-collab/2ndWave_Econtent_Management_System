@@ -1,11 +1,11 @@
-import { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css'
-import axios from 'axios'
+import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FaWindows } from 'react-icons/fa';
+import '../App.css';
+import Location from '../location/Location';
 toast.configure()
 
 
@@ -135,6 +135,18 @@ class ContactUs extends Component {
             </div>
           </div>
         </div>
+        {/* <div className="container">
+          <div className="row">
+            <h4>We are here.</h4>
+          </div>
+          <div>
+            <Location />
+          </div>
+        </div> */}
+        <Link to="/location">
+          <button>We are here</button>
+        </Link>
+
       </div>
 
 

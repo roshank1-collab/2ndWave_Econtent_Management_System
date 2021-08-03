@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "axois": "*",
     "bootstrap": "^5.0.2",
+    "google-maps-react": "^2.0.6",
     "jquery": "^3.6.0",
     "react": "^17.0.2",
     "react-bell-icon": "^1.0.1",
