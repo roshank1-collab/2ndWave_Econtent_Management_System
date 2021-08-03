@@ -295,7 +295,7 @@ class BeforeLogin extends Component {
                                 <div class="img-block mb-5">
                                     <img src="./images/suji.jpg" style={{height:'300px', width:'300px'}} class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
                                     <div class="content mt-2">
-                                        <h4>Sujit Kushwa</h4>
+                                        <h4>Sujit Prasad Kushwaha</h4>
                                         <p class="text-muted">Software Developer</p>
                                     </div>
                                 </div>
