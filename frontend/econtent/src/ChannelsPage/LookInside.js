@@ -1,5 +1,10 @@
 import { Component } from "react";
 import axios from "axios"
+import {
+    Presentation, Slide, Text,
+    Shape, Image, render
+} from "react-pptx";
+import fs from "fs";
 import { toast } from "react-toastify"
 toast.configure()
 
@@ -29,24 +34,33 @@ class LookInside extends Component {
 
     render() {
         return (
-            <div className="container" style = {{fontSize : "30px"}}>
+            <div className="container" style={{ fontSize: "30px" }}>
                 <div className="row">
                     <p >Title : </p>
                     {this.state.allItem.heading}
-                    <hr/>
+                    <hr />
                     <p>Category : </p>
                     {this.state.allItem.categories}
-                    <hr/>
+                    <hr />
                     <p>Description : </p>
                     {this.state.allItem.content_description}
-                    <hr/>
+                    <hr />
                     <p>POSTED AT : </p>
                     {this.state.allItem.postedAt}
                     <hr />
                     <p>Price : </p>
                     {this.state.allItem.price}
-                    <hr/>
+                    <hr />
                 </div>
+                <iframe
+                    // src={`https://view.officeapps.live.com/op/embed.aspx?src=${linkToPPTFile}`}
+                    // src={`https://view.officeapps.live.com/op/embed.aspx?src=${linkToPPTFile}`}
+                    src={"http://localhost:90/" + this.state.allItem.ppt}
+                    width="100%"
+                    height="600px"
+                    frameBorder="0"
+                >                    
+                </iframe>
             </div>
         )
     }
