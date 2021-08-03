@@ -135,17 +135,17 @@ class ContactUs extends Component {
             </div>
           </div>
         </div>
-        {/* <div className="container">
+        <div className="container">
           <div className="row">
             <h4>We are here.</h4>
           </div>
           <div>
             <Location />
           </div>
-        </div> */}
-        <Link to="/location">
+        </div>
+        {/* <Link to="/location">
           <button>We are here</button>
-        </Link>
+        </Link> */}
 
       </div>
 
