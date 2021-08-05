@@ -27,7 +27,7 @@ class Login extends Component {
                     // localStorage.setItem('data', JSON.stringify(response.data.userData))
                     if (localStorage.getItem('token') === "undefined") {
                         this.setState({ checkLogin: false })
-                        alert(response.data.message)
+                        alert("Error: "+response.data.message)
                     }
                     else {
                         this.setState({ checkLogin: true })

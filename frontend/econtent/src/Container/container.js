@@ -18,6 +18,7 @@ import ProfileUpdate from '../Profile/ProfileUpdate';
 import Buycontent from '../BuyContent/Buycontent';
 import paywithkhalti from '../BuyContent/paywithkhalti';
 import paywithesewa from '../BuyContent/paywithesewa';
+import UserView from '../ChannelsPage/UserView';
 
 
 class Container extends Component {
@@ -45,6 +46,7 @@ class Container extends Component {
                         <Route exact path="/buycontent/:id" component={Buycontent} />
                         <Route exact path="/paywithkhalti/:id" component={paywithkhalti} />
                         <Route exact path="/paywithesewa/:id" component={paywithesewa} />
+                        <Route exact path="/viewuser/:id" component={UserView} />
                     </Switch>
                 </BrowserRouter>
 

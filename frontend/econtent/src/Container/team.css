@@ -20,6 +20,11 @@
     overflow: hidden
 }
 
+.team .team-item a {
+    text-decoration: none;
+    color: #94238e;
+}
+
 .team .team-item figure {
     position: relative;
     overflow: hidden

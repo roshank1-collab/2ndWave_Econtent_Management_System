@@ -192,4 +192,16 @@ router.post('/content/bought/:id', authentication.verifyUser, function (req, res
 
 })
 
+//filtering bought content of a user
+router.get('/content/seeboughtcontent/:id', function (req, res) {
+    const userid = req.params.id
+    ContentBought.find({boughtby_ID : userid}).distinct('contentid')
+        .then(function (result) {
+            res.status(200).json({ status: true, data: result })
+        })
+        .catch(function (err) {
+            res.status(500).json({ message: err })
+        })
+})
+
 module.exports = router

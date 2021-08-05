@@ -242,8 +242,8 @@ class BeforeLogin extends Component {
 
                 </div>
                 {/* <team></team> */}
-                <section class="team text-center py-5" style={{ marginTop: "-0px" }}>
-                    <div class="container col-centered" style={{ marginLeft: "170px" }} >
+                <section class="team text-center py-5">
+                    <div class="container col-centered" >
 
 
 
@@ -254,7 +254,7 @@ class BeforeLogin extends Component {
                         <div class="row" >
                             <div class="col-md-6 col-lg-3">
                                 <div class="img-block mb-5">
-                                    <img src="./images/riya.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
+                                    <img src="./images/riya-1.jpg" class="img-fluid  img-thumbnail rounded-circle" style={{height:'300px', width:'300px'}} alt="image1" />
                                     <div class="content mt-2">
                                         <h4>Riya Pandey</h4>
                                         <p class="text-muted">UI/UX design </p>
@@ -263,7 +263,7 @@ class BeforeLogin extends Component {
                             </div>
                             <div class="col-md-6 col-lg-3 ">
                                 <div class="img-block mb-5">
-                                    <img src="./images/roshh.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
+                                    <img src="./images/roshh.jpg" style={{height:'300px', width:'300px'}} class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
                                     <div class="content mt-2">
                                         <h4>Roshan Koirala</h4>
                                         <p class="text-muted">Content Writer</p>
@@ -272,7 +272,7 @@ class BeforeLogin extends Component {
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="img-block mb-5">
-                                    <img src="./images/uu.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
+                                    <img src="./images/uu.jpg" style={{height:'300px', width:'300px'}} class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
                                     <div class="content mt-2">
                                         <h4>Usha Katwal</h4>
                                         <p class="text-muted">Digital Marketing</p>
@@ -284,7 +284,7 @@ class BeforeLogin extends Component {
                         <div class="row" >
                             <div class="col-md-6 col-lg-3">
                                 <div class="img-block mb-5">
-                                    <img src="./images/shankar.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
+                                    <img src="./images/shankar.jpg" style={{height:'300px', width:'300px'}} class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
                                     <div class="content mt-2">
                                         <h4>Shankar Bhandari</h4>
                                         <p class="text-muted">Database Handle</p>
@@ -293,16 +293,16 @@ class BeforeLogin extends Component {
                             </div>
                             <div class="col-md-6 col-lg-3 ">
                                 <div class="img-block mb-5">
-                                    <img src="./images/suji.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
+                                    <img src="./images/suji.jpg" style={{height:'300px', width:'300px'}} class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
                                     <div class="content mt-2">
-                                        <h4>Sujit Kushwa</h4>
+                                        <h4>Sujit Prasad Kushwaha</h4>
                                         <p class="text-muted">Software Developer</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="img-block mb-5">
-                                    <img src="./images/enjeela.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
+                                    <img src="./images/enjeela.jpg" style={{height:'300px', width:'300px'}} class="img-fluid  img-thumbnail rounded-circle" alt="image1" />
                                     <div class="content mt-2">
                                         <h4>Enjeela Chaudhari</h4>
                                         <p class="text-muted"> Observer</p>

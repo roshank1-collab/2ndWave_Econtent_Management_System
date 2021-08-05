@@ -1,6 +1,7 @@
 import { Card, Button, Col } from "react-bootstrap";
 import axios from 'axios'
 import { Component } from "react";
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import Pagination from 'react-bootstrap/Pagination'
 toast.configure();
@@ -18,22 +19,22 @@ class ChannelsPage extends Component {
     componentDidMount() {
         axios.get('http://localhost:90/channel/all/' + localStorage.getItem('userid'))
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 this.setState({
                     channels: response.data.allchannel
                 })
             })
             .catch((err) => {
-                console.log(err.response)
+                // console.log(err.response)
             })
     }
 
     subscribecount = (id) => {
         axios.post("http://localhost:90/channel/subscribe/" + id, {}, this.state.config)
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 localStorage.setItem('statusOfSubscription', response.data.statusOfSubscription)
-                console.log(localStorage.getItem('statusOfSubscription'))
+                // console.log(localStorage.getItem('statusOfSubscription'))
 
                 var statusOfSubscription = localStorage.getItem('statusOfSubscription')
                 // alert(localStorage.getItem('statusOfSubscription'))
@@ -53,6 +54,7 @@ class ChannelsPage extends Component {
 
 
     }
+
 
     render() {
 
@@ -88,6 +90,12 @@ class ChannelsPage extends Component {
                                         <p><h5>{items.institution_name}</h5></p>
                                         <Button variant="outline-danger" className="btn" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
                                         </Button>
+                                        <hr />
+                                        <Link to={'/viewuser/' + items._id}>
+                                            <Button variant="outline-primary" className="btn">View
+                                            </Button>
+                                        </Link>
+
                                     </div>
                                 </div>
                             )
