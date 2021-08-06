@@ -46,7 +46,7 @@ class Location extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container-fluid">
                 <Map
                     google={this.props.google}
                     zoom={14}
