@@ -64,6 +64,18 @@ class ContactUs extends Component {
                  <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
                  </div>
                </div>
+               <div className="row" style={{marginTop:'10px'}}>
+                 <div className="col-md-4">
+                 <input className="form-control" type="text" name="phone" value={this.state.phone} onChange={this.changeHandler} placeholder="Phone" />
+                 </div>
+                 <div className="col-md-4">
+                 <input className="form-control" type="text" name="subject" value={this.state.phone} onChange={this.changeHandler} placeholder="subject" />
+                 </div>
+                 <div class="form-group col-md-8">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" id="message" rows="3"></textarea>
+                </div>
+               </div>
                
              </form>
           </div>
