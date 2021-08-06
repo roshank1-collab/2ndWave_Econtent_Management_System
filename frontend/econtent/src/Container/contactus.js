@@ -78,6 +78,10 @@ class ContactUs extends Component {
                </div>
                <button type="submit" style={{background:'rgb(191, 58, 137)'}} className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2" onClick={this.submitMessage}><span> Send Message</span></button>
              </form>
+             <div className="row" style={{marginTop:'25px'}}>
+             <div className="map" style={{width:'65%',float:'left'}}>
+              <iframe style={{border:"0", width:"100%",height:"400px"}} src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14129.471317566644!2d85.3302047!3d27.7059272!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x74ebef82ad0e5c15!2sSoftwarica+College+Of+IT+%26+E-Commerce!5e0!3m2!1sen!2snp!4v1542042644421"></iframe>
+              </div>             </div>
           </div>
           </div>
         </div>
