@@ -134,7 +134,9 @@ class Uploadcontent extends Component {
 
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Cost</label>
-                                        <input type="text" className="form-control" name="Price" value={this.state.Price} onChange={this.changeHandler} placeholder="value of your content." required />
+                                       
+                                     <input type="number" className="form-control" name="Price" value={this.state.Price} onChange={this.changeHandler} placeholder="value of your content." required />
+                                     NPR
                                     </div>
                                 </div>
                                 <hr />
