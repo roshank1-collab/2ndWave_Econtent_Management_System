@@ -112,3 +112,11 @@ footer.light .footer-copyright{ background: none repeat scroll 0 0 rgba(255, 255
   text-transform: uppercase;
   font-weight: bold;
 }
+
+.pinkcolor{
+  color: rgb(191, 58, 137);
+}
+
+.purplecolor{
+  color:rebeccapurple;
+}
