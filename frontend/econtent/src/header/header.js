@@ -17,6 +17,10 @@ function Example() {
   const out = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('loginstatus')
+    localStorage.removeItem('username')
+    localStorage.removeItem('password')
+    localStorage.removeItem('userid')
+    localStorage.removeItem('success')
     setShow(false)
   };
 
@@ -45,7 +49,7 @@ function Example() {
 function DropdownItem() {
   return (
     <>
-      <div  className="col-md-4 col-lg-4 align-end" style={{width:'500px', position:'absolute'}}>
+      <div className="col-md-4 col-lg-4 align-end" style={{ width: '500px', position: 'absolute' }}>
         <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">Notifications</h3>
@@ -152,11 +156,11 @@ const Header = () => {
               }
             </NavDropdown>
             <NavDropdown >
-           <BellIcon/>
-            {DropdownItem()}
-          </NavDropdown>
+              <BellIcon />
+              {DropdownItem()}
+            </NavDropdown>
 
-            <Nav.Link href="#">Live Audio/Video</Nav.Link>
+            <Nav.Link href="/communication">Communication</Nav.Link>
             <Nav.Link href={"/uploadcontent/" + id}>UploadContent <FaUpload /></Nav.Link>
             <Nav.Link href={"/userprofile/" + id}>My Profile <FaUserCircle /></Nav.Link>
 
@@ -164,7 +168,7 @@ const Header = () => {
           </Nav>
 
 
-         
+
 
           <Nav className="justify-content-end">
 

@@ -16,7 +16,6 @@ class Location extends Component {
     }
     componentDidMount() {
 
-
         // finding out if a user's geolocation is available or not.
         if ("geolocation" in navigator) {
             console.log("Available")
