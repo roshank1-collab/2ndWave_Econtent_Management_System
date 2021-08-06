@@ -76,7 +76,7 @@ class ContactUs extends Component {
                   <textarea class="form-control" id="message" rows="3"></textarea>
                 </div>
                </div>
-               
+               <button type="submit" style={{background:'rgb(191, 58, 137)'}} className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2" onClick={this.submitMessage}><span> Send Message</span></button>
              </form>
           </div>
           </div>
