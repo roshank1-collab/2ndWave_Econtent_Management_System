@@ -53,8 +53,19 @@ class ContactUs extends Component {
           <div className="row">
           <div className="col-md-12 contactus">
           <img src="../images/banner.jpg" style={{ marginTop:'5px' }}/>
-              <h4 style={{marginTop:'5%'}}><span className='purplecolor'>Let us begin a </span><span className="pinkcolor">conversition</span></h4>
+            <h4 style={{marginTop:'5%'}}><span className='purplecolor'>Let us begin a </span><span className="pinkcolor">conversation</span></h4>
           </div>
+          <form >
+               <div className="row" style={{marginTop:'10px'}}>
+                 <div className="col-md-4">
+                 <input className="form-control" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
+                 </div>
+                 <div className="col-md-4">
+                 <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
+                 </div>
+               </div>
+               
+             </form>
           </div>
           </div>
         </div>
