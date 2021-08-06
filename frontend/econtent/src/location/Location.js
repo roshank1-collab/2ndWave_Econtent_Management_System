@@ -33,8 +33,6 @@ class Location extends Component {
         // });
         // //Get the current position of the user 
 
-
-
         // to get the complete position of the user with error handling
         navigator.geolocation.getCurrentPosition(
             function (position) {
