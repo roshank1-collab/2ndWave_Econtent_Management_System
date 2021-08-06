@@ -1,10 +1,10 @@
 import { Component } from "react";
 import ReactPlayer from 'react-player'
-import { Button } from 'react-bootstrap'
+import { Button, Toast } from 'react-bootstrap'
 import axios from "axios"
 import { Link } from 'react-router-dom'
-
-
+import { toast } from "react-toastify"
+toast.configure()
 export default class UserView extends Component {
 
     state = {
@@ -19,9 +19,15 @@ export default class UserView extends Component {
         axios.get('http://localhost:90/content/single/' + this.state.id)
             .then((response) => {
                 console.log(response)
-                this.setState({
-                    allItem: response.data.data
-                })
+                if (response.data.message == "No data to show") {
+                    toast.info("The user has nothing to show Yet", { position: toast.POSITION.TOP_RIGHT, autoClose: 2000 })
+                }
+                else {
+                    this.setState({
+                        allItem: response.data.data
+                    })
+                }
+
             })
             .catch((err) => {
                 alert(err)
@@ -49,7 +55,10 @@ export default class UserView extends Component {
                                         <Link to={'/buycontent/' + items._id}>
                                             <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }} >BUY Now</Button>
                                         </Link>
-
+                                        <hr />
+                                        <Link to={'/lookinside/' + items._id}>
+                                            <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none' }} >Look</Button>
+                                        </Link>
                                     </div>
                                 </div>
                             )

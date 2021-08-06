@@ -109,7 +109,6 @@ const Header = () => {
     })
 
     // client-side
-
     socket.on("FromAPI", data => {
       setResponse(data);
       console.log(data)
@@ -121,9 +120,6 @@ const Header = () => {
 
 
   }, []);
-
-
-
 
 
   const filterCatagories = (item) => {
