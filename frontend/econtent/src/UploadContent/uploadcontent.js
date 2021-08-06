@@ -8,6 +8,7 @@ import wallpaper from './up2.jpg'
 toast.configure()
 class Uploadcontent extends Component {
 
+
     state = {
         title: "",
         ppt:"",
@@ -30,9 +31,11 @@ class Uploadcontent extends Component {
     }
     changeHandler = (e) => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+    
         })
     }
+ 
 
     uploadhere = (e) => {
         e.preventDefault(); // prevents from reloading page
@@ -59,6 +62,7 @@ class Uploadcontent extends Component {
     }
 
     render() {
+      
         return (
             <section className="Form my-4 mx-5 pt-5 pb-5">
                 <div className="container">
@@ -135,7 +139,7 @@ class Uploadcontent extends Component {
                                     <div className="col-lg-5">
                                         <label htmlFor="fullname">Cost</label>
                                        
-                                     <input type="number" className="form-control" name="Price" value={this.state.Price} onChange={this.changeHandler} placeholder="value of your content." required />
+                                     <input type="number" value={this.state.inputtxt}   className="form-control w-100" min="0" step="1" name="Price" value={this.state.Price} onChange={this.changeHandler}  placeholder="value of your content." required />
                                      NPR
                                     </div>
                                 </div>

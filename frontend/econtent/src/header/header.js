@@ -156,7 +156,7 @@ const Header = () => {
               {DropdownItem()}
             </NavDropdown>
 
-            <Nav.Link href="/communication">Communication</Nav.Link>
+            <Nav.Link href="/communication">Live Communication</Nav.Link>
             <Nav.Link href={"/uploadcontent/" + id}>UploadContent <FaUpload /></Nav.Link>
             <Nav.Link href={"/userprofile/" + id}>My Profile <FaUserCircle /></Nav.Link>
 
@@ -187,21 +187,21 @@ const Header = () => {
         </Navbar.Brand>
         <Nav className="mr-auto">
 
-          <NavDropdown style={{ color: "black", fontWeight: "bold", fontFamily: "roboto", fontSize: "18px" }} title="Company" id="basic-nav-dropdown">
+          <NavDropdown title="Company" id="basic-nav-dropdown">
             <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
 
             <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
             <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
           </NavDropdown>
-          <NavDropdown style={{ color: "black", fontWeight: "bold", fontFamily: "roboto", fontSize: "18px" }} title="Services" id="basic-nav-dropdown" >
+          <NavDropdown  title="Services" id="basic-nav-dropdown" >
             <NavDropdown.Item href="/services"><FaServicestack />Services & Offers</NavDropdown.Item>
             <NavDropdown.Item href="/terms"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
 
           </NavDropdown>
 
 
-          <Nav.Link style={{ color: "black", fontWeight: "bold", fontFamily: "roboto", fontSize: "18px" }} href="/contactus"> Contact <FaTty /></Nav.Link>
+          <Nav.Link href="/contactus"> Contact</Nav.Link>
 
         </Nav>
         <Navbar.Collapse className="justify-content-end">
