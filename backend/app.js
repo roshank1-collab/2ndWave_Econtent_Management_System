@@ -21,7 +21,7 @@ const server = app.listen(port, function (req, res) {
 });
 const io = require("socket.io")(server, {
     cors: {
-        origin: "",
+        origin: "http://localhost:3000",
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -35,27 +35,10 @@ UploadContent.find({}, {}, {field: 'asc', sort: { 'postedAt' : 1 } }, function(e
     
   }).limit(5)
 
-let interval;
-io.on("connection", (socket) => {
-    console.log("New client connected "+ socket.id);
-    if (interval) {
-        clearInterval(interval);
-    }
-    getApiAndEmit(socket);
-    socket.on("disconnect", () => {
-        console.log("Client disconnected");
-        clearInterval(interval);
-    });
-    socket.on("hello",(data)=>{
-        console.log(data.id)
-        console.log(data)
 
-    } )
+io.on("connection", (socket) => {
+    socket.emit('me',socket.io)
 });
 
-const getApiAndEmit = socket => {
-    // Emitting a new message. Will be consumed by the client
-    const response = "hello i am calling you";
-    socket.emit("FromAPI", data);
-};
+
 
