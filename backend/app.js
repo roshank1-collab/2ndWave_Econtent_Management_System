@@ -21,7 +21,7 @@ const server = app.listen(port, function (req, res) {
 });
 const io = require("socket.io")(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "",
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -32,7 +32,7 @@ const io = require("socket.io")(server, {
 var data;
 UploadContent.find({}, {}, {field: 'asc', sort: { 'postedAt' : 1 } }, function(err, post) {
     data = post
-    console.log(post[0]._id)
+    
   }).limit(5)
 
 let interval;

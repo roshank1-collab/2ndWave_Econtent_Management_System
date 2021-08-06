@@ -104,9 +104,15 @@ class Register extends Component {
                                 <div className="container-fluid">
                                     <div className="row">
                                         <div className="col-md-6">
+                                            <label htmlFor="categories">Gender &nbsp;&nbsp;&nbsp;</label>
+                                            <select className="form-control" name="gender" value={this.state.gender} onChange={this.changeHandler} required>
+                                                <option selected>Select Gender </option>
+                                                <option value="Math">Male</option>
+                                                <option value="Nepali">Female</option>
+                                                <option value="English">Others</option>
+                                                <option value="Science">Prefer not to say</option>
+                                            </select>
 
-                                            <label >Gender</label>
-                                            <input type="text" className="form-control" name="gender" value={this.state.gender} onChange={this.changeHandler} required />
                                         </div>
                                         <div className="col-md-6">
                                             <label >Date of Birth</label>
@@ -133,7 +139,7 @@ class Register extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <label>Institution ID</label>
-                                            <input type="file" placeholder="institution ID" name="institution_ID" onChange={this.fileHandler} required />
+                                            <input type="file" placeholder="institution ID" className="form-control" name="institution_ID" onChange={this.fileHandler} required />
 
                                         </div>
                                         <div className="col-md-6">
@@ -148,7 +154,7 @@ class Register extends Component {
                                         <div className="col-md-6">
                                             <label>Your Photo </label>
 
-                                            <input type="file" placeholder="Profile Picture" name="Profile_Picture" onChange={this.fileHandler} required />
+                                            <input type="file" className="form-control" placeholder="Profile Picture" name="Profile_Picture" onChange={this.fileHandler} required />
                                         </div>
                                         <div className="col-md-6">
                                             <label >Email</label>
