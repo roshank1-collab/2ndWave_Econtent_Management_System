@@ -22,7 +22,7 @@
 
 .team .team-item a {
     text-decoration: none;
-    color: #94238e;
+    color: #51227F;
 }
 
 .team .team-item figure {
@@ -91,7 +91,7 @@ img {
 }
 
 .team .team-item figure figcaption .social a {
-    color: #fff;
+    color: rgb(160, 53, 133);
     font-size: 15px;
     width: 36px;
     height: 36px;
@@ -122,12 +122,6 @@ h4 {
     margin-bottom: 50px;
 }
 
-.section-team .header-section .small-title {
-    margin-bottom: 25px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #3e64ff;
-}
 
 .section-team .header-section .title {
     font-weight: 700;
@@ -194,7 +188,7 @@ h4 {
 .section-team .single-person .person-info .speciality {
     text-transform: uppercase;
     font-size: 14px;
-    color: #94238e;
+    color: #51227F;
 }
 
 .section-team .single-person:hover .full-name,
@@ -202,6 +196,13 @@ h4 {
     color: #fff;
 }
 
+/* icons */
+/* body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+} */
 .social-icons {
     display: flex;
 }
