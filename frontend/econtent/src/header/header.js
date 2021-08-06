@@ -156,7 +156,7 @@ const Header = () => {
               {DropdownItem()}
             </NavDropdown>
 
-            <Nav.Link href="/communication">Live Communication</Nav.Link>
+            <Nav.Link href="/communication">Communication</Nav.Link>
             <Nav.Link href={"/uploadcontent/" + id}>UploadContent <FaUpload /></Nav.Link>
             <Nav.Link href={"/userprofile/" + id}>My Profile <FaUserCircle /></Nav.Link>
 

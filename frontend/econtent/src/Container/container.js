@@ -53,12 +53,7 @@ class Container extends Component {
                         <Route exact path="/paywithkhalti/:id" component={paywithkhalti} />
                         <Route exact path="/paywithesewa/:id" component={paywithesewa} />
                         <Route exact path="/viewuser/:id" component={UserView} />
-<<<<<<< HEAD
-                        <Route exact path ="/location" component = {Location}/>
-                        <Route exact path = "/communication" component = {indexlive}/>
-=======
                         <Route exact path = '/lookinside/:id' component = {LookInside}/>
->>>>>>> pptViewer
                     </Switch>
                 </BrowserRouter>
 
