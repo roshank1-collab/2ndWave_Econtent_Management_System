@@ -48,6 +48,7 @@ const Users = mongoose.model("User", {
             message: 'Oops..please enter valid email'
           })
         ],
+        unique : true,
     },
     Password:{
         type: String,
