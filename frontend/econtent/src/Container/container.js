@@ -55,7 +55,6 @@ class Container extends Component {
                         <Route exact path = '/communication' component = {indexlive}/>
                     </Switch>
                 </BrowserRouter>
-
             </div>
         )
     }

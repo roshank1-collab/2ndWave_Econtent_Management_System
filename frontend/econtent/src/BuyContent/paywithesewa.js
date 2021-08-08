@@ -126,7 +126,6 @@ class paywithkhalti extends Component {
                             <Form.Control plaintext readOnly value={this.state.loggedinuserdata.Email} style={{ color: "white" }} />
                         </Col>
                     </Form.Group>
-
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
                         <Form.Label column sm="2">
                             Payer Khalti-ID
