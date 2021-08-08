@@ -165,7 +165,7 @@ class BeforeLogin extends Component {
                       
                         <div class="col-12">
                             <div class="mt-4 pt-2 text-right">
-                                <a href="javascript:void(0)" class="btn btn-info">Read More <i class="mdi mdi-chevron-right"></i></a>
+                                <a style={{backgroundColor:"#51227f",border:"none",color:"white"}} href="javascript:void(0)" class="btn btn-info">Read More <i class="mdi mdi-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -177,7 +177,7 @@ class BeforeLogin extends Component {
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                                <img style={{height:"350px"}} src="./images/elearn.jpg" class="img-fluid" alt="Image" />
+                                <img style={{height:"350px",width:"300px"}} src="./images/elearn.jpg" class="img-fluid" alt="Image" />
                                 <div class="img-overlay bg-dark"></div>
                             </div>
                         </div>
@@ -321,11 +321,11 @@ class BeforeLogin extends Component {
 
 
 
-                <div style={{ backgroundColor: "#ADADC9" }}>
+                <div style={{ backgroundColor: "#ADADC9",height:"350px" }}>
            <div className="container">        
 <Carousel >
-  <Carousel.Item interval={1000} style={{color:"black"}}>
-    <img style={{height:"250px"}}
+  <Carousel.Item interval={1000} style={{color:"black" }}>
+    <img style={{height:"350px"}}
       className="d-block w-100"
       src="./images/blaci.jpeg"
       alt="First slide"
@@ -339,7 +339,7 @@ class BeforeLogin extends Component {
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item interval={1000} style={{color:"black"}}>
-    <img style={{height:"250px"}}
+    <img style={{height:"350px"}}
       className="d-block w-100"
       src="./images/blaci.jpeg"
       alt="First slide"
@@ -353,7 +353,7 @@ class BeforeLogin extends Component {
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item interval={1000} style={{color:"black"}}>
-    <img style={{height:"250px"}}
+    <img style={{height:"350px"}}
       className="d-block w-100"
       src="./images/blaci.jpeg"
       alt="First slide"

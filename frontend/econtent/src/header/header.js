@@ -187,21 +187,21 @@ const Header = () => {
         </Navbar.Brand>
         <Nav className="mr-auto">
 
-          <NavDropdown title="Company" id="basic-nav-dropdown">
+          <NavDropdown style={{fontSize:"18px"}} title="Company" id="basic-nav-dropdown">
             <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
 
             <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
             <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
           </NavDropdown>
-          <NavDropdown  title="Services" id="basic-nav-dropdown" >
+          <NavDropdown style={{fontSize:"18px"}}  title="Services" id="basic-nav-dropdown" >
             <NavDropdown.Item href="/services"><FaServicestack />Services & Offers</NavDropdown.Item>
             <NavDropdown.Item href="/terms"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
 
           </NavDropdown>
 
 
-          <Nav.Link href="/contactus"> Contact</Nav.Link>
+          <Nav.Link href="/contactus" style={{fontSize:"18px"}}> Contact</Nav.Link>
 
         </Nav>
         <Navbar.Collapse className="justify-content-end">
