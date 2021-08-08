@@ -28,7 +28,7 @@ export const VideoPlayer = () => {
                 stream && (
                     <Paper className={classess.paper}>
                         <Grid item xs={12} md={6}>
-                            <h3>{name||'Name'}</h3>
+                            <h3>{name}</h3>
                             <video playsInline muted ref={myVideo} autoPlay className={classess.video} />
                         </Grid>
                     </Paper>
@@ -38,7 +38,7 @@ export const VideoPlayer = () => {
                 callAccepted && !callEnded && (
                     <Paper className={classess.paper}>
                         <Grid item xs={12} md={6}>
-                            <h3>{call.name||'Name'}</h3>
+                            <h3>{call.name}</h3>
                             <video playsInline ref={userVideo} autoPlay className={classess.video} />
                         </Grid>
                     </Paper>
