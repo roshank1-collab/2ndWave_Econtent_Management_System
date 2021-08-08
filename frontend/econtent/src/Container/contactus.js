@@ -52,8 +52,9 @@ class ContactUs extends Component {
           <div className="container shadow">
             <div className="row">
              <div className="col-md-12 contactus">
-              <img src="../images/banner.jpg" style={{ marginTop:'5px' }}/>
-              <h4 style={{marginTop:'5%'}}><span className='purplecolor'>Let us begin a </span><span className="pinkcolor">conversition</span></h4>
+              <img src="../images/contact1.jpg" style={{ marginTop:'5px',height:"500px"}}/>
+              
+              <h4 style={{marginTop:'4%'}}><span className='purplecolor'>Let us begin a </span><span className="pinkcolor">conversition</span></h4>
              </div>
              <form >
                <div className="row" style={{marginTop:'10px'}}>

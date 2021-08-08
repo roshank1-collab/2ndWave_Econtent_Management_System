@@ -28,7 +28,7 @@ class OurTeam extends Component {
 							<div class="col-sm-6 col-lg-4 col-xl-4 ">
 								<div style={{height:"500px"}} class="single-person">
 									<div class="person-image">
-										<img src="./images/riya-1.jpg" alt="" />
+										<img style={{height:"250px",width:"250px"}}src="./images/riya-1.jpg" alt="" />
 										<span class="icon">
 											<i class="fab fa-html5"></i>
 										</span>
@@ -52,7 +52,7 @@ class OurTeam extends Component {
 							<div style={{height:"300px"}} class="col-sm-6 col-lg-4 col-xl-4">
 								<div style={{height:"500px"}} class="single-person">
 									<div class="person-image">
-										<img src="./images/roshh.jpg" alt="" />
+										<img style={{height:"250px",width:"250px"}} src="./images/roshh.jpg" alt="" />
 										<span class="icon">
 											<i class="fab fa-wordpress-simple"></i>
 										</span>
@@ -76,7 +76,7 @@ class OurTeam extends Component {
 							<div class="col-sm-6 col-lg-4 col-xl-4">
 								<div  style={{height:"500px"}}class="single-person">
 									<div class="person-image">
-										<img src="./images/uu.jpg" alt="" />
+										<img  style={{height:"250px",width:"250px"}} src="./images/uu.jpg" alt="" />
 										<span class="icon">
 											<i class="fab fa-angular"></i>
 										</span>
@@ -103,7 +103,7 @@ class OurTeam extends Component {
 							<div style={{height:"300px"}} class="col-sm-6 col-lg-4 col-xl-4 ">
 								<div  style={{height:"500px"}}class="single-person">
 									<div class="person-image">
-										<img src="./images/shankar.jpg" alt="" />
+										<img style={{height:"250px",width:"250px"}} src="./images/shankar.jpg" alt="" />
 										<span class="icon">
 											<i class="fab fa-html5"></i>
 										</span>
@@ -127,7 +127,7 @@ class OurTeam extends Component {
 							<div class="col-sm-6 col-lg-4 col-xl-4">
 								<div  style={{height:"500px"}}class="single-person">
 									<div class="person-image">
-										<img src="./images/suji.jpg" alt="" />
+										<img  style={{height:"250px",width:"250px"}} src="./images/suji.jpg" alt="" />
 										<span class="icon">
 											<i class="fab fa-wordpress-simple"></i>
 										</span>
@@ -150,7 +150,7 @@ class OurTeam extends Component {
 							<div class="col-sm-6 col-lg-4 col-xl-4">
 								<div style={{height:"500px"}} class="single-person">
 									<div class="person-image">
-										<img src="./images/enjeela.jpg" alt="" />
+										<img style={{height:"250px",width:"250px"}} src="./images/enjeela.jpg" alt="" />
 										<span class="icon">
 											<i class="fab fa-angular"></i>
 										</span>
