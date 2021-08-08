@@ -21,6 +21,7 @@ import paywithesewa from '../BuyContent/paywithesewa';
 import UserView from '../ChannelsPage/UserView';
 import Location from '../location/Location';
 import indexlive from '../LiveCommunication/src/indexlive';
+import { video } from './../videoChat/video';
 
 
 class Container extends Component {
@@ -49,8 +50,10 @@ class Container extends Component {
                         <Route exact path="/paywithkhalti/:id" component={paywithkhalti} />
                         <Route exact path="/paywithesewa/:id" component={paywithesewa} />
                         <Route exact path="/viewuser/:id" component={UserView} />
-                        <Route exact path ="/location" component = {Location}/>
-                        <Route exact path = "/communication" component = {indexlive}/>
+                        <Route exact path="/location" component={Location} />
+                        {/* <Route exact path = "/communication" component = {indexlive}/>*/}
+                        <Route exact path="/communication" component={video} />
+
                     </Switch>
                 </BrowserRouter>
 
