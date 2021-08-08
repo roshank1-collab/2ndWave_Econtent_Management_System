@@ -1,4 +1,5 @@
-Feature: To UploadContent
+//ContactUS
+Feature: To ContactUs
   As a user, I want to contact the team, so that I can clarify my queries and give feedback
 
   Scenario: User provides name, email, phone and message in the application.
