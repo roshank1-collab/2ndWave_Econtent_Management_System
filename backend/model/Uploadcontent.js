@@ -26,7 +26,7 @@ const UploadContent = mongoose.model("Uploadcontent", {
     },
 
     price: {
-        type: String,
+        type: Number,
         required: true
     },
     postedAt: {
