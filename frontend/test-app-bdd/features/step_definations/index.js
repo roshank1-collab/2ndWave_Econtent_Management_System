@@ -73,3 +73,21 @@ Given ("Test UploadContent functionality", { timeout: 30000 }, async function ()
 //   await driver.quit();
 // });
 
+//Contact US
+
+Given("Test ContactUs functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:3000");
+  await driver.findElement(By.id("name")).sendKeys("Riya");
+  await driver.findElement(By.id("email")).sendKeys("riyapandey@gmail.com");
+  await driver.findElement(By.id("phone")).sendKeys("983468736");
+  await driver.findElement(By.id("message")).sendKeys("successfully contact");
+  
+  await driver.sleep(delay);
+  await driver.findElement(By.id("submit")).click();
+
+  // await driver.wait(until.elementLocated(By.id("registerForm")), 30000);
+  // expect(await driver.wait(until.elementLocated(By.id("registerForm"))));
+  await driver.quit();
+});
+
