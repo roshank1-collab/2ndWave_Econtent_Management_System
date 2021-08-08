@@ -5,8 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { VideoPlayer } from './videoPlayer';
 import { ContextProvider } from './SocketContext';
 
-import  Sidebar from './Sidebar';
-import {Notifications }from './Noftication';
+import Sidebar from './Sidebar';
+import { Notifications } from './Noftication';
 
 const UseStyles = makeStyles((theme) => ({
     appBar: {
@@ -36,18 +36,19 @@ const UseStyles = makeStyles((theme) => ({
 export const video = () => {
     const classes = UseStyles();
     return (
-        <div className={classes.wrapper}>
-            <AppBar position="static" color="inherit">
-                <h1 className="text-center">Video Chat</h1>
-            </AppBar>
-            <ContextProvider>
+        <ContextProvider>
+            <div className={classes.wrapper}>
+                <AppBar position="static" color="inherit">
+                    <h1 className="text-center">Video Chat</h1>
+                </AppBar>
                 <VideoPlayer />
-            </ContextProvider>
-            <Notifications>
-                <Sidebar />
-            </Notifications>
 
-        </div>
+                <Sidebar>
+                    <Notifications />
+                </Sidebar>
+
+            </div>
+        </ContextProvider>
     )
 
 }
