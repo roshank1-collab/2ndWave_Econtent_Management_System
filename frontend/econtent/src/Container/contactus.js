@@ -51,47 +51,53 @@ class ContactUs extends Component {
         <div className="row no-gutters">
           <div className="container shadow">
             <div className="row">
-              <div className="col-lg-6">
-                <div className="card" style={{ border: 'none', marginTop: '100px' }}>
-                  <img src="../images/contactus.png" className="img-fluid" />
+             <div className="col-md-12 contactus">
+              <img src="../images/contact1.jpg" style={{ marginTop:'5px',height:"500px"}}/>
+              
+              <h4 style={{marginTop:'4%'}}><span className='purplecolor'>Let us begin a </span><span className="pinkcolor">conversition</span></h4>
+             </div>
+             <form >
+               <div className="row" style={{marginTop:'10px'}}>
+                 <div className="col-md-4">
+                 <input className="form-control" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
+                 </div>
+                 <div className="col-md-4">
+                 <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
+                 </div>
+               </div>
+               <div className="row" style={{marginTop:'10px'}}>
+                 <div className="col-md-4">
+                 <input className="form-control" type="text" name="phone" value={this.state.phone} onChange={this.changeHandler} placeholder="Phone" />
+                 </div>
+                 <div className="col-md-4">
+                 <input className="form-control" type="text" name="subject" value={this.state.phone} onChange={this.changeHandler} placeholder="subject" />
+                 </div>
+                 <div class="form-group col-md-8">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" id="message" rows="3"></textarea>
                 </div>
+               </div>
+               <button type="submit" style={{background:'rgb(191, 58, 137)'}} className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2" onClick={this.submitMessage}><span> Send Message</span></button>
+
+             </form>
+             <div className="row" style={{marginTop:'25px'}}>
+              <div className="map" style={{width:'65%',float:'left'}}>
+              <iframe style={{border:"0", width:"100%",height:"400px"}} src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14129.471317566644!2d85.3302047!3d27.7059272!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x74ebef82ad0e5c15!2sSoftwarica+College+Of+IT+%26+E-Commerce!5e0!3m2!1sen!2snp!4v1542042644421"></iframe>
               </div>
-              <div className="col-lg-6 mt-5">
-                <div className="contact-box ml-3">
-                  <h1 className="font-weight-light mt-2" style={{ color: '#BF3A89' }}>Quick Contact</h1>
-                  <form className="mt-4">
-                    <div className="row">
-                      <div className="col-lg-12">
-                        <div className="form-group mt-2">
-                          <input className="form-control" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
-                        </div>
-                      </div>
-                      <div className="col-lg-12">
-                        <div className="form-group mt-2">
-                          <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
-                        </div>
-                      </div>
-                      <div className="col-lg-12">
-                        <div className="form-group mt-2">
-                          <input className="form-control" type="text" name="phone" value={this.state.phone} onChange={this.changeHandler} placeholder="Phone" />
-                        </div>
-                      </div>
-                      <div className="col-lg-12">
-                        <div className="form-group mt-2">
-                          <textarea className="form-control" rows="5" name="message" value={this.state.message} onChange={this.changeHandler} placeholder="Message"></textarea>
-                        </div>
-                      </div>
-                      <div className="col-lg-12">
-                        <button type="submit" className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2" onClick={this.submitMessage}><span> SEND</span></button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+              <div className="map" style={{width:'35%',float:'right'}}>
+              <h5><span className='purplecolor'>E-</span><span className="pinkcolor">content</span></h5>
+               <span style={{fontWeight:'bold',color:'#000'}}>Contact address </span>: <span style={{color:'#000'}}>Lazimpat, Kathmandu </span><br></br>
+                <span style={{fontWeight:'bold',color:'#000'}}>Phone number</span>: <span style={{color:'#000'}}> +977-015556256 </span><br></br>
+                <span style={{fontWeight:'bold',color:'#000'}}>E-mail us</span>: <span style={{color:'#000'}}> comtact@gmail.com </span><br></br>
+                <span style={{fontWeight:'bold',color:'#000'}}>Working hours: </span>: <span style={{color:'#000'}}>Sun to fri: 10 am - 4 pm </span>
               </div>
+             </div>
+              
+             
               <div className="col-lg-12 shadow mt-3">
                 <div className="card mt-4 border-0 mb-4">
                   <div className="row">
-                    <div className="col-lg-4 col-md-4">
+                    {/* <div className="col-lg-4 col-md-4">
                       <div className="card-body d-flex align-items-center c-detail pl-0">
                         <div className="mr-3 align-self-center">
                           <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png" />
@@ -102,8 +108,8 @@ class ContactUs extends Component {
                             <br /> Kathmandu, Nepal</p>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-4 col-md-4">
+                    </div> */}
+                    {/* <div className="col-lg-4 col-md-4">
                       <div className="card-body d-flex align-items-center c-detail">
                         <div className="mr-3 align-self-center">
                           <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon2.png" />
@@ -114,8 +120,8 @@ class ContactUs extends Component {
                             <br /> 01-93939393</p>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-4 col-md-4">
+                    </div> */}
+                    {/* <div className="col-lg-4 col-md-4">
                       <div className="card-body d-flex align-items-center c-detail">
                         <div className="mr-3 align-self-center">
                           <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon3.png" />
@@ -128,21 +134,21 @@ class ContactUs extends Component {
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="container">
+        {/* <div className="container">
           <div className="row">
             <h4>We are here.</h4>
           </div>
           <div>
             <Location />
           </div>
-        </div>
+        </div> */}
         {/* <Link to="/location">
           <button>We are here</button>
         </Link> */}

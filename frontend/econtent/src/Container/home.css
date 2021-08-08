@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
+body{
+  margin-top:20px;
+
+  }
+  .text-custom{
+  color: #0062ff !important;
+  }
+
 
 h1 {
   margin-top: 0;

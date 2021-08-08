@@ -302,16 +302,24 @@ class Profile extends Component {
                                     <Col sm={3}>
                                         <Nav variant="pills" className="flex-column">
                                             <Nav.Item>
-                                                <Nav.Link eventKey="first">Your</Nav.Link>
+                                                <Nav.Link eventKey="first">Your Wallet</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link eventKey="second">Bought</Nav.Link>
+                                                <Nav.Link eventKey="second">Your Content</Nav.Link>
+                                            </Nav.Item>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="third">Bought Content</Nav.Link>
                                             </Nav.Item>
                                         </Nav>
                                     </Col>
                                     <Col sm={9}>
                                         <Tab.Content>
-                                            <Tab.Pane eventKey="first">
+                                        <Tab.Pane eventKey="first">
+                                                <div>
+                                                    <h1>My wallet</h1>
+                                                </div>
+                                            </Tab.Pane>
+                                            <Tab.Pane eventKey="second">
                                                 <div className="container" style={{ background: "#E0EFDE" }}>
                                                     {/* <center>
                                                         <h1 style={{ color: "#51127F", marginTop: "40px" }}>Your Stuff</h1>
@@ -352,7 +360,7 @@ class Profile extends Component {
                                                     </div>
                                                 </div>
                                             </Tab.Pane>
-                                            <Tab.Pane eventKey="second">
+                                            <Tab.Pane eventKey="third">
                                                 <div>
                                                     <h1> Buy Content</h1>
                                                 </div>

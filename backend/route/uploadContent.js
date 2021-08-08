@@ -7,8 +7,6 @@ const Users = require('../model/user');
 const bcryptjs = require('bcryptjs')
 const authentication = require('../middleware/authentication'); //token
 
-
-
 //inserting content
 router.post('/content/insert/:id', uploadvideo, function (req, res) {
     console.log(req.body);
@@ -65,12 +63,17 @@ router.get('/content/all', function (req, res) {
 })
 
 
-//to show only single element
+//get content of single user
 router.get('/content/single/:id', function (req, res) {
     const id = req.params.id;
     UploadContent.find({ userid: id }).then(function (data) {
-        res.status(200).json({ data })
-        console.log(data)
+        if (data == "") {
+            res.status(200).json({ message: "No data to show" })
+        }
+        else {
+            res.status(200).json({ data })
+            console.log(data)
+        }
     }).catch(function (err) {
         res.status(500).json({ message: err })
     })
@@ -195,7 +198,7 @@ router.post('/content/bought/:id', authentication.verifyUser, function (req, res
 //filtering bought content of a user
 router.get('/content/seeboughtcontent/:id', function (req, res) {
     const userid = req.params.id
-    ContentBought.find({boughtby_ID : userid}).distinct('contentid')
+    ContentBought.find({ boughtby_ID: userid }).distinct('contentid')
         .then(function (result) {
             res.status(200).json({ status: true, data: result })
         })
