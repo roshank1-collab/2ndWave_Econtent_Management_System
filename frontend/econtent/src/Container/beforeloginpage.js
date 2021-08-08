@@ -158,7 +158,7 @@ class BeforeLogin extends Component {
                     <div class="row">
                         <div class="col-lg-12 col-md-12 mt-4 pt-2">
                             <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                                <img src="https://via.placeholder.com/241x362/FFB6C1/000000" class="img-fluid" alt="Image" />
+                                <img src="./images/khai.png" class="img-fluid" alt="Image" />
                                 <div class="img-overlay bg-dark"></div>
                             </div>
                         </div>
@@ -177,7 +177,7 @@ class BeforeLogin extends Component {
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                                <img src="https://via.placeholder.com/337x450/87CEFA/000000" class="img-fluid" alt="Image" />
+                                <img style={{height:"350px"}} src="./images/elearn.jpg" class="img-fluid" alt="Image" />
                                 <div class="img-overlay bg-dark"></div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@ class BeforeLogin extends Component {
 
                         <div class="col-lg-12 col-md-12 mt-4 pt-2">
                             <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                                <img src="https://via.placeholder.com/600x401/FF7F50/000000" class="img-fluid" alt="Image" />
+                                <img  style={{height:"300px"}} src="./images/con1.png" class="img-fluid" alt="Image" />
                                 <div class="img-overlay bg-dark"></div>
                             </div>
                         </div>
@@ -201,36 +201,36 @@ class BeforeLogin extends Component {
 
         <div class="col-lg-6 col-md-6 col-12 order-1 order-md-2">
             <div class="section-title ml-lg-5">
-                <h5 class="text-custom font-weight-normal mb-3">About Us</h5>
-                <h4 class="title mb-4">
+            <u><h4 style={{ color: "black", fontWeight: "bolder", marginTop: "10px", textAlign: 'center',fontSize:"35px" }}>About <span style={{ color: "#a018a0" }}>Us</span></h4></u>
+                <h4 style={{color:"black",fontSize:"30px",marginTop:"10px"}} class="title mb-4">
                     Our mission is to <br />
                     make your life easier.
                 </h4>
-                <p class="text-muted mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit quod debitis praesentium pariatur temporibus ipsa, cum quidem obcaecati sunt?</p>
+                <p class="text-muted mb-0" style={{color:"black",fontSize:"15px"}}>Today the entire world is moving speedily towards digitization and we have to learn new things using new technologies. The evolution of computers especially the internet has affected all spheres of our life. Ten to fifteen years back we used to spend our time in the library for information in books, magazines and journals. Now a day we search for the information in the web sites. Access to information has become very easy because of information sharing on World Wide Web (www). Quality of teaching and students' learning are determined by the teachers who teach them. Well trained teachers with required knowledge, skills and commitment can develop scientific and critical thinking, promote tolerance, and develop cultural and social values in them. Innovative technologies will make it possible to achieve these by providing new ways to teachers. But these new technologies are placing more demands on teachers to learn how to use them in their teaching and learning processes. This great transformation is posing challenges to teachers and teacher educators in using technologies in creative and productive ways. Hence, we as teachers have to meet these new challenges by continuously acquiring new knowledge and skills to discharge our duties effectively.</p>
 
                 <div class="row">
                     <div class="col-lg-6 mt-4 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa fa-play h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Responsive</a></h6>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Responsible</a></h6>
                         </div>
                     </div>
                     <div class="col-lg-6 mt-4 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa fa-file-download h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Free Download</a></h6>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Buy/view Content</a></h6>
                         </div>
                     </div>
                     <div class="col-lg-6 mt-4 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa fa-user h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Support</a></h6>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Support Your effort</a></h6>
                         </div>
                     </div>
                     <div class="col-lg-6 mt-4 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa fa-image h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Development</a></h6>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Latest content</a></h6>
                         </div>
                     </div>
                 </div>
