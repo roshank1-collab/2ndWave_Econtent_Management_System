@@ -60,7 +60,9 @@ class AboutUs extends Component {
                             <h3 className="mt-4 py-3" style={{ color: '#51127F', fontWeight: 'bolder', fontFamily: 'Impact, fantasy', marginLeft: '30px' }}>l Why should you go with us?</h3>
                             <p style={{ color: '#51127F', marginLeft: '30px' }}>
                                 <Button variant="outline-danger"><FaCheckCircle /> Latest Content</Button> &nbsp; <Button variant="outline-danger">  <FaCheckCircle /> Beneficial coursework</Button>
-                                &nbsp;<Button variant="outline-danger"><FaCheckCircle /> Discover anything at a reasonable cost</Button>  <br />  <br />&nbsp; <Button variant="outline-danger"><FaCheckCircle /> Dedicated Team</Button>
+                                &nbsp;<Button style={{marginTop:"10px"}} variant="outline-danger"><FaCheckCircle /> Discover anything at a reasonable cost</Button> 
+                                 <br />  <br />&nbsp; 
+                                 <Button  variant="outline-danger"><FaCheckCircle /> Dedicated Team</Button>
                                 &nbsp; <Button variant="outline-danger"><FaCheckCircle /> Implemention in a matter</Button>
 
                             </p>

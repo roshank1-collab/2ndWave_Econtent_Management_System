@@ -24,10 +24,12 @@ class Services extends Component {
                                 Overall, education is the platform that makes it possible to defeat all barriers.
 
                                 In that respect, here are some powerful education quotes to help us appreciate the power of learning and gaining knowledge.</p>
-                            <p style={{ fontSize: "18px" }}>Upon the subject of education … I can only say that I view it as the most important subject which we as a people may be engaged in.-
-                                Learning is like rowing upstream: not to advance is to drop back.Education is the ability to listen to almost anything without losing your temper or your self-confidence.
-                                Learning is not attained by chance, it must be sought for with ardor and attended to with diligence.and we all participated lol.
-                            </p>
+                                <p style={{ fontSize: "18px" }}>Irrespective of race, creed, and gender, education makes it possible for people to stand out as equal with all the other persons from different walks of life.
+
+Overall, education is the platform that makes it possible to defeat all barriers.
+
+In that respect, here are some powerful education quotes to help us appreciate the power of learning and gaining knowledge.</p>
+
                         </div>
                     </div>
                 </div>
@@ -35,12 +37,13 @@ class Services extends Component {
 
                 <section class="section services-section" id="services">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6">
+                        <div class="row d-flex justify-content-center">
+                           
                                 <div class="section-title">
-                                    <h2>What We Do??</h2>
-                                    <p style={{ fontSize: "19px" }}>We believe in and contribute to the provision of content to those in need. We think that education is supposed to be shared, and that those who have worked hard to generate it should be rewarded.</p>
-                                </div>
+                                <h3 style={{ color: '#a018a0', fontWeight: 'bold', fontFamily: 'Impact, fantasy'}}> About <span style={{color:" #51227F", fontWeight: 'bold', fontFamily: 'Impact, fantasy'}}>Us ?</span></h3>
+                                    <p style={{ fontSize: "19px",marginLeft:"10px",marginTop:"15px" }}>We believe in and contribute to the provision of content to those in need. We think that education is supposed to be shared, and that those who have worked hard to generate it should be rewarded.
+                                    Education, discipline that is concerned with methods of teaching and learning in schools or school-like environments as opposed to various nonformal and informal means of socialization (e.g., rural development projects and education through parent-child relationships).</p>
+                              
                             </div>
                         </div>
                         <div class="row">
@@ -112,7 +115,7 @@ class Services extends Component {
                                     </div>
                                     <div class="feature-content">
                                         <h5>Get amount directly to your account</h5>
-                                        <p>We offer to create a channel for users via which they may subscribe to another user and send messages or buy their content for free. As usual, we strive to provide the finest site for both buyers and sellers.</p>
+                                        <p>We offer to create a channel for users via which they may subscribe to another user and send messages or buy their content for free. As usual, we strive to provide the finest site </p>
                                     </div>
                                 </div>
                             </div>
