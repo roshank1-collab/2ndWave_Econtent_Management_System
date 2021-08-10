@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Nav, NavDropdown, Navbar, Button, NavItem } from 'react-bootstrap';
-import { Modal, Container } from 'react-bootstrap'
+import { Modal, Container, ToggleButtonGroup, ToggleButton } from 'react-bootstrap'
 import { FaUserGraduate, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
 import BellIcon from 'react-bell-icon';
@@ -187,26 +187,27 @@ const Header = () => {
         </Navbar.Brand>
         <Nav className="mr-auto">
 
-          <NavDropdown style={{fontSize:"18px"}} title="Company" id="basic-nav-dropdown">
+          <NavDropdown style={{ fontSize: "18px" }} title="Company" id="basic-nav-dropdown">
             <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
 
             <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
             <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
 
           </NavDropdown>
-          <NavDropdown style={{fontSize:"18px"}}  title="Services" id="basic-nav-dropdown" >
+          <NavDropdown style={{ fontSize: "18px" }} title="Services" id="basic-nav-dropdown" >
             <NavDropdown.Item href="/services"><FaServicestack />Services & Offers</NavDropdown.Item>
             <NavDropdown.Item href="/terms"><FaNewspaper /> Terms & Conditions</NavDropdown.Item>
 
           </NavDropdown>
 
 
-          <Nav.Link href="/contactus" style={{fontSize:"18px"}}> Contact</Nav.Link>
+          <Nav.Link href="/contactus" style={{ fontSize: "18px" }}> Contact</Nav.Link>
 
         </Nav>
         <Navbar.Collapse className="justify-content-end">
+  
 
-          <Button style={{ backgroundColor: "#51227F", border: 'none', marginRight: '10px', fontFamily: "roboto", fontSize: "18px", fontWeight: "bold" }} href="/login"  >Sign in<FaSignInAlt /></Button>
+              <Button style={{ backgroundColor: "#51227F", border: 'none', marginRight: '10px', fontFamily: "roboto", fontSize: "18px", fontWeight: "bold" }} href="/login"  >Sign in<FaSignInAlt /></Button>
 
         </Navbar.Collapse>
       </Navbar.Collapse>
@@ -215,16 +216,16 @@ const Header = () => {
   }
 
 
-  return (
-    <div>
-      <Navbar collapseOnSelect expand="lg" bg="white" className="shadow">
+          return (
+          <div>
+            <Navbar collapseOnSelect expand="lg" bg="white" className="shadow">
 
-        <Navbar.Toggle aria-controls="responsive-navbar-nav"></Navbar.Toggle>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav"></Navbar.Toggle>
 
-        {menu}
-      </Navbar>
+              {menu}
+            </Navbar>
 
-    </div>
-  )
+          </div>
+          )
 }
-export default Header;
+          export default Header;
