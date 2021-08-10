@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Nav, NavDropdown, Navbar, Button, NavItem } from 'react-bootstrap';
 import { Modal, Container, ToggleButtonGroup, ToggleButton } from 'react-bootstrap'
-import { FaUserGraduate, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty } from 'react-icons/fa'
+import { FaUserGraduate, FaNewspaper,FaBell, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
 import BellIcon from 'react-bell-icon';
 import socketIOClient from "socket.io-client";
@@ -27,9 +27,9 @@ function Example() {
   return (
     <>
       {/* <Button style={{ marginRight: "20px" }} className="btn btn-danger" onClick={handleShow} >Sign Out</Button> */}
-      <Button style={{ backgroundColor: "#51227F", border: "none", color: "white", fontWeight: "bold", marginTop: "5px" }} type="submit" onClick={handleShow} className="btn btn-primary"> Sign Out <FaSignOutAlt /> </Button>
+      <Button type="submit" style={{height:'39px', marginTop:'3px', marginRight:'10px'}} onClick={handleShow} className="btn-sm">Signout    <FaSignOutAlt /> </Button>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header style={{backgroundColor:'#BF3A89', color:'white'}} closeButton>
+        <Modal.Header style={{ backgroundColor: '#BF3A89', color: 'white' }} closeButton>
           <Modal.Title>Are you sure?</Modal.Title>
         </Modal.Header>
         <Modal.Body>Come back again. Waiting for you.</Modal.Body>
@@ -97,12 +97,12 @@ const Header = () => {
 
   if (localStorage.getItem('token') && localStorage.getItem('loginstatus') === 'true') {
     var menu =
-     <>
+      <>
         <Navbar.Brand href="/dashboard">
           <h3 style={{ color: "#a018a0", fontWeight: "bolder", fontWeight: "roboto" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
         </Navbar.Brand>
 
-      
+
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/allchannel">Channels</Nav.Link>
@@ -120,12 +120,15 @@ const Header = () => {
                 ))
               }
             </NavDropdown>
-            <Nav.Link href="/announcement">Announcement</Nav.Link>
 
             <Nav.Link href="/communication">Communication</Nav.Link>
-            <Nav.Link href={"/uploadcontent/" + id}>UploadContent <FaUpload /></Nav.Link>
-            <Nav.Link href={"/userprofile/" + id}>My Profile <FaUserCircle /></Nav.Link>
-
+            <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
+              <Nav.Link href="/announcement" >Announcement <FaBell/></Nav.Link>
+              <Nav.Link href={"/userprofile/" + id}><FaUsers /> Profile  </Nav.Link>
+           
+      
+          
+          
 
           </Nav>
 
@@ -133,9 +136,11 @@ const Header = () => {
 
 
           <Nav className="justify-content-end">
-
+   
+    
             <Example />
-            
+          
+
 
           </Nav>
 
@@ -143,7 +148,7 @@ const Header = () => {
         </Navbar.Collapse>
 
 
- </>
+      </>
   }
   else {
     var menu =
@@ -172,9 +177,9 @@ const Header = () => {
 
         </Nav>
         <Navbar.Collapse className="justify-content-end">
-  
 
-              <Button style={{ backgroundColor: "#51227F", border: 'none', marginRight: '10px', fontFamily: "roboto", fontSize: "18px", fontWeight: "bold" }} href="/login"  >Sign in<FaSignInAlt /></Button>
+
+          <Button style={{ backgroundColor: "#51227F", border: 'none', marginRight: '10px', fontFamily: "roboto", fontSize: "18px", fontWeight: "bold" }} href="/login"  >Sign in<FaSignInAlt /></Button>
 
         </Navbar.Collapse>
       </Navbar.Collapse>
@@ -183,16 +188,16 @@ const Header = () => {
   }
 
 
-          return (
-          <div>
-            <Navbar collapseOnSelect expand="lg" bg="white" className="shadow">
+  return (
+    <div>
+      <Navbar collapseOnSelect expand="lg" bg="white" className="shadow">
 
-              <Navbar.Toggle aria-controls="responsive-navbar-nav"></Navbar.Toggle>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav"></Navbar.Toggle>
 
-              {menu}
-            </Navbar>
+        {menu}
+      </Navbar>
 
-          </div>
-          )
+    </div>
+  )
 }
-          export default Header;
+export default Header;
