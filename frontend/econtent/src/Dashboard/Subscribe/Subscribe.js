@@ -93,7 +93,7 @@ export default class SimpleSlider extends Component {
             ]
         };
         return (
-            <div className="container" style={{ marginTop: "100px", marginBottom: "100px"}}>
+            <div className="container-fluid" style={{ marginTop: "100px", marginBottom: "100px"}}>
                 <Button style={{fontFamily:'Arial (sans-serif)', backgroundColor:'#BF3A89', border:'none'}}> Popular Channels</Button>
                 <Slider {...settings} >
                     {

@@ -7,7 +7,7 @@ import Popularcontent from "./PopularContent/popularcontent";
 class Dashboard extends Component {
     render() {
         return (
-            <div>
+            <div className="container-fluid">
                 <DashboardUpperPart /> 
                 <Highlight/>   
                 <Popularcontent/>             
