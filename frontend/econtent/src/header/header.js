@@ -99,7 +99,7 @@ const Header = () => {
     var menu =
       <>
         <Navbar.Brand href="/dashboard">
-          <h3 style={{ color: "#a018a0", fontWeight: "bolder", fontWeight: "roboto" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
+          <h3 style={{ color: "#a018a0", fontWeight: "bolder", fontWeight: "roboto", marginLeft:'5px' }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
         </Navbar.Brand>
 
 
