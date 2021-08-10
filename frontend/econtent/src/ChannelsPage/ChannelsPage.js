@@ -70,7 +70,7 @@ class ChannelsPage extends Component {
                     {
                         this.state.channels.map((items) => {
                             return (
-                                <div className="card" style={{ width: '13rem',height:'auto',, marginTop:'5px', marginLeft: '5px', marginTop:'5px', marginBottom:'5px' }}>
+                                <div className="card" style={{ width: '13rem',height:'auto', marginTop:'5px', marginLeft: '5px', marginTop:'5px', marginBottom:'5px' }}>
                                 <img className="card-img-top" src={"http://localhost:90/" + items.Profie_Picture} className="img-fluid" alt="Image Loading...." style={{ width:'13rem', height: '150px', marginLeft:'0px' }} />
                                 <div className="card-body">
                                     <p style={{fontSize:'16px',  fontWeight:'bolder'}}> {items.First_name}</p>
