@@ -28,17 +28,17 @@ function Example() {
   return (
     <>
       {/* <Button style={{ marginRight: "20px" }} className="btn btn-danger" onClick={handleShow} >Sign Out</Button> */}
-      <Button type="submit" style={{ height: '39px', marginTop: '3px', marginRight: '10px' }} onClick={handleShow} className="btn-sm">Signout    <FaSignOutAlt /> </Button>
+      <Button type="submit" style={{  backgroundColor: '#51227f', border:'none', height: '39px', marginTop: '3px', marginRight: '10px' }} onClick={handleShow} className="btn-sm">Signout    <FaSignOutAlt /> </Button>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header style={{ backgroundColor: '#BF3A89', color: 'white' }} closeButton>
-          <Modal.Title>Are you sure?</Modal.Title>
+        <Modal.Header style={{ backgroundColor: '#BF3A89', color: 'white' }} >
+          <Modal.Title>Sign Out</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Come back again. Waiting for you.</Modal.Body>
+        <Modal.Body>Do you want to sign out?.</Modal.Body>
         <Modal.Footer >
-          <Button variant="secondary" onClick={handleClose}>
+          <Button style={{ backgroundColor: '#BF3A89', border:'none'}} variant="danger" onClick={handleClose}>
             No
           </Button>
-          <Button variant="primary" href="/login" onClick={out}>
+          <Button style={{ backgroundColor: '#51227f', border:'none'}} variant="success" href="/login" onClick={out}>
             Yes
           </Button>
         </Modal.Footer>
@@ -160,7 +160,7 @@ const Header = () => {
         <Navbar.Collapse className="justify-content-end">
 
 
-          <Button style={{ backgroundColor: "#51227F", border: 'none', marginRight: '10px', fontFamily: "roboto", fontSize: "18px", fontWeight: "bold" }} href="/login"  >Sign in<FaSignInAlt /></Button>
+          <Button style={{ backgroundColor: "#51227F", border: 'none', height: '39px', marginTop: '3px', marginRight: '10px' }} href="/login"  >Sign in<FaSignInAlt /></Button>
 
         </Navbar.Collapse>
       </>
