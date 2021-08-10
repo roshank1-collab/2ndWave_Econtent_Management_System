@@ -29,11 +29,11 @@ function Example() {
       {/* <Button style={{ marginRight: "20px" }} className="btn btn-danger" onClick={handleShow} >Sign Out</Button> */}
       <Button style={{ backgroundColor: "#51227F", border: "none", color: "white", fontWeight: "bold", marginTop: "5px" }} type="submit" onClick={handleShow} className="btn btn-primary"> Sign Out <FaSignOutAlt /> </Button>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header style={{backgroundColor:'#BF3A89', color:'white'}} closeButton>
           <Modal.Title>Are you sure?</Modal.Title>
         </Modal.Header>
         <Modal.Body>Come back again. Waiting for you.</Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer >
           <Button variant="secondary" onClick={handleClose}>
             No
           </Button>
@@ -42,37 +42,6 @@ function Example() {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
-  );
-}
-
-function DropdownItem() {
-  return (
-    <>
-      <div className="col-md-4 col-lg-4 align-end" style={{ width: '500px', position: 'absolute' }}>
-        <div className="panel panel-default">
-          <div className="panel-heading">
-            <h3 className="panel-title">Notifications</h3>
-          </div>
-          <div className="panel-body">
-            <div className="alert alert-success">
-              <strong className="default"><i className="fa fa-road"></i> Well done,</strong> You have finished job!
-              <button type="button" className="close" data-dismiss="alert" aria-hidden="true">×</button>
-            </div>
-            <div className="alert alert-info">
-              <strong className="default"><i className="fa fa-user"></i> John</strong> sent you friend request.
-              <button type="button" className="close" data-dismiss="alert" aria-hidden="true">×</button>
-            </div>
-            <div className="alert alert-warning">
-              <strong className="default"><i class="fa fa-envelope-o"></i> Sam</strong> sent important mail.
-              <button type="button" className="close" data-dismiss="alert" aria-hidden="true">×</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
     </>
   );
 }
@@ -128,12 +97,12 @@ const Header = () => {
 
   if (localStorage.getItem('token') && localStorage.getItem('loginstatus') === 'true') {
     var menu =
-      <Container>
+     <>
         <Navbar.Brand href="/dashboard">
           <h3 style={{ color: "#a018a0", fontWeight: "bolder", fontWeight: "roboto" }}>E-<span style={{ color: "#51227F" }}>content</span></h3>
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/allchannel">Channels</Nav.Link>
@@ -151,10 +120,7 @@ const Header = () => {
                 ))
               }
             </NavDropdown>
-            <NavDropdown >
-              <BellIcon />
-              {DropdownItem()}
-            </NavDropdown>
+            <Nav.Link href="/announcement">Announcement</Nav.Link>
 
             <Nav.Link href="/communication">Communication</Nav.Link>
             <Nav.Link href={"/uploadcontent/" + id}>UploadContent <FaUpload /></Nav.Link>
@@ -169,6 +135,7 @@ const Header = () => {
           <Nav className="justify-content-end">
 
             <Example />
+            
 
           </Nav>
 
@@ -176,7 +143,7 @@ const Header = () => {
         </Navbar.Collapse>
 
 
-      </Container>
+ </>
   }
   else {
     var menu =
