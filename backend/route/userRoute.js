@@ -232,7 +232,35 @@ router.post('/user/subscribe/website/notification/:email', function (req, res) {
 })
 
 
+router.put('/password',authentication.verifyUser, function (req, res) {
+    const id = req.userData.id
+    Users.findOne({ _id: id }).then(function (data) {
+        bcryptjs.compare(req.body.password, data.Password, function (err, result) {
+            if (result === false) {
+                return res.status(201).json({ success: false, message: " password incorrect!!!" })
+            }
+            else {
+                bcryptjs.hash(req.body.NewPassword, 10, function (err, hash) {
+                    Users.updateOne({_id:id},{
+                       Password:hash 
+                    }).then(
+                        function (result) {
+                            res.status(200).json({ status: true, message: " password Updated" })
+                        }
+                    ).catch(
+                        function (result) {
+                            res.status(201).json({ status: true, message: result })
+                        }
+                    )
+                });
 
+            }
+        })
+    })
+
+
+
+})
 
 
 
