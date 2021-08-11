@@ -12,6 +12,7 @@ toast.configure();
 const ratingChanged = (newRating) => {
     console.log(newRating);
 };
+
 export default class Highlight extends Component {
     state = {
         channels: [],
@@ -113,7 +114,6 @@ export default class Highlight extends Component {
                                         <Card.Body>
                                             <Card.Text style={{ fontSize: '15px', fontWeight: 'bolder' }}>{items.First_name}</Card.Text>
                                             <Card.Text style={{ fontSize: '12px' }}>
-
                                             </Card.Text>
                                             <ReactStars
                                                 count={5}
