@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Map, Marker } from 'google-map-react';
 =======
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
@@ -74,3 +75,5 @@ class Location extends Component {
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyDk-k9sTzO8_0xmP4tC7SmRRW-RvpS__Cc'
 })(Location);
+=======
+>>>>>>> 58614a67da922e9c5ee331bc6ba3d12741b694ca
