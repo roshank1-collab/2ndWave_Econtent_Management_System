@@ -20,7 +20,9 @@ export default class UserView extends Component {
             .then((response) => {
                 console.log(response)
                 if (response.data.message == "No data to show") {
+                    <img src="/upload.png" className="img-fluid" />
                     toast.info("The user has nothing to show Yet", { position: toast.POSITION.TOP_RIGHT, autoClose: 2000 })
+                   
                 }
                 else {
                     this.setState({

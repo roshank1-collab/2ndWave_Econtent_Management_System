@@ -19,10 +19,10 @@ import Buycontent from '../BuyContent/Buycontent';
 import paywithkhalti from '../BuyContent/paywithkhalti';
 import paywithesewa from '../BuyContent/paywithesewa';
 import UserView from '../ChannelsPage/UserView';
-import Location from '../location/Location';
-import indexlive from '../LiveCommunication/src/indexlive';
 import { video } from './../videoChat/video';
 import LookInside from '../ChannelsPage/LookInside';
+import Announcement from './announcement';
+
 
 
 class Container extends Component {
@@ -56,7 +56,8 @@ class Container extends Component {
                         <Route exact path="/communication" component={video} />
 
                         <Route exact path = '/lookinside/:id' component = {LookInside}/>
-                        <Route exact path = '/Location' component = {Location}/>
+                        <Route exact path = '/announcement' component = {Announcement}/>
+                        
                  
                     </Switch>
                 </BrowserRouter>

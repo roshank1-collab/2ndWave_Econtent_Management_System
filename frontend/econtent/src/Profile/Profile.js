@@ -314,7 +314,7 @@ class Profile extends Component {
                                     </Col>
                                     <Col sm={9}>
                                         <Tab.Content>
-                                        <Tab.Pane eventKey="first">
+                                            <Tab.Pane eventKey="first">
                                                 <div>
                                                     <h1>My wallet</h1>
                                                 </div>
@@ -330,9 +330,14 @@ class Profile extends Component {
                                                             this.state.allItem.map((items) => {
                                                                 return (
                                                                     <div className="card" style={{ width: '304px', marginRight: '10px', marginTop: '5px' }}>
-                                                                        <ReactPlayer width='250xp' height='250px' controls
-                                                                            url='https://youtu.be/7sDY4m8KNLc'
-                                                                        />
+                                                                        <div className="player-wrapper">
+                                                                            <video width="750" height="500" controls >
+                                                                                <source src={"http://localhost:90/" + items.video} type="video/mp4" />
+                                                                            </video>
+                                                                            {/* <ReactPlayer className="react-player" width='250xp' height='250px' controls={true}
+                                                                                url={"http://localhost:90/" + items.video}
+                                                                            /> */}
+                                                                        </div>
                                                                         {/* <img className="card-img-top" src={"http://localhost:90/" + items.video} alt="Image Loading...." style={{ width: '250xp', height: '250px', background: "red" }} /> */}
                                                                         <div className="card-body">
                                                                             <i><h3 className="card-title"> {items.heading}</h3></i><br />
