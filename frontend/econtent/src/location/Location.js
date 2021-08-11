@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Map, Marker } from 'google-map-react';
-=======
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
->>>>>>> f77514dc68ffcf7149a70169cdc65799151910bb
 import React, { Component } from "react";
 
 const mapStyles = {
@@ -64,7 +59,7 @@ class Location extends Component {
                     <Marker
                         onClick={this.onMarkerClick}
                         name={'We are here.'}
-                    />                   
+                    />
                 </Map>
             </div>
         )
@@ -75,5 +70,3 @@ class Location extends Component {
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyDk-k9sTzO8_0xmP4tC7SmRRW-RvpS__Cc'
 })(Location);
-=======
->>>>>>> 58614a67da922e9c5ee331bc6ba3d12741b694ca

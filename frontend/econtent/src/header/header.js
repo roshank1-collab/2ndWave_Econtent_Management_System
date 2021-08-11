@@ -1,20 +1,11 @@
 import axios from 'axios';
-<<<<<<< HEAD
-import { Nav, NavDropdown, Navbar, Button, NavItem } from 'react-bootstrap';
-import { Modal, Container } from 'react-bootstrap'
-import { FaUserGraduate, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty, FaBell } from 'react-icons/fa'
-import React, { useEffect, useState } from "react";
-import socketIOClient from "socket.io-client";
-import NotificationCenter from 'react-notification-center-component';
-=======
 import { Nav, NavDropdown, Navbar, Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap'
-import { FaUserGraduate, FaNewspaper, FaBell, FaServicestack, FaComments, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUpload } from 'react-icons/fa'
+import { FaUserGraduate, FaNewspaper, FaBell, FaServicestack, FaComments, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUpload, FaLock } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
 import socketIOClient from "socket.io-client";
 import '../App.css'
 
->>>>>>> f77514dc68ffcf7149a70169cdc65799151910bb
 
 
 const id = localStorage.getItem('userid')
@@ -131,6 +122,8 @@ const Header = () => {
             <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
             <Nav.Link href="/announcement" >Announcement <FaBell /></Nav.Link>
             <Nav.Link href={"/userprofile/" + id}> Profile <FaUsers /> </Nav.Link>
+            <Nav.Link href={"/changepassword/"} > ChangePassword <FaLock /></Nav.Link>
+
           </Nav>
           <Nav className="justify-content-end">
             <Example />
