@@ -22,6 +22,8 @@ import UserView from '../ChannelsPage/UserView';
 import { video } from './../videoChat/video';
 import LookInside from '../ChannelsPage/LookInside';
 import Announcement from './announcement';
+import Allcontent from './allcontent';
+import Test from './test';
 
 
 
@@ -62,6 +64,8 @@ class Container extends Component {
 
                         <Route exact path = '/lookinside/:id' component = {LookInside}/>
                         <Route exact path = '/announcement' component = {Announcement}/>
+                        <Route exact path = '/allitem' component = {Allcontent}/>
+                        <Route exact path = '/test' component = {Test}/>
                         
                  
 >>>>>>> f77514dc68ffcf7149a70169cdc65799151910bb

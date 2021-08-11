@@ -120,14 +120,17 @@ const Header = () => {
               <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Categories" id="basic-nav-dropdown" >
+            <NavDropdown.Item href="/allitem"><FaTelegram />All items</NavDropdown.Item>
               {
                 Catagories.map((item) => (
                   <NavDropdown.Item onClick={filterCatagories.bind(this, item)}><FaServicestack />{item}</NavDropdown.Item>
 
                 ))
               }
+             
             </NavDropdown>
             <Nav.Link href="/communication">Communication <FaComments /></Nav.Link>
+            <Nav.Link href="/test">Test <FaComments /></Nav.Link>
             <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
             <Nav.Link href="/announcement" >Announcement <FaBell /></Nav.Link>
             <Nav.Link href={"/userprofile/" + id}> Profile <FaUsers /> </Nav.Link>
