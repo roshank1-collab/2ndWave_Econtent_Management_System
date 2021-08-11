@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage --detectOpenHandles --runInBand",
+    "test:watch": "jest --verbose --watchAll",
     "start": "nodemon app"
   },
   "repository": {
@@ -35,6 +36,7 @@
   },
   "jest": {
     "testEnvironment": "node",
+    "testTimeout": 1000,
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ]

@@ -231,7 +231,7 @@ router.post('/user/subscribe/website/notification/:email', function (req, res) {
 
 })
 
-
+//update password route 
 router.put('/password',authentication.verifyUser, function (req, res) {
     const id = req.userData.id
     Users.findOne({ _id: id }).then(function (data) {
