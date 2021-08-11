@@ -7,19 +7,46 @@ import "slick-carousel/slick/slick-theme.css";
 import { Card, Button } from "react-bootstrap";
 import { Link } from 'react-router-dom'
 import ReactStars from "react-rating-stars-component";
-
 toast.configure();
-const ratingChanged = (newRating) => {
-    console.log(newRating);
-};
+
+
+
 
 export default class Highlight extends Component {
     state = {
         channels: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
+        },
+        rate: "",
     }
+
+    ratingChanged = (id, newRating) => {
+        this.state.rate = newRating
+        console.log(this.state.rate);
+        var body = {
+            rate: newRating
+            // boughtby_khaltiid: this.state.boughtby_khaltiid
+        }
+        // toast.success(this.state.rate)
+        // toast.error(id)        
+        axios({
+            method: "post",
+            url: "http://localhost:90/ratingchannel/" + id,
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+        }
+            // "http://localhost:90/ratingchannel/" + id, {}, this.state.config, newRating
+        )
+            .then((response) => {
+                console.log(response)
+                toast.success(response.data.message, { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+            })
+            .catch((err) => {
+                console.log(err.response)
+                // toast.error({ err })
+            })
+    };
 
 
     //load initallly with content
@@ -36,23 +63,23 @@ export default class Highlight extends Component {
             })
     }
 
-    subscribecount = (id) => {
-        axios.post("http://localhost:90/channel/subscribe/" + id, {}, this.state.config)
-            .then((response) => {
-                console.log(response)
-                if (response.data.statusOfSubscription === "Subscribed Successfully") {
-                    toast.success('Subscribed', { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
-                    // alert("Subscribed")
-                    // window.location.reload(true);
-                }
-                else if (response.data.statusOfSubscription === "You have already Subscribed this user") {
-                    toast.error('Already Subscribed', { position: toast.POSITION.TOP_right, autoClose: 1000 })
-                }
-            })
-            .catch((error) => {
-                console.log(error.response)
-            })
-    }
+    // ratingsubmiited = (id) => {        
+    //     axios.post('http://localhost:90/channel/all/' + id, {}, this.state.config)
+    //         .then((response) => {
+    //             console.log(response)
+    //             if (response.data.statusOfSubscription === "Subscribed Successfully") {
+    //                 toast.success('Subscribed', { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
+    //                 // alert("Subscribed")
+    //                 // window.location.reload(true);
+    //             }
+    //             else if (response.data.statusOfSubscription === "You have already Subscribed this user") {
+    //                 toast.error('Already Subscribed', { position: toast.POSITION.TOP_right, autoClose: 1000 })
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             console.log(error.response)
+    //         })
+    // }
 
     render() {
         const settings = {
@@ -99,13 +126,12 @@ export default class Highlight extends Component {
         };
         return (
             <div className="container-fluid" style={{ marginTop: "100px", marginBottom: "100px" }}>
-                <Button style={{ fontFamily: 'Arial (sans-serif)',backgroundColor:'#BF3A89', border:'none' }}> Highlights</Button>
+                <Button style={{ fontFamily: 'Arial (sans-serif)', backgroundColor: '#BF3A89', border: 'none' }}> Highlights</Button>
                 <Slider {...settings} >
                     {
                         this.state.channels.map((items) => {
                             return (
                                 <div>
-
                                     <Card style={{ width: '12rem', height: 'auto', marginTop: '10px', textAlign: 'center' }}>
                                         <Card.Img
                                             variant="top"
@@ -117,14 +143,14 @@ export default class Highlight extends Component {
                                             </Card.Text>
                                             <ReactStars
                                                 count={5}
-                                                onChange={ratingChanged}
+                                                onChange={this.ratingChanged.bind(this, items._id)}
                                                 size={24}
                                                 isHalf={true}
                                                 emptyIcon={<i className="far fa-star"></i>}
                                                 halfIcon={<i className="fa fa-star-half-alt"></i>}
                                                 fullIcon={<i className="fa fa-star"></i>}
                                                 activeColor="#ffd700"
-                                                style={{marginRight:'auto', marginLeft:'auto', display:'block', textAlign:'center'}}
+                                                style={{ marginRight: 'auto', marginLeft: 'auto', display: 'block', textAlign: 'center' }}
                                             />,
                                         </Card.Body>
                                     </Card>
