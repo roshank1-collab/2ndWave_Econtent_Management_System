@@ -30,15 +30,29 @@ const io = require("socket.io")(server, {
 
 // finding the latest data in upload content 
 var data;
-UploadContent.find({}, {}, {field: 'asc', sort: { 'postedAt' : 1 } }, function(err, post) {
+UploadContent.find({}, {}, { field: 'asc', sort: { 'postedAt': 1 } }, function (err, post) {
     data = post
-    
-  }).limit(5)
+
+}).limit(5)
+
 
 
 io.on("connection", (socket) => {
-    socket.emit('me',socket.io)
+	console.log('new connection')
+	socket.emit("me", socket.id);
+	socket.on("disconnect", () => {
+		socket.broadcast.emit("callEnded")
+	});
+
+	socket.on("callUser", ({ userToCall, signalData, from, name }) => {
+		io.to(userToCall).emit("callUser", { signal: signalData, from, name });
+	});
+
+	socket.on("answerCall", (data) => {
+		io.to(data.to).emit("callAccepted", data.signal)
+	});
 });
+
 
 
 

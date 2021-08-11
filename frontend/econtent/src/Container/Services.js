@@ -4,15 +4,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { FaRegSmileBeam, FaRegSmile, FaUsers, FaUserClock, FaUpload, FaMoneyCheckAlt, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaHandsHelping, FaRocketchat, FaSignOutAlt, FaUserCircle, FaPlusCircle, FaRegEye, FaMedapps, FaTelegramPlane, FaUserCog, FaFacebook } from 'react-icons/fa'
 import './services.css';
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import React, { useEffect } from "react";
 
-
-class Services extends Component {
-    render() {
+const Services =()=>  
+{
+    useEffect(()=>
+    {
+        Aos.init({duration:2000})
+   
+}, [])
         return (
-            <div>
-                <div class="container">
+            <div  data-aos="fade-up">
+                <div class="container " data-aos="fade-up">
                     <div class="row">
-                        <div class="col-sm">
+                        <div data-aos="fade-up" class="col-sm">
                             <video style={{ height: "430px", marginTop: "50px" }} class="video-fluid z-depth-1" autoplay loop controls muted>
                                 <source src="https://mdbootstrap.com/img/video/Sail-Away.mp4" type="video/mp4" />
                             </video>
@@ -39,14 +46,14 @@ In that respect, here are some powerful education quotes to help us appreciate t
                     <div class="container">
                         <div class="row d-flex justify-content-center">
                            
-                                <div class="section-title">
-                                <h3 style={{ color: '#a018a0', fontWeight: 'bold', fontFamily: 'Impact, fantasy'}}> About <span style={{color:" #51227F", fontWeight: 'bold', fontFamily: 'Impact, fantasy'}}>Us ?</span></h3>
+                                <div data-aos="fade-up" class="section-title">
+                                <h3 data-aos="fade-up" style={{ color: '#a018a0', fontWeight: 'bold', fontFamily: 'Impact, fantasy'}}> About <span style={{color:" #51227F", fontWeight: 'bold', fontFamily: 'Impact, fantasy'}}>Us ?</span></h3>
                                     <p style={{ fontSize: "19px",marginLeft:"10px",marginTop:"15px" }}>We believe in and contribute to the provision of content to those in need. We think that education is supposed to be shared, and that those who have worked hard to generate it should be rewarded.
                                     Education, discipline that is concerned with methods of teaching and learning in schools or school-like environments as opposed to various nonformal and informal means of socialization (e.g., rural development projects and education through parent-child relationships).</p>
                               
                             </div>
                         </div>
-                        <div class="row">
+                        <div data-aos="fade-up" class="row">
 
                             <div class="col-sm-6 col-lg-4">
                                 <div class="feature-box-1">
@@ -130,6 +137,6 @@ In that respect, here are some powerful education quotes to help us appreciate t
 
         )
     }
-}
+
 
 export default Services;

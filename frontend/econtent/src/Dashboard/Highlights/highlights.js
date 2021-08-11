@@ -6,16 +6,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Card, Button } from "react-bootstrap";
 import { Link } from 'react-router-dom'
+import ReactStars from "react-rating-stars-component";
 
 toast.configure();
-
-export default class SimpleSlider extends Component {
+const ratingChanged = (newRating) => {
+    console.log(newRating);
+};
+export default class Highlight extends Component {
     state = {
         channels: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     }
+
 
     //load initallly with content
     componentDidMount() {
@@ -93,31 +97,35 @@ export default class SimpleSlider extends Component {
             ]
         };
         return (
-            <div className="container-fluid" style={{ marginTop: "100px", marginBottom: "100px"}}>
-                <Button style={{fontFamily:'Arial (sans-serif)', backgroundColor:'#BF3A89', border:'none'}}> Popular Channels</Button>
+            <div className="container-fluid" style={{ marginTop: "100px", marginBottom: "100px" }}>
+                <Button style={{ fontFamily: 'Arial (sans-serif)',backgroundColor:'#BF3A89', border:'none' }}> Highlights</Button>
                 <Slider {...settings} >
                     {
                         this.state.channels.map((items) => {
                             return (
                                 <div>
-                                    <Card style={{ width: '12rem', height:'auto', marginTop:'10px' }}>
+
+                                    <Card style={{ width: '12rem', height: 'auto', marginTop: '10px', textAlign: 'center' }}>
                                         <Card.Img
                                             variant="top"
-                                            src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '12rem', height: '100px' }}
+                                            src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ borderRadius: '50%', border: '2px groove darkblue', width: '8rem', height: '8rem', display: 'block', marginLeft: 'auto', marginRight: 'auto', marginTop: '4px' }}
                                         />
                                         <Card.Body>
-                                            <Card.Text style={{fontSize:'15px', fontWeight:'bolder'}}>{items.First_name}</Card.Text>
-                                            <Card.Text style={{fontSize:'12px'}}>
-                                                {items.institution_name}
+                                            <Card.Text style={{ fontSize: '15px', fontWeight: 'bolder' }}>{items.First_name}</Card.Text>
+                                            <Card.Text style={{ fontSize: '12px' }}>
+
                                             </Card.Text>
-                                            <p>
-                                            <Button variant="outline-danger" className="btn btn-sm" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
-                                            </Button>
-                                        <hr/>
-                                            <Link to={'/viewuser/' + items._id}>
-                                                <Button variant="outline-primary " style={{  }} >GOTO</Button>
-                                            </Link>
-                                            </p>
+                                            <ReactStars
+                                                count={5}
+                                                onChange={ratingChanged}
+                                                size={24}
+                                                isHalf={true}
+                                                emptyIcon={<i className="far fa-star"></i>}
+                                                halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                                fullIcon={<i className="fa fa-star"></i>}
+                                                activeColor="#ffd700"
+                                                style={{marginRight:'auto', marginLeft:'auto', display:'block', textAlign:'center'}}
+                                            />,
                                         </Card.Body>
                                     </Card>
                                 </div>

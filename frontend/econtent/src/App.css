@@ -1,6 +1,8 @@
-html, body{
+body{
   margin: 0;
   padding: 0;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+ 
 }
 
 footer .main-footer{  padding: 20px 0;  background: #011124;}
@@ -104,18 +106,8 @@ footer.light .footer-copyright{ background: none repeat scroll 0 0 rgba(255, 255
   background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
 }
 
-/*Notification */
-.head{
-  padding:5px 15px;
-  border-radius: 3px 3px 0px 0px;
-  }
-  .footer{
-  padding:5px 15px;
-  border-radius: 0px 0px 3px 3px;
-  }
-  .notification-box{
-  padding: 10px 0px;
-  }
-  .bg-gray{
-  background-color: #eee;
-  }
+.editdropdown a :hover
+{ 
+  display: block;
+
+}

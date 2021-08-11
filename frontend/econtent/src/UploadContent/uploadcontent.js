@@ -3,7 +3,7 @@ import { FaRegHandPointRight } from 'react-icons/fa'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import wallpaper from './up2.jpg'
+import wallpaper from './up3.jpg'
 
 toast.configure()
 class Uploadcontent extends Component {
@@ -66,10 +66,10 @@ class Uploadcontent extends Component {
         return (
             <section className="Form my-4 mx-5 pt-5 pb-5">
                 <div className="container">
-                    <div className="row no-gutters shadow" style={{ background: '#f2e4fd', borderRadius: '3px' }}>
+                    <div className="row no-gutters shadow" style={{  borderRadius: '3px' }}>
                         < div className="col-lg-6">
 
-                            <img src={wallpaper} alt="Loading Image..." className="img-fluid" style={{ marginTop: '10px' }} />
+                            <img src={wallpaper} alt="Loading Image..." className="img-fluid" style={{ marginTop: '100px' }} />
 
                         </div>
                         <div className="col-lg-6">

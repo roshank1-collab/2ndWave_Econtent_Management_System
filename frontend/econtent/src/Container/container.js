@@ -21,6 +21,7 @@ import paywithesewa from '../BuyContent/paywithesewa';
 import UserView from '../ChannelsPage/UserView';
 import Location from '../location/Location';
 import indexlive from '../LiveCommunication/src/indexlive';
+import { video } from './../videoChat/video';
 import LookInside from '../ChannelsPage/LookInside';
 
 
@@ -50,9 +51,19 @@ class Container extends Component {
                         <Route exact path="/paywithkhalti/:id" component={paywithkhalti} />
                         <Route exact path="/paywithesewa/:id" component={paywithesewa} />
                         <Route exact path="/viewuser/:id" component={UserView} />
+<<<<<<< HEAD
                         <Route exact path = '/lookinside/:id' component = {LookInside}/>
                         <Route exact path = '/Location' component = {Location}/>
                         <Route exact path = '/communication' component = {indexlive}/>
+=======
+                        <Route exact path="/location" component={Location} />
+                        {/* <Route exact path = "/communication" component = {indexlive}/>*/}
+                        <Route exact path="/communication" component={video} />
+
+                        <Route exact path = '/lookinside/:id' component = {LookInside}/>
+                        <Route exact path = '/Location' component = {Location}/>
+                 
+>>>>>>> f77514dc68ffcf7149a70169cdc65799151910bb
                     </Switch>
                 </BrowserRouter>
 

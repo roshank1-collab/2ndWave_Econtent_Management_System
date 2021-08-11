@@ -9,7 +9,7 @@ import { FaOpencart, FaLinkedin, FaInstagram, FaCcVisa, FaAngellist, FaNewspaper
 class DashboardUpperPart extends Component {
     render() {
         return (
-            <div className='container-fluid' style={{ padding: '8px' }}>
+            <>
                 <Carousel fade>
                     <Carousel.Item style={{ height: "600px" }}>
                         <img
@@ -53,7 +53,7 @@ class DashboardUpperPart extends Component {
 
                     </Carousel.Item>
                 </Carousel>
-            </div>
+            </>
         )
     }
 }

@@ -1,4 +1,4 @@
-import { Card, Button, Col } from "react-bootstrap";
+import { Card, Button, Col, Row } from "react-bootstrap";
 import axios from 'axios'
 import { Component } from "react";
 import { Link } from 'react-router-dom'
@@ -58,46 +58,35 @@ class ChannelsPage extends Component {
 
     render() {
 
-        // if (localStorage.getItem('statusOfSubscription') === "Subscribed Successfully") {
-        //     var subscribeButtonChanged =
-        //         <Button variant="outline-danger" className="btn">UnSubscribe
-        //         </Button>
-        // }
-        // else if (localStorage.getItem('statusOfSubscription') === "You have already Subscribed this user") {
-        //     var subscribeButtonChanged =
-        //         <Button variant="outline-danger disabled" className="btn">UnSubscribe
-        //         </Button>
-        // }
-        // else {
-        //     <Button variant="outline-danger" className="btn" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
-        //     </Button>
-        // }
+    
 
         return (
-            <div className="container" style={{ background: "white" }}>
+            <div className="container-fluid" style={{ background: "white" }}>
                 <center>
-                    <h1 style={{ color: "#51127F", marginTop: "40px" }}>Channels</h1>
+                    <h3 style={{ color: "#51127F", marginTop: "40px" }}> All Channels</h3>
                 </center>
 
                 <div className="row">
                     {
                         this.state.channels.map((items) => {
                             return (
-                                <div className="card" style={{ width: '310px', margin: '10px' }}>
-                                    <img className="card-img-top" src={"http://localhost:90/" + items.Profie_Picture} alt="Image Loading...." style={{ width: '250xp', height: '250px' }} />
-                                    <div className="card-body">
-                                        <i><h4 className="card-title"> {items.First_name}</h4></i><br />
-                                        <p><h5>{items.institution_name}</h5></p>
-                                        <Button variant="outline-danger" className="btn" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
+                                <div className="card" style={{ width: '13rem',height:'auto', marginTop:'5px', marginLeft: '5px', marginTop:'5px', marginBottom:'5px' }}>
+                                <img className="card-img-top" src={"http://localhost:90/" + items.Profie_Picture} className="img-fluid" alt="Image Loading...." style={{ width:'13rem', height: '150px', marginLeft:'0' }} />
+                                <div className="card-body">
+                                    <p style={{fontSize:'16px',  fontWeight:'bolder'}}> {items.First_name}</p>
+                                    <p style={{fontSize:'12px'}}>{items.institution_name}</p>
+                                    <br/>
+                                    <Button variant="outline-danger btn-sm" className="btn" onClick={this.subscribecount.bind(this, items._id)}>Subscribe
+                                    </Button>
+                                    <hr />
+                                    <Link to={'/viewuser/' + items._id}>
+                                        <Button variant="outline-primary" className="btn btn-sm">View
                                         </Button>
-                                        <hr />
-                                        <Link to={'/viewuser/' + items._id}>
-                                            <Button variant="outline-primary" className="btn">View
-                                            </Button>
-                                        </Link>
+                                    </Link>
 
-                                    </div>
                                 </div>
+                            </div>
+
                             )
                         })
                     }
