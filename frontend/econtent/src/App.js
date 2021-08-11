@@ -7,14 +7,15 @@ import Container from './Container/container'
 import Footer from './footer/footer';
 
 
-
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+    
         <Header />
         <Container />
         <Footer/>
+
       </div>
     </BrowserRouter>
   );

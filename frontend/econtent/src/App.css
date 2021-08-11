@@ -1,6 +1,8 @@
-html, body{
+body{
   margin: 0;
   padding: 0;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+ 
 }
 
 footer .main-footer{  padding: 20px 0;  background: #011124;}
@@ -104,19 +106,8 @@ footer.light .footer-copyright{ background: none repeat scroll 0 0 rgba(255, 255
   background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
 }
 
-.contactus h4{
-  text-transform: uppercase;
-  font-weight: bold;
-}
- h5{
-  text-transform: uppercase;
-  font-weight: bold;
-}
+.editdropdown a :hover
+{ 
+  display: block;
 
-.pinkcolor{
-  color: rgb(191, 58, 137);
-}
-
-.purplecolor{
-  color:rebeccapurple;
 }

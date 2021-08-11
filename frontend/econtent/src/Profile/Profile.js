@@ -70,7 +70,8 @@ class Profile extends Component {
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
-        allItem: []
+        allItem: [],
+        redirect: false
     }
 
     //load with content
