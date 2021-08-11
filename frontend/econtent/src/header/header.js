@@ -1,12 +1,4 @@
 import axios from 'axios';
-<<<<<<< HEAD
-import { Nav, NavDropdown, Navbar, Button, NavItem } from 'react-bootstrap';
-import { Modal, Container } from 'react-bootstrap'
-import { FaUserGraduate, FaNewspaper, FaServicestack, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUserCircle, FaUpload, FaTty, FaBell } from 'react-icons/fa'
-import React, { useEffect, useState } from "react";
-import socketIOClient from "socket.io-client";
-import NotificationCenter from 'react-notification-center-component';
-=======
 import { Nav, NavDropdown, Navbar, Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap'
 import { FaUserGraduate, FaNewspaper, FaBell, FaServicestack, FaComments, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUpload } from 'react-icons/fa'
@@ -14,7 +6,6 @@ import React, { useEffect, useState } from "react";
 import socketIOClient from "socket.io-client";
 import '../App.css'
 
->>>>>>> f77514dc68ffcf7149a70169cdc65799151910bb
 
 
 const id = localStorage.getItem('userid')
