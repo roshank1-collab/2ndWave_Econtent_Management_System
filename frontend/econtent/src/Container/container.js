@@ -19,10 +19,14 @@ import Buycontent from '../BuyContent/Buycontent';
 import paywithkhalti from '../BuyContent/paywithkhalti';
 import paywithesewa from '../BuyContent/paywithesewa';
 import UserView from '../ChannelsPage/UserView';
-import Location from '../location/Location';
-import indexlive from '../LiveCommunication/src/indexlive';
 import { video } from './../videoChat/video';
 import LookInside from '../ChannelsPage/LookInside';
+import Announcement from './announcement';
+import Allcontent from './allcontent';
+import Test from './test';
+import indexlive from '../LiveCommunication/src/indexlive';
+
+
 
 
 class Container extends Component {
@@ -51,12 +55,18 @@ class Container extends Component {
                         <Route exact path="/paywithkhalti/:id" component={paywithkhalti} />
                         <Route exact path="/paywithesewa/:id" component={paywithesewa} />
                         <Route exact path="/viewuser/:id" component={UserView} />
+                        <Route exact path = '/lookinside/:id' component = {LookInside}/>
+                        <Route exact path = '/Location' component = {Location}/>
+                        <Route exact path = '/communication' component = {indexlive}/>
                         <Route exact path="/location" component={Location} />
                         {/* <Route exact path = "/communication" component = {indexlive}/>*/}
                         <Route exact path="/communication" component={video} />
 
                         <Route exact path = '/lookinside/:id' component = {LookInside}/>
-                        <Route exact path = '/Location' component = {Location}/>
+                        <Route exact path = '/announcement' component = {Announcement}/>
+                        <Route exact path = '/allitem' component = {Allcontent}/>
+                        <Route exact path = '/test' component = {Test}/>
+                        
                  
                     </Switch>
                 </BrowserRouter>

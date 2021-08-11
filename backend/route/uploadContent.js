@@ -206,5 +206,13 @@ router.get('/content/seeboughtcontent/:id', function (req, res) {
             res.status(500).json({ message: err })
         })
 })
-
+router.get('/content/all', function (req, res) {
+    UploadContent.find().then(function(data){
+        res.status(200).json({
+            ContentData: data
+        })
+    }).catch(function (e) {
+        res.status(500).json(e)
+    })
+})
 module.exports = router

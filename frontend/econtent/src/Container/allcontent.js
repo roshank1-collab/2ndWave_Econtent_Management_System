@@ -1,48 +1,53 @@
-import { Component } from "react";
-import ReactPlayer from 'react-player'
-import { Button, Toast } from 'react-bootstrap'
 import axios from "axios"
+import { Component } from "react"
 import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { Button } from 'react-bootstrap'
+// import './Profile.css'
+import ReactPlayer from 'react-player'
 import { toast } from "react-toastify"
+
 toast.configure()
-export default class UserView extends Component {
+
+const userid = localStorage.getItem("userid")
+
+class Allcontent extends Component {
 
     state = {
-        id: this.props.match.params.id,
+        contents: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        },
-        allItem: []
+        }
     }
-    //load with content
     componentDidMount() {
-        axios.get('http://localhost:90/content/single/' + this.state.id)
+
+        axios.get('http://localhost:90/content/all/')
             .then((response) => {
                 console.log(response)
-                if (response.data.message == "No data to show") {
-                    <img src="/upload.png" className="img-fluid" />
-                    toast.info("The user has nothing to show Yet", { position: toast.POSITION.TOP_RIGHT, autoClose: 2000 })
-                   
-                }
-                else {
-                    this.setState({
-                        allItem: response.data.data
-                    })
-                }
-
+                this.setState({
+                    contents: response.data.ContentData
+                })
             })
             .catch((err) => {
                 alert(err)
+
             })
     }
+
+    singlecontentbuy = (id) => {
+        window.location.href = "/buycontent/" + id
+    }
+
+
+
     render() {
         return (
-            <div className="container">
+            <div className="container" style={{ marginTop: "10px", marginBottom:'10px' }}>
                 <div className="row">
                     {
-                        this.state.allItem.map((items) => {
+                        this.state.contents.map((items) => {
                             return (
-                                <div className="card" style={{ width: '310px', margin: "10px" }}>
+                                <div className="card" style={{ width: '304px', marginLeft: '20px', marginTop: '5px' }}>
                                     <ReactPlayer width='250xp' height='250px' controls
                                         url='https://youtu.be/7sDY4m8KNLc'
                                     />
@@ -54,20 +59,25 @@ export default class UserView extends Component {
                                         <hr />
                                         <label>Genre</label>
                                         <p><h5>{items.categories}</h5></p>
-                                        <Link to={'/buycontent/' + items._id}>
-                                            <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }} >BUY Now</Button>
-                                        </Link>
-                                        <hr />
-                                        <Link to={'/lookinside/' + items._id}>
-                                            <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none' }} >Look</Button>
-                                        </Link>
+                                      <hr/>
+
+<Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }} onClick={this.singlecontentbuy.bind(this, items._id)}>BUY Now</Button>
                                     </div>
                                 </div>
+
                             )
                         })
                     }
                 </div>
             </div>
+
+
+
+
+
         )
     }
+
 }
+
+export default Allcontent;
