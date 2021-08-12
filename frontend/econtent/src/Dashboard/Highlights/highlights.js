@@ -19,14 +19,21 @@ export default class Highlight extends Component {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
         rate: "",
+        ratedtopersonid: "",
+        previousratednumber: ""
     }
 
     ratingChanged = (id, newRating) => {
+        // this.state.ratedtopersonid = id
+        this.setState({
+            ratedtopersonid: id
+        })
+        console.log("ratedtopersonid")
+        console.log(this.state.ratedtopersonid)
+        toast.error(this.state.ratedtopersonid)
         this.state.rate = newRating
-        console.log(this.state.rate);
         var body = {
             rate: newRating
-            // boughtby_khaltiid: this.state.boughtby_khaltiid
         }
         // toast.success(this.state.rate)
         // toast.error(id)        
@@ -40,16 +47,32 @@ export default class Highlight extends Component {
         )
             .then((response) => {
                 console.log(response)
-                toast.success(response.data.message, { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+                // toast.success(response.data.message, { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
             })
             .catch((err) => {
                 console.log(err.response)
                 // toast.error({ err })
             })
+
+        axios({
+            method: "put",
+            url: "http://localhost:90/ratingchannel/update/" + id,
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+        }
+            // "http://localhost:90/ratingchannel/" + id, {}, this.state.config, newRating
+        )
+            .then((response) => {
+                console.log(response)
+                // toast.success(response.data.message, { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
     };
 
 
-    //load initallly with content
+    //load initallly with saved data
     componentDidMount() {
         axios.get('http://localhost:90/channel/all/' + localStorage.getItem('userid'))
             .then((response) => {
@@ -61,25 +84,34 @@ export default class Highlight extends Component {
             .catch((err) => {
                 console.log(err.response)
             })
-    }
 
-    // ratingsubmiited = (id) => {        
-    //     axios.post('http://localhost:90/channel/all/' + id, {}, this.state.config)
-    //         .then((response) => {
-    //             console.log(response)
-    //             if (response.data.statusOfSubscription === "Subscribed Successfully") {
-    //                 toast.success('Subscribed', { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
-    //                 // alert("Subscribed")
-    //                 // window.location.reload(true);
-    //             }
-    //             else if (response.data.statusOfSubscription === "You have already Subscribed this user") {
-    //                 toast.error('Already Subscribed', { position: toast.POSITION.TOP_right, autoClose: 1000 })
-    //             }
-    //         })
-    //         .catch((error) => {
-    //             console.log(error.response)
-    //         })
-    // }
+        axios.get('http://localhost:90/getrating/60fb721caa09292fd4b085c1', this.state.config)
+            .then((responsee) => {
+                console.log("get responseeeee")
+                console.log(responsee)
+                this.setState({
+                    previousratednumber: responsee.data.RatedNumber
+                })
+            })
+            .catch((err) => {
+                console.log(err.responsee)
+            })
+
+        // axios({
+        //     method: 'get',
+        //     url: "http://localhost:90/getrating/" + this.state.ratedtopersonid,
+        //     headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+        // }).then((response) => {                  
+        //     this.setState({
+        //         rate: response.data
+        //     })
+        //     toast.error(this.state.rate)
+        // }).
+        //     catch((err) => {
+        //         console.log(err.response)
+        //     })
+
+    }
 
     render() {
         const settings = {
@@ -142,16 +174,24 @@ export default class Highlight extends Component {
                                             <Card.Text style={{ fontSize: '12px' }}>
                                             </Card.Text>
                                             <ReactStars
+                                                // value='3.5'
                                                 count={5}
                                                 onChange={this.ratingChanged.bind(this, items._id)}
                                                 size={24}
                                                 isHalf={true}
+                                                a11y = {true}
                                                 emptyIcon={<i className="far fa-star"></i>}
                                                 halfIcon={<i className="fa fa-star-half-alt"></i>}
                                                 fullIcon={<i className="fa fa-star"></i>}
                                                 activeColor="#ffd700"
                                                 style={{ marginRight: 'auto', marginLeft: 'auto', display: 'block', textAlign: 'center' }}
-                                            />,
+                                            />
+                                            {/* <div className="col-sm-9 text-secondary">
+                                                <label>Previous rated : {items._id}</label>
+                                            </div> */}
+                                            <p>
+                                                {this.state.previousratednumber}
+                                            </p>
                                         </Card.Body>
                                     </Card>
                                 </div>
