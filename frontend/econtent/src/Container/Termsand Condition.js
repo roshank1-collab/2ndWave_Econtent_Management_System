@@ -9,7 +9,7 @@ import './home.css'
 class Terms extends Component {
     render() {
         return (
-<div class="container" style={{marginTop:"30px"}}>
+<div class="container terms-condition" style={{marginTop:"30px"}}>
  
       <u><h2 style={{fontWeight:"bold"}}>Terms and Conditions</h2></u>
       <p style={{fontSize:"21px"}}>E-content is located at Kathmandu,Nepal.

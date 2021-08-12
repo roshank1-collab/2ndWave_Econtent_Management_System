@@ -17,3 +17,8 @@ input {
 .customDiv input {
   color:#000;
 }
+
+.terms-condition p {
+    text-align: justify;;
+  }
+
