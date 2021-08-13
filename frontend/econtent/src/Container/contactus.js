@@ -59,10 +59,10 @@ class ContactUs extends Component {
              <form >
                <div className="row" style={{marginTop:'10px'}}>
                  <div className="col-md-4">
-                 <input className="form-control" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
+                 <input className="form-control" required="true" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
                  </div>
                  <div className="col-md-4">
-                 <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
+                 <input className="form-control" type="email" required="true" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
                  </div>
                </div>
                <div className="row" style={{marginTop:'10px'}}>
