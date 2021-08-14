@@ -188,9 +188,9 @@ export default class Highlight extends Component {
                                             {/* <div className="col-sm-9 text-secondary">
                                                 <label>Previous rated : {items._id}</label>
                                             </div> */}
-                                            <p>
+                                            {/* <p>
                                                 {this.state.previousratednumber}
-                                            </p>
+                                            </p> */}
                                         </Card.Body>
                                     </Card>
                                 </div>

@@ -1,22 +1,14 @@
 const mongoose = require('mongoose')
 const validator = require('mongoose-validator')
 
-const ratechannel = mongoose.model("RateChannel", {
+const ratecontent = mongoose.model("RateContent", {
     RatedBy: {
         type: String,
         requried: true
     },
-    // RateByImage: {
-    //     type: String,
-    //     requried : true
-    // },
-    // RateByName: {
-    //     type: String,
-    //     requried : true
-    // },
-    RatedTo: {
+    ContentId: {
         type: String,
-        required: true
+        required : true
     },
     RateNumber: {
         type: Number,
@@ -27,6 +19,7 @@ const ratechannel = mongoose.model("RateChannel", {
     RatedOnDate: {
         type: String
     }
+    
 })
 
-module.exports = ratechannel
+module.exports = ratecontent

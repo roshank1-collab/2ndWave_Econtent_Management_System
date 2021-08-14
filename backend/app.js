@@ -15,6 +15,7 @@ app.use(cors()); // to get data from frontend
 app.use(User_route)
 app.use(Uploadcontent)
 app.use(contactusroute)
+app.use(rating)
 app.use(express.static('pictures'))
 const port = process.env.PORT || 90;
 
@@ -28,7 +29,6 @@ const io = require("socket.io")(server, {
         credentials: true
     }
 });
-
 
 // finding the latest data in upload content 
 var data;
