@@ -20,7 +20,6 @@ router.post("/User/SignUp", upload, [
     check('institution_name', "institution name is required").not().isEmpty(),
     check('email', "email is required").not().isEmpty(),
     check('password', " password is required").not().isEmpty()
-
 ], function (req, res) {
     const errors = validationResult(req);
     console.log(req.files);
@@ -28,7 +27,6 @@ router.post("/User/SignUp", upload, [
         if (req.files == undefined) {
             console.log(req.files);
             return res.status(201).json({ status: false, message: "Invalid  file format" })
-
         }
         bcryptjs.hash(req.body.password, 10, function (err, hash) {
             const User = new Users({
@@ -140,7 +138,7 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
                                 res.status(501).json({ message: err })
                             })
                     }
-                    else  {
+                    else {
                         res.status(201).json({ statusOfSubscription: "You have already Subscribed this user" })
                         // console.log("User have already Subscribed")
                     }
@@ -232,7 +230,7 @@ router.post('/user/subscribe/website/notification/:email', function (req, res) {
 })
 
 //update password route 
-router.put('/password',authentication.verifyUser, function (req, res) {
+router.put('/password', authentication.verifyUser, function (req, res) {
     const id = req.userData.id
     Users.findOne({ _id: id }).then(function (data) {
         bcryptjs.compare(req.body.password, data.Password, function (err, result) {
@@ -241,8 +239,8 @@ router.put('/password',authentication.verifyUser, function (req, res) {
             }
             else {
                 bcryptjs.hash(req.body.NewPassword, 10, function (err, hash) {
-                    Users.updateOne({_id:id},{
-                       Password:hash 
+                    Users.updateOne({ _id: id }, {
+                        Password: hash
                     }).then(
                         function (result) {
                             res.status(200).json({ status: true, message: " password Updated" })
