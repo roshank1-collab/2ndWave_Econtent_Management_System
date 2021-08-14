@@ -29,9 +29,9 @@ export default class Highlight extends Component {
             ratedtopersonid: id
         })
 
-        localStorage.setItem('ratedtopersonid', id)
-        console.log("ratedtopersonid")
-        console.log(this.state.ratedtopersonid)        
+        // localStorage.setItem('ratedtopersonid', id)
+        // console.log("ratedtopersonid")
+        // console.log(this.state.ratedtopersonid)        
         this.state.rate = newRating
         var body = {
             rate: newRating
