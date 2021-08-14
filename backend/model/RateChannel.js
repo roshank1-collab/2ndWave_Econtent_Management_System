@@ -6,6 +6,14 @@ const ratechannel = mongoose.model("RateChannel", {
         type: String,
         requried: true
     },
+    RateByImage: {
+        type: String,
+        requried : true
+    },
+    RateByName: {
+        type: String,
+        requried : true
+    },
     RatedTo: {
         type: String,
         required: true

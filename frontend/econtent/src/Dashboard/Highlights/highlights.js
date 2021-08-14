@@ -28,9 +28,10 @@ export default class Highlight extends Component {
         this.setState({
             ratedtopersonid: id
         })
+
+        localStorage.setItem('ratedtopersonid', id)
         console.log("ratedtopersonid")
-        console.log(this.state.ratedtopersonid)
-        toast.error(this.state.ratedtopersonid)
+        console.log(this.state.ratedtopersonid)        
         this.state.rate = newRating
         var body = {
             rate: newRating
@@ -85,7 +86,7 @@ export default class Highlight extends Component {
                 console.log(err.response)
             })
 
-        axios.get('http://localhost:90/getrating/60fb721caa09292fd4b085c1', this.state.config)
+        axios.get('http://localhost:90/getrating/' + localStorage.getItem('ratedtopersonid'), this.state.config)
             .then((responsee) => {
                 console.log("get responseeeee")
                 console.log(responsee)
@@ -96,7 +97,6 @@ export default class Highlight extends Component {
             .catch((err) => {
                 console.log(err.responsee)
             })
-
         // axios({
         //     method: 'get',
         //     url: "http://localhost:90/getrating/" + this.state.ratedtopersonid,
@@ -110,7 +110,6 @@ export default class Highlight extends Component {
         //     catch((err) => {
         //         console.log(err.response)
         //     })
-
     }
 
     render() {
