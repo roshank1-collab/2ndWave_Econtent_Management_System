@@ -51,6 +51,9 @@ const E_Register_User = mongoose.model("E-User", {
         // max: 4,
         required: [true, 'PIN requried']
 
+    },
+    userid: {
+        type : String
     }
 
 })
