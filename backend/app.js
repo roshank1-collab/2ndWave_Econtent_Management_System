@@ -15,9 +15,9 @@ app.use(cors()); // to get data from frontend
 app.use(User_route)
 app.use(Uploadcontent)
 app.use(contactusroute)
-app.use(rating)
 app.use(express.static('pictures'))
 const port = process.env.PORT || 90;
+
 const server = app.listen(port, function (req, res) {
     console.log(`Listening on port ${port}`);
 });
@@ -58,3 +58,4 @@ io.on("connection", (socket) => {
 
 
 
+module.exports = app;

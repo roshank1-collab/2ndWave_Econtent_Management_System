@@ -1,19 +1,41 @@
-const request = require('supertest');
-// app is supposed to point to the app.js file
-jest.useFakeTimers()
-const app = require('../app');
+const app = require('../app.js');
+const supertest = require('supertest')
+const request = supertest(app)
+
+
 
 describe('Insert data', () => {
-    test('respond with valid HTTP status code and description and message',async () => {
+    test('insert data to contact us page', async done => {
+
         // Make POST Request
-       await request(app).post('/contact/insert')
+        const res = await request.post('/contact/insert')
             .send({
                 name: "shankar",
                 email: "shankar@gmail.com",
                 phone: "9867823004",
                 message: "hello"
             })
-            // Compare response with expectations
-            .expect(200)
+        // Compare response with expectations
+        expect('Content-Type', /json/)
+        expect(res.statusCode).toBe(200,done)
+
+    })
+})
+
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTBkMGEyZTBmMjI4NjUwZThhNTI0YWIiLCJpYXQiOjE2Mjg2OTU2MjZ9.evO_0edlj40OW7OJq18opdfOgSRnY07Yr1iNLzOXUog";
+
+//password update testing
+describe('Update password', () => {
+    test('update password in the user route', async done => {
+
+        // Make put Request
+        const res = await request.put('/password')
+            .send({
+                password: '123456',
+                NewPassword: '1234567890'
+            }).set('Authorization', 'Bearer ' + token)
+
+        // Compare response with expectations
+        expect(res.statusCode).toBe(200, done)
     })
 })
