@@ -10,8 +10,6 @@ toast.configure()
 
 class Category extends Component {
     state = {
-
-
         alldata: [],
         item: this.props.match.params.item,
         config: {
