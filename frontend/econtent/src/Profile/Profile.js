@@ -98,7 +98,7 @@ class Profile extends Component {
 
         axios.get('http://localhost:90/content/single/' + this.state.id)
             .then((response) => {
-                console.log(response)
+                console.log(response)                
                 this.setState({
                     allItem: response.data.data
                 })

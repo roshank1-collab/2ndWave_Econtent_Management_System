@@ -32,10 +32,15 @@ router.post('/Ewallet/user-register',
         // const Password = req.body.Password;
         // const MPin = req.body.MPin;
         const USERID = req.userData._id
-        
+
         E_Register_User.find()
             .then(function (data) {
-                if (data.length > 1) {
+
+                var alreadyuser = data.filter(function (ele) {
+                    return ele.userid == USERID
+                })
+
+                if (alreadyuser.length > 1) {
                     res.status(201).json({ message: "User already exists" })
                 }
                 else {
@@ -79,8 +84,6 @@ router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) 
 
     UploadContent.findOne({ _id: contentID })
         .then(function (data) {
-            // res.status(201).json({ data })
-
             priceOfContent = data.price
             console.log("priceOfContent")
             console.log(priceOfContent)
@@ -91,7 +94,7 @@ router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) 
 
             E_Register_User.find()
                 .then(function (userdata) {
-                    
+
                     //  getting balance of receiver                     
                     var filterReceiver = userdata.filter(function (ele) {
                         return ele.userid == contentUserid
@@ -112,32 +115,38 @@ router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) 
                     console.log(balanceOfSender)
                     //  getting balance of sender
 
-                    var receiverBalanceBecome = balanceOfReceiver + priceOfContent
-                    var senderBalanceBecome = balanceOfSender - priceOfContent
 
-                    console.log("receiver Balance Become")
-                    console.log(receiverBalanceBecome)
+                    if (balanceOfSender < 1 || balacneOfSender < priceOfContent) {
+                        res.status(201).json({ status: "Insufficient Balance", message: "Load Amount to your wallet first" })
+                    }
+                    else {
+                        var receiverBalanceBecome = balanceOfReceiver + priceOfContent
+                        var senderBalanceBecome = balanceOfSender - priceOfContent
 
-                    console.log("sender Balance Become")
-                    console.log(senderBalanceBecome)
+                        console.log("receiver Balance Become")
+                        console.log(receiverBalanceBecome)
 
-                    E_Register_User.updateOne({ userid: contentUserid }, {
-                        Balance : receiverBalanceBecome
-                    }).then(function (outcome) {
-                        console.log("Inrease")
-                        console.log(outcome)
-                    })
+                        console.log("sender Balance Become")
+                        console.log(senderBalanceBecome)
 
-                    E_Register_User.updateOne({ userid: loggedinUserID }, {
-                        Balance : senderBalanceBecome
-                    }).then(function (outcome) {
-                        console.log("Decrease")
-                        console.log(outcome)
-                    })
+                        E_Register_User.updateOne({ userid: contentUserid }, {
+                            Balance: receiverBalanceBecome
+                        }).then(function (outcome) {
+                            console.log("Inrease")
+                            console.log(outcome)
+                        })
+
+                        E_Register_User.updateOne({ userid: loggedinUserID }, {
+                            Balance: senderBalanceBecome
+                        }).then(function (outcome) {
+                            console.log("Decrease")
+                            console.log(outcome)
+                        })
+                    }
 
                     // console.log("userData")
                     // console.log(userdata)
-                    res.status(201).json({ userdata })                  
+                    res.status(201).json({ message: "successfully done" })
 
                 })
                 .catch(function (err) {

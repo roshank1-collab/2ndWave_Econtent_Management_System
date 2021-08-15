@@ -37,7 +37,8 @@ const E_Register_User = mongoose.model("E-User", {
     },
     Balance: {
         type: Number,
-        required: [true, "Input Balance"]
+        required: [true, "Input Balance"],
+        min : 1
     },
     Password: {
         type: String,
