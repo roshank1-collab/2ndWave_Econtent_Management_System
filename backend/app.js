@@ -10,12 +10,15 @@ require('./database/db');
 const User_route = require('./route/userRoute')
 const Uploadcontent = require('./route/uploadContent')
 const contactusroute = require('./route/contactUs')
+const rating = require('./route/ratingroute')
 app.use(cors()); // to get data from frontend 
 app.use(User_route)
 app.use(Uploadcontent)
 app.use(contactusroute)
+app.use(rating)
 app.use(express.static('pictures'))
 const port = process.env.PORT || 90;
+
 const server = app.listen(port, function (req, res) {
     console.log(`Listening on port ${port}`);
 });
@@ -27,7 +30,6 @@ const io = require("socket.io")(server, {
     }
 });
 
-
 // finding the latest data in upload content 
 var data;
 UploadContent.find({}, {}, { field: 'asc', sort: { 'postedAt': 1 } }, function (err, post) {
@@ -38,7 +40,7 @@ UploadContent.find({}, {}, { field: 'asc', sort: { 'postedAt': 1 } }, function (
 
 
 io.on("connection", (socket) => {
-	console.log('new connection')
+	//console.log('new connection')
 	socket.emit("me", socket.id);
 	socket.on("disconnect", () => {
 		socket.broadcast.emit("callEnded")
@@ -56,3 +58,4 @@ io.on("connection", (socket) => {
 
 
 
+module.exports = app;

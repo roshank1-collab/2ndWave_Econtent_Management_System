@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import { ChatEngine } from 'react-chat-engine'
-=======
 import { ChatEngine } from 'react-chat-engine';
 
->>>>>>> f77514dc68ffcf7149a70169cdc65799151910bb
 import ChatFeed from './components/ChatFeed';
 import LoginForm from './components/LoginForm';
 import './App.css';

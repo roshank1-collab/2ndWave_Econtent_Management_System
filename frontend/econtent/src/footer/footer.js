@@ -68,7 +68,7 @@ class Footer extends Component {
                                                 <div className="thumb-content"><a target="_blank" href="/aboutus">About Us</a></div> <br />
                                             </li>
                                             <li>
-                                                <div className="thumb-content"><a target="_blank" href="/careerwithus">Careers</a></div> <br />
+                                                <div className="thumb-content"><a target="_blank" href="/career">Careers</a></div> <br />
                                             </li>
 
                                             <li>

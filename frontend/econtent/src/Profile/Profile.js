@@ -70,14 +70,15 @@ class Profile extends Component {
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
-        allItem: []
+        allItem: [],
+        redirect: false
     }
 
     //load with content
     componentDidMount() {
         axios.get('http://localhost:90/user/singleuser/' + this.state.id, this.state.config)
             .then((response) => {
-                console.log(response)
+                //console.log(response)
                 this.setState({
                     First_name: response.data.userdata[0].First_name,
                     Last_name: response.data.userdata[0].Last_name,
@@ -97,10 +98,17 @@ class Profile extends Component {
 
         axios.get('http://localhost:90/content/single/' + this.state.id)
             .then((response) => {
-                console.log(response)
-                this.setState({
-                    allItem: response.data.data
-                })
+                console.log(response.data.status)
+                if(response.data.status===false){
+                    console.log('no iteam')
+                }
+                else{
+                    this.setState({
+                        allItem: response.data.data
+                    })
+                }
+               
+
             })
             .catch((err) => {
                 alert(err)
@@ -327,17 +335,13 @@ class Profile extends Component {
 
                                                     <div className="row">
                                                         {
+                                                            
                                                             this.state.allItem.map((items) => {
                                                                 return (
                                                                     <div className="card" style={{ width: '304px', marginRight: '10px', marginTop: '5px' }}>
-                                                                        <div className="player-wrapper">
-                                                                            <video width="750" height="500" controls >
-                                                                                <source src={"http://localhost:90/" + items.video} type="video/mp4" />
-                                                                            </video>
-                                                                            {/* <ReactPlayer className="react-player" width='250xp' height='250px' controls={true}
-                                                                                url={"http://localhost:90/" + items.video}
-                                                                            /> */}
-                                                                        </div>
+                                                                        <ReactPlayer width='250xp' height='250px' controls
+                                                                            url='https://youtu.be/7sDY4m8KNLc'
+                                                                        />
                                                                         {/* <img className="card-img-top" src={"http://localhost:90/" + items.video} alt="Image Loading...." style={{ width: '250xp', height: '250px', background: "red" }} /> */}
                                                                         <div className="card-body">
                                                                             <i><h3 className="card-title"> {items.heading}</h3></i><br />

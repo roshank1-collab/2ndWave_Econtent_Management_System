@@ -24,7 +24,7 @@ const Services =()=>
                                 <source src="https://mdbootstrap.com/img/video/Sail-Away.mp4" type="video/mp4" />
                             </video>
                         </div>
-                        <div class="col-sm" style={{ marginTop: "50px" }}>
+                        <div class="col-sm" style={{ marginTop: "50px",textAlign:"justify" }}>
                             <u><h2 style={{ color: "#51227F", fontWeight: "bolder" }}>E-Content for your comfort</h2></u>
                             <p style={{ fontSize: "18px" }}>Irrespective of race, creed, and gender, education makes it possible for people to stand out as equal with all the other persons from different walks of life.
 
