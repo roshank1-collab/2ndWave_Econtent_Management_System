@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">90.91% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>24/32</span>
+                <span class='fraction'>30/33</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">90.91% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/32</span>
+                <span class='fraction'>30/33</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,7 +115,9 @@
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -137,7 +139,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,17 +159,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,12 +189,15 @@ require('./database/db');
 const User_route = require('./route/userRoute')
 const Uploadcontent = require('./route/uploadContent')
 const contactusroute = require('./route/contactUs')
+const rating = require('./route/ratingroute')
 app.use(cors()); // to get data from frontend 
 app.use(User_route)
 app.use(Uploadcontent)
 app.use(contactusroute)
+app.use(rating)
 app.use(express.static('pictures'))
 const port = process.env.PORT || 90;
+&nbsp;
 const server = app.listen(port, function (req, res) {
     console.log(`Listening on port ${port}`);
 });
@@ -202,7 +209,6 @@ const io = require("socket.io")(server, {
     }
 });
 &nbsp;
-&nbsp;
 // finding the latest data in upload content 
 var data;
 UploadContent.find({}, {}, { field: 'asc', sort: { 'postedAt': 1 } }, function (err, post) {
@@ -212,18 +218,18 @@ UploadContent.find({}, {}, { field: 'asc', sort: { 'postedAt': 1 } }, function (
 &nbsp;
 &nbsp;
 &nbsp;
-io.on("connection", <span class="fstat-no" title="function not covered" >(s</span>ocket) =&gt; {
-<span class="cstat-no" title="statement not covered" >	console.log('new connection')</span>
-<span class="cstat-no" title="statement not covered" >	socket.emit("me", socket.id);</span>
-<span class="cstat-no" title="statement not covered" >	socket.on("disconnect", <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+io.on("connection", (socket) =&gt; {
+	//console.log('new connection')
+	socket.emit("me", socket.id);
+	socket.on("disconnect", <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >		socket.broadcast.emit("callEnded")</span>
 	});
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	socket.on("callUser", <span class="fstat-no" title="function not covered" >({</span> userToCall, signalData, from, name }) =&gt; {</span>
+	socket.on("callUser", <span class="fstat-no" title="function not covered" >({</span> userToCall, signalData, from, name }) =&gt; {
 <span class="cstat-no" title="statement not covered" >		io.to(userToCall).emit("callUser", { signal: signalData, from, name });</span>
 	});
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	socket.on("answerCall", <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {</span>
+	socket.on("answerCall", <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
 <span class="cstat-no" title="statement not covered" >		io.to(data.to).emit("callAccepted", data.signal)</span>
 	});
 });
@@ -238,7 +244,7 @@ module.exports = app;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Aug 11 2021 21:58:18 GMT+0545 (Nepal Time)
+                at Sun Aug 15 2021 11:51:52 GMT+0545 (Nepal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

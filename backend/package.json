@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --detectOpenHandles --runInBand",
-    "test:watch": "jest --verbose --watchAll",
+    "test": "jest",
     "start": "nodemon app"
   },
   "repository": {

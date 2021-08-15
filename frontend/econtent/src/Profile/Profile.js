@@ -78,7 +78,7 @@ class Profile extends Component {
     componentDidMount() {
         axios.get('http://localhost:90/user/singleuser/' + this.state.id, this.state.config)
             .then((response) => {
-                console.log(response)
+                //console.log(response)
                 this.setState({
                     First_name: response.data.userdata[0].First_name,
                     Last_name: response.data.userdata[0].Last_name,
@@ -98,10 +98,17 @@ class Profile extends Component {
 
         axios.get('http://localhost:90/content/single/' + this.state.id)
             .then((response) => {
-                console.log(response)
-                this.setState({
-                    allItem: response.data.data
-                })
+                console.log(response.data.status)
+                if(response.data.status===false){
+                    console.log('no iteam')
+                }
+                else{
+                    this.setState({
+                        allItem: response.data.data
+                    })
+                }
+               
+
             })
             .catch((err) => {
                 alert(err)
@@ -315,7 +322,7 @@ class Profile extends Component {
                                     </Col>
                                     <Col sm={9}>
                                         <Tab.Content>
-                                        <Tab.Pane eventKey="first">
+                                            <Tab.Pane eventKey="first">
                                                 <div>
                                                     <h1>My wallet</h1>
                                                 </div>
@@ -328,6 +335,7 @@ class Profile extends Component {
 
                                                     <div className="row">
                                                         {
+                                                            
                                                             this.state.allItem.map((items) => {
                                                                 return (
                                                                     <div className="card" style={{ width: '304px', marginRight: '10px', marginTop: '5px' }}>
