@@ -23,7 +23,7 @@ class AboutUs extends Component {
                         <div class="col-sm">
                             <img src="../images/this.jpg" alt="bgroup" width="100%" className="img-fluid" style={{ marginTop: "50px" }} />
                         </div>
-                        <div class="col-sm" style={{ marginTop: "40px" }}>
+                        <div class="col-sm" style={{ marginTop: "40px",textAlign:"justify" }}>
                             <h3 className="mt-4 py-3" style={{ color: '#51227F', fontWeight: 'bold', fontFamily: 'Impact, fantasy', marginLeft: '30px' }}>l About Us ?</h3>
                             <p style={{ fontSize: "18px", marginLeft: "25px", fontFamily: "roboto" }}>Irrespective of race, creed, and gender, education makes it possible for people to stand out as equal with all the other persons from different walks of life.
 

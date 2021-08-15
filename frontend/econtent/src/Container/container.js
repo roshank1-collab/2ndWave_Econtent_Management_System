@@ -22,7 +22,13 @@ import UserView from '../ChannelsPage/UserView';
 import { video } from './../videoChat/video';
 import LookInside from '../ChannelsPage/LookInside';
 import Announcement from './announcement';
+<<<<<<< HEAD
 import ChangePassword from '../ChangePassword/changepassword';
+=======
+import Allcontent from './allcontent';
+import Test from './test';
+import indexlive from '../LiveCommunication/src/indexlive';
+>>>>>>> 2a73b327fb5fb54d7cd60b6182538de0d26997b7
 
 
 
@@ -53,17 +59,28 @@ class Container extends Component {
                         <Route exact path="/paywithkhalti/:id" component={paywithkhalti} />
                         <Route exact path="/paywithesewa/:id" component={paywithesewa} />
                         <Route exact path="/viewuser/:id" component={UserView} />
+<<<<<<< HEAD
+=======
+                        <Route exact path = '/lookinside/:id' component = {LookInside}/>
+                        <Route exact path = '/Location' component = {Location}/>
+                        <Route exact path = '/communication' component = {indexlive}/>
+>>>>>>> 2a73b327fb5fb54d7cd60b6182538de0d26997b7
                         <Route exact path="/location" component={Location} />
                         {/* <Route exact path = "/communication" component = {indexlive}/>*/}
                         <Route exact path="/communication" component={video} />
 
                         <Route exact path = '/lookinside/:id' component = {LookInside}/>
                         <Route exact path = '/announcement' component = {Announcement}/>
+<<<<<<< HEAD
                         <Route exact path='/changepassword' component={ChangePassword}/>
+=======
+                        <Route exact path = '/allitem' component = {Allcontent}/>
+                        <Route exact path = '/test' component = {Test}/>
+                        
+>>>>>>> 2a73b327fb5fb54d7cd60b6182538de0d26997b7
                  
                     </Switch>
                 </BrowserRouter>
-
             </div>
         )
     }

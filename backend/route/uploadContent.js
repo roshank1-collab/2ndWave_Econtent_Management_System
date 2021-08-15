@@ -68,10 +68,10 @@ router.get('/content/single/:id', function (req, res) {
     const id = req.params.id;
     UploadContent.find({ userid: id }).then(function (data) {
         if (data == "") {
-            res.status(200).json({ message: "No data to show" })
+            res.status(200).json({status: false,  })
         }
         else {
-            res.status(200).json({ data })
+            res.status(200).json({ status: true, data })
             console.log(data)
         }
     }).catch(function (err) {

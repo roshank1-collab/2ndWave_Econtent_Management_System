@@ -18,7 +18,7 @@ class CareerWithUs extends Component {
                     <div className="row">
                         <h2 style={{ color: '#51127F', fontWeight: 'bolder', marginTop: '10px' }}>Join our <span style={{ color: '#BF3A89', fontWeight: 'bolder', marginTop: '10px' }}>team</span></h2>
                         <div className="col-md-6 mt-3">
-                            <p>
+                            <p style={{textAlign:"justify"}}>
                                 We understand that our people are the key to our success. Our work environment fosters collaboration, communication, and information sharing. We offer state-of-the-art infrastructure, including advanced network servers, modern workstations, videoconferencing, teleconferencing, and more. We provide technical and communication skills training, mentoring, and coaching to empower our employees to reach their fullest potential and feel part of the team. We’re looking for talented and motivated candidates with skills and experience in software development, database analytics, software testing, IT management, and business processes. Verisk Nepal is an equal opportunity employer.
 
                                 If you’re interested in joining our dynamic, collaborative team, please send your resume to us.

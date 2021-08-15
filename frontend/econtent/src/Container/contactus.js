@@ -54,15 +54,15 @@ class ContactUs extends Component {
              <div className="col-md-12 contactus">
               <img src="../images/contact1.jpg" style={{ marginTop:'5px',height:"500px"}}/>
               
-              <h4 style={{marginTop:'4%'}}><span className='purplecolor'>Let us begin a </span><span className="pinkcolor">conversition</span></h4>
+              <h4 style={{marginTop:'4%'}}><span className='purplecolor'>Let us begin a </span><span className="pinkcolor">conversation</span></h4>
              </div>
              <form >
                <div className="row" style={{marginTop:'10px'}}>
                  <div className="col-md-4">
-                 <input className="form-control" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
+                 <input className="form-control" required="true" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
                  </div>
                  <div className="col-md-4">
-                 <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
+                 <input className="form-control" type="email" required="true" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
                  </div>
                </div>
                <div className="row" style={{marginTop:'10px'}}>
@@ -73,8 +73,7 @@ class ContactUs extends Component {
                  <input className="form-control" type="text" name="subject" value={this.state.phone} onChange={this.changeHandler} placeholder="subject" />
                  </div>
                  <div class="form-group col-md-8">
-                  <label for="message">Message</label>
-                  <textarea class="form-control" id="message" rows="3"></textarea>
+                  <textarea className="form-control mt-3" id="message" rows="3" placeholder = "message"></textarea>
                 </div>
                </div>
                <button type="submit" style={{background:'rgb(191, 58, 137)'}} className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2" onClick={this.submitMessage}><span> Send Message</span></button>
@@ -88,7 +87,7 @@ class ContactUs extends Component {
               <h5><span className='purplecolor'>E-</span><span className="pinkcolor">content</span></h5>
                <span style={{fontWeight:'bold',color:'#000'}}>Contact address </span>: <span style={{color:'#000'}}>Lazimpat, Kathmandu </span><br></br>
                 <span style={{fontWeight:'bold',color:'#000'}}>Phone number</span>: <span style={{color:'#000'}}> +977-015556256 </span><br></br>
-                <span style={{fontWeight:'bold',color:'#000'}}>E-mail us</span>: <span style={{color:'#000'}}> comtact@gmail.com </span><br></br>
+                <span style={{fontWeight:'bold',color:'#000'}}>E-mail us</span>: <span style={{color:'#000'}}> contact@gmail.com </span><br></br>
                 <span style={{fontWeight:'bold',color:'#000'}}>Working hours: </span>: <span style={{color:'#000'}}>Sun to fri: 10 am - 4 pm </span>
               </div>
              </div>

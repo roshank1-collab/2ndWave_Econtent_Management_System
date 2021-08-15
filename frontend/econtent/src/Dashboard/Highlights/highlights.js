@@ -7,21 +7,73 @@ import "slick-carousel/slick/slick-theme.css";
 import { Card, Button } from "react-bootstrap";
 import { Link } from 'react-router-dom'
 import ReactStars from "react-rating-stars-component";
-
 toast.configure();
-const ratingChanged = (newRating) => {
-    console.log(newRating);
-};
+
+
+
+
 export default class Highlight extends Component {
     state = {
         channels: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
+        },
+        rate: "",
+        ratedtopersonid: "",
+        previousratednumber: ""
     }
 
+    ratingChanged = (id, newRating) => {
+        // this.state.ratedtopersonid = id
+        this.setState({
+            ratedtopersonid: id
+        })
 
-    //load initallly with content
+        // localStorage.setItem('ratedtopersonid', id)
+        // console.log("ratedtopersonid")
+        // console.log(this.state.ratedtopersonid)        
+        this.state.rate = newRating
+        var body = {
+            rate: newRating
+        }
+        // toast.success(this.state.rate)
+        // toast.error(id)        
+        axios({
+            method: "post",
+            url: "http://localhost:90/ratingchannel/" + id,
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+        }
+            // "http://localhost:90/ratingchannel/" + id, {}, this.state.config, newRating
+        )
+            .then((response) => {
+                console.log(response)
+                // toast.success(response.data.message, { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+            })
+            .catch((err) => {
+                console.log(err.response)
+                // toast.error({ err })
+            })
+
+        axios({
+            method: "put",
+            url: "http://localhost:90/ratingchannel/update/" + id,
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+        }
+            // "http://localhost:90/ratingchannel/" + id, {}, this.state.config, newRating
+        )
+            .then((response) => {
+                console.log(response)
+                // toast.success(response.data.message, { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    };
+
+
+    //load initallly with saved data
     componentDidMount() {
         axios.get('http://localhost:90/channel/all/' + localStorage.getItem('userid'))
             .then((response) => {
@@ -33,24 +85,31 @@ export default class Highlight extends Component {
             .catch((err) => {
                 console.log(err.response)
             })
-    }
 
-    subscribecount = (id) => {
-        axios.post("http://localhost:90/channel/subscribe/" + id, {}, this.state.config)
-            .then((response) => {
-                console.log(response)
-                if (response.data.statusOfSubscription === "Subscribed Successfully") {
-                    toast.success('Subscribed', { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
-                    // alert("Subscribed")
-                    // window.location.reload(true);
-                }
-                else if (response.data.statusOfSubscription === "You have already Subscribed this user") {
-                    toast.error('Already Subscribed', { position: toast.POSITION.TOP_right, autoClose: 1000 })
-                }
+        axios.get('http://localhost:90/getrating/' + localStorage.getItem('ratedtopersonid'), this.state.config)
+            .then((responsee) => {
+                console.log("get responseeeee")
+                console.log(responsee)
+                this.setState({
+                    previousratednumber: responsee.data.RatedNumber
+                })
             })
-            .catch((error) => {
-                console.log(error.response)
+            .catch((err) => {
+                console.log(err.responsee)
             })
+        // axios({
+        //     method: 'get',
+        //     url: "http://localhost:90/getrating/" + this.state.ratedtopersonid,
+        //     headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+        // }).then((response) => {                  
+        //     this.setState({
+        //         rate: response.data
+        //     })
+        //     toast.error(this.state.rate)
+        // }).
+        //     catch((err) => {
+        //         console.log(err.response)
+        //     })
     }
 
     render() {
@@ -98,13 +157,12 @@ export default class Highlight extends Component {
         };
         return (
             <div className="container-fluid" style={{ marginTop: "100px", marginBottom: "100px" }}>
-                <Button style={{ fontFamily: 'Arial (sans-serif)',backgroundColor:'#BF3A89', border:'none' }}> Highlights</Button>
+                <Button style={{ fontFamily: 'Arial (sans-serif)', backgroundColor: '#BF3A89', border: 'none' }}> Highlights</Button>
                 <Slider {...settings} >
                     {
                         this.state.channels.map((items) => {
                             return (
                                 <div>
-
                                     <Card style={{ width: '12rem', height: 'auto', marginTop: '10px', textAlign: 'center' }}>
                                         <Card.Img
                                             variant="top"
@@ -113,19 +171,26 @@ export default class Highlight extends Component {
                                         <Card.Body>
                                             <Card.Text style={{ fontSize: '15px', fontWeight: 'bolder' }}>{items.First_name}</Card.Text>
                                             <Card.Text style={{ fontSize: '12px' }}>
-
                                             </Card.Text>
                                             <ReactStars
+                                                // value='3.5'
                                                 count={5}
-                                                onChange={ratingChanged}
+                                                onChange={this.ratingChanged.bind(this, items._id)}
                                                 size={24}
                                                 isHalf={true}
+                                                a11y = {true}
                                                 emptyIcon={<i className="far fa-star"></i>}
                                                 halfIcon={<i className="fa fa-star-half-alt"></i>}
                                                 fullIcon={<i className="fa fa-star"></i>}
                                                 activeColor="#ffd700"
-                                                style={{marginRight:'auto', marginLeft:'auto', display:'block', textAlign:'center'}}
-                                            />,
+                                                style={{ marginRight: 'auto', marginLeft: 'auto', display: 'block', textAlign: 'center' }}
+                                            />
+                                            {/* <div className="col-sm-9 text-secondary">
+                                                <label>Previous rated : {items._id}</label>
+                                            </div> */}
+                                            {/* <p>
+                                                {this.state.previousratednumber}
+                                            </p> */}
                                         </Card.Body>
                                     </Card>
                                 </div>
