@@ -85,6 +85,8 @@ class Login extends Component {
 
                             <p className="signUp text-left" style={{ fontFamily: "roboto", fontSize: "17px" }}>Do have an Account?  <Link exact to="/register"><b style={{ color: "#a018a0" }}>Sign Up</b></Link></p>
                             {/*<a style={{ color: "blueviolet" }} href="#"><u>Forgot your password?</u></a>*/}
+
+                            <p className="signUp text-left" style={{ fontFamily: "Helvetica", fontSize: "15px" }}>  <Link exact to="/changepassword"><b style={{ color: "#187bcd" }}> Forget Password?</b></Link></p>
                             <div className="form-row">
                                 <div className="col-lg-5">
                                     <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "10px", border: 'none', fontFamily: "roboto", fontSize: "18px" }} type="submit" onClick={this.loginUser} class="btn btn-primary"> Sign in <FaRegHandPointRight /> </button>
@@ -100,12 +102,7 @@ class Login extends Component {
                     </div>
                 </div>
 
-
-
-
             </section >
-
-
 
         )
     }

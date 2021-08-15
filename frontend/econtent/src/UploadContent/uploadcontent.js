@@ -53,11 +53,11 @@ class Uploadcontent extends Component {
                 // alert(response.data.message)
                 // toast.success(response.data.message)
                 toast.success(response.data.message, { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
-                // window.location.reload()
+                window.location.reload()
             })
             .catch((error) => {
-                // alert(error)
-                // toast(error.message)
+                
+                toast("Invalid File formate")
             })
     }
 

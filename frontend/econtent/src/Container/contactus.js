@@ -8,15 +8,12 @@ import '../App.css';
 import Location from '../location/Location';
 toast.configure()
 
-
-
 class ContactUs extends Component {
   state = {
     name: "",
     email: "",
     phone: "",
     message: ""
-
   }
 
   changeHandler = (e) => {

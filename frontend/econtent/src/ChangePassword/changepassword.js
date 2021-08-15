@@ -63,8 +63,6 @@ class ChangePassword extends Component {
 
                             <h1 className="font-weight-bold py-4" style={{ fontWeight: "bolder", fontSize: "35px", color: "#a018a0", fontFamily: "roboto" }}>Change Password</h1>
                             {/* <span style={{fontSize: '12px', marginTop: '-79px'}}>Enter your credentials to get started</span><br/> */}
-
-
                             <form style={{ marginLeft: "5px" }}>
                                 <div className="form-row">
                                     <div className="col-lg-5">
@@ -88,9 +86,6 @@ class ChangePassword extends Component {
                                 </div>
 
                             </form>
-
-
-                            
                             <div className="form-row">
                                 <div className="col-lg-5">
                                     <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "10px", border: 'none', fontFamily: "roboto", fontSize: "18px" }} type="submit" onClick={this.loginUser} class="btn btn-primary"> ChangePassword <FaLock /> </button>
@@ -100,15 +95,8 @@ class ChangePassword extends Component {
                         </div>
                     </div>
                     <div>
-
-
-
                     </div>
                 </div>
-
-
-
-
             </section >
 
 
