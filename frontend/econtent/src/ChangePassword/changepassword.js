@@ -57,7 +57,7 @@ class ChangePassword extends Component {
 
                             <img alt="ChangePassword" src="../images/pw.jpeg" className="img-fluid" style={{ height: '400px' }} />
 
-
+ 
                         </div>
                         <div className="col-lg-5 no gutters">
 
