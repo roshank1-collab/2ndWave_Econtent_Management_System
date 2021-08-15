@@ -40,7 +40,7 @@ UploadContent.find({}, {}, { field: 'asc', sort: { 'postedAt': 1 } }, function (
 
 
 io.on("connection", (socket) => {
-	console.log('new connection')
+	//console.log('new connection')
 	socket.emit("me", socket.id);
 	socket.on("disconnect", () => {
 		socket.broadcast.emit("callEnded")
