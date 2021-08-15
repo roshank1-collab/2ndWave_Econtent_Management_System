@@ -5,19 +5,70 @@ import axios from 'axios'
 import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify'
+import ReactStars from "react-rating-stars-component";
 toast.configure()
 
 class Category extends Component {
     state = {
-
-
         alldata: [],
         item: this.props.match.params.item,
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
+        },
+        rate: "",
+        ratedtocontentid: "",
+        previousratednumber: ""
 
     }
+
+    ratingChanged = (contentid, newRating) => {
+        // this.state.ratedtopersonid = id
+        this.setState({
+            ratedtocontentid: contentid
+        })
+        // localStorage.setItem('ratedtopersonid', id) 
+        // console.log("ratedtopersonid")
+        // console.log(this.state.ratedtopersonid)       
+        this.state.rate = newRating
+        var body = {
+            rate: newRating
+        }
+        // toast.success(this.state.rate)
+        // toast.error(id)        
+        axios({
+            method: "post",
+            url: "http://localhost:90/ratingcontent/" + contentid,
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+        }
+            // "http://localhost:90/ratingchannel/" + id, {}, this.state.config, newRating
+        )
+            .then((response) => {
+                console.log(response)
+                // toast.success(response.data.message, { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+            })
+            .catch((err) => {
+                console.log(err.response)
+                // toast.error({ err })
+            })
+
+        axios({
+            method: "put",
+            url: "http://localhost:90/ratingcontent/update/" + contentid,
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+        }
+            // "http://localhost:90/ratingchannel/" + id, {}, this.state.config, newRating
+        )
+            .then((response) => {
+                console.log(response)
+                // toast.success(response.data.message, { position: toast.POSITION.TOP_CENTER, autoClose: 1000 })
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    };
+
     componentDidMount() {
         axios.get('http://localhost:90/content/catagories/' + this.state.item).then(
             (response) => {
@@ -73,6 +124,19 @@ class Category extends Component {
                                             {item.postedAt}
                                         </Card.Text>
                                     </Card.Body>
+                                    <ReactStars
+                                        // value='3.5'
+                                        count={5}
+                                        onChange={this.ratingChanged.bind(this, item._id)}
+                                        size={24}
+                                        isHalf={true}
+                                        a11y={true}
+                                        emptyIcon={<i className="far fa-star"></i>}
+                                        halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                        fullIcon={<i className="fa fa-star"></i>}
+                                        activeColor="#ffd700"
+                                        style={{ marginRight: 'auto', marginLeft: 'auto', display: 'block', textAlign: 'center' }}
+                                    />
 
                                     <Card.Body>
                                         <Button className="btn btn-danger-gradiant mt-3  border-0 px-3 py-2" style={{ border: 'none', backgroundImage: "linear-gradient(#C04848, #480048)" }} onClick={this.singlecontentbuy.bind(this, item._id)}>BUY Now</Button>

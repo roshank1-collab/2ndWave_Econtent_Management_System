@@ -70,7 +70,6 @@ class Container extends Component {
                  
                     </Switch>
                 </BrowserRouter>
-
             </div>
         )
     }
