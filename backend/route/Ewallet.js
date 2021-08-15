@@ -32,7 +32,7 @@ router.post('/Ewallet/user-register',
         // const Password = req.body.Password;
         // const MPin = req.body.MPin;
         const USERID = req.userData._id
-
+        
         E_Register_User.find()
             .then(function (data) {
                 if (data.length > 1) {
@@ -101,7 +101,6 @@ router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) 
                     console.log("Reciever Balance")
                     console.log(balanceOfReceiver)
                     //  getting balance of receiver
-
 
                     //  getting balance of sender
                     var filterSender = userdata.filter(function (ele) {
