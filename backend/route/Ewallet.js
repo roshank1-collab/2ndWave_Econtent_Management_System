@@ -139,27 +139,26 @@ router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) 
                                                 res.status(500).json({ message: err })
                                             })
 
-                                        ContentBought.find()
+                                            HistoryOfPurchase.find()
                                             .then(function (boughtdata) {
                                                 var filterboughtdata = boughtdata.filter(function (ele) {
-                                                    return ele.boughtby_ID == loggedinUserID && ele.productowner_ID == contentUserid && ele.contentid == contentID
+                                                    return ele.boughtByUserID == loggedinUserID && ele.ProductOwnerUserID == contentUserid && ele.ContentID == contentID
                                                 })
 
                                                 if (filterboughtdata.length < 1) {
 
-                                                    var today = new Date();
-                                                    var boughtdate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-                                                    const boughtdatainfo = new ContentBought({
-                                                        contentid: contentID, boughtby_email: loggedinUserEmail,
-                                                        boughtby_ID: loggedinUserID, productowner_email: contentUserEmail, productowner_ID: contentUserid, boughton_date: boughtdate
-                                                    })
-                                                    boughtdatainfo.save()
-                                                        .then(function (result) {
-                                                            res.status(201).json({ status: true, boughtStatus: "Successfully Bought" })
-                                                        })
-                                                        .catch(function (err) {
-                                                            res.status(501).json({ message: err })
-                                                        })
+                                                    // var today = new Date();
+                                                    // var boughtdate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                                                    // const boughtdatainfo = new HistoryOfPurchase({
+                                                    //     boughtByUserID: loggedinUserID, boughtByUserEmail: loggedinUserEmail, ProductOwnerUserID: contentUserid, ProductOwnerEmail: contentUserEmail, ContentID: contentID, BoughtOn_Date: boughtondate, ContentPrice: priceOfContent
+                                                    // })
+                                                    // boughtdatainfo.save()
+                                                    //     .then(function (result) {
+                                                    //         res.status(201).json({ status: true, boughtStatus: "Successfully Bought" })
+                                                    //     })
+                                                    //     .catch(function (err) {
+                                                    //         res.status(501).json({ message: err })
+                                                    //     })
 
                                                     E_Register_User.find()
                                                         .then(function (userdata) {
