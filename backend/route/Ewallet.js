@@ -24,6 +24,7 @@ router.post('/Ewallet/user-register',
     check('MPin', "MPin is required").not().isEmpty()
 ],
     authentication.verifyUser, function (req, res) {
+        const errors = validationResult(req);
         const First_name = req.userData.First_name;
         const Last_name = req.userData.Last_name;
         const FullName = First_name + " " + Last_name;
@@ -36,60 +37,66 @@ router.post('/Ewallet/user-register',
         // const MPin = req.body.MPin;
         const USERID = req.userData._id
 
-        E_Register_User.find()
-            .then(function (data) {
+        if (errors.isEmpty()) {
+            E_Register_User.find()
+                .then(function (data) {
 
-                var alreadyuser = data.filter(function (ele) {
-                    return ele.userid == USERID
-                })
-
-                console.log("alreadyuser")
-                console.log(alreadyuser)
-
-
-
-                if (alreadyuser.length == 0) {
-                    bcryptjs.hash(req.body.Password, 10, function (err, hash) {
-                        const EUser = new E_Register_User({
-                            FullName: req.body.FullName,
-                            Address: req.body.Address,
-                            PhoneNumber: req.body.PhoneNumber,
-                            Sex: req.body.Sex,
-                            Email: req.body.Email,
-                            Balance: req.body.Balance,
-                            Password: hash,
-                            MPin: req.body.MPin,
-                            userid: USERID
-
-                            // FullName: FullName,
-                            // Address: Address,
-                            // PhoneNumber: PhoneNumber,
-                            // Sex: Sex,
-                            // Email: Email,
-                            // Balance: req.body.Balance,
-                            // Password: hash,
-                            // MPin: req.body.MPin,
-                            // userid: USERID
-                        });
-                        EUser.save().then(
-                            function (result) {
-                                res.status(201).json({ status: true, message: "E-User Registered!!" })
-                            }
-                        ).catch(
-                            function (err) {
-                                res.status(201).json({ status: "Some information are been already in use by another user", message: err })
-                            })
+                    var alreadyuser = data.filter(function (ele) {
+                        return ele.userid == USERID
                     })
 
-                }
-                else if(alreadyuser.length >= 1){
-                    res.status(201).json({ message: "User already exists" })
-                }
+                    // console.log("alreadyuser")
+                    // console.log(alreadyuser)
 
-            })
-            .catch(function (err) {
-                res.status(500).json({ message: err })
-            })
+                    if (alreadyuser.length == 0) {
+                        bcryptjs.hash(req.body.Password, 10, function (err, hash) {
+                            const EUser = new E_Register_User({
+                                FullName: req.body.FullName,
+                                Address: req.body.Address,
+                                PhoneNumber: req.body.PhoneNumber,
+                                Sex: req.body.Sex,
+                                Email: req.body.Email,
+                                Balance: req.body.Balance,
+                                Password: hash,
+                                MPin: req.body.MPin,
+                                userid: USERID
+
+                                // FullName: FullName,
+                                // Address: Address,
+                                // PhoneNumber: PhoneNumber,
+                                // Sex: Sex,
+                                // Email: Email,
+                                // Balance: req.body.Balance,
+                                // Password: hash,
+                                // MPin: req.body.MPin,
+                                // userid: USERID
+                            });
+                            EUser.save().then(
+                                function (result) {
+                                    res.status(201).json({ status: true, message: "E-User Registered!!" })
+                                }
+                            ).catch(
+                                function (err) {
+                                    res.status(201).json({ status: "Some information are been already in use by another user", message: err })
+                                })
+                        })
+
+                    }
+                    else if (alreadyuser.length >= 1) {
+                        res.status(201).json({ message: "User already exists" })
+                    }
+
+                })
+                .catch(function (err) {
+                    res.status(500).json({ message: err })
+                })
+        }
+        else {
+            console.log(errors.array())
+            res.status(400).send(errors.array())
+        }
+
+
     })
 
 router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) {
