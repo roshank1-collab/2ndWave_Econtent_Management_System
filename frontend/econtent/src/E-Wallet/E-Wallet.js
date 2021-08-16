@@ -8,8 +8,7 @@ export default class EWallet extends Component {
         return (
             <div className="container" style={{
                 margin: "50px", shadow: "10px"
-            }
-            }>
+            }}>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>

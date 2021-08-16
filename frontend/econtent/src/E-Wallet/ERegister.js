@@ -58,7 +58,7 @@ export default class ERegister extends Component {
             }
             }>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" name="Email" value={this.state.Email} onChange={this.changeHandler} requried />
                         <Form.Text className="text-muted">
@@ -66,32 +66,32 @@ export default class ERegister extends Component {
                         </Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="form-control">
+                    <Form.Group className="mb-3">
                         <Form.Label>Full Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter Full Name" name="FullName" value={this.state.FullName} onChange={this.changeHandler} requried />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="form-control">
+                    <Form.Group className="mb-3">
                         <Form.Label>Address</Form.Label>
                         <Form.Control type="text" placeholder="Enter Address" name="Address" value={this.state.Address} onChange={this.changeHandler} requried />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="form-control">
+                    <Form.Group className="mb-3">
                         <Form.Label>Phone Number</Form.Label>
                         <Form.Control type="text" placeholder="Enter phone number" name="PhoneNumber" value={this.state.PhoneNumber} onChange={this.changeHandler} requried />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="form-control">
+                    <Form.Group className="mb-3">
                         <Form.Label>Sex</Form.Label>
                         <Form.Control type="text" placeholder="Enter your Gender" name="Sex" value={this.state.Sex} onChange={this.changeHandler} requried />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="form-control">
+                    <Form.Group className="mb-3">
                         <Form.Label>Balance</Form.Label>
                         <Form.Control type="number" placeholder="Load Balance of.." name="Balance" value={this.state.Balance} onChange={this.changeHandler} requried />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="form-control">
+                    <Form.Group className="mb-3">
                         <Form.Label>PIN</Form.Label>
                         <Form.Control type="number" placeholder="PIN" name="MPin" value={this.state.MPin} onChange={this.changeHandler} requried />
                         <Form.Text className="text-muted">
@@ -100,7 +100,7 @@ export default class ERegister extends Component {
                     </Form.Group>
 
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Group className="mb-3">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" name="Password" value={this.state.Password} onChange={this.changeHandler} requried />
                     </Form.Group>
