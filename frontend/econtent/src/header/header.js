@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Nav, NavDropdown, Navbar, Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap'
-import { FaUserGraduate, FaNewspaper, FaBell, FaServicestack, FaComments, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUpload } from 'react-icons/fa'
+import { FaUserGraduate, FaNewspaper, FaBell, FaServicestack, FaComments, FaTelegram, FaSignInAlt, FaUsers, FaSignOutAlt, FaUpload, FaLock } from 'react-icons/fa'
 import React, { useEffect, useState } from "react";
 import socketIOClient from "socket.io-client";
 import '../App.css'
@@ -125,6 +125,8 @@ const Header = () => {
             <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
             <Nav.Link href="/announcement" >Announcement <FaBell /></Nav.Link>
             <Nav.Link href={"/userprofile/" + id}> Profile <FaUsers /> </Nav.Link>
+            <Nav.Link href={"/changepassword/"} > ChangePassword <FaLock /></Nav.Link>
+
           </Nav>
           <Nav className="justify-content-end">
             <Example />

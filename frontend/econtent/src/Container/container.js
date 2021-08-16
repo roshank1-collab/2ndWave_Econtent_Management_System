@@ -1,32 +1,32 @@
 import { Component } from 'react';
-import Register from './register';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from './login'
-import Dashboard from '../Dashboard/Dashboard'
-import ChannelsPage from '../ChannelsPage/ChannelsPage';
-import UploadContent from '../UploadContent/uploadcontent';
-import BeforeLogin from './beforeloginpage';
-import AboutUs from './aboutus';
-import OurTeam from './ourteam';
-import CareerWithUs from './careerwithus';
-import Profile from '../Profile/Profile';
-import ContactUs from './contactus';
-import Category from '../catagories/catagories';
-import Services from '../Container/Services';
-import Terms from '../Container/Termsand Condition'
-import ProfileUpdate from '../Profile/ProfileUpdate';
 import Buycontent from '../BuyContent/Buycontent';
-import paywithkhalti from '../BuyContent/paywithkhalti';
 import paywithesewa from '../BuyContent/paywithesewa';
-import UserView from '../ChannelsPage/UserView';
-import { video } from './../videoChat/video';
+import paywithkhalti from '../BuyContent/paywithkhalti';
+import Category from '../catagories/catagories';
+import ChangePassword from '../ChangePassword/changepassword';
+import ChannelsPage from '../ChannelsPage/ChannelsPage';
 import LookInside from '../ChannelsPage/LookInside';
-import Announcement from './announcement';
-import Allcontent from './allcontent';
-import Test from './test';
-import indexlive from '../LiveCommunication/src/indexlive';
+import UserView from '../ChannelsPage/UserView';
+import Services from '../Container/Services';
+import Terms from '../Container/Termsand Condition';
+import Dashboard from '../Dashboard/Dashboard';
 import EWallet from '../E-Wallet/E-Wallet';
 import ERegister from '../E-Wallet/ERegister';
+import Profile from '../Profile/Profile';
+import ProfileUpdate from '../Profile/ProfileUpdate';
+import UploadContent from '../UploadContent/uploadcontent';
+import { video } from './../videoChat/video';
+import AboutUs from './aboutus';
+import Allcontent from './allcontent';
+import Announcement from './announcement';
+import BeforeLogin from './beforeloginpage';
+import CareerWithUs from './careerwithus';
+import ContactUs from './contactus';
+import Login from './login';
+import OurTeam from './ourteam';
+import Register from './register';
+import Test from './test';
 
 
 
@@ -65,11 +65,18 @@ class Container extends Component {
                         <Route exact path="/communication" component={video} />
 
                         <Route exact path='/lookinside/:id' component={LookInside} />
-                        <Route exact path='/announcement' component={Announcement} />
-                        <Route exact path='/allitem' component={Allcontent} />
-                        <Route exact path='/test' component={Test} />
+                        {/* <Route exact path='/announcement' component={Announcement} />
+                        <Route exact path='/allitem' component={Allcontent} /> */}
+                        {/* <Route exact path='/test' component={Test} /> */}
                         <Route exact path='/ewallet' component={EWallet} />
                         <Route exact path = '/eregister' component = {ERegister}/>
+                        {/* <Route exact path = '/lookinside/:id' component = {LookInside}/> */}
+                        <Route exact path = '/announcement' component = {Announcement}/>
+                        <Route exact path='/changepassword' component={ChangePassword}/>
+                        <Route exact path = '/allitem' component = {Allcontent}/>
+                        <Route exact path = '/test' component = {Test}/>
+                        
+                 
                     </Switch>
                 </BrowserRouter>
             </div>

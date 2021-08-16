@@ -89,11 +89,8 @@ router.get('/content/single/:id', function (req, res) {
     const id = req.params.id;
     UploadContent.find({ userid: id }).then(function (data) {
         if (data == "") {
-<<<<<<< HEAD
             res.status(200).json({status: false,  })
-=======
-            res.status(200).json({ message: [] })
->>>>>>> E-Wallet
+            // res.status(200).json({ message: [] })
         }
         else {
             res.status(200).json({ status: true, data })

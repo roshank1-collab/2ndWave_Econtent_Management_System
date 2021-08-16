@@ -98,7 +98,6 @@ class Profile extends Component {
 
         axios.get('http://localhost:90/content/single/' + this.state.id)
             .then((response) => {
-<<<<<<< HEAD
                 console.log(response.data.status)
                 if(response.data.status===false){
                     console.log('no iteam')
@@ -107,15 +106,11 @@ class Profile extends Component {
                     this.setState({
                         allItem: response.data.data
                     })
-                }
-               
-
-=======
-                console.log(response)                
-                this.setState({
-                    allItem: response.data.data
-                })
->>>>>>> E-Wallet
+                }            
+                // console.log(response)                
+                // this.setState({
+                //     allItem: response.data.data
+                // })
             })
             .catch((err) => {
                 alert(err)
