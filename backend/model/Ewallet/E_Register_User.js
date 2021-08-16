@@ -27,6 +27,7 @@ const E_Register_User = mongoose.model("E-User", {
         type: String,
         lowercase: true,
         trim: true,
+        required: [true, 'Email required'],
         validate: [
             validator({
                 validator: 'isEmail',

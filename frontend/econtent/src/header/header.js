@@ -6,8 +6,6 @@ import React, { useEffect, useState } from "react";
 import socketIOClient from "socket.io-client";
 import '../App.css'
 
-
-
 const id = localStorage.getItem('userid')
 
 function Example() {
@@ -28,7 +26,9 @@ function Example() {
   return (
     <>
       {/* <Button style={{ marginRight: "20px" }} className="btn btn-danger" onClick={handleShow} >Sign Out</Button> */}
-      <Button type="submit" style={{  backgroundColor: '#51227f', border:'none', height: '39px', marginTop: '3px', marginRight: '10px' }} onClick={handleShow} className="btn-sm">Signout    <FaSignOutAlt /> </Button>
+      
+      <Button type="submit" style={{ backgroundColor: '#51227f', border: 'none', height: '39px', marginTop: '3px', marginRight: '10px' }} className="btn-sm" href="/ewallet">E-wallet    <FaSignInAlt /> </Button>
+      <Button type="submit" style={{ backgroundColor: '#51227f', border: 'none', height: '39px', marginTop: '3px', marginRight: '10px' }} onClick={handleShow} className="btn-sm">Signout    <FaSignOutAlt /> </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header style={{ backgroundColor: '#BF3A89', color: 'white' }} >
           <Modal.Title>Sign Out</Modal.Title>

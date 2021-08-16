@@ -36,7 +36,7 @@ class Uploadcontent extends Component {
         })
     }
  
-
+    
     uploadhere = (e) => {
         e.preventDefault(); // prevents from reloading page
         const data = new FormData()
