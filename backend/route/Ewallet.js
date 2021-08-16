@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const authentication = require('../middleware/authentication');
 
 const E_Register_User = require('../model/Ewallet/E_Register_User')
+const HistoryOfPurchase = require('../model/HistoryOfPurchase/HistoryOfPurchase')
 const ContentBought = require('../model/ContentBought');
 const UploadContent = require('../model/Uploadcontent');
 const Users = require('../model/user');
@@ -101,16 +102,16 @@ router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) 
                             console.log(contentUserid)
 
                             Users.find({ _id: contentUserid })
-                                .then(function (uuddaattaa) {                                   
+                                .then(function (uuddaattaa) {
                                     contentUserEmail = uuddaattaa[0].Email
                                     // console.log("contentUserEmail")
                                     // console.log(contentUserEmail)
                                 })
                                 .catch(function (err) {
                                     res.status(500).json({ message: err })
-                                })                            
+                                })
 
-                                ContentBought.find()
+                            ContentBought.find()
                                 .then(function (boughtdata) {
                                     var filterboughtdata = boughtdata.filter(function (ele) {
                                         return ele.boughtby_ID == loggedinUserID && ele.productowner_ID == contentUserid && ele.contentid == contentID
@@ -166,7 +167,6 @@ router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) 
                                                 console.log(balanceOfSender)
                                                 //  getting balance of sender
 
-
                                                 if (receiveruserid == null) {
                                                     res.status(201).json({ message: "The Seller of this content has not wallet. So, wait for sometime" })
                                                 }
@@ -199,11 +199,24 @@ router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) 
                                                         console.log("Decrease")
                                                         console.log(outcome)
                                                     })
+                                                    var todayy = new Date();
+                                                    var boughtondate = todayy.getFullYear() + '-' + (todayy.getMonth() + 1) + '-' + todayy.getDate();
+                                                    const purchase = new HistoryOfPurchase({
+                                                        boughtByUserID: loggedinUserID, boughtByUserEmail: loggedinUserEmail, ProductOwnerUserID: contentUserid, ProductOwnerEmail: contentUserEmail, ContentID: contentID, BoughtOn_Date: boughtondate, ContentPrice: priceOfContent
+                                                    })
+                                                    purchase.save()
+                                                        .then(function (result) {
+                                                            res.status(201).json({ status: true, boughtStatus: "Successfully Bought" })
+                                                        })
+                                                        .catch(function (err) {
+                                                            res.status(501).json({ message: err })
+                                                        })
+
                                                 }
 
                                                 // console.log("userData")
                                                 // console.log(userdata)
-                                                res.status(201).json({ message: "successfully done" })
+                                                res.status(201).json({ message: "successfully bought" })
 
                                             })
                                             .catch(function (err) {
