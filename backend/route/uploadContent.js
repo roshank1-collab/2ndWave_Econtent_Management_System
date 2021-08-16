@@ -8,6 +8,10 @@ const E_Register_User = require('../model/Ewallet/E_Register_User')
 const bcryptjs = require('bcryptjs')
 const authentication = require('../middleware/authentication'); //token
 
+const HistoryOfPurchase = require('../model/HistoryOfPurchase/HistoryOfPurchase')
+
+
+
 //inserting content
 router.post('/content/insert/:id', uploadvideo, function (req, res) {
     console.log(req.body);
@@ -17,23 +21,39 @@ router.post('/content/insert/:id', uploadvideo, function (req, res) {
         return res.tatus(400).json({ message: "Invalid file format" })
     }
     const id = req.params.id;
-    const heading = req.body.title;
-    const video = req.files['video'][0].filename;
-    const ppt = req.files['ppt'][0].filename;
-    const content_description = req.body.description;
-    const categories = req.body.categories;
-    const price = req.body.Price;
-    const me = new UploadContent({
-        heading: heading, video: video, content_description: content_description,
-        categories: categories, price: price, userid: id, ppt: ppt
-    })
-    me.save().then(function (result) {
-        res.status(201).json({ message: "Conent has been added successfully !!!" });
+    E_Register_User.findOne({userid : id})
+        .then(function (data) {
+            console.log("data")
+            console.log(data)           
 
-    }).catch(function (err) {
-        console.log(err)
-        res.status(500).json({ message: err })
-    })
+            if (data == null) {
+                res.status(201).json({ message: "You need to have Ewallet first." })
+            }
+            else {
+                const heading = req.body.title;
+                const video = req.files['video'][0].filename;
+                const ppt = req.files['ppt'][0].filename;
+                const content_description = req.body.description;
+                const categories = req.body.categories;
+                const price = req.body.Price;
+                const me = new UploadContent({
+                    heading: heading, video: video, content_description: content_description,
+                    categories: categories, price: price, userid: id, ppt: ppt
+                })
+                me.save().then(function (result) {
+                    res.status(201).json({ message: "Conent has been added successfully !!!" });
+
+                }).catch(function (err) {
+                    console.log(err)
+                    res.status(500).json({ message: err })
+                })
+            }
+        })
+        .catch(function (err) {
+            res.status(500).json({ message: err })
+        })
+
+
 
 })
 
