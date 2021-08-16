@@ -25,6 +25,8 @@ import Announcement from './announcement';
 import Allcontent from './allcontent';
 import Test from './test';
 import indexlive from '../LiveCommunication/src/indexlive';
+import EWallet from '../E-Wallet/E-Wallet';
+import ERegister from '../E-Wallet/ERegister';
 
 
 
@@ -55,19 +57,19 @@ class Container extends Component {
                         <Route exact path="/paywithkhalti/:id" component={paywithkhalti} />
                         <Route exact path="/paywithesewa/:id" component={paywithesewa} />
                         <Route exact path="/viewuser/:id" component={UserView} />
-                        <Route exact path = '/lookinside/:id' component = {LookInside}/>
-                        <Route exact path = '/Location' component = {Location}/>
-                        <Route exact path = '/communication' component = {indexlive}/>
+                        <Route exact path='/lookinside/:id' component={LookInside} />
+                        <Route exact path='/Location' component={Location} />
+                        {/* <Route exact path = '/communication' component = {indexlive}/> */}
                         <Route exact path="/location" component={Location} />
                         {/* <Route exact path = "/communication" component = {indexlive}/>*/}
                         <Route exact path="/communication" component={video} />
 
-                        <Route exact path = '/lookinside/:id' component = {LookInside}/>
-                        <Route exact path = '/announcement' component = {Announcement}/>
-                        <Route exact path = '/allitem' component = {Allcontent}/>
-                        <Route exact path = '/test' component = {Test}/>
-                        
-                 
+                        <Route exact path='/lookinside/:id' component={LookInside} />
+                        <Route exact path='/announcement' component={Announcement} />
+                        <Route exact path='/allitem' component={Allcontent} />
+                        <Route exact path='/test' component={Test} />
+                        <Route exact path='/ewallet' component={EWallet} />
+                        <Route exact path = '/eregister' component = {ERegister}/>
                     </Switch>
                 </BrowserRouter>
             </div>

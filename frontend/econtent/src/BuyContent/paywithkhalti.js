@@ -24,7 +24,6 @@ class paywithkhalti extends Component {
         // boughtby_khaltiid: ""
     }
 
-
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -37,9 +36,11 @@ class paywithkhalti extends Component {
             password: this.state.password,
             // boughtby_khaltiid: this.state.boughtby_khaltiid
         }
+
+        // axios.get("http://localhost:90/wallet/" + this.state.ItemSelected, {}, this.state.config, this.state.password)
         axios({
             method: "post",
-            url: "http://localhost:90/content/bought/" + this.state.ItemSelected,
+            url: "http://localhost:90/wallet/" + this.state.ItemSelected,
             headers:
                 { 'authorization': `Bearer ${localStorage.getItem('token')}` },
             data: body

@@ -39,7 +39,7 @@ class paywithkhalti extends Component {
         }
         axios({
             method: "post",
-            url: "http://localhost:90/content/bought/" + this.state.ItemSelected,
+            url: "http://localhost:90/wallet/" + this.state.ItemSelected,
             headers:
                 { 'authorization': `Bearer ${localStorage.getItem('token')}` },
             data: body
