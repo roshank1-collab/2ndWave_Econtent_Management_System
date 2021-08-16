@@ -44,7 +44,7 @@ export default class ERegister extends Component {
 
         axios.post("http://localhost:90/Ewallet/user-register", {}, this.state.config, this.state)
             .then(response => {
-                console.log(response)
+                console.log(response)                
             })
             .catch(err => {
                 toast.error(err.response)
