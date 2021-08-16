@@ -69,7 +69,7 @@ router.get('/content/single/:id', function (req, res) {
     const id = req.params.id;
     UploadContent.find({ userid: id }).then(function (data) {
         if (data == "") {
-            res.status(200).json({ message: []})
+            res.status(200).json({ message: [] })
         }
         else {
             res.status(200).json({ data })
@@ -124,7 +124,7 @@ router.post('/content/bought/:id', authentication.verifyUser, function (req, res
     Users.findOne({ _id: boughtby_userid })
         .then(function (ddaattaa) {
             bcryptjs.compare(password, ddaattaa.Password, function (err, result) {
-                if (result == true) {                    
+                if (result == true) {
                     E_Register_User.find()
                         .then(function (edata) {
                             var eid = edata.filter(function (ele) {
@@ -215,11 +215,39 @@ router.get('/content/seeboughtcontent/:id', function (req, res) {
     const userid = req.params.id
     ContentBought.find({ boughtby_ID: userid }).distinct('contentid')
         .then(function (result) {
+            console.log(result)
             res.status(200).json({ status: true, data: result })
+            var contentidharu = result
+            // contentidharu.add(result)
+            console.log("contentidharu")
+            console.log(contentidharu)
+
+            var storeBoughtcontentAll = []
+            contentidharu.map((item) => {
+                UploadContent.find({ _id: item }).
+                    then(function (out) {
+                        console.log("out")
+                        console.log(out)
+                        var outt = out[1]
+                        storeBoughtcontentAll.push(outt)
+                    })
+            })
+            console.log("storeBoughtcontentAll")
+            console.log(storeBoughtcontentAll)
+
+
+
+
+
+
+
         })
         .catch(function (err) {
             res.status(500).json({ message: err })
         })
+
+
+
 })
 router.get('/content/all', function (req, res) {
     UploadContent.find().then(function (data) {

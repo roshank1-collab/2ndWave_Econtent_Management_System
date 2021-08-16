@@ -76,86 +76,164 @@ router.post('/Ewallet/user-register',
 router.get('/wallet/:contentid', authentication.verifyUser, function (req, res) {
     const contentID = req.params.contentid
     const loggedinUserID = req.userData._id
-    // const loggedinUserEmail = req.userData.Email
-    var contentUserid = ""
-    var priceOfContent = ""
-    var balanceOfReceiver = ""
-    var balanceOfSender = ""
+    const password = req.body.password
+    const loggedinUserEmail = req.userData.Email
+    var contentUserid = "" //UploadContent bata data nikalne ,,,jasko content usko user id
+    var contentUserEmail = "" //UploadContent bata data nikalne ,,,jasko content usko email
+    var priceOfContent = "" //UploadContent bata data nikalne
+    var balanceOfReceiver = "" //E_Register_User bata data nikalne
+    var balanceOfSender = "" //E_Register_User bata data nikalne 
+    var senderuserid = "" //E_Register_User bata data nikalne 
+    var receiveruserid = "" //E_Register_User bata data nikalne 
 
-    UploadContent.findOne({ _id: contentID })
-        .then(function (data) {
-            priceOfContent = data.price
-            console.log("priceOfContent")
-            console.log(priceOfContent)
+    Users.findOne({ _id: loggedinUserID })
+        .then(function (uudata) {
+            bcryptjs.compare(password, uudata.Password, function (err, result) {
+                if (result == true) {
+                    UploadContent.findOne({ _id: contentID })
+                        .then(function (data) {
+                            priceOfContent = data.price
+                            console.log("priceOfContent")
+                            console.log(priceOfContent)
 
-            contentUserid = data.userid
-            console.log("contentUserid")
-            console.log(contentUserid)
+                            contentUserid = data.userid //jasko content usko user id
+                            console.log("contentUserid")
+                            console.log(contentUserid)
 
-            E_Register_User.find()
-                .then(function (userdata) {
+                            Users.find({ _id: contentUserid })
+                                .then(function (uuddaattaa) {                                   
+                                    contentUserEmail = uuddaattaa[0].Email
+                                    // console.log("contentUserEmail")
+                                    // console.log(contentUserEmail)
+                                })
+                                .catch(function (err) {
+                                    res.status(500).json({ message: err })
+                                })                            
 
-                    //  getting balance of receiver                     
-                    var filterReceiver = userdata.filter(function (ele) {
-                        return ele.userid == contentUserid
-                    })
+                                ContentBought.find()
+                                .then(function (boughtdata) {
+                                    var filterboughtdata = boughtdata.filter(function (ele) {
+                                        return ele.boughtby_ID == loggedinUserID && ele.productowner_ID == contentUserid && ele.contentid == contentID
+                                    })
 
-                    balanceOfReceiver = filterReceiver[0].Balance
-                    console.log("Reciever Balance")
-                    console.log(balanceOfReceiver)
-                    //  getting balance of receiver
+                                    if (filterboughtdata.length < 1) {
 
-                    //  getting balance of sender
-                    var filterSender = userdata.filter(function (ele) {
-                        return ele.userid == loggedinUserID
-                    })
+                                        var today = new Date();
+                                        var boughtdate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                                        const boughtdatainfo = new ContentBought({
+                                            contentid: contentID, boughtby_email: loggedinUserEmail,
+                                            boughtby_ID: loggedinUserID, productowner_email: contentUserEmail, productowner_ID: contentUserid, boughton_date: boughtdate
+                                        })
+                                        boughtdatainfo.save()
+                                            .then(function (result) {
+                                                res.status(201).json({ status: true, boughtStatus: "Successfully Bought" })
+                                            })
+                                            .catch(function (err) {
+                                                res.status(501).json({ message: err })
+                                            })
 
-                    balanceOfSender = filterSender[0].Balance
-                    console.log("Sender Balance")
-                    console.log(balanceOfSender)
-                    //  getting balance of sender
+                                        E_Register_User.find()
+                                            .then(function (userdata) {
+                                                // console.log(userdata)
+                                                //  getting balance of receiver                    
+                                                var filterReceiver = userdata.filter(function (ele) {
+                                                    return ele.userid == contentUserid
+                                                })
+
+                                                receiveruserid = filterReceiver[0].userid
+                                                console.log("receiveruserid")
+                                                console.log(receiveruserid)
+                                                // if (filterReceiver == null) {
+                                                //     res.status(201).json({message : "This user has no wallet created."})
+                                                // }
+
+                                                balanceOfReceiver = filterReceiver[0].Balance //content jasko tyo manxe ko balance
+                                                console.log("Reciever Balance")
+                                                console.log(balanceOfReceiver)
+                                                //  getting balance of receiver
+
+                                                //  getting balance of sender
+                                                var filterSender = userdata.filter(function (ele) {
+                                                    return ele.userid == loggedinUserID
+                                                })
+
+                                                senderuserid = filterSender[0].userid
+                                                console.log("senderuserid")
+                                                console.log(senderuserid)
+
+                                                balanceOfSender = filterSender[0].Balance //logged in user ,, buyer ,, content kinne manxe
+                                                console.log("Sender Balance")
+                                                console.log(balanceOfSender)
+                                                //  getting balance of sender
 
 
-                    if (balanceOfSender < 1 || balacneOfSender < priceOfContent) {
-                        res.status(201).json({ status: "Insufficient Balance", message: "Load Amount to your wallet first" })
-                    }
-                    else {
-                        var receiverBalanceBecome = balanceOfReceiver + priceOfContent
-                        var senderBalanceBecome = balanceOfSender - priceOfContent
+                                                if (receiveruserid == null) {
+                                                    res.status(201).json({ message: "The Seller of this content has not wallet. So, wait for sometime" })
+                                                }
+                                                else if (balanceOfSender < 1 || balanceOfSender < priceOfContent) {
+                                                    res.status(201).json({ status: "Insufficient Balance", message: "Load Amount to your wallet first" })
+                                                }
+                                                else if (senderuserid == contentUserid) {
+                                                    res.status(201).json({ message: "This is your own content. You do not want to buy" })
+                                                }
+                                                else {
+                                                    var receiverBalanceBecome = balanceOfReceiver + priceOfContent
+                                                    var senderBalanceBecome = balanceOfSender - priceOfContent
 
-                        console.log("receiver Balance Become")
-                        console.log(receiverBalanceBecome)
+                                                    console.log("receiver Balance Become")
+                                                    console.log(receiverBalanceBecome)
 
-                        console.log("sender Balance Become")
-                        console.log(senderBalanceBecome)
+                                                    console.log("sender Balance Become")
+                                                    console.log(senderBalanceBecome)
 
-                        E_Register_User.updateOne({ userid: contentUserid }, {
-                            Balance: receiverBalanceBecome
-                        }).then(function (outcome) {
-                            console.log("Inrease")
-                            console.log(outcome)
+                                                    E_Register_User.updateOne({ userid: contentUserid }, {
+                                                        Balance: receiverBalanceBecome
+                                                    }).then(function (outcome) {
+                                                        console.log("Inrease")
+                                                        console.log(outcome)
+                                                    })
+
+                                                    E_Register_User.updateOne({ userid: loggedinUserID }, {
+                                                        Balance: senderBalanceBecome
+                                                    }).then(function (outcome) {
+                                                        console.log("Decrease")
+                                                        console.log(outcome)
+                                                    })
+                                                }
+
+                                                // console.log("userData")
+                                                // console.log(userdata)
+                                                res.status(201).json({ message: "successfully done" })
+
+                                            })
+                                            .catch(function (err) {
+                                                res.status(500).json({ message: err })
+                                            })
+                                    }
+                                    else {
+                                        res.status(201).json({ boughtStatus: "You have already bought this content" })
+                                        // console.log("User have already Subscribed")
+                                    }
+                                })
+                                .catch(function (err) {
+                                    res.status(500).json({ message: err })
+                                })
                         })
-
-                        E_Register_User.updateOne({ userid: loggedinUserID }, {
-                            Balance: senderBalanceBecome
-                        }).then(function (outcome) {
-                            console.log("Decrease")
-                            console.log(outcome)
+                        .catch(function (err) {
+                            res.status(500).json({ message: err })
                         })
-                    }
+                }
+                else {
+                    return res.status(201).json({ success: false, message: "Password doesn't match !!! Please try again" })
 
-                    // console.log("userData")
-                    // console.log(userdata)
-                    res.status(201).json({ message: "successfully done" })
-
-                })
-                .catch(function (err) {
-                    res.status(500).json({ message: err })
-                })
+                }
+            })
         })
         .catch(function (err) {
-            res.status(500).json({ message: err })
+            res.status(201).json({ message: err })
         })
+
+
 
 
 
