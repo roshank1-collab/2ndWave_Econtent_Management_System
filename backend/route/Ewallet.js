@@ -219,7 +219,7 @@ router.post('/wallet/:contentid', authentication.verifyUser, function (req, res)
                                                                 res.status(201).json({ message: "The Seller of this content has not wallet. So, wait for sometime" })
                                                             }
                                                             else if (balanceOfSender < 1 || balanceOfSender < priceOfContent) {
-                                                                res.status(201).json({ status: "Insufficient Balance", message: "Load Amount to your wallet first" })
+                                                                res.status(201).json({ status: "Insufficient Balance", message: "Insufficient Balance. Load Amount to your wallet first" })
                                                             }
                                                             else if (senderuserid == contentUserid) {
                                                                 res.status(201).json({ message: "This is your own content. You do not want to buy" })
@@ -254,7 +254,7 @@ router.post('/wallet/:contentid', authentication.verifyUser, function (req, res)
                                                                 })
                                                                 purchase.save()
                                                                     .then(function (result) {
-                                                                        res.status(201).json({ status: true, boughtStatus: "Successfully Bought" })
+                                                                        res.status(201).json({ status: true, message: "Successfully Bought" })
                                                                     })
                                                                     .catch(function (err) {
                                                                         res.status(501).json({ message: err })
@@ -272,7 +272,7 @@ router.post('/wallet/:contentid', authentication.verifyUser, function (req, res)
                                                         })
                                                 }
                                                 else {
-                                                    res.status(201).json({ boughtStatus: "You have already bought this content" })
+                                                    res.status(201).json({ message: "You have already bought this content" })
                                                     // console.log("User have already Subscribed")
                                                 }
                                             })
@@ -301,11 +301,62 @@ router.post('/wallet/:contentid', authentication.verifyUser, function (req, res)
         .catch(function (err) {
             res.status(201).json({ message: err })
         })
+})
 
+router.get('/detailsofpurchase', authentication.verifyUser, function (req, res) {
+    const loggedInUser = req.userData._id
+    var balance = ""
 
+    E_Register_User.find({ userid: loggedInUser })
+        .then(function (dataa) {
+            balance = dataa[0].Balance
+            // console.log("balance")
+            // console.log(balance)
+        })
+        .catch(function (err) {
+            res.status(500).json({ message: err })
+        })
 
+    HistoryOfPurchase.find({ boughtByUserID: loggedInUser })
+        .then(function (data) {
+            // var filterdata = data.filter(function (ele) {
+            //     return ele.boughtByUserID == loggedInUser
+            // })
+            console.log(data)
+            res.status(201).json({ status: true, pdata: data, balance: balance })
+        })
+        .catch(function (err) {
+            res.status(500).json({ message: err })
+        })
+})
 
+router.put('/loadBalance', authentication.verifyUser, function (req, res) {
+    const loggedinuser = req.userData._id
+    const balance = req.body.balance
+    const Mpin = req.body.Mpin
 
+    E_Register_User.find({ userid: loggedinuser })
+        .then(function (udata) {
+            var mpin = udata[0].MPin
+            var remainingBalance = udata[0].Balance            
+            if (mpin == Mpin) {
+                E_Register_User.updateOne({ userid: loggedinuser }, {
+                    Balance: remainingBalance + balance
+                })
+                    .then(function (data) {
+                        res.status(201).json({ status: true, message: "Balance Loaded Successfully" })
+                    })
+                    .catch(function (err) {
+                        res.status(500).json({ message: err })
+                    })
+            }
+            else {
+                res.status(201).json({ message: "Incorrect MPin. Try Again." })
+            }
+        })
+        .catch(function (err) {
+            res.status(500).json({ message: err })
+        })
 
 })
 

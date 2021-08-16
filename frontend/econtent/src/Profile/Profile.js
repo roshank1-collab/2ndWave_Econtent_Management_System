@@ -2,7 +2,7 @@ import axios from "axios"
 import { Component } from "react"
 import { Link } from 'react-router-dom'
 import React, { useState } from "react";
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Table } from 'react-bootstrap'
 // import './Profile.css'
 import ReactPlayer from 'react-player'
 import { toast } from "react-toastify"
@@ -71,6 +71,8 @@ class Profile extends Component {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
         allItem: [],
+        purcahsehistory: [],
+        balance: "",
         redirect: false
     }
 
@@ -99,14 +101,14 @@ class Profile extends Component {
         axios.get('http://localhost:90/content/single/' + this.state.id)
             .then((response) => {
                 console.log(response.data.status)
-                if(response.data.status===false){
+                if (response.data.status === false) {
                     console.log('no iteam')
                 }
-                else{
+                else {
                     this.setState({
                         allItem: response.data.data
                     })
-                }            
+                }
                 // console.log(response)                
                 // this.setState({
                 //     allItem: response.data.data
@@ -114,6 +116,22 @@ class Profile extends Component {
             })
             .catch((err) => {
                 alert(err)
+            })
+
+        axios({
+            method: "get",
+            url: "http://localhost:90/detailsofpurchase",
+            headers:
+                { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+        })
+            .then(response => {
+                this.setState({
+                    purcahsehistory: response.data.pdata,
+                    balance: response.data.balance
+                })
+            })
+            .catch(err => {
+                toast.error(err.response)
             })
     }
 
@@ -320,13 +338,24 @@ class Profile extends Component {
                                             <Nav.Item>
                                                 <Nav.Link eventKey="third">Bought Content</Nav.Link>
                                             </Nav.Item>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="fourth">Purchase History</Nav.Link>
+                                            </Nav.Item>
                                         </Nav>
                                     </Col>
                                     <Col sm={9}>
                                         <Tab.Content>
                                             <Tab.Pane eventKey="first">
-                                                <div>
-                                                    <h1>My wallet</h1>
+                                                <div className="container">
+                                                    <div className="row">
+                                                        <center style={{ marginTop: "10px", marginBottom: "10px" }}>
+                                                            <h1>
+                                                                Purchase Details
+                                                            </h1>
+                                                        </center>
+                                                        <p>Remaining Balance : {this.state.balance}</p>
+                                                    </div>
+                                                    <Button variant = "success">Load Balance</Button>
                                                 </div>
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="second">
@@ -337,7 +366,7 @@ class Profile extends Component {
 
                                                     <div className="row">
                                                         {
-                                                            
+
                                                             this.state.allItem.map((items) => {
                                                                 return (
                                                                     <div className="card" style={{ width: '304px', marginRight: '10px', marginTop: '5px' }}>
@@ -374,6 +403,51 @@ class Profile extends Component {
                                             <Tab.Pane eventKey="third">
                                                 <div>
                                                     <h1> Buy Content</h1>
+                                                </div>
+                                            </Tab.Pane>
+                                            <Tab.Pane eventKey="fourth">
+                                                <div className="container">
+                                                    <div className="row">
+                                                        <center style={{ marginTop: "10px", marginBottom: "10px" }}>
+                                                            <h1>
+                                                                Purchase Details
+                                                            </h1>
+                                                        </center>
+                                                        <Table striped bordered hover>
+                                                            <thead>
+                                                                <tr>
+                                                                    {/* <th>Owner Name</th> */}
+                                                                    <th>Owner Email</th>
+                                                                    <th>ContentId</th>
+                                                                    <th>Price</th>
+                                                                    <th>Date</th>
+                                                                    <th>GoTo</th>
+                                                                </tr>
+                                                            </thead>
+                                                            {
+                                                                this.state.purcahsehistory.map((items) => {
+                                                                    return (
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>{items.ProductOwnerEmail}</td>
+                                                                                <td>{items.ContentID}</td>
+                                                                                <td>{items.ContentPrice}</td>
+                                                                                <td>{items.BoughtOn_Date}</td>
+                                                                                <td>
+                                                                                    <button>
+                                                                                        <Link to={'/viewuser/' + items.ProductOwnerUserID}>
+                                                                                            GoTo
+                                                                                        </Link>
+                                                                                    </button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </Table>
+
+                                                    </div>
                                                 </div>
                                             </Tab.Pane>
                                         </Tab.Content>
