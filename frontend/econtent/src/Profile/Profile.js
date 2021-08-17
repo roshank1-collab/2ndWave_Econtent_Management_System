@@ -69,6 +69,7 @@ class Profile extends Component {
         },
         allItem: [],
         purcahsehistory: [],
+        solddetails : [],
         balance: "",
         mpin: "",
         amount: "",
@@ -158,7 +159,8 @@ class Profile extends Component {
             .then(response => {
                 this.setState({
                     purcahsehistory: response.data.pdata,
-                    balance: response.data.balance
+                    balance: response.data.balance,
+                    solddetails : response.data.sdata
                 })
             })
             .catch(err => {
@@ -373,6 +375,9 @@ class Profile extends Component {
                                             <Nav.Item>
                                                 <Nav.Link eventKey="fourth">Purchase History</Nav.Link>
                                             </Nav.Item>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="fifth">Sold Details</Nav.Link>
+                                            </Nav.Item>
                                         </Nav>
                                     </Col>
                                     <Col sm={9}>
@@ -483,6 +488,52 @@ class Profile extends Component {
                                                                                 <td>
                                                                                     <button>
                                                                                         <Link to={'/viewuser/' + items.ProductOwnerUserID}>
+                                                                                            GoTo
+                                                                                        </Link>
+                                                                                    </button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </Table>
+
+                                                    </div>
+                                                </div>
+                                            </Tab.Pane>
+
+                                            <Tab.Pane eventKey="fifth">
+                                                <div className="container">
+                                                    <div className="row">
+                                                        <center style={{ marginTop: "10px", marginBottom: "10px" }}>
+                                                            <h1>
+                                                                Sold Details
+                                                            </h1>
+                                                        </center>
+                                                        <Table striped bordered hover>
+                                                            <thead>
+                                                                <tr>
+                                                                    {/* <th>Owner Name</th> */}
+                                                                    <th>Buyer Email</th>
+                                                                    <th>ContentId</th>
+                                                                    <th>Price</th>
+                                                                    <th>Date</th>
+                                                                    <th>GoTo</th>
+                                                                </tr>
+                                                            </thead>
+                                                            {
+                                                                this.state.solddetails.map((items) => {
+                                                                    return (
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>{items.boughtByUserEmail}</td>
+                                                                                <td>{items.ContentID}</td>
+                                                                                <td>{items.ContentPrice}</td>
+                                                                                <td>{items.BoughtOn_Date}</td>
+                                                                                <td>
+                                                                                    <button>
+                                                                                        <Link to={'/viewuser/' + items.boughtByUserID}>
                                                                                             GoTo
                                                                                         </Link>
                                                                                     </button>

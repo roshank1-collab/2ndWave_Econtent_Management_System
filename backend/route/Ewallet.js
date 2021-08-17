@@ -317,13 +317,25 @@ router.get('/detailsofpurchase', authentication.verifyUser, function (req, res) 
             res.status(500).json({ message: err })
         })
 
-    HistoryOfPurchase.find({ boughtByUserID: loggedInUser })
+    HistoryOfPurchase.find()
         .then(function (data) {
-            // var filterdata = data.filter(function (ele) {
-            //     return ele.boughtByUserID == loggedInUser
-            // })
-            console.log(data)
-            res.status(201).json({ status: true, pdata: data, balance: balance })
+            var buy = data.filter(function (ele) {
+                return ele.boughtByUserID == loggedInUser
+            })
+
+            var sold = data.filter(function (ele) {
+                return ele.ProductOwnerUserID == loggedInUser
+            })
+
+            // console.log(filterdata)
+            var buylength = buy.length
+            // console.log("Total Content bought")
+            // console.log(buylength)
+
+            var soldlength = sold.length
+            // console.log("Total Content Sold")
+            // console.log(soldlength)
+            res.status(201).json({ status: true, buylength: buylength, soldlength: soldlength, pdata: buy, sdata: sold, balance: balance })
         })
         .catch(function (err) {
             res.status(500).json({ message: err })
@@ -338,12 +350,12 @@ router.put('/loadBalance', authentication.verifyUser, function (req, res) {
     console.log(balance)
 
     // const int = parseInt(balance)
-    
+
 
     E_Register_User.find({ userid: loggedinuser })
         .then(function (udata) {
             var mpin = udata[0].MPin
-            var remainingBalance = udata[0].Balance            
+            var remainingBalance = udata[0].Balance
             if (mpin == Mpin) {
                 E_Register_User.updateOne({ userid: loggedinuser }, {
                     Balance: remainingBalance + balance
