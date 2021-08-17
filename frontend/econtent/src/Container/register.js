@@ -3,12 +3,17 @@ import { Redirect } from 'react-router-dom'
 import { FaRegHandPointRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import SimpleReactValidator from 'simple-react-validator';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactDOM from 'react-dom';
+import React from 'react';
 toast.configure()
 
-class Register extends Component {
-    state = {
+class Register extends React.Component {
+    constructor(props) {
+        super(props)
+    this.state = {
         institution_ID: "",
         Profile_Picture: "",
         firstname: "",
@@ -17,10 +22,11 @@ class Register extends Component {
         Dob: "",
         address: "",
         institution_name: "",
-        phone_number: "",
+        phone_number: null,
         email: "",
         password: "",
     }
+}
 
     fileHandler = (e) => {
         this.setState({
@@ -28,12 +34,22 @@ class Register extends Component {
         }
         )
     }
+    
  
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
+        let phone = e.target.phone_number
+        let val = e.target.value
+        if (phone === "phone_number") {
+            if (!Number(val)) {
+              alert("phone number should be number");
+            }
+          }
+          this.setState({[phone]: val});
     }
+  
 
     submitUser = (e) => {
         e.preventDefault(); // prevents from reloading page
@@ -68,8 +84,12 @@ class Register extends Component {
                 }
             )
     }
+   
+
 
     render() {
+
+      
         return (
             <section className="Form my-2 mx-2 pt-2 pb-2" style={{ fontFamily: 'roboto' }}>
                 <div className="container">
@@ -90,7 +110,9 @@ class Register extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <label>Firstname</label>
-                                            <input type="text" className="form-control" name="firstname" value={this.state.firstname} onChange={this.changeHandler} required />
+                                        
+                                            <input type="text" className="form-control" name="firstname" value={this.state.firstname} onChange={this.changeHandler}   required />
+    
                                         </div>
                                         <div className="col-md-6">
                                             <label>Lastname</label>
