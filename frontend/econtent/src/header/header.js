@@ -176,7 +176,7 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="white" className="shadow" >
+      <Navbar collapseOnSelect expand="lg" bg="white" className="shadow sticky-top" >
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
