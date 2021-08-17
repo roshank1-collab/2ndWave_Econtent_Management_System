@@ -36,21 +36,21 @@ Given ("Test registration functionality", { timeout: 30000 }, async function () 
 //   // await driver.quit();
 // });
 
-
-// Given ("Test UploadContent functionality", { timeout: 30000 }, async function () {
-//   let driver = await new Builder().forBrowser("chrome").build();
-//   await driver.get("http://localhost:3000/UploadContent/");
-//   await driver.findElement(By.id("heading")).sendKeys("test");
-//   await driver.findElement(By.id("video")).sendKeys("test");
-//   await driver.findElement(By.id("content_description")).sendKeys("test");
-//   await driver.findElement(By.id("categories")).sendKeys("9-28-2021");
-//   await driver.findElement(By.id("price")).sendKeys("test");
+//upload content
+Given ("Test UploadContent functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:3000/UploadContent/");
+  await driver.findElement(By.id("heading")).sendKeys("test");
+  await driver.findElement(By.id("video")).sendKeys("test");
+  await driver.findElement(By.id("content_description")).sendKeys("test");
+  await driver.findElement(By.id("categories")).sendKeys("9-28-2021");
+  await driver.findElement(By.id("price")).sendKeys("test");
  
   
-//   await driver.sleep(delay);
-//   await driver.findElement(By.id("Upload")).click();
+  await driver.sleep(delay);
+  await driver.findElement(By.id("Upload")).click();
 
-//   await driver.wait(until.elementLocated(By.id("My Profile")), 30000);
-//   expect(await driver.wait(until.elementLocated(By.id("My Profile"))));
-//   // await driver.quit();
-// });
+  await driver.wait(until.elementLocated(By.id("My Profile")), 30000);
+  expect(await driver.wait(until.elementLocated(By.id("My Profile"))));
+  // await driver.quit();
+});
