@@ -69,7 +69,7 @@ class Profile extends Component {
         },
         allItem: [],
         purcahsehistory: [],
-        solddetails : [],
+        solddetails: [],
         balance: "",
         mpin: "",
         amount: "",
@@ -100,7 +100,7 @@ class Profile extends Component {
                     this.setState({
                         amount: "",
                         mpin: ""
-                    })                    
+                    })
                 }
             })
             .catch(err => {
@@ -160,7 +160,7 @@ class Profile extends Component {
                 this.setState({
                     purcahsehistory: response.data.pdata,
                     balance: response.data.balance,
-                    solddetails : response.data.sdata
+                    solddetails: response.data.sdata
                 })
             })
             .catch(err => {
