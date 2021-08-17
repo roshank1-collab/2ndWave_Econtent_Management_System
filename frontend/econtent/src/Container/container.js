@@ -28,9 +28,6 @@ import OurTeam from './ourteam';
 import Register from './register';
 import Test from './test';
 
-
-
-
 class Container extends Component {
     render() {
         return (
@@ -74,10 +71,10 @@ class Container extends Component {
                         <Route exact path = '/announcement' component = {Announcement}/>
                         <Route exact path='/changepassword' component={ChangePassword}/>
                         <Route exact path = '/allitem' component = {Allcontent}/>
-                        <Route exact path = '/test' component = {Test}/>
+                        <Route exact path='/test' component={Test} />                        
                         
                  
-                    </Switch>
+                    </Switch> 
                 </BrowserRouter>
             </div>
         )

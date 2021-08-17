@@ -1,13 +1,10 @@
-import axios from "axios"
-import { Component } from "react"
-import { Link } from 'react-router-dom'
-import React, { useState } from "react";
-import { Modal, Button, Table } from 'react-bootstrap'
+import axios from "axios";
+import React, { Component, useState } from "react";
+import { Button, Col, Modal, Nav, Row, Tab, Table, Form } from 'react-bootstrap';
 // import './Profile.css'
-import ReactPlayer from 'react-player'
-import { toast } from "react-toastify"
-import ProfileContentShow from "./profilecontentshow";
-import { Tab, Nav, Col, Row } from "react-bootstrap";
+import ReactPlayer from 'react-player';
+import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
 toast.configure()
 
 const userid = localStorage.getItem("userid")
@@ -73,7 +70,41 @@ class Profile extends Component {
         allItem: [],
         purcahsehistory: [],
         balance: "",
+        mpin: "",
+        amount: "",
         redirect: false
+    }
+
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    loadbalance = (e) => {
+        var body = {
+            balance: this.state.amount,
+            Mpin: this.state.mpin
+        }
+        axios({
+            method: "put",
+            url: "http://localhost:90/loadBalance",
+            headers:
+                { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+        })
+            .then(response => {
+                toast.success(response.data.message)
+                if (response.data.message == "Balance Loaded Successfully") {
+                    this.setState({
+                        amount: "",
+                        mpin: ""
+                    })                    
+                }
+            })
+            .catch(err => {
+                toast.error(err.response)
+            })
     }
 
     //load with content
@@ -145,6 +176,7 @@ class Profile extends Component {
                 toast.error(err.message)
             })
     }
+
 
     render() {
         return (
@@ -355,7 +387,22 @@ class Profile extends Component {
                                                         </center>
                                                         <p>Remaining Balance : {this.state.balance}</p>
                                                     </div>
-                                                    <Button variant = "success">Load Balance</Button>
+
+                                                    <div>
+                                                        <Form>
+                                                            <Form.Group className="mb-3">
+                                                                <Form.Control type="number" placeholder="Enter amount " name="amount" value={this.state.amount} onChange={this.changeHandler} requried />
+                                                            </Form.Group>
+
+                                                            <Form.Group className="mb-3">
+                                                                <Form.Label>Email address</Form.Label>
+                                                                <Form.Control type="number" placeholder="Enter Mpin" name="mpin" value={this.state.mpin} onChange={this.changeHandler} requried />
+                                                            </Form.Group>
+                                                        </Form >
+                                                        <Button variant="primary" onClick={this.loadbalance}>
+                                                            Load
+                                                        </Button>
+                                                    </div>
                                                 </div>
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="second">

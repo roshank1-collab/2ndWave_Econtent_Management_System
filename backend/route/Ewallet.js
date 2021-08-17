@@ -332,8 +332,13 @@ router.get('/detailsofpurchase', authentication.verifyUser, function (req, res) 
 
 router.put('/loadBalance', authentication.verifyUser, function (req, res) {
     const loggedinuser = req.userData._id
-    const balance = req.body.balance
+    const balance = parseInt(req.body.balance)
     const Mpin = req.body.Mpin
+    console.log("balance")
+    console.log(balance)
+
+    // const int = parseInt(balance)
+    
 
     E_Register_User.find({ userid: loggedinuser })
         .then(function (udata) {
