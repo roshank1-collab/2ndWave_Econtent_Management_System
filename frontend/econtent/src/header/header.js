@@ -27,7 +27,7 @@ function Example() {
     <>
       {/* <Button style={{ marginRight: "20px" }} className="btn btn-danger" onClick={handleShow} >Sign Out</Button> */}
       
-      <Button type="submit" style={{ backgroundColor: '#51227f', border: 'none', height: '39px', marginTop: '3px', marginRight: '10px' }} className="btn-sm" href="/ewallet">E-wallet    <FaSignInAlt /> </Button>
+    
       <Button type="submit" style={{ backgroundColor: '#51227f', border: 'none', height: '39px', marginTop: '3px', marginRight: '10px' }} onClick={handleShow} className="btn-sm">Signout    <FaSignOutAlt /> </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header style={{ backgroundColor: '#BF3A89', color: 'white' }} >
@@ -124,8 +124,13 @@ const Header = () => {
        
             <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
             <Nav.Link href="/announcement" >Announcement <FaBell /></Nav.Link>
-            <Nav.Link href={"/userprofile/" + id}> Profile <FaUsers /> </Nav.Link>
-            <Nav.Link href={"/changepassword/"} > ChangePassword <FaLock /></Nav.Link>
+        
+            <NavDropdown  title="Profile" id="basic-nav-dropdown" alignRight>
+              <NavDropdown.Item  href={"/userprofile/" + id}><FaUserGraduate /> My Profile</NavDropdown.Item>
+              <NavDropdown.Item href={"/changepassword/"}><FaUsers />Change Password</NavDropdown.Item>
+              <NavDropdown.Item href="/eregister"><FaTelegram />Create your wallet</NavDropdown.Item>
+            </NavDropdown>
+        
 
           </Nav>
           <Nav className="justify-content-end">
