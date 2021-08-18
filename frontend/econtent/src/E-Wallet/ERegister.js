@@ -61,7 +61,7 @@ export default class ERegister extends Component {
             }
             }>
                 <Form>
-                    <Form.Group className="mb-3">
+                    <Form.Group className="mb-3 mt-3">
                         <Form.Label>Balance</Form.Label>
                         <Form.Control type="number" placeholder="Load Balance of.." name="Balance" value={this.state.Balance} onChange={this.changeHandler} requried />
                     </Form.Group>
@@ -76,10 +76,10 @@ export default class ERegister extends Component {
 
 
 
-                    <Button variant="primary" onClick={this.onSubmit}>
+                    <Button className="mb-2" variant="primary" onClick={this.onSubmit}>
                         Submit
                     </Button>
-                    <p className="signUp text-left" style={{ fontFamily: "roboto", fontSize: "17px" }}>Have E-wallet here?  <Link exact to="/ewallet"><b style={{ color: "#a018a0" }}>Get In</b></Link></p>
+                    {/* <p className="signUp text-left" style={{ fontFamily: "roboto", fontSize: "17px" }}>Have E-wallet here?  <Link exact to="/ewallet"><b style={{ color: "#a018a0" }}>Get In</b></Link></p> */}
                 </Form>
             </div >
         )
