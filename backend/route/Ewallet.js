@@ -13,7 +13,7 @@ const UploadContent = require('../model/Uploadcontent');
 const Users = require('../model/user');
 
 router.post('/Ewallet/user-register',
-    upload, [
+    [
     check('FullName', "Full Name  is required !!").not().isEmpty(),
     check('Address', "Address is required").not().isEmpty(),
     check('PhoneNumber', "Phone Number is required").not().isEmpty(),
