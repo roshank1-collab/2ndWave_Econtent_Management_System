@@ -129,9 +129,9 @@ class Register extends React.Component {
                                             <label htmlFor="categories">Gender &nbsp;&nbsp;&nbsp;</label>
                                             <select className="form-control" name="gender" value={this.state.gender} onChange={this.changeHandler} required>
                                                 <option selected>Select Gender </option>
-                                                <option value="Math">Male</option>
-                                                <option value="Nepali">Female</option>
-                                                <option value="English">Others</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Others">Others</option>
                                                 <option value="Science">Prefer not to say</option>
                                             </select>
 
