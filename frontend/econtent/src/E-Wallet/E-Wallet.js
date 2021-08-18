@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 export default class EWallet extends Component {
     render() {
         return (
-            <div className="container" style={{
+            <div className="container0fluid shadow" style={{
                 margin: "50px", shadow: "10px"
             }}>
-                <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form className="m-4">
+                    <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
                         <Form.Text className="text-muted">
@@ -28,7 +28,7 @@ export default class EWallet extends Component {
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>
-                    <p className="signUp text-left" style={{ fontFamily: "roboto", fontSize: "17px" }}>Create your wallet here?  <Link exact to="/eregister"><b style={{ color: "#a018a0" }}>Sign Up</b></Link></p>
+                    <p className="signUp text-left" style={{ fontFamily: "roboto", fontSize: "17px" }}>Don't have a wallet?  <Link exact to="/eregister"><b style={{ color: "#a018a0" }}>Create here</b></Link></p>
                 </Form>
             </div >
         )

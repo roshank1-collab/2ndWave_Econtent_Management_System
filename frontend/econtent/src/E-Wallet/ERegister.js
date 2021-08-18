@@ -10,13 +10,8 @@ toast.configure()
 export default class ERegister extends Component {
 
     state = {
-        FullName: "",
-        Address: "",
-        PhoneNumber: "",
-        Sex: "",
-        Email: "",
+       
         Balance: "",
-        Password: "",
         MPin: "",
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -30,18 +25,6 @@ export default class ERegister extends Component {
     }
 
     onSubmit = (e) => {
-        e.preventDefault(); // prevents from reloading page
-
-        const data = new FormData()
-        data.append("FullName", this.state.FullName)
-        data.append("Address", this.state.Address)
-        data.append("PhoneNumber", this.state.PhoneNumber)
-        data.append("Sex", this.state.Sex)
-        data.append("Email", this.state.Email.trim())
-        data.append("Balance", this.state.Balance)
-        data.append("Password", this.state.Password)
-        data.append("MPin", this.state.MPin)
-
         axios.post("http://localhost:90/Ewallet/user-register", {}, this.state.config, this.state)
             .then(response => {
                 console.log(response)                
@@ -53,39 +36,11 @@ export default class ERegister extends Component {
 
     render() {
         return (
-            <div className="container" style={{
+            <div className="container-fluid shadow" style={{
                 margin: "50px", shadow: "10px"
             }
             }>
                 <Form>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" name="Email" value={this.state.Email} onChange={this.changeHandler} requried />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Full Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Full Name" name="FullName" value={this.state.FullName} onChange={this.changeHandler} requried />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Address</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Address" name="Address" value={this.state.Address} onChange={this.changeHandler} requried />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Phone Number</Form.Label>
-                        <Form.Control type="text" placeholder="Enter phone number" name="PhoneNumber" value={this.state.PhoneNumber} onChange={this.changeHandler} requried />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Sex</Form.Label>
-                        <Form.Control type="text" placeholder="Enter your Gender" name="Sex" value={this.state.Sex} onChange={this.changeHandler} requried />
-                    </Form.Group>
-
                     <Form.Group className="mb-3">
                         <Form.Label>Balance</Form.Label>
                         <Form.Control type="number" placeholder="Load Balance of.." name="Balance" value={this.state.Balance} onChange={this.changeHandler} requried />
@@ -100,17 +55,11 @@ export default class ERegister extends Component {
                     </Form.Group>
 
 
-                    <Form.Group className="mb-3">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" name="Password" value={this.state.Password} onChange={this.changeHandler} requried />
-                    </Form.Group>
-                    {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>                    */}
+                    
                     <Button variant="primary" onClick={this.onSubmit}>
                         Submit
                     </Button>
-                    <p className="signUp text-left" style={{ fontFamily: "roboto", fontSize: "17px" }}>Have E-wallet here?  <Link exact to="/ewallet"><b style={{ color: "#a018a0" }}>Sign In</b></Link></p>
+                    <p className="signUp text-left" style={{ fontFamily: "roboto", fontSize: "17px" }}>Have E-wallet here?  <Link exact to="/ewallet"><b style={{ color: "#a018a0" }}>Get In</b></Link></p>
                 </Form>
             </div >
         )
