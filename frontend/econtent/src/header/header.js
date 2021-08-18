@@ -121,11 +121,7 @@ const Header = () => {
              
             </NavDropdown>
             <Nav.Link href="/communication">Communication <FaComments /></Nav.Link>
-<<<<<<< HEAD
        
-=======
-          
->>>>>>> chanfes
             <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
             <Nav.Link href="/announcement" >Announcement <FaBell /></Nav.Link>
             <Nav.Link href={"/userprofile/" + id}> Profile <FaUsers /> </Nav.Link>
