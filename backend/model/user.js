@@ -30,7 +30,7 @@ const Users = mongoose.model("User", {
         required: true
     },
     Phone_number: {
-        type: String,
+        type: Number,
         required: true,
 
     },
@@ -47,7 +47,8 @@ const Users = mongoose.model("User", {
             validator: 'isEmail',
             message: 'Oops..please enter valid email'
           })
-        ], unique:true,
+        ], 
+        unique:true,
     },
     Password:{
         type: String,

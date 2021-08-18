@@ -1,13 +1,10 @@
-import axios from "axios"
-import { Component } from "react"
-import { Link } from 'react-router-dom'
-import React, { useState } from "react";
-import { Modal, Button } from 'react-bootstrap'
+import axios from "axios";
+import React, { Component, useState } from "react";
+import { Button, Col, Modal, Nav, Row, Tab, Table, Form } from 'react-bootstrap';
 // import './Profile.css'
-import ReactPlayer from 'react-player'
-import { toast } from "react-toastify"
-import ProfileContentShow from "./profilecontentshow";
-import { Tab, Nav, Col, Row } from "react-bootstrap";
+import ReactPlayer from 'react-player';
+import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
 toast.configure()
 
 const userid = localStorage.getItem("userid")
@@ -71,7 +68,46 @@ class Profile extends Component {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
         allItem: [],
+        purcahsehistory: [],
+        solddetails: [],
+        balance: "",
+        mpin: "",
+        amount: "",
+        soldcontent: "",
+        boughtcontent: "",
         redirect: false
+    }
+
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    loadbalance = (e) => {
+        var body = {
+            balance: this.state.amount,
+            Mpin: this.state.mpin
+        }
+        axios({
+            method: "put",
+            url: "http://localhost:90/loadBalance",
+            headers:
+                { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+        })
+            .then(response => {
+                toast.success(response.data.message)
+                if (response.data.message == "Balance Loaded Successfully") {
+                    this.setState({
+                        amount: "",
+                        mpin: ""
+                    })
+                }
+            })
+            .catch(err => {
+                toast.error(err.response)
+            })
     }
 
     //load with content
@@ -99,19 +135,40 @@ class Profile extends Component {
         axios.get('http://localhost:90/content/single/' + this.state.id)
             .then((response) => {
                 console.log(response.data.status)
-                if(response.data.status===false){
+                if (response.data.status === false) {
                     console.log('no iteam')
                 }
-                else{
+                else {
                     this.setState({
                         allItem: response.data.data
                     })
                 }
-               
-
+                // console.log(response)                
+                // this.setState({
+                //     allItem: response.data.data
+                // })
             })
             .catch((err) => {
                 alert(err)
+            })
+
+        axios({
+            method: "get",
+            url: "http://localhost:90/detailsofpurchase",
+            headers:
+                { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+        })
+            .then(response => {
+                this.setState({
+                    purcahsehistory: response.data.pdata,
+                    balance: response.data.balance,
+                    solddetails: response.data.sdata,
+                    soldcontent: response.data.soldlength,
+                    boughtcontent: response.data.buylength,
+                })
+            })
+            .catch(err => {
+                toast.error(err.response)
             })
     }
 
@@ -125,6 +182,7 @@ class Profile extends Component {
                 toast.error(err.message)
             })
     }
+
 
     render() {
         return (
@@ -251,54 +309,20 @@ class Profile extends Component {
                                 <div className="col-sm-6 mb-3">
                                     <div className="card h-100">
                                         <div className="card-body">
-                                            <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                            <small>Web Design</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '80%' }} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Website Markup</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '72%' }} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>One Page</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '89%' }} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Mobile Template</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '55%' }} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Backend API</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '66%' }} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
+                                            <h2 className="d-flex align-items-center mb-3"> Total Content Sold</h2>
+                                            <h1 style={{ fontSize: "70px" }}>
+                                                {this.state.soldcontent}
+                                            </h1>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 mb-3">
                                     <div className="card h-100">
                                         <div className="card-body">
-                                            <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                            <small>Web Design</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '80%' }} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Website Markup</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '72%' }} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>One Page</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '89%' }} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Mobile Template</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '55%' }} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Backend API</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '66%' }} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
+                                            <h2 className="d-flex align-items-center mb-3"> Total Content Bought</h2>
+                                            <h1 style={{ fontSize: "70px" }}>
+                                                {this.state.boughtcontent}
+                                            </h1>
                                         </div>
                                     </div>
                                 </div>
@@ -316,15 +340,45 @@ class Profile extends Component {
                                                 <Nav.Link eventKey="second">Your Content</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link eventKey="third">Bought Content</Nav.Link>
+                                                <Nav.Link eventKey="third">Bought Content
+                                                </Nav.Link>
+                                            </Nav.Item>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="fourth">Purchase History</Nav.Link>
+                                            </Nav.Item>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="fifth">Sold Details
+                                                </Nav.Link>
                                             </Nav.Item>
                                         </Nav>
                                     </Col>
                                     <Col sm={9}>
                                         <Tab.Content>
                                             <Tab.Pane eventKey="first">
-                                                <div>
-                                                    <h1>My wallet</h1>
+                                                <div className="container">
+                                                    <div className="row">
+                                                        <center style={{ marginTop: "10px", marginBottom: "10px" }}>
+                                                            <h1>
+                                                                Your Wallet
+                                                            </h1>
+                                                        </center>
+                                                        <p>Remaining Balance : {this.state.balance}</p>
+                                                    </div>
+
+                                                    <div>
+                                                        <Form>
+                                                            <Form.Group className="mb-3">
+                                                                <Form.Control type="number" placeholder="Enter amount " name="amount" value={this.state.amount} onChange={this.changeHandler} requried />
+                                                            </Form.Group>
+
+                                                            <Form.Group className="mb-3">
+                                                                <Form.Control type="number" placeholder="Enter Mpin" name="mpin" value={this.state.mpin} onChange={this.changeHandler} requried />
+                                                            </Form.Group>
+                                                        </Form >
+                                                        <Button variant="primary" onClick={this.loadbalance}>
+                                                            Load
+                                                        </Button>
+                                                    </div>
                                                 </div>
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="second">
@@ -335,7 +389,7 @@ class Profile extends Component {
 
                                                     <div className="row">
                                                         {
-                                                            
+
                                                             this.state.allItem.map((items) => {
                                                                 return (
                                                                     <div className="card" style={{ width: '304px', marginRight: '10px', marginTop: '5px' }}>
@@ -374,6 +428,97 @@ class Profile extends Component {
                                                     <h1> Buy Content</h1>
                                                 </div>
                                             </Tab.Pane>
+                                            <Tab.Pane eventKey="fourth">
+                                                <div className="container">
+                                                    <div className="row">
+                                                        <center style={{ marginTop: "10px", marginBottom: "10px" }}>
+                                                            <h1>
+                                                                Purchase Details
+                                                            </h1>
+                                                        </center>
+                                                        <Table striped bordered hover>
+                                                            <thead>
+                                                                <tr>
+                                                                    {/* <th>Owner Name</th> */}
+                                                                    <th>Owner Email</th>
+                                                                    <th>ContentId</th>
+                                                                    <th>Price</th>
+                                                                    <th>Date</th>
+                                                                    <th>GoTo</th>
+                                                                </tr>
+                                                            </thead>
+                                                            {
+                                                                this.state.purcahsehistory.map((items) => {
+                                                                    return (
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>{items.ProductOwnerEmail}</td>
+                                                                                <td>{items.ContentID}</td>
+                                                                                <td>{items.ContentPrice}</td>
+                                                                                <td>{items.BoughtOn_Date}</td>
+                                                                                <td>
+                                                                                    <button>
+                                                                                        <Link to={'/viewuser/' + items.ProductOwnerUserID}>
+                                                                                            GoTo
+                                                                                        </Link>
+                                                                                    </button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </Table>
+
+                                                    </div>
+                                                </div>
+                                            </Tab.Pane>
+
+                                            <Tab.Pane eventKey="fifth">
+                                                <div className="container">
+                                                    <div className="row">
+                                                        <center style={{ marginTop: "10px", marginBottom: "10px" }}>
+                                                            <h1>
+                                                                Sold Details
+                                                            </h1>
+                                                        </center>
+                                                        <Table striped bordered hover>
+                                                            <thead>
+                                                                <tr>
+                                                                    {/* <th>Owner Name</th> */}
+                                                                    <th>Buyer Email</th>
+                                                                    <th>ContentId</th>
+                                                                    <th>Price</th>
+                                                                    <th>Date</th>
+                                                                    <th>GoTo</th>
+                                                                </tr>
+                                                            </thead>
+                                                            {
+                                                                this.state.solddetails.map((items) => {
+                                                                    return (
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>{items.boughtByUserEmail}</td>
+                                                                                <td>{items.ContentID}</td>
+                                                                                <td>{items.ContentPrice}</td>
+                                                                                <td>{items.BoughtOn_Date}</td>
+                                                                                <td>
+                                                                                    <button>
+                                                                                        <Link to={'/viewuser/' + items.boughtByUserID}>
+                                                                                            GoTo
+                                                                                        </Link>
+                                                                                    </button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </Table>
+
+                                                    </div>
+                                                </div>
+                                            </Tab.Pane>
                                         </Tab.Content>
                                     </Col>
                                 </Row>
@@ -384,7 +529,7 @@ class Profile extends Component {
                         </div> */}
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 

@@ -6,8 +6,6 @@ import React, { useEffect, useState } from "react";
 import socketIOClient from "socket.io-client";
 import '../App.css'
 
-
-
 const id = localStorage.getItem('userid')
 
 function Example() {
@@ -22,13 +20,18 @@ function Example() {
     localStorage.removeItem('password')
     localStorage.removeItem('userid')
     localStorage.removeItem('success')
+    localStorage.removeItem('statusOfSubscription')
+    localStorage.removeItem('itemselected')
+    localStorage.removeItem('ratedtopersonid')
     setShow(false)
   };
 
   return (
     <>
       {/* <Button style={{ marginRight: "20px" }} className="btn btn-danger" onClick={handleShow} >Sign Out</Button> */}
-      <Button type="submit" style={{  backgroundColor: '#51227f', border:'none', height: '39px', marginTop: '3px', marginRight: '10px' }} onClick={handleShow} className="btn-sm">Signout    <FaSignOutAlt /> </Button>
+      
+    
+      <Button type="submit" style={{ backgroundColor: '#51227f', border: 'none', height: '39px', marginTop: '3px', marginRight: '10px' }} onClick={handleShow} className="btn-sm">Signout    <FaSignOutAlt /> </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header style={{ backgroundColor: '#BF3A89', color: 'white' }} >
           <Modal.Title>Sign Out</Modal.Title>
@@ -121,11 +124,21 @@ const Header = () => {
              
             </NavDropdown>
             <Nav.Link href="/communication">Communication <FaComments /></Nav.Link>
-            <Nav.Link href="/test">Test <FaComments /></Nav.Link>
+       
             <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
             <Nav.Link href="/announcement" >Announcement <FaBell /></Nav.Link>
+<<<<<<< HEAD
             <Nav.Link href={"/userprofile/" + id}> Profile <FaUsers /> </Nav.Link>
             <Nav.Link href={"/changepassword/"+ id} > ChangePassword <FaLock /></Nav.Link>
+=======
+        
+            <NavDropdown  title="Profile" id="basic-nav-dropdown" alignRight>
+              <NavDropdown.Item  href={"/userprofile/" + id}><FaUserGraduate /> My Profile</NavDropdown.Item>
+              <NavDropdown.Item href={"/changepassword/"}><FaUsers />Change Password</NavDropdown.Item>
+              <NavDropdown.Item href="/eregister"><FaTelegram />Create your wallet</NavDropdown.Item>
+            </NavDropdown>
+        
+>>>>>>> 33825ccbbee0ad7e300862c7a661a2c0c5e7daa1
 
           </Nav>
           <Nav className="justify-content-end">
@@ -176,7 +189,7 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="white" className="shadow" >
+      <Navbar collapseOnSelect expand="lg" bg="white" className="shadow sticky-top" >
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 

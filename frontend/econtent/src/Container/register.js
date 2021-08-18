@@ -3,23 +3,29 @@ import { Redirect } from 'react-router-dom'
 import { FaRegHandPointRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import SimpleReactValidator from 'simple-react-validator';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactDOM from 'react-dom';
+import React from 'react';
 toast.configure()
 
-class Register extends Component {
-    state = {
-        institution_ID: "",
-        Profile_Picture: "",
-        firstname: "",
-        lastname: "",
-        gender: "",
-        Dob: "",
-        address: "",
-        institution_name: "",
-        phone_number: "",
-        email: "",
-        password: "",
+class Register extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            institution_ID: "",
+            Profile_Picture: "",
+            firstname: "",
+            lastname: "",
+            gender: "",
+            Dob: "",
+            address: "",
+            institution_name: "",
+            phone_number: null,
+            email: "",
+            password: "",
+        }
     }
 
     fileHandler = (e) => {
@@ -29,11 +35,21 @@ class Register extends Component {
         )
     }
 
+
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
+        let phone = e.target.phone_number
+        let val = e.target.value
+        if (phone === "phone_number") {
+            if (!Number(val)) {
+                alert("phone number should be number");
+            }
+        }
+        this.setState({ [phone]: val });
     }
+
 
     submitUser = (e) => {
         e.preventDefault(); // prevents from reloading page
@@ -69,7 +85,11 @@ class Register extends Component {
             )
     }
 
+
+
     render() {
+
+
         return (
             <section className="Form my-2 mx-2 pt-2 pb-2" style={{ fontFamily: 'roboto' }}>
                 <div className="container">
@@ -90,7 +110,9 @@ class Register extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <label>Firstname</label>
+
                                             <input type="text" className="form-control" name="firstname" value={this.state.firstname} onChange={this.changeHandler} required />
+
                                         </div>
                                         <div className="col-md-6">
                                             <label>Lastname</label>
@@ -107,10 +129,9 @@ class Register extends Component {
                                             <label htmlFor="categories">Gender &nbsp;&nbsp;&nbsp;</label>
                                             <select className="form-control" name="gender" value={this.state.gender} onChange={this.changeHandler} required>
                                                 <option selected>Select Gender </option>
-                                                <option value="Math">Male</option>
-                                                <option value="Nepali">Female</option>
-                                                <option value="English">Others</option>
-                                                <option value="Science">Prefer not to say</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Others">Others</option>
                                             </select>
 
                                         </div>

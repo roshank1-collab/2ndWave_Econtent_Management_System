@@ -24,7 +24,6 @@ class paywithkhalti extends Component {
         // boughtby_khaltiid: ""
     }
 
-
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -37,17 +36,24 @@ class paywithkhalti extends Component {
             password: this.state.password,
             // boughtby_khaltiid: this.state.boughtby_khaltiid
         }
+
+        // axios.get("http://localhost:90/wallet/" + this.state.ItemSelected, {}, this.state.config, this.state.password)
         axios({
             method: "post",
-            url: "http://localhost:90/content/bought/" + this.state.ItemSelected,
+            url: "http://localhost:90/wallet/" + this.state.ItemSelected,
             headers:
                 { 'authorization': `Bearer ${localStorage.getItem('token')}` },
             data: body
         })
             .then((response) => {
                 console.log(response)
-                toast.error(response.data.message)
-                toast.success(response.data.boughtStatus, { position: toast.POSITION.TOP_RIGHT, autoClose: 1000 })
+                if (response.data.success == false) {
+                    toast.error(response.data.message)
+                }
+                else {
+                    toast.info(response.data.message, { position: toast.POSITION.TOP_RIGHT, autoClose: 2000 })
+                }
+                // toast.info(response.data.message)
             })
             .catch((err) => {
                 toast.error(err.message)
@@ -144,6 +150,7 @@ class paywithkhalti extends Component {
                         </Form.Label>
                         <Col sm="10">
                             <Form.Control type="password" placeholder="Your login Password"
+                                className="form-control"
                                 name="password"
                                 onChange={this.changeHandler}
                                 value={this.state.password}
