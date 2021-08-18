@@ -13,6 +13,7 @@ import Terms from '../Container/Termsand Condition';
 import Dashboard from '../Dashboard/Dashboard';
 import EWallet from '../E-Wallet/E-Wallet';
 import ERegister from '../E-Wallet/ERegister';
+import ESignUpChoice from '../E-Wallet/ESignUpChoice';
 import Profile from '../Profile/Profile';
 import ProfileUpdate from '../Profile/ProfileUpdate';
 import UploadContent from '../UploadContent/uploadcontent';
@@ -69,7 +70,10 @@ class Container extends Component {
                         {/* <Route exact path = '/lookinside/:id' component = {LookInside}/> */}
                         <Route exact path = '/announcement' component = {Announcement}/>
                         <Route exact path='/changepassword' component={ChangePassword}/>
-                        <Route exact path = '/allitem' component = {Allcontent}/>
+                        <Route exact path='/allitem' component={Allcontent} />
+                        <Route exact path = '/esignupchoice' component = {ESignUpChoice}/>
+                        <Route exact path = '/eregister' component = {ERegister}/>
+                        <Route exact path = '/ewallet' component = {EWallet}/>
                                         
                         
                  
