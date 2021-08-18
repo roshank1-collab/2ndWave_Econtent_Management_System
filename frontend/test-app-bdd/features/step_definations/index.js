@@ -73,7 +73,7 @@ Given ("Test UploadContent functionality", { timeout: 30000 }, async function ()
 //   await driver.quit();
 // });
 
-//Contact US
+//Contact US Of The company
 
 Given("Test ContactUs functionality", { timeout: 30000 }, async function () {
   let driver = await new Builder().forBrowser("chrome").build();
