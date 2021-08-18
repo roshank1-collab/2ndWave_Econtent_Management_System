@@ -74,6 +74,8 @@ class Container extends Component {
                         <Route exact path = '/esignupchoice' component = {ESignUpChoice}/>
                         <Route exact path = '/eregister' component = {ERegister}/>
                         <Route exact path = '/ewallet' component = {EWallet}/>
+                        <Route exact path='/changepassword/:id' component={ChangePassword}/>
+                        <Route exact path = '/allitem' component = {Allcontent}/>
                                         
                         
                  
