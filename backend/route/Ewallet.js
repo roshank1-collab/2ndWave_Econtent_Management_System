@@ -32,9 +32,9 @@ router.post('/Ewallet/user-register',
         const PhoneNumber = req.userData.Phone_number;
         const Sex = req.userData.gender;
         const Email = req.userData.Email;
-        // const Balance = req.body.Balance;
-        // const Password = req.body.Password;
-        // const MPin = req.body.MPin;
+        const Password = req.userData.Password;
+        const Balance = req.body.Balance;
+        const MPin = req.body.MPin;
         const USERID = req.userData._id
 
         E_Register_User.find()
@@ -48,7 +48,7 @@ router.post('/Ewallet/user-register',
                 // console.log(alreadyuser)
 
                 if (alreadyuser.length == 0) {
-                    bcryptjs.hash(req.body.Password, 10, function (err, hash) {
+                    bcryptjs.hash(req.userData.Password, 10, function (err, hash) {
                         const EUser = new E_Register_User({
                             // FullName: req.body.FullName,
                             // Address: req.body.Address,
