@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component, useState } from "react";
 import { Button, Col, Modal, Nav, Row, Tab, Table, Form } from 'react-bootstrap';
+import Badge from 'react-bootstrap/Badge'
 // import './Profile.css'
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
@@ -374,13 +375,17 @@ class Profile extends Component {
                                                 <Nav.Link eventKey="second">Your Content</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link eventKey="third">Bought Content</Nav.Link>
+                                                <Nav.Link eventKey="third">Bought Content
+                                                    <Badge bg="Dark" style={{ color: "black", fontaliSize: "20px" }}>{this.state.boughtcontent}</Badge>
+                                                </Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="fourth">Purchase History</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link eventKey="fifth">Sold Details</Nav.Link>
+                                                <Nav.Link eventKey="fifth">Sold Details
+                                                    <Badge bg="Dark" style={{ color: "black", fontSize: "20px" }}>{this.state.soldcontent}</Badge>
+                                                </Nav.Link>
                                             </Nav.Item>
                                         </Nav>
                                     </Col>
@@ -561,7 +566,7 @@ class Profile extends Component {
                         </div> */}
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 
