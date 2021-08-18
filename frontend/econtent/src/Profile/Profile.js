@@ -163,8 +163,8 @@ class Profile extends Component {
                     purcahsehistory: response.data.pdata,
                     balance: response.data.balance,
                     solddetails: response.data.sdata,
-                    soldcontent : response.data.soldlength,
-                    boughtcontent : response.data.buylength,
+                    soldcontent: response.data.soldlength,
+                    boughtcontent: response.data.buylength,
                 })
             })
             .catch(err => {
@@ -404,7 +404,6 @@ class Profile extends Component {
                                                             </Form.Group>
 
                                                             <Form.Group className="mb-3">
-                                                                <Form.Label>Email address</Form.Label>
                                                                 <Form.Control type="number" placeholder="Enter Mpin" name="mpin" value={this.state.mpin} onChange={this.changeHandler} requried />
                                                             </Form.Group>
                                                         </Form >

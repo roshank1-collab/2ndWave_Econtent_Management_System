@@ -40,6 +40,8 @@ export default class ERegister extends Component {
         })
             .then(response => {
                 console.log(response)
+                toast.info(response.data.status)
+                toast.info(response.data.message)
             })
             .catch(err => {
                 toast.error(err.response)

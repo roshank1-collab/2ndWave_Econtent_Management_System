@@ -20,6 +20,9 @@ function Example() {
     localStorage.removeItem('password')
     localStorage.removeItem('userid')
     localStorage.removeItem('success')
+    localStorage.removeItem('statusOfSubscription')
+    localStorage.removeItem('itemselected')
+    localStorage.removeItem('ratedtopersonid')
     setShow(false)
   };
 
