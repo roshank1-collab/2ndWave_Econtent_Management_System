@@ -29,8 +29,8 @@ function Example() {
   return (
     <>
       {/* <Button style={{ marginRight: "20px" }} className="btn btn-danger" onClick={handleShow} >Sign Out</Button> */}
-      
-    
+
+
       <Button type="submit" style={{ backgroundColor: '#51227f', border: 'none', height: '39px', marginTop: '3px', marginRight: '10px' }} onClick={handleShow} className="btn-sm">Signout    <FaSignOutAlt /> </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header style={{ backgroundColor: '#BF3A89', color: 'white' }} >
@@ -38,10 +38,10 @@ function Example() {
         </Modal.Header>
         <Modal.Body>Do you want to sign out?.</Modal.Body>
         <Modal.Footer >
-          <Button style={{ backgroundColor: '#BF3A89', border:'none'}} variant="danger" onClick={handleClose}>
+          <Button style={{ backgroundColor: '#BF3A89', border: 'none' }} variant="danger" onClick={handleClose}>
             No
           </Button>
-          <Button style={{ backgroundColor: '#51227f', border:'none'}} variant="success" href="/login" onClick={out}>
+          <Button style={{ backgroundColor: '#51227f', border: 'none' }} variant="success" href="/login" onClick={out}>
             Yes
           </Button>
         </Modal.Footer>
@@ -108,37 +108,34 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/allchannel">Channels</Nav.Link>
-            <NavDropdown  title="Company" id="basic-nav-dropdown" alignRight>
-              <NavDropdown.Item  href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
+            <NavDropdown title="Company" id="basic-nav-dropdown" alignRight>
+              <NavDropdown.Item href="/aboutus"><FaUserGraduate /> About Us</NavDropdown.Item>
               <NavDropdown.Item href="/ourteam"><FaUsers />Our Team</NavDropdown.Item>
               <NavDropdown.Item href="/career"><FaTelegram />Carrer With Us</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Categories" id="basic-nav-dropdown" >
-            <NavDropdown.Item href="/allitem"><FaTelegram />All items</NavDropdown.Item>
+              <NavDropdown.Item href="/allitem"><FaTelegram />All items</NavDropdown.Item>
               {
                 Catagories.map((item) => (
                   <NavDropdown.Item onClick={filterCatagories.bind(this, item)}><FaServicestack />{item}</NavDropdown.Item>
 
                 ))
               }
-             
+
             </NavDropdown>
             <Nav.Link href="/communication">Communication <FaComments /></Nav.Link>
-       
+
             <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
             <Nav.Link href="/announcement" >Announcement <FaBell /></Nav.Link>
-<<<<<<< HEAD
             <Nav.Link href={"/userprofile/" + id}> Profile <FaUsers /> </Nav.Link>
-            <Nav.Link href={"/changepassword/"+ id} > ChangePassword <FaLock /></Nav.Link>
-=======
-        
-            <NavDropdown  title="Profile" id="basic-nav-dropdown" alignRight>
-              <NavDropdown.Item  href={"/userprofile/" + id}><FaUserGraduate /> My Profile</NavDropdown.Item>
+            <Nav.Link href={"/changepassword/" + id} > ChangePassword <FaLock /></Nav.Link>
+
+            <NavDropdown title="Profile" id="basic-nav-dropdown" alignRight>
+              <NavDropdown.Item href={"/userprofile/" + id}><FaUserGraduate /> My Profile</NavDropdown.Item>
               <NavDropdown.Item href={"/changepassword/"}><FaUsers />Change Password</NavDropdown.Item>
               <NavDropdown.Item href="/eregister"><FaTelegram />Create your wallet</NavDropdown.Item>
             </NavDropdown>
-        
->>>>>>> 33825ccbbee0ad7e300862c7a661a2c0c5e7daa1
+
 
           </Nav>
           <Nav className="justify-content-end">
