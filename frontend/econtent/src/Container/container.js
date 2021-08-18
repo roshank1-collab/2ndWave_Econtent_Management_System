@@ -27,7 +27,6 @@ import Login from './login';
 import OurTeam from './ourteam';
 import Register from './register';
 
-
 class Container extends Component {
     render() {
         return (
