@@ -62,7 +62,7 @@ router.post('/Ewallet/user-register',
 
                             FullName: FullName,
                             Address: Address,
-                            PhoneNumber: PhoneNumber,
+                            PhoneNumber: parseInt(PhoneNumber),
                             Sex: Sex,
                             Email: Email,
                             Balance: req.body.Balance,
