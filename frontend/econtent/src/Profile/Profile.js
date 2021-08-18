@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { Component, useState } from "react";
 import { Button, Col, Modal, Nav, Row, Tab, Table, Form } from 'react-bootstrap';
-import Badge from 'react-bootstrap/Badge'
 // import './Profile.css'
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
@@ -310,54 +309,20 @@ class Profile extends Component {
                                 <div className="col-sm-6 mb-3">
                                     <div className="card h-100">
                                         <div className="card-body">
-                                            <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                            <small>Web Design</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '80%' }} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Website Markup</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '72%' }} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>One Page</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '89%' }} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Mobile Template</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '55%' }} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Backend API</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '66%' }} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
+                                            <h2 className="d-flex align-items-center mb-3"> Total Content Sold</h2>
+                                            <h1 style={{ fontSize: "70px" }}>
+                                                {this.state.soldcontent}
+                                            </h1>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 mb-3">
                                     <div className="card h-100">
                                         <div className="card-body">
-                                            <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                            <small>Web Design</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '80%' }} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Website Markup</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '72%' }} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>One Page</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '89%' }} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Mobile Template</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '55%' }} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
-                                            <small>Backend API</small>
-                                            <div className="progress mb-3" style={{ height: 5 }}>
-                                                <div className="progress-bar bg-primary" role="progressbar" style={{ width: '66%' }} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
-                                            </div>
+                                            <h2 className="d-flex align-items-center mb-3"> Total Content Bought</h2>
+                                            <h1 style={{ fontSize: "70px" }}>
+                                                {this.state.boughtcontent}
+                                            </h1>
                                         </div>
                                     </div>
                                 </div>
@@ -376,7 +341,6 @@ class Profile extends Component {
                                             </Nav.Item>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="third">Bought Content
-                                                    <Badge bg="Dark" style={{ color: "black", fontaliSize: "20px" }}>{this.state.boughtcontent}</Badge>
                                                 </Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
@@ -384,7 +348,6 @@ class Profile extends Component {
                                             </Nav.Item>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="fifth">Sold Details
-                                                    <Badge bg="Dark" style={{ color: "black", fontSize: "20px" }}>{this.state.soldcontent}</Badge>
                                                 </Nav.Link>
                                             </Nav.Item>
                                         </Nav>
@@ -396,7 +359,7 @@ class Profile extends Component {
                                                     <div className="row">
                                                         <center style={{ marginTop: "10px", marginBottom: "10px" }}>
                                                             <h1>
-                                                                Purchase Details
+                                                                Your Wallet
                                                             </h1>
                                                         </center>
                                                         <p>Remaining Balance : {this.state.balance}</p>
