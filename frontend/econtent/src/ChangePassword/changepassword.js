@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 class ChangePassword extends Component {
     state = {
-        userid: "",
-        password: "",
-        checkPassword: false,
+        CurrentPassword: "",
+        NewPassword: "",
+        ConfirmPassword: ""
     }
     changeHandler = (e) => {
         this.setState({
@@ -15,30 +15,28 @@ class ChangePassword extends Component {
     }
 
     changePasswordUser = (e) => {
-        e.preventDefault(); // prevents from reloading page
-        axios.post("http://localhost:90/user/changepassword", this.state)
-            .then(
-                (response) => {
-                    localStorage.setItem('token', response.data.token)
-                    localStorage.setItem('userid', response.data.userid)
-                    localStorage.setItem('success', response.data.success)
-                    localStorage.setItem('passwordstatus', response.data.passwordstatus)
+        e.preventDefault();
+        if (this.state.NewPassword === this.state.ConfirmPassword) {
+            axios.put("http://localhost:90/password", this.state, {
+                headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+            })
+                .then(
+                    (response) => {
 
-                    // localStorage.setItem('data', JSON.stringify(response.data.userData))
-                    if (localStorage.getItem('token') === "undefined") {
-                        this.setState({ checkPassword: false })
-                        alert("Error: "+response.data.message)
+                        alert(response.data.message)
+
                     }
-                    else {
-                        this.setState({ checkPassword: true })
+                )
+                .catch(
+                    (err) => {
+                        alert(err)
                     }
-                }
-            )
-            .catch(
-                (err) => {
-                    alert(err)
-                }
-            )
+                )
+        }
+        else{
+            alert('new password and confirm  does not match') 
+        }
+
 
     }
 
@@ -76,24 +74,24 @@ class ChangePassword extends Component {
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="pwd" style={{ fontFamily: "roboto", fontSize: "20px" }}>NewPassword:</label>
-                                        <input type="password" className="form-control" value={this.state.NewPassword} onChange={this.changeHandler} name="Newpassword" required />
+                                        <input type="password" className="form-control" value={this.state.NewPassword} onChange={this.changeHandler} name="NewPassword" required />
                                     </div>
                                 </div>
 
                                 <div className="form-row">
                                     <div className="col-lg-5">
                                         <label htmlFor="pwd" style={{ fontFamily: "roboto", fontSize: "20px" }}>ConfirmPassword:</label>
-                                        <input type="password" className="form-control" value={this.state.ConfirmPassword} onChange={this.changeHandler} name="Confirmpassword" required />
+                                        <input type="password" className="form-control" value={this.state.ConfirmPassword} onChange={this.changeHandler} name="ConfirmPassword" required />
                                     </div>
                                 </div>
 
                             </form>
 
 
-                            
+
                             <div className="form-row">
                                 <div className="col-lg-5">
-                                    <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "10px", border: 'none', fontFamily: "roboto", fontSize: "18px" }} type="submit" onClick={this.loginUser} class="btn btn-primary"> ChangePassword <FaLock /> </button>
+                                    <button style={{ backgroundColor: "#51227F", color: "white", fontWeight: "bold", marginTop: "10px", border: 'none', fontFamily: "roboto", fontSize: "18px" }} type="submit" onClick={this.changePasswordUser} class="btn btn-primary"> ChangePassword <FaLock /> </button>
                                 </div>
                             </div>
 
