@@ -73,6 +73,8 @@ class Profile extends Component {
         balance: "",
         mpin: "",
         amount: "",
+        soldcontent: "",
+        boughtcontent: "",
         redirect: false
     }
 
@@ -160,7 +162,9 @@ class Profile extends Component {
                 this.setState({
                     purcahsehistory: response.data.pdata,
                     balance: response.data.balance,
-                    solddetails: response.data.sdata
+                    solddetails: response.data.sdata,
+                    soldcontent : response.data.soldlength,
+                    boughtcontent : response.data.buylength,
                 })
             })
             .catch(err => {
