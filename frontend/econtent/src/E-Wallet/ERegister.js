@@ -10,7 +10,6 @@ toast.configure()
 export default class ERegister extends Component {
 
     state = {
-       
         Balance: "",
         MPin: "",
         config: {
@@ -25,13 +24,34 @@ export default class ERegister extends Component {
     }
 
     onSubmit = (e) => {
-        axios.post("http://localhost:90/Ewallet/user-register", {}, this.state.config, this.state)
+        e.preventDefault();
+
+        var body = {
+            Balance: this.state.Balance,
+            MPin: this.state.MPin
+        }
+        axios({
+            method: "post",
+            url: "http://localhost:90/Ewallet/user-register",
+            headers:
+                { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            data: body
+
+        })
             .then(response => {
-                console.log(response)                
+                console.log(response)
             })
             .catch(err => {
                 toast.error(err.response)
             })
+
+        // axios.post("http://localhost:90/Ewallet/user-register", {}, this.state.config, this.state)
+        //     .then(response => {
+        //         console.log(response)
+        //     })
+        //     .catch(err => {
+        //         toast.error(err.response)
+        //     })
     }
 
     render() {
@@ -55,7 +75,7 @@ export default class ERegister extends Component {
                     </Form.Group>
 
 
-                    
+
                     <Button variant="primary" onClick={this.onSubmit}>
                         Submit
                     </Button>
