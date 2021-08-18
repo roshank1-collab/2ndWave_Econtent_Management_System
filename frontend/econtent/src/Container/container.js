@@ -65,7 +65,7 @@ class Container extends Component {
 
                         <Route exact path = '/lookinside/:id' component = {LookInside}/>
                         <Route exact path = '/announcement' component = {Announcement}/>
-                        <Route exact path='/changepassword' component={ChangePassword}/>
+                        <Route exact path='/changepassword/:id' component={ChangePassword}/>
                         <Route exact path = '/allitem' component = {Allcontent}/>
                         <Route exact path = '/test' component = {Test}/>
                         

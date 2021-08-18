@@ -125,7 +125,7 @@ const Header = () => {
             <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
             <Nav.Link href="/announcement" >Announcement <FaBell /></Nav.Link>
             <Nav.Link href={"/userprofile/" + id}> Profile <FaUsers /> </Nav.Link>
-            <Nav.Link href={"/changepassword/"} > ChangePassword <FaLock /></Nav.Link>
+            <Nav.Link href={"/changepassword/"+ id} > ChangePassword <FaLock /></Nav.Link>
 
           </Nav>
           <Nav className="justify-content-end">
