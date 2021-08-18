@@ -38,9 +38,7 @@ export const video = () => {
     return (
         <ContextProvider>
             <div className={classes.wrapper}>
-                <AppBar position="static" color="inherit">
-                    <h1 className="text-center">Video Chat</h1>
-                </AppBar>
+             
                 <VideoPlayer />
 
                 <Sidebar>
