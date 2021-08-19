@@ -46,11 +46,13 @@ class Register extends React.Component {
             if (!Number(val)) {
                 alert("phone number should be number");
             }
+
         }
         this.setState({ [phone]: val });
+
     }
 
-   
+
 
     submitUser = (e) => {
         e.preventDefault(); // prevents from reloading page
@@ -78,13 +80,16 @@ class Register extends React.Component {
                             position: toast.POSITION.BOTTOM_LEFT
                         })
                     }
-                    if (response.status == 206)
+                    else if (response.status == 206)
                         toast('Something left please fill it again ', {
                             position: toast.POSITION.BOTTOM_LEFT
                         })
-                    toast('Something left please fill it again ', {
-                        position: toast.POSITION.BOTTOM_LEFT
-                    })
+
+                    else {
+                        toast(response.data.message, {
+                            position: toast.POSITION.BOTTOM_LEFT
+                        })
+                    }
                 }
 
 
@@ -152,7 +157,7 @@ class Register extends React.Component {
                                         </div>
                                         <div className="col-md-6">
                                             <label >Date of Birth</label>
-                                            <input type="date" className="form-control"  name="Dob" value={this.state.Dob} onChange={this.changeHandler} required />
+                                            <input type="date" className="form-control" name="Dob" value={this.state.Dob} onChange={this.changeHandler} required />
                                         </div>
                                     </div>
 
