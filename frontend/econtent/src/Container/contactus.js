@@ -33,7 +33,11 @@ class ContactUs extends Component {
   }
 
   handleValidation(){
-
+    let formIsValid=true;
+    if(!this.state.name){
+      this.showErrorMessage('nameError');   
+      formIsValid=false;
+    }
     
   }
 
