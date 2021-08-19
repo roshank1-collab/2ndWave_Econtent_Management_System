@@ -42,7 +42,14 @@ class ContactUs extends Component {
       this.showErrorMessage('emailError');   
       formIsValid=false;
     }
+    
 
+    if(!this.state.subject){
+      this.showErrorMessage('subjectError');   
+      formIsValid=false;
+    }
+
+    return formIsValid; 
     
   }
 
