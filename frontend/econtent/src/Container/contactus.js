@@ -38,6 +38,11 @@ class ContactUs extends Component {
       this.showErrorMessage('nameError');   
       formIsValid=false;
     }
+    if(!this.validateEmail(this.state.email)){
+      this.showErrorMessage('emailError');   
+      formIsValid=false;
+    }
+
     
   }
 
