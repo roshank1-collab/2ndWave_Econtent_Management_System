@@ -62,6 +62,11 @@ class ContactUs extends Component {
     
   }
 
+  validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+
   submitMessage = (e) => {
     e.preventDefault(); // prevents from reloading page
     axios.post("http://localhost:90/contact/insert", this.state)
@@ -97,6 +102,7 @@ class ContactUs extends Component {
                <div className="row" style={{marginTop:'10px'}}>
                  <div className="col-md-4">
                  <input className="form-control" required="true" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
+
                  </div>
                  <div className="col-md-4">
                  <input className="form-control" type="email" required="true" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
