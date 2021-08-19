@@ -25,6 +25,10 @@ class ContactUs extends Component {
     })
   }
 
+  handleValidation(){
+    
+  }
+
   submitMessage = (e) => {
     e.preventDefault(); // prevents from reloading page
     axios.post("http://localhost:90/contact/insert", this.state)
