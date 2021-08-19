@@ -111,7 +111,7 @@ Given("Test ContactUs functionality", { timeout: 30000 }, async function () {
   await driver.findElement(By.id("id")).sendKeys("1");
 
   await driver.sleep(delay);
-  await driver.findElement(By.id("submit")).click();
+  await driver.findElement(By.id("update")).click();
 
   // await driver.wait(until.elementLocated(By.id("registerForm")), 30000);
   // expect(await driver.wait(until.elementLocated(By.id("registerForm"))));
