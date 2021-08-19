@@ -102,7 +102,7 @@ class ContactUs extends Component {
                <div className="row" style={{marginTop:'10px'}}>
                  <div className="col-md-4">
                  <input className="form-control" required="true" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
-
+                 <span style={{color:"red"}} id="nameError" ref="nameError" className="hidden">Please enter name</span>
                  </div>
                  <div className="col-md-4">
                  <input className="form-control" type="email" required="true" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
