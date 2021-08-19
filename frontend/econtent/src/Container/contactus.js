@@ -54,7 +54,10 @@ class ContactUs extends Component {
       formIsValid=false;
     }
     
-   
+    if(!this.state.message){
+      this.showErrorMessage('messageError');
+      formIsValid=false;
+    }     
     return formIsValid; 
     
   }
