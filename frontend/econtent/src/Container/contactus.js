@@ -49,6 +49,12 @@ class ContactUs extends Component {
       formIsValid=false;
     }
 
+    if(!isFinite(String(this.state.phone))){
+      this.showErrorMessage('phoneError');   
+      formIsValid=false;
+    }
+    
+   
     return formIsValid; 
     
   }
