@@ -2,6 +2,7 @@ const { expect } = require("chai");
 const { Given, When, Then, Before, After } = require("@cucumber/cucumber");
 const { Builder, By, Key, until, sleep } = require("selenium-webdriver");
 const { delay } = require("../utils/delay");
+const { default: Profile } = require("../../../econtent/src/Profile/Profile");
 
 // Given ("Test registration functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
@@ -96,11 +97,19 @@ Given("Test ContactUs functionality", { timeout: 30000 }, async function () {
 Given("Test ContactUs functionality", { timeout: 30000 }, async function () {
   let driver = await new Builder().forBrowser("chrome").build();
   await driver.get("http://localhost:3000");
-  await driver.findElement(By.id("name")).sendKeys("Riya");
-  await driver.findElement(By.id("email")).sendKeys("riyapandey@gmail.com");
-  await driver.findElement(By.id("phone")).sendKeys("983468736");
-  await driver.findElement(By.id("message")).sendKeys("successfully contact");
-  
+  await driver.findElement(By.id("First_name")).sendKeys("Riya");
+  await driver.findElement(By.id("Last_name")).sendKeys("Pandey");
+  await driver.findElement(By.id("Dob")).sendKeys("8-1-2000");
+  await driver.findElement(By.id("gender")).sendKeys("female");
+  await driver.findElement(By.id("address")).sendKeys("kathmandu");
+  await driver.findElement(By.id("Phone_number")).sendKeys("983663757");
+  await driver.findElement(By.id("institution_name")).sendKeys("softwarica college");
+  await driver.findElement(By.id("Email")).sendKeys("riya12@gmail.com");
+  await driver.findElement(By.id("Profile_Picture")).sendKeys(""); 
+  await driver.findElement(By.id("institution_ID")).sendKeys("");
+  await driver.findElement(By.id("password")).sendKeys("123456");
+  await driver.findElement(By.id("id")).sendKeys("1");
+
   await driver.sleep(delay);
   await driver.findElement(By.id("submit")).click();
 
