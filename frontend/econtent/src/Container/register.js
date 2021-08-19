@@ -171,7 +171,7 @@ class Register extends React.Component {
                                         </div>
                                         <div className="col-md-6">
                                             <label>Phone</label>
-                                            <input type="text" className="form-control" name="phone_number" value={this.state.phone_number} onChange={this.changeHandler} required />
+                                            <input type="text"  className="form-control" name="phone_number" value={this.state.phone_number} onChange={this.changeHandler} required />
                                         </div>
                                     </div>
                                 </div>
