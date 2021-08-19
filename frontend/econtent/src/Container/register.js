@@ -50,6 +50,7 @@ class Register extends React.Component {
         this.setState({ [phone]: val });
     }
 
+   
 
     submitUser = (e) => {
         e.preventDefault(); // prevents from reloading page
@@ -72,15 +73,29 @@ class Register extends React.Component {
         axios.post("http://localhost:90/User/SignUp", data)
             .then(
                 (response) => {
-                    toast(response.data.message)
-                    if (response.data.status == "true") {
-                        <Redirect to="/login" />
+                    if (response.status == 201) {
+                        toast('Something went wrong please try again later', {
+                            position: toast.POSITION.BOTTOM_LEFT
+                        })
                     }
+                    if (response.status == 206)
+                        toast('Something left please fill it again ', {
+                            position: toast.POSITION.BOTTOM_LEFT
+                        })
+                    toast('Something left please fill it again ', {
+                        position: toast.POSITION.BOTTOM_LEFT
+                    })
                 }
+
+
+
             )
             .catch(
                 (error) => {
-                    toast(error.message)
+                    toast('Something went wrong ', {
+                        position: toast.POSITION.BOTTOM_LEFT
+                    })
+                    console.log(error)
                 }
             )
     }
@@ -137,7 +152,7 @@ class Register extends React.Component {
                                         </div>
                                         <div className="col-md-6">
                                             <label >Date of Birth</label>
-                                            <input type="date" className="form-control" name="Dob" value={this.state.Dob} onChange={this.changeHandler} required />
+                                            <input type="date" className="form-control"  name="Dob" value={this.state.Dob} onChange={this.changeHandler} required />
                                         </div>
                                     </div>
 
@@ -194,7 +209,7 @@ class Register extends React.Component {
                                 <div className="container-fluid">
                                     <div className="row">
                                         <div className="col-md-6">
-                                            <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/"><b>Sign in</b></Link></p>
+                                            <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/login"><b>Sign in</b></Link></p>
                                         </div>
                                     </div>
                                 </div>
