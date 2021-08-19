@@ -25,7 +25,15 @@ class ContactUs extends Component {
     })
   }
 
+  showErrorMessage(element){
+    document.getElementById(element).classList.remove("hidden"); 
+    setTimeout(() => {
+      document.getElementById(element).classList.add("hidden"); 
+    }, 3000);
+  }
+
   handleValidation(){
+
     
   }
 
