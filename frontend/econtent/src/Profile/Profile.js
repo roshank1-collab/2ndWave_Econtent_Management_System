@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component, useState } from "react";
-import { Button, Col, Modal, Nav, Row, Tab, Table, Form } from 'react-bootstrap';
+import { Button, Col, Modal, Nav, Row, Tab, Table, Form, Badge } from 'react-bootstrap';
 // import './Profile.css'
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
@@ -176,7 +176,7 @@ class Profile extends Component {
         axios.delete('http://localhost:90/content/delete/' + contentid)
             .then((response) => {
                 toast.success(response.data.message)
-                window.location.href = "/userprofile/" + this.state.id
+                window.location.href = "/userprofFile/" + this.state.id
             })
             .catch((err) => {
                 toast.error(err.message)
@@ -338,6 +338,7 @@ class Profile extends Component {
                                             </Nav.Item>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="second">Your Content</Nav.Link>
+                                                
                                             </Nav.Item>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="third">Bought Content

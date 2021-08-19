@@ -133,7 +133,7 @@ const Header = () => {
             <NavDropdown title="Profile" id="basic-nav-dropdown" alignRight>
               <NavDropdown.Item href={"/userprofile/" + id}><FaUserGraduate /> My Profile</NavDropdown.Item>
               <NavDropdown.Item href={"/changepassword/"}><FaUsers />Change Password</NavDropdown.Item>
-              <NavDropdown.Item href="/eregister"><FaTelegram />Create your wallet</NavDropdown.Item>
+              <NavDropdown.Item href="/esignupchoice"><FaTelegram />Create your wallet</NavDropdown.Item>
             </NavDropdown>
 
 

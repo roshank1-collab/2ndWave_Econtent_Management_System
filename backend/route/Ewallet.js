@@ -14,15 +14,15 @@ const Users = require('../model/user');
 
 router.post('/Ewallet/user-register',
     [
-    // check('FullName', "Full Name  is required !!").not().isEmpty(),
-    // check('Address', "Address is required").not().isEmpty(),
-    // check('PhoneNumber', "Phone Number is required").not().isEmpty(),
-    // check('Sex', "Gender is required").not().isEmpty(),
-    // check('Email', "Email is required").not().isEmpty(),
-    // check('Balance', "Balance is required").not().isEmpty(),
-    check('Password', "Password is required").not().isEmpty(),
-    check('MPin', "MPin is required").not().isEmpty()
-],
+        // check('FullName', "Full Name  is required !!").not().isEmpty(),
+        // check('Address', "Address is required").not().isEmpty(),
+        // check('PhoneNumber', "Phone Number is required").not().isEmpty(),
+        // check('Sex', "Gender is required").not().isEmpty(),
+        // check('Email', "Email is required").not().isEmpty(),
+        // check('Balance', "Balance is required").not().isEmpty(),
+        check('Password', "Password is required").not().isEmpty(),
+        check('MPin', "MPin is required").not().isEmpty()
+    ],
     authentication.verifyUser, function (req, res) {
         const errors = validationResult(req);
         const First_name = req.userData.First_name;
@@ -375,6 +375,34 @@ router.put('/loadBalance', authentication.verifyUser, function (req, res) {
             res.status(500).json({ message: err })
         })
 
+})
+
+
+router.post('/ewallet/login', authentication.verifyUser, function (req, res) {
+    const loggedinuser = req.userData._id
+    const Email = req.body.Email
+    const MPin = req.body.MPin
+
+    E_Register_User.find({ userid: loggedinuser })
+        .then(function (data) {
+            
+            var email = data[0].Email;
+            var mpin = data[0].MPin;
+
+            var filterdata = data.filter(function (ele) {
+                return ele.Email == Email && ele.MPin == MPin
+            })
+
+            console.log("filterdata")
+            console.log(filterdata)
+            res.status(201).json({ filterdata: filterdata })
+
+
+            // res.status(201).json({ email, mpin })
+        })
+        .catch(function (error) {
+            res.status(500).json({ message: error })
+        })
 })
 
 module.exports = router;
