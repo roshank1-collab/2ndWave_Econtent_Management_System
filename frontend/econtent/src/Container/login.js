@@ -16,6 +16,11 @@ class Login extends Component {
 
     loginUser = (e) => {
         e.preventDefault(); // prevents from reloading page
+        if(!this.state.email){
+            alert('Please enter email');
+            return false;
+        }
+       
         axios.post("http://localhost:90/user/login", this.state)
             .then(
                 (response) => {
