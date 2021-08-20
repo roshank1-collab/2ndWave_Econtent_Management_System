@@ -112,6 +112,7 @@ class ContactUs extends Component {
                <div className="row" style={{marginTop:'10px'}}>
                  <div className="col-md-4">
                  <input className="form-control" type="text" name="phone" value={this.state.phone} onChange={this.changeHandler} placeholder="Phone" />
+                 <span style={{color:"red"}} id="phoneError" className="hidden">Please enter valid phone number</span>
                  </div>
                  <div className="col-md-4">
                  <input className="form-control" type="text" name="subject" value={this.state.phone} onChange={this.changeHandler} placeholder="subject" />
