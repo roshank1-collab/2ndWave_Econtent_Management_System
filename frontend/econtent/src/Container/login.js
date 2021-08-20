@@ -20,7 +20,10 @@ class Login extends Component {
             alert('Please enter email');
             return false;
         }
-       
+        if(!this.state.password){
+            alert('Please enter password');
+            return false;
+        }
         axios.post("http://localhost:90/user/login", this.state)
             .then(
                 (response) => {
