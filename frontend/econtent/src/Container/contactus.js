@@ -15,8 +15,8 @@ class ContactUs extends Component {
     name: "",
     email: "",
     phone: "",
-    message: ""
-
+    message: "",
+    
   }
 
   changeHandler = (e) => {
@@ -34,41 +34,43 @@ class ContactUs extends Component {
 
   handleValidation(){
     let formIsValid=true;
-    if(!this.state.name){
-      this.showErrorMessage('nameError');   
-      formIsValid=false;
-    }
-    if(!this.validateEmail(this.state.email)){
-      this.showErrorMessage('emailError');   
-      formIsValid=false;
-    }
-    
+      if(!this.state.name){
+        this.showErrorMessage('nameError');   
+        formIsValid=false;
+      }
 
-    if(!this.state.subject){
-      this.showErrorMessage('subjectError');   
-      formIsValid=false;
+      if(!this.validateEmail(this.state.email)){
+        this.showErrorMessage('emailError');   
+        formIsValid=false;
+      }
+
+      if(!this.state.subject){
+        this.showErrorMessage('subjectError');   
+        formIsValid=false;
+      }
+
+      if(!isFinite(String(this.state.phone))){
+        this.showErrorMessage('phoneError');   
+        formIsValid=false;
+      }
+      
+      if(!this.state.message){
+        this.showErrorMessage('messageError');
+        formIsValid=false;
+      }     
+      return formIsValid; 
     }
 
-    if(!isFinite(String(this.state.phone))){
-      this.showErrorMessage('phoneError');   
-      formIsValid=false;
+     validateEmail(email) {
+      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
     }
-    
-    if(!this.state.message){
-      this.showErrorMessage('messageError');
-      formIsValid=false;
-    }     
-    return formIsValid; 
-    
-  }
-
-  validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  }
 
   submitMessage = (e) => {
     e.preventDefault(); // prevents from reloading page
+    if(this.handleValidation()===false){
+      return false;
+    }
     axios.post("http://localhost:90/contact/insert", this.state)
       .then(
         (response) => {
@@ -95,14 +97,14 @@ class ContactUs extends Component {
             <div className="row">
              <div className="col-md-12 contactus">
               <img src="../images/contact1.jpg" style={{ marginTop:'5px',height:"500px"}}/>
-              
+            
               <h4 style={{marginTop:'4%'}}><span className='purplecolor'>Let us begin a </span><span className="pinkcolor">conversation</span></h4>
              </div>
-             <form >
+             <form>
                <div className="row" style={{marginTop:'10px'}}>
                  <div className="col-md-4">
                  <input className="form-control" required="true" type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Name" />
-                 <span style={{color:"red"}} id="nameError" ref="nameError" className="hidden">Please enter name</span>
+                   <span style={{color:"red"}} id="nameError" ref="nameError" className="hidden">Please enter name</span>
                  </div>
                  <div className="col-md-4">
                  <input className="form-control" type="email" required="true" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
@@ -115,11 +117,11 @@ class ContactUs extends Component {
                  <span style={{color:"red"}} id="phoneError" className="hidden">Please enter valid phone number</span>
                  </div>
                  <div className="col-md-4">
-                 <input className="form-control" type="text" name="subject" value={this.state.phone} onChange={this.changeHandler} placeholder="subject" />
+                 <input className="form-control" type="text" name="subject" value={this.state.subject} onChange={this.changeHandler} placeholder="subject" />
                  <span style={{color:"red"}} id="subjectError" className="hidden">Please enter subject</span>
                  </div>
                  <div class="form-group col-md-8">
-                  <textarea className="form-control mt-3" id="message" rows="3" placeholder = "message"></textarea>
+                  <textarea className="form-control mt-3" id="message" rows="3" placeholder = "message" name="message" value={this.state.message} onChange={this.changeHandler}></textarea>
                   <span style={{color:"red"}} id="messageError" className="hidden">Please enter message</span>
                 </div>
                </div>
