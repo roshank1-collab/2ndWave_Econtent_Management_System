@@ -106,6 +106,7 @@ class ContactUs extends Component {
                  </div>
                  <div className="col-md-4">
                  <input className="form-control" type="email" required="true" name="email" value={this.state.email} onChange={this.changeHandler} placeholder="Email address" />
+                 <span style={{color:"red"}} id="emailError" className="hidden">Please enter valid email</span>
                  </div>
                </div>
                <div className="row" style={{marginTop:'10px'}}>
