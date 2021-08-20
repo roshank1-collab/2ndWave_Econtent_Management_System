@@ -127,12 +127,12 @@ const Header = () => {
 
             <Nav.Link href={"/uploadcontent/" + id} > Upload Content <FaUpload /></Nav.Link>
             <Nav.Link href="/announcement" >Announcement <FaBell /></Nav.Link>
-            <Nav.Link href={"/userprofile/" + id}> Profile <FaUsers /> </Nav.Link>
-            <Nav.Link href={"/changepassword/" + id} > ChangePassword <FaLock /></Nav.Link>
+   
+   
 
             <NavDropdown title="Profile" id="basic-nav-dropdown" alignRight>
               <NavDropdown.Item href={"/userprofile/" + id}><FaUserGraduate /> My Profile</NavDropdown.Item>
-              <NavDropdown.Item href={"/changepassword/"}><FaUsers />Change Password</NavDropdown.Item>
+              <NavDropdown.Item href={"/changepassword/" + id}><FaUsers />Change Password</NavDropdown.Item>
               <NavDropdown.Item href="/esignupchoice"><FaTelegram />Create your wallet</NavDropdown.Item>
             </NavDropdown>
 
