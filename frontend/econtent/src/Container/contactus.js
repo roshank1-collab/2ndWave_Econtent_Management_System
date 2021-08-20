@@ -116,6 +116,7 @@ class ContactUs extends Component {
                  </div>
                  <div className="col-md-4">
                  <input className="form-control" type="text" name="subject" value={this.state.phone} onChange={this.changeHandler} placeholder="subject" />
+                 <span style={{color:"red"}} id="subjectError" className="hidden">Please enter subject</span>
                  </div>
                  <div class="form-group col-md-8">
                   <textarea className="form-control mt-3" id="message" rows="3" placeholder = "message"></textarea>
