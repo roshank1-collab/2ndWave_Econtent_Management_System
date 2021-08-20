@@ -120,6 +120,7 @@ class ContactUs extends Component {
                  </div>
                  <div class="form-group col-md-8">
                   <textarea className="form-control mt-3" id="message" rows="3" placeholder = "message"></textarea>
+                  <span style={{color:"red"}} id="messageError" className="hidden">Please enter message</span>
                 </div>
                </div>
                <button type="submit" style={{background:'rgb(191, 58, 137)'}} className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2" onClick={this.submitMessage}><span> Send Message</span></button>
