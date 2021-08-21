@@ -76,7 +76,7 @@ class Register extends React.Component {
             .then(
                 (response) => {
                     if (response.status == 201) {
-                        toast('Something went wrong please try again later', {
+                        toast.success(response.data.message, {
                             position: toast.POSITION.BOTTOM_LEFT
                         })
                     }
