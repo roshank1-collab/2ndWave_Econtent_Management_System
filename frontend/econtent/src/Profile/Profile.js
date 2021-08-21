@@ -75,7 +75,8 @@ class Profile extends Component {
         amount: "",
         soldcontent: "",
         boughtcontent: "",
-        redirect: false
+        redirect: false,
+        subscriptionCount: ""
     }
 
     changeHandler = (e) => {
@@ -130,6 +131,17 @@ class Profile extends Component {
                 })
             }).catch((err) => {
                 console.log(err.response)
+            })
+
+        axios.get('http://localhost:90/subscribe', this.state.config)
+            .then((response) => {
+                console.log(response)                
+                this.setState({
+                    subscriptionCount : response.data.total
+                })               
+            })
+            .catch((error) => {
+                console.log(error.response)
             })
 
         axios.get('http://localhost:90/content/single/' + this.state.id)
@@ -306,7 +318,7 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <div className="row gutters-sm">
-                                <div className="col-sm-6 mb-3">
+                                <div className="col-sm-4 mb-3">
                                     <div className="card h-100">
                                         <div className="card-body">
                                             <h2 className="d-flex align-items-center mb-3"> Total Content Sold</h2>
@@ -316,12 +328,22 @@ class Profile extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-6 mb-3">
+                                <div className="col-sm-4 mb-3">
                                     <div className="card h-100">
                                         <div className="card-body">
                                             <h2 className="d-flex align-items-center mb-3"> Total Content Bought</h2>
                                             <h1 style={{ fontSize: "70px" }}>
                                                 {this.state.boughtcontent}
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-4 mb-3">
+                                    <div className="card h-100">
+                                        <div className="card-body">
+                                            <h2 className="d-flex align-items-center mb-3"> Total Subscription</h2>
+                                            <h1 style={{ fontSize: "70px" }}>
+                                                {this.state.subscriptionCount}
                                             </h1>
                                         </div>
                                     </div>
@@ -338,7 +360,7 @@ class Profile extends Component {
                                             </Nav.Item>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="second">Your Content</Nav.Link>
-                                                
+
                                             </Nav.Item>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="third">Bought Content

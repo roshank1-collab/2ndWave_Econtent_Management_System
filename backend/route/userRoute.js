@@ -156,7 +156,7 @@ router.get('/subscribe', authentication.verifyUser, function (req, res) {
     SubscribeUser.find({ SubscribeTo_Userid: loggedinuser })
         .then(function (data) {
             var count = data.length
-            res.status(501).json({ total: count, data })
+            res.status(200).json({ total: count, data })
         })
         .catch(function (error) {
             res.status(501).json({ message: error })
