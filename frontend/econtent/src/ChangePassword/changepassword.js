@@ -2,11 +2,22 @@ import { Component } from "react"
 import { FaLock, FaRegHandPointRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 class ChangePassword extends Component {
     state = {
         CurrentPassword: "",
         NewPassword: "",
         ConfirmPassword: ""
+    }
+
+    reset() {
+        this.setState({
+            CurrentPassword: "",
+            NewPassword: "",
+            ConfirmPassword: ""
+        });
     }
     changeHandler = (e) => {
         this.setState({
@@ -22,8 +33,13 @@ class ChangePassword extends Component {
             })
                 .then(
                     (response) => {
+                       if(response.status==200){
+                           this.reset()
+                       }
+                        toast(response.data.message, {
+                            position: toast.POSITION.BOTTOM_LEFT
+                        })
 
-                        alert(response.data.message)
 
                     }
                 )
@@ -33,8 +49,10 @@ class ChangePassword extends Component {
                     }
                 )
         }
-        else{
-            alert('new password and confirm  does not match') 
+        else {
+            toast('new password and confirm  does not match', {
+                position: toast.POSITION.BOTTOM_LEFT
+            })
         }
 
 

@@ -55,7 +55,7 @@ router.post("/User/SignUp", upload, [
         })
     } else {
         console.log(errors.array())
-        res.status(400).send(errors.array())
+        res.status(206).send(errors.array())
     }
 })
 
@@ -234,7 +234,7 @@ router.post('/user/subscribe/website/notification/:email', function (req, res) {
 router.put('/password', authentication.verifyUser, function (req, res) {
     const id = req.userData.id
     Users.findOne({ _id: id }).then(function (data) {
-        bcryptjs.compare(req.body.password, data.Password, function (err, result) {
+        bcryptjs.compare(req.body.CurrentPassword, data.Password, function (err, result) {
             if (result === false) {
                 return res.status(201).json({ success: false, message: " password incorrect!!!" })
             }

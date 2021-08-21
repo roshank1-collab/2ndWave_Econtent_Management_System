@@ -46,9 +46,12 @@ class Register extends React.Component {
             if (!Number(val)) {
                 alert("phone number should be number");
             }
+
         }
         this.setState({ [phone]: val });
+
     }
+
 
 
     submitUser = (e) => {
@@ -72,15 +75,32 @@ class Register extends React.Component {
         axios.post("http://localhost:90/User/SignUp", data)
             .then(
                 (response) => {
-                    toast(response.data.message)
-                    if (response.data.status == "true") {
-                        <Redirect to="/login" />
+                    if (response.status == 201) {
+                        toast('Something went wrong please try again later', {
+                            position: toast.POSITION.BOTTOM_LEFT
+                        })
+                    }
+                    else if (response.status == 206)
+                        toast('Something left please fill it again ', {
+                            position: toast.POSITION.BOTTOM_LEFT
+                        })
+
+                    else {
+                        toast(response.data.message, {
+                            position: toast.POSITION.BOTTOM_LEFT
+                        })
                     }
                 }
+
+
+
             )
             .catch(
                 (error) => {
-                    toast(error.message)
+                    toast('Something went wrong ', {
+                        position: toast.POSITION.BOTTOM_LEFT
+                    })
+                    console.log(error)
                 }
             )
     }
@@ -151,7 +171,7 @@ class Register extends React.Component {
                                         </div>
                                         <div className="col-md-6">
                                             <label>Phone</label>
-                                            <input type="text" className="form-control" name="phone_number" value={this.state.phone_number} onChange={this.changeHandler} required />
+                                            <input type="text"  className="form-control" name="phone_number" value={this.state.phone_number} onChange={this.changeHandler} required />
                                         </div>
                                     </div>
                                 </div>
@@ -194,7 +214,7 @@ class Register extends React.Component {
                                 <div className="container-fluid">
                                     <div className="row">
                                         <div className="col-md-6">
-                                            <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/"><b>Sign in</b></Link></p>
+                                            <p style={{ marginTop: "16px" }} className="signUp text-left">Do have an Account?  <Link style={{ color: "#a018a0" }} exact to="/login"><b>Sign in</b></Link></p>
                                         </div>
                                     </div>
                                 </div>
