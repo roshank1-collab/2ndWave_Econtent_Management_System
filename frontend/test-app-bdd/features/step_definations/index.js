@@ -47,14 +47,14 @@ Given ("Test UploadContent functionality", { timeout: 30000 }, async function ()
   await driver.sleep(delay);
   await driver.findElement(By.id("loginbtn")).click();
  
-  await driver.findElement(By.id("heading")).sendKeys("test");
-  await driver.findElement(By.id("video")).sendKeys("test");
-  await driver.findElement(By.id("content_description")).sendKeys("test");
-  await driver.findElement(By.id("categories")).sendKeys("nepali");
-  await driver.findElement(By.id("price")).sendKeys("test"); 
+  // await driver.findElement(By.id("heading")).sendKeys("test");
+  // await driver.findElement(By.id("video")).sendKeys("test");
+  // await driver.findElement(By.id("content_description")).sendKeys("test");
+  // await driver.findElement(By.id("categories")).sendKeys("nepali");
+  // await driver.findElement(By.id("price")).sendKeys("test"); 
  
-  await driver.sleep(delay);
-  await driver.findElement(By.id("upload")).click();
+  // await driver.sleep(delay);
+  // await driver.findElement(By.id("upload")).click();
 
   // await driver.wait(until.elementLocated(By.id("My Profile")), 30000);
   // expect(await driver.wait(until.elementLocated(By.id("My Profile"))));
