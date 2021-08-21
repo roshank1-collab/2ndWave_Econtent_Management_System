@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -48,11 +48,11 @@ export default class SeeSubscription extends Component {
                                             <td>{items.SubscribeBy_Name}</td>
                                             <td>{items.SubscribeBy_Email}</td>
                                             <td>
-                                                <button>
-                                                    <Link to={'/viewuser/' + items.SubscribeBy_Userid}>
+                                                <Button>
+                                                    <Link to={'/viewuser/' + items.SubscribeBy_Userid} style={{ color: "#ffffff" }}>
                                                         GetIn
                                                     </Link>
-                                                </button>
+                                                </Button>
                                             </td>
                                         </tr>
                                     </tbody>
