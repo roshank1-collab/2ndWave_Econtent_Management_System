@@ -117,7 +117,7 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
             const SubscribeTo_FirstName = data[0].First_name
             const SubscribeTo_LastName = data[0].Last_name
             const SubscribeTo_Email = data[0].Email
-            const fullname = SubscribeTo_FirstName + ' ' + SubscribeTo_LastName 
+            const fullname = SubscribeTo_FirstName + ' ' + SubscribeTo_LastName
 
             SubscribeUser.find()
                 .then(function (uuudata) {
@@ -157,15 +157,74 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
 //get count of subscribe
 router.get('/subscribe', authentication.verifyUser, function (req, res) {
     const loggedinuser = req.userData._id;
-    SubscribeUser.find({ SubscribeTo_Userid: loggedinuser })
+    SubscribeUser.find()
         .then(function (data) {
-            var count = data.length
-            res.status(200).json({ total: count, data })
+            //how many people subscribed you
+
+            var TotalSubscribedByData = data.filter(function (ele) {
+                return ele.SubscribeTo_Userid == loggedinuser
+            })
+            var TotalSubscribedBy = TotalSubscribedByData.length
+
+            //how many people subscribed you
+
+
+            //how many people you have subscribed
+
+            var TotalSubscribedToData = data.filter(function (ele) {
+                return ele.SubscribeBy_Userid == loggedinuser
+            })
+
+            var TotalSubscribedTo = TotalSubscribedToData.length
+
+            //how many people you have subscribed
+
+            res.status(200).json({ TotalSubscribedBy: TotalSubscribedBy, TotalSubscribedTo: TotalSubscribedTo, TotalSubscribedByData: TotalSubscribedByData, TotalSubscribedToData: TotalSubscribedToData })
         })
         .catch(function (error) {
             res.status(501).json({ message: error })
         })
 });
+
+//ubsubsribe
+router.delete('/unsubscribe/:id', authentication.verifyUser, function (req, res) {
+    const loggedinUser = req.userData._id;
+    const unsubscibeTo = req.params.id
+    SubscribeUser.find({ SubscribeBy_Userid: loggedinUser })
+        .then(function (data) {
+            // console.log("data")
+            // console.log(data)
+            var filter = data.filter(function (ele) {
+                return ele.SubscribeTo_Userid == unsubscibeTo
+            })
+
+            console.log("filter")
+            console.log(filter)
+
+            var hhid = filter[0]._id
+
+            if (filter.length == 1) {
+                SubscribeUser.deleteOne({_id : hhid})
+                    .then(function (result) {
+                        res.status(201).json({ status: true, message: "Unsubscribed Successfully" })
+                    })
+                    .catch(function (error) {
+                        res.status(500).json({ message: error })
+                    })
+            }
+            else {
+                res.status(201).json({ message: "No Record Found!!!" })
+            }
+
+            // res.status(201).json({ filter })
+
+
+        })
+        .catch(function (error) {
+            console.log(error)
+            res.status(500).json({ message: error })
+        })
+})
 
 
 //get info on one user

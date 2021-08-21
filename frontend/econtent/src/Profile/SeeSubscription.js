@@ -15,7 +15,7 @@ export default class SeeSubscription extends Component {
         axios.get("http://localhost:90/subscribe", this.state.config)
             .then((response) => {
                 this.setState({
-                    SeeSubscriptionList: response.data.data
+                    SeeSubscriptionList: response.data.TotalSubscribedByData
                 })
             })
             .catch((error) => {
@@ -50,7 +50,7 @@ export default class SeeSubscription extends Component {
                                             <td>
                                                 <button>
                                                     <Link to={'/viewuser/' + items.SubscribeBy_Userid}>
-                                                        GoTo
+                                                        GetIn
                                                     </Link>
                                                 </button>
                                             </td>

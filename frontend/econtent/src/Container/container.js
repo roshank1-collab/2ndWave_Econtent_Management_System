@@ -17,6 +17,7 @@ import ESignUpChoice from '../E-Wallet/ESignUpChoice';
 import Profile from '../Profile/Profile';
 import ProfileUpdate from '../Profile/ProfileUpdate';
 import SeeSubscription from '../Profile/SeeSubscription';
+import SeeWhomYouHaveSubscribed from '../Profile/SeeWhomYouHaveSubscribed';
 import UploadContent from '../UploadContent/uploadcontent';
 import { video } from './../videoChat/video';
 import AboutUs from './aboutus';
@@ -78,6 +79,7 @@ class Container extends Component {
                         <Route exact path='/changepassword/:id' component={ChangePassword} />
                         <Route exact path='/allitem' component={Allcontent} />
                         <Route exact path='/seesubscriptionlist' component={SeeSubscription} />
+                        <Route exact path='/subscribedByYou' component={SeeWhomYouHaveSubscribed} />
                     </Switch>
                 </BrowserRouter>
             </div>

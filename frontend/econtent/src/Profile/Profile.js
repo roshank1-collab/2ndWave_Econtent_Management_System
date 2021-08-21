@@ -76,7 +76,8 @@ class Profile extends Component {
         soldcontent: "",
         boughtcontent: "",
         redirect: false,
-        subscriptionCount: ""
+        TotalSubscribedBy: "",
+        TotalSubscribedTo :""
     }
 
     changeHandler = (e) => {
@@ -137,7 +138,8 @@ class Profile extends Component {
             .then((response) => {
                 console.log(response)
                 this.setState({
-                    subscriptionCount: response.data.total
+                    TotalSubscribedBy: response.data.TotalSubscribedBy,
+                    TotalSubscribedTo : response.data.TotalSubscribedTo
                 })
             })
             .catch((error) => {
@@ -318,7 +320,7 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <div className="row gutters-sm">
-                                <div className="col-sm-4 mb-3">
+                                <div className="col-sm-6 mb-3">
                                     <div className="card h-100">
                                         <div className="card-body">
                                             <h2 className="d-flex align-items-center mb-3"> Total Content Sold</h2>
@@ -328,7 +330,7 @@ class Profile extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-4 mb-3">
+                                <div className="col-sm-6 mb-3">
                                     <div className="card h-100">
                                         <div className="card-body">
                                             <h2 className="d-flex align-items-center mb-3"> Total Content Bought</h2>
@@ -338,20 +340,38 @@ class Profile extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-4 mb-3">
+                            </div>
+                            <div className="row gutters-sm">
+                                <div className="col-sm-6 mb-3">
                                     <div className="card h-100">
                                         <div className="card-body">
-                                            <h2 className="d-flex align-items-center mb-3"> Total Subscription</h2>
+                                            <h2 className="d-flex align-items-center mb-3">People who have subscribed you</h2>
                                             <h1 style={{ fontSize: "70px" }}>
-                                                {this.state.subscriptionCount}
+                                                {this.state.TotalSubscribedBy}
                                             </h1>
+                                            <hr />
                                             <Link to='/seesubscriptionlist'>
-                                                <Button>View Your Subscription</Button>
+                                                <Button>View All</Button>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 mb-3">
+                                    <div className="card h-100">
+                                        <div className="card-body">
+                                            <h2 className="d-flex align-items-center mb-3">People you have subscribed </h2>
+                                            <h1 style={{ fontSize: "70px" }}>
+                                                {this.state.TotalSubscribedTo}
+                                            </h1>
+                                            <hr />
+                                            <Link to='/subscribedByYou'>
+                                                <Button>View All</Button>
                                             </Link>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <div className="container" style={{ background: "white" }}>
                             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
