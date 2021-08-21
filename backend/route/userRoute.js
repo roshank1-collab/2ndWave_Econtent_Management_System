@@ -9,10 +9,11 @@ const upload = require('../middleware/upload') //file upload or picture
 const authentication = require('../middleware/authentication'); //token
 const SubscribeUser = require('../model/SubscibeUser');
 const WebsiteSubscription = require('../model/WebsiteSubscription');
+const ratechannel = require('../model/RateChannel');
 
 // for registration of users
 router.post("/User/SignUp", upload, [
-    check('lastname', "last name  is required !!").not().isEmpty(),
+    check('lastname', "last nasubme  is required !!").not().isEmpty(),
     check('Dob', "Date of birth is required").not().isEmpty(),
     check('gender', "Gender is required").not().isEmpty(),
     check('address', "address is required").not().isEmpty(),
@@ -101,7 +102,6 @@ router.get('/channel/all/:id', function (req, res) {
     })
 });
 
-
 // susbcribe route
 router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req, res) {
     const subscribeToPerson = req.params.uid;
@@ -150,6 +150,7 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
                 })
         })
 });
+
 
 //get info on one user
 router.get('/user/singleuser/:id', authentication.verifyUser, function (req, res) {
