@@ -9,7 +9,6 @@ const upload = require('../middleware/upload') //file upload or picture
 const authentication = require('../middleware/authentication'); //token
 const SubscribeUser = require('../model/SubscibeUser');
 const WebsiteSubscription = require('../model/WebsiteSubscription');
-const ratechannel = require('../model/RateChannel');
 
 // for registration of users
 router.post("/User/SignUp", upload, [
@@ -148,6 +147,19 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
                 .catch(function (err) {
                     res.status(501).json({ message: err })
                 })
+        })
+});
+
+//get count of subscribe
+router.get('/subscribe', authentication.verifyUser, function (req, res) {
+    const loggedinuser = req.userData._id;
+    SubscribeUser.find({ SubscribeTo_Userid: loggedinuser })
+        .then(function (data) {
+            var count = data.length
+            res.status(501).json({ total: count, data })
+        })
+        .catch(function (error) {
+            res.status(501).json({ message: error })
         })
 });
 
