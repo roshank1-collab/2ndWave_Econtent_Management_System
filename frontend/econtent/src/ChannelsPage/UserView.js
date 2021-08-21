@@ -19,10 +19,8 @@ export default class UserView extends Component {
         axios.get('http://localhost:90/content/single/' + this.state.id)
             .then((response) => {
                 console.log(response)
-                if (response.data.message == "No data to show") {
-                    <img src="/upload.png" className="img-fluid" />
+                if (response.data.status === false) {
                     toast.info("The user has nothing to show Yet", { position: toast.POSITION.TOP_RIGHT, autoClose: 2000 })
-                   
                 }
                 else {
                     this.setState({

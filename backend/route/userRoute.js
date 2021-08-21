@@ -105,15 +105,19 @@ router.get('/channel/all/:id', function (req, res) {
 router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req, res) {
     const subscribeToPerson = req.params.uid;
     const loggedIn_UserID = req.userData._id
-    const loggedIn_UserName = req.userData.First_name
+    const loggedIn_FirstName = req.userData.First_name
+    const loggedIn_LastName = req.userData.Last_name
     const loggedIn_UserEmail = req.userData.Email
+    const ff = loggedIn_FirstName + ' ' + loggedIn_LastName
     Users.find({ _id: subscribeToPerson })
         .then(function (data) {
             // console.log(data)
             // console.log(loggedIn_UserID)
             const SubscribeTo_UserId = data[0]._id
-            const SubscribeTo_Name = data[0].First_name
+            const SubscribeTo_FirstName = data[0].First_name
+            const SubscribeTo_LastName = data[0].Last_name
             const SubscribeTo_Email = data[0].Email
+            const fullname = SubscribeTo_FirstName + ' ' + SubscribeTo_LastName 
 
             SubscribeUser.find()
                 .then(function (uuudata) {
@@ -121,13 +125,13 @@ router.post('/channel/subscribe/:uid', authentication.verifyUser, function (req,
                     var filterdata = uuudata.filter(function (ele) {
                         return ele.SubscribeBy_Userid == loggedIn_UserID && ele.SubscribeTo_Userid == SubscribeTo_UserId
                     })
-                    console.log("filterdata")
-                    console.log(filterdata)
+                    // console.log("filterdata")
+                    // console.log(filterdata)
 
                     if (filterdata.length < 1) {
                         const SubscribeModel = new SubscribeUser({
-                            SubscribeTo_Userid: SubscribeTo_UserId, SubscribeTo_Name: SubscribeTo_Name, SubscribeTo_Email: SubscribeTo_Email, SubscribeBy_Userid: loggedIn_UserID,
-                            SubscribeBy_Name: loggedIn_UserName, SubscribeBy_Email: loggedIn_UserEmail
+                            SubscribeTo_Userid: SubscribeTo_UserId, SubscribeTo_Name: fullname, SubscribeTo_Email: SubscribeTo_Email, SubscribeBy_Userid: loggedIn_UserID,
+                            SubscribeBy_Name: ff, SubscribeBy_Email: loggedIn_UserEmail
                         })
                         SubscribeModel.save()
                             .then(function (result) {

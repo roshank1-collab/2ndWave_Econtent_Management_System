@@ -135,10 +135,10 @@ class Profile extends Component {
 
         axios.get('http://localhost:90/subscribe', this.state.config)
             .then((response) => {
-                console.log(response)                
+                console.log(response)
                 this.setState({
-                    subscriptionCount : response.data.total
-                })               
+                    subscriptionCount: response.data.total
+                })
             })
             .catch((error) => {
                 console.log(error.response)
@@ -345,6 +345,9 @@ class Profile extends Component {
                                             <h1 style={{ fontSize: "70px" }}>
                                                 {this.state.subscriptionCount}
                                             </h1>
+                                            <Link to='/seesubscriptionlist'>
+                                                <Button>View Your Subscription</Button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
