@@ -33,8 +33,8 @@ const { default: Profile } = require("../../../econtent/src/Profile/Profile");
 //   await driver.sleep(delay);
 //   await driver.findElement(By.id("loginbtn")).click();
 
-  // await driver.wait(until.elementLocated(By.id("registerForm")), 30000);
-  // expect(await driver.wait(until.elementLocated(By.id("registerForm"))));
+//   await driver.wait(until.elementLocated(By.id("registerForm")), 30000);
+//   expect(await driver.wait(until.elementLocated(By.id("registerForm"))));
 //   await driver.quit();
 // });
  
