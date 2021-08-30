@@ -42,11 +42,11 @@ const { default: Profile } = require("../../../econtent/src/Profile/Profile");
 Given ("Test UploadContent functionality", { timeout: 30000 }, async function () {
   let driver = await new Builder().forBrowser("chrome").build();
   await driver.get("http://localhost:3000");
-  await driver.findElement(By.id("email")).sendKeys("test@gmail.com");
+  await driver.findElement(By.id("email")).sendKeys("enjeela12@gmail.com");
   await driver.findElement(By.id("password")).sendKeys("anji12");
   await driver.sleep(delay);
   await driver.findElement(By.id("loginbtn")).click();
-  await driver.get("http://localhost:3000/UploadContent/");
+ 
   await driver.findElement(By.id("heading")).sendKeys("test");
   await driver.findElement(By.id("video")).sendKeys("test");
   await driver.findElement(By.id("content_description")).sendKeys("test");
