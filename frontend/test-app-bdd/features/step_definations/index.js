@@ -43,7 +43,7 @@ Given ("Test UploadContent functionality", { timeout: 30000 }, async function ()
   let driver = await new Builder().forBrowser("chrome").build();
   await driver.get("http://localhost:3000");
   await driver.findElement(By.id("email")).sendKeys("test@gmail.com");
-  await driver.findElement(By.id("password")).sendKeys("test1234");
+  await driver.findElement(By.id("password")).sendKeys("anji12");
   await driver.sleep(delay);
   await driver.findElement(By.id("loginbtn")).click();
   await driver.get("http://localhost:3000/UploadContent/");
